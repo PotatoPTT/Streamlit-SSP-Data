@@ -409,8 +409,7 @@ ZIP_FILENAME = "./ssp_data.zip"
 CSV_FILE_PATH = os.path.join("configs", "cities_codes.csv")
 MAX_WORKERS = 10
 DOWNLOAD_EVERYTHING = False  # Se True, baixa tudo mesmo que já tenha arquivos válidos
-# Quantos anos anteriores baixar novamente se já existirem arquivos válidos
-BAIXAR_ANOS_ANTERIORES = 0
+BAIXAR_ANOS_ANTERIORES = 1  # Quantos anos anteriores baixar novamente se já existirem arquivos válidos
 DEBUG = False
 HEADERS = {
     "accept": "application/json, text/plain, */*",

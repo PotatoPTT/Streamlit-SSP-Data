@@ -122,6 +122,13 @@ def apply_theme_styles():
         background-color: #1f77b4 !important;
         color: white !important;
     }
+    /* Esconde completamente a sidebar e o botão de expandir */
+    [data-testid="stSidebar"], section[data-testid="stSidebar"] {
+        display: none !important;
+    }
+    [data-testid="collapsedControl"] {
+        display: none !important;
+    }
     </style>
     """,
                 unsafe_allow_html=True)
@@ -133,7 +140,7 @@ def show_navigation():
     col1, col2, col3, col4, col5, col6 = st.columns([2, 1, 1, 1, 1, 0.5])
 
     with col1:
-        st.markdown("## 🛡️ SP Segurança")
+        st.markdown("## 🛡️ SSP Data")
 
     current_page = st.session_state.get('current_page', 'dashboard')
 

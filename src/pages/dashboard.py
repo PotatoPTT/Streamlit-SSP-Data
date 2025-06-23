@@ -4,6 +4,7 @@ import pandas as pd
 import os
 from pathlib import Path
 import streamlit.components.v1 as components
+import unicodedata
 
 
 def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
@@ -18,7 +19,8 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
 
     with col1:
-        year_filter = st.selectbox("Ano", df_anos["ano"])
+        year_filter = st.selectbox(
+            "Ano", df_anos["ano"].sort_values(ascending=False).tolist())
 
     with col2:
         region_filter = st.selectbox(
@@ -27,6 +29,11 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     with col3:
         mun_opts = df_municipios[df_municipios["regiao"] ==
                                  region_filter] if region_filter != "Todas" else df_municipios
+        # Sort desconsiderando acentos
+        mun_opts = mun_opts.assign(_nome_sem_acentos=mun_opts["nome"].apply(
+            lambda x: unicodedata.normalize('NFKD', x).encode('ASCII', 'ignore').decode('ASCII')))
+        mun_opts = mun_opts.sort_values("_nome_sem_acentos").drop(
+            columns=["_nome_sem_acentos"])
         municipality_filter = st.selectbox(
             "Município", ["Todos"] + mun_opts["nome"].tolist())
 
@@ -134,8 +141,9 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
 
     with chart_col1:
         st.markdown("#### Evolução Mensal")
+        # Usa nomes abreviados dos meses no eixo x
         fig1 = go.Figure(go.Scatter(
-            x=df_mes["mes"], y=df_mes["total"], mode='lines+markers', line=dict(color='royalblue')))
+            x=df_mes["mes"].map(meses), y=df_mes["total"], mode='lines+markers', line=dict(color='royalblue')))
         fig1.update_layout(title="Ocorrências por Mês",
                            xaxis_title="Mês", yaxis_title="Total")
         st.plotly_chart(fig1, use_container_width=True)
@@ -148,7 +156,11 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
                            xaxis_title="Total", yaxis_title="Crime")
         st.plotly_chart(fig2, use_container_width=True)
 
-    # Reserved space for future map
+    # Data table section
+    st.markdown("#### Dados Detalhados")
+    st.dataframe(tabela_completa, use_container_width=True)
+
+    # Map section
     st.markdown("#### Mapa Interativo")
     mapas_base = Path("output/maps")
     ano_mapa = str(year_filter)
@@ -171,7 +183,3 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
             components.html(html_content, height=600, scrolling=True)
         else:
             st.info("Mapa não encontrado para o filtro selecionado.")
-
-    # Data table section
-    st.markdown("#### Dados Detalhados")
-    st.dataframe(tabela_completa, use_container_width=True)
