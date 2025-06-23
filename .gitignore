@@ -131,3 +131,8 @@ dmypy.json
 
 # Streamlit
 .streamlit
+
+# SSP Data
+ssp_data/*
+ssp_data.zip
+ssp_data_processed
