@@ -136,3 +136,6 @@ dmypy.json
 ssp_data/*
 ssp_data.zip
 ssp_data_processed/*
+
+# Dev Containers
+.devcontainer/
