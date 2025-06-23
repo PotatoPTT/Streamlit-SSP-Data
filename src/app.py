@@ -1,9 +1,6 @@
 import streamlit as st
-import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from datetime import datetime, timedelta
-import numpy as np
 import psycopg2
 
 
@@ -63,7 +60,8 @@ def carregar_filtros():
         JOIN regioes r ON m.regiao_id = r.id
         ORDER BY m.nome
     """)
-    df_municipios = pd.DataFrame(cur.fetchall(), columns=["id", "nome", "regiao"])
+    df_municipios = pd.DataFrame(cur.fetchall(), columns=[
+                                 "id", "nome", "regiao"])
     cur.close()
     conn.close()
     return df_anos, df_regioes, df_municipios
@@ -359,11 +357,12 @@ def show_dashboard():
             def run_and_stream():
                 process = subprocess.Popen(
                     cmd, cwd=root_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
-                for line in process.stdout:
-                    st.session_state['pipeline_output'].append(line)
-                    # Limita para as últimas 40 linhas
-                    output = ''.join(st.session_state['pipeline_output'][-20:])
-                    pipeline_placeholder.code(output, language="bash")
+                if process.stdout is not None:
+                    for line in process.stdout:
+                        st.session_state['pipeline_output'].append(line)
+                        # Limita para as últimas 40 linhas
+                        output = ''.join(st.session_state['pipeline_output'][-20:])
+                        pipeline_placeholder.code(output, language="bash")
                 process.wait()
                 if process.returncode == 0:
                     pipeline_placeholder.success(
