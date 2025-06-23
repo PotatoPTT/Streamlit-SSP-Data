@@ -12,6 +12,7 @@ from typing import Optional
 from geopy.location import Location  # type: ignore
 import logging
 import re
+from src.utils.database.connection import DatabaseConnection
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logging.basicConfig(
@@ -35,6 +36,7 @@ class SSPDataDownloader:
         self.download_everything = download_everything
         self.arquivos_baixados_count = 0
         self.count_lock = Lock()
+        self.anos_alterados = set()
 
     def _ensure_dir(self, directory_path):
         if not os.path.exists(directory_path):
@@ -68,7 +70,7 @@ class SSPDataDownloader:
             return None
 
     def _sanitize_filename(self, name):
-        # Permite letras (inclusive acentuadas), números, espaço, underline, hífen e apóstrofo
+        # Permite letras (inclusive acentuadas), números, espaço, underline, hífen e apóst'rofo
         # Remove apenas caracteres inválidos para nomes de arquivos no Windows
         return re.sub(r"[^\w\s\-áàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ']", '_', str(name), flags=re.UNICODE).rstrip()
 
@@ -233,8 +235,21 @@ class SSPDataDownloader:
             logging.info(
                 f"Todos os arquivos de {year} já existem e são válidos. Nenhum download necessário.")
             return
+        db = DatabaseConnection()
+        try:
+            df_db = db.get_map_data(year=year)
+            if not df_db.empty:
+                logging.info(
+                    f"Dados do ano {year} já existem na database. Nenhum download necessário.")
+                return
+        except Exception as e:
+            logging.warning(
+                f"Erro ao consultar database para o ano {year}: {e}")
+        finally:
+            db.close()
         logging.info(
             f"Baixando {len(missing)} arquivos faltantes/invalidos para o ano {year}...")
+        self.anos_alterados.add(year)
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             futures = [executor.submit(
                 self._download_single_file, year, row, data_atual_formatada) for year, row in missing]
@@ -272,7 +287,7 @@ class SSPDataDownloader:
             anos_antigos = []
         else:
             ano_atual = datetime.now().year
-            ano_baixar_novamente = ano_atual + 1 #! - 2
+            ano_baixar_novamente = ano_atual - BAIXAR_ANOS_ANTERIORES
             anos_antigos = [y for y in self.years if y < ano_baixar_novamente]
             anos_recentes = [
                 y for y in self.years if y >= ano_baixar_novamente]
@@ -286,6 +301,8 @@ class SSPDataDownloader:
         if anos_recentes:
             logging.info(f"Baixando normalmente para anos: {anos_recentes}")
             futures = []
+            for year in anos_recentes:
+                self.anos_alterados.add(year)
             with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
                 for year in anos_recentes:
                     for index, row in municipios_df.iterrows():
@@ -306,6 +323,7 @@ class SSPDataDownloader:
             f"Total de arquivos baixados com sucesso: {self.arquivos_baixados_count}")
         if self.debug_mode:
             self._compress_downloaded_files()
+        return self.anos_alterados
 
     def generate_location_file(self, output_location_path=None):
         """
@@ -391,6 +409,8 @@ ZIP_FILENAME = "./ssp_data.zip"
 CSV_FILE_PATH = os.path.join("configs", "cities_codes.csv")
 MAX_WORKERS = 10
 DOWNLOAD_EVERYTHING = False  # Se True, baixa tudo mesmo que já tenha arquivos válidos
+# Quantos anos anteriores baixar novamente se já existirem arquivos válidos
+BAIXAR_ANOS_ANTERIORES = 0
 DEBUG = False
 HEADERS = {
     "accept": "application/json, text/plain, */*",

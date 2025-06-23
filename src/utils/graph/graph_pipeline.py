@@ -17,9 +17,14 @@ class GraphPipeline:
             output_dir=self.output_dir
         )
 
-    def run(self, year_filter=None):
+    def run(self, year_filter=None, years_list=None):
         logging.info("=== Início do Pipeline de Geração de Mapas ===")
-        self.plotter.plot_maps_by_year_and_crime_db(year_filter=year_filter)
+        if years_list is not None:
+            for year in years_list:
+                self.plotter.plot_maps_by_year_and_crime_db(year_filter=year)
+        else:
+            self.plotter.plot_maps_by_year_and_crime_db(
+                year_filter=year_filter)
         logging.info("=== Pipeline de Mapas concluído ===")
 
 
