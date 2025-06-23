@@ -1,0 +1,13 @@
+streamlit
+plotly
+pandas
+numpy
+psycopg2
+requests
+urllib3
+geopy
+openpyxl
+folium
+dotenv
+logging
+sqlalchemy

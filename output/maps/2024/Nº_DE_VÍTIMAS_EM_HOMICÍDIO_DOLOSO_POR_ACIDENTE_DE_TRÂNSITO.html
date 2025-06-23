@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b06bbc199ba936b1c298ec6f4bd516ad {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b06bbc199ba936b1c298ec6f4bd516ad" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b06bbc199ba936b1c298ec6f4bd516ad = L.map(
+                "map_b06bbc199ba936b1c298ec6f4bd516ad",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_45655888dabd3e41356a008934fe24e1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_45655888dabd3e41356a008934fe24e1.addTo(map_b06bbc199ba936b1c298ec6f4bd516ad);
+        
+    
+            var feature_group_f0cfc4fcf5d4c5da6db833e29fa38a74 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bcae5e090c8fb69f68468896be025c70 = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f0cfc4fcf5d4c5da6db833e29fa38a74);
+        
+    
+        var popup_d5684d75376fd71572bcb0ee8dadee8b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4354e351c67dfd5adfabb64b17120448 = $(`<div id="html_4354e351c67dfd5adfabb64b17120448" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_d5684d75376fd71572bcb0ee8dadee8b.setContent(html_4354e351c67dfd5adfabb64b17120448);
+            
+        
+
+        circle_marker_bcae5e090c8fb69f68468896be025c70.bindPopup(popup_d5684d75376fd71572bcb0ee8dadee8b)
+        ;
+
+        
+    
+    
+            feature_group_f0cfc4fcf5d4c5da6db833e29fa38a74.addTo(map_b06bbc199ba936b1c298ec6f4bd516ad);
+        
+    
+            var feature_group_17395561a6f22ceb85a90d7d700ecdf2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f4b32c76b3f7ef4ff698d6c571d46b65 = L.circleMarker(
+                [-23.560652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_17395561a6f22ceb85a90d7d700ecdf2);
+        
+    
+        var popup_74a81205193bb18cb1bdbde98b886c7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a10bc82f4cbf3e6e7cfce45d24e0d342 = $(`<div id="html_a10bc82f4cbf3e6e7cfce45d24e0d342" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_74a81205193bb18cb1bdbde98b886c7c.setContent(html_a10bc82f4cbf3e6e7cfce45d24e0d342);
+            
+        
+
+        circle_marker_f4b32c76b3f7ef4ff698d6c571d46b65.bindPopup(popup_74a81205193bb18cb1bdbde98b886c7c)
+        ;
+
+        
+    
+    
+            var feature_group_6ef6531ed17ddc20d406e8c101105005 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6ee1ea3b5ec0b8169dcdc7d6c7ef0ef4 = L.circleMarker(
+                [-23.560652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6ef6531ed17ddc20d406e8c101105005);
+        
+    
+        var popup_c83a43d03b54dcc7a4e2b28f533fd358 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9b448af75152feb78be9d14b393e49ec = $(`<div id="html_9b448af75152feb78be9d14b393e49ec" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Marco)</div>`)[0];
+                popup_c83a43d03b54dcc7a4e2b28f533fd358.setContent(html_9b448af75152feb78be9d14b393e49ec);
+            
+        
+
+        circle_marker_6ee1ea3b5ec0b8169dcdc7d6c7ef0ef4.bindPopup(popup_c83a43d03b54dcc7a4e2b28f533fd358)
+        ;
+
+        
+    
+    
+            var feature_group_cde1a98bc090c544f9945f6ea48d52d1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_01e87ecc5cd5f4cd00ad8b1bf6e9630a = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_cde1a98bc090c544f9945f6ea48d52d1);
+        
+    
+        var popup_f9dc892340ffc6bc8d2e21f6adf28214 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f5531524d0763d3556c9d23f6f93dd5 = $(`<div id="html_6f5531524d0763d3556c9d23f6f93dd5" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_f9dc892340ffc6bc8d2e21f6adf28214.setContent(html_6f5531524d0763d3556c9d23f6f93dd5);
+            
+        
+
+        circle_marker_01e87ecc5cd5f4cd00ad8b1bf6e9630a.bindPopup(popup_f9dc892340ffc6bc8d2e21f6adf28214)
+        ;
+
+        
+    
+    
+            var feature_group_471c58b4f857d8ee8b09c89965641826 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_9cb41b938e3f156b6de58e4957b02f99 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_ff677871b0ef5e2548cab9fc43189406 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_20395a74171384d725b9834ef3b2b197 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_b2e82fe5428913b1fd2e3782762bb233 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_273ffc26e1c0693f9c5c938c756a5c84 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_b12fd8c385589b701ae53f42b2817507 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_f067d91cc240f2b20022ae11d6054260 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var layer_control_ad9fe6ca0be44a040d3bd5eb96004400_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_45655888dabd3e41356a008934fe24e1,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_f0cfc4fcf5d4c5da6db833e29fa38a74,
+                    "Fevereiro" : feature_group_17395561a6f22ceb85a90d7d700ecdf2,
+                    "Marco" : feature_group_6ef6531ed17ddc20d406e8c101105005,
+                    "Abril" : feature_group_cde1a98bc090c544f9945f6ea48d52d1,
+                    "Maio" : feature_group_471c58b4f857d8ee8b09c89965641826,
+                    "Junho" : feature_group_9cb41b938e3f156b6de58e4957b02f99,
+                    "Julho" : feature_group_ff677871b0ef5e2548cab9fc43189406,
+                    "Agosto" : feature_group_20395a74171384d725b9834ef3b2b197,
+                    "Setembro" : feature_group_b2e82fe5428913b1fd2e3782762bb233,
+                    "Outubro" : feature_group_273ffc26e1c0693f9c5c938c756a5c84,
+                    "Novembro" : feature_group_b12fd8c385589b701ae53f42b2817507,
+                    "Dezembro" : feature_group_f067d91cc240f2b20022ae11d6054260,
+                },
+            };
+            let layer_control_ad9fe6ca0be44a040d3bd5eb96004400 = L.control.layers(
+                layer_control_ad9fe6ca0be44a040d3bd5eb96004400_layers.base_layers,
+                layer_control_ad9fe6ca0be44a040d3bd5eb96004400_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_b06bbc199ba936b1c298ec6f4bd516ad);
+
+        
+</script>
+</html>

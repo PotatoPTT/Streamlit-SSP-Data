@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fb32f493deddd67d80fea1e075cc83fc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_fb32f493deddd67d80fea1e075cc83fc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fb32f493deddd67d80fea1e075cc83fc = L.map(
+                "map_fb32f493deddd67d80fea1e075cc83fc",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4a53295bc000dbfb36a2b5d24c83c82e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4a53295bc000dbfb36a2b5d24c83c82e.addTo(map_fb32f493deddd67d80fea1e075cc83fc);
+        
+    
+            var feature_group_6f0336f0e24b04aebd6d2d85e0fd03b7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f8b0c1d971b43b23f2621d8a25675092 = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f0336f0e24b04aebd6d2d85e0fd03b7);
+        
+    
+        var popup_8306493cd31761e187f5ffad1686ec4b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b065a13a55a34288ac10256105888822 = $(`<div id="html_b065a13a55a34288ac10256105888822" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_8306493cd31761e187f5ffad1686ec4b.setContent(html_b065a13a55a34288ac10256105888822);
+            
+        
+
+        circle_marker_f8b0c1d971b43b23f2621d8a25675092.bindPopup(popup_8306493cd31761e187f5ffad1686ec4b)
+        ;
+
+        
+    
+    
+            feature_group_6f0336f0e24b04aebd6d2d85e0fd03b7.addTo(map_fb32f493deddd67d80fea1e075cc83fc);
+        
+    
+            var feature_group_80f8ff28a147b6e02caf5713778804e8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_e2d4348ee78f9ff3c98a5ea79fb1bc83 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_c1c4d55dcbd3a4a67bf17921865fcc36 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bc952e73c8b4122d0e6e02cd47fd941b = L.circleMarker(
+                [-22.33181, -49.050587],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c1c4d55dcbd3a4a67bf17921865fcc36);
+        
+    
+        var popup_b0ffde45c4962414bb3e3836162e3b86 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8635246a852970fed984b5b1365601bc = $(`<div id="html_8635246a852970fed984b5b1365601bc" style="width: 100.0%; height: 100.0%;">Bauru<br>ROUBO A BANCO: 1 (Abril)</div>`)[0];
+                popup_b0ffde45c4962414bb3e3836162e3b86.setContent(html_8635246a852970fed984b5b1365601bc);
+            
+        
+
+        circle_marker_bc952e73c8b4122d0e6e02cd47fd941b.bindPopup(popup_b0ffde45c4962414bb3e3836162e3b86)
+        ;
+
+        
+    
+    
+            var feature_group_57eda7592ebd6e0a74941e41607e6199 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_d3520f51526094d144fa4d2abcd9615e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_5c4b3fce0ec4f2467057cbf93f47d64f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_36c62072ba0716970a002a9a1c5e615a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_9e48e15709defe4a0a83f355c68756ab = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_e8ca7e66902126524a326b012d63a39f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_6a5d2f4dafdfa093560caf86f0409bec = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_139603a19aa61f10122ebbcc825379da = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var layer_control_040e0131a925e06a42f0aceb9444a9da_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_4a53295bc000dbfb36a2b5d24c83c82e,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_6f0336f0e24b04aebd6d2d85e0fd03b7,
+                    "Fevereiro" : feature_group_80f8ff28a147b6e02caf5713778804e8,
+                    "Marco" : feature_group_e2d4348ee78f9ff3c98a5ea79fb1bc83,
+                    "Abril" : feature_group_c1c4d55dcbd3a4a67bf17921865fcc36,
+                    "Maio" : feature_group_57eda7592ebd6e0a74941e41607e6199,
+                    "Junho" : feature_group_d3520f51526094d144fa4d2abcd9615e,
+                    "Julho" : feature_group_5c4b3fce0ec4f2467057cbf93f47d64f,
+                    "Agosto" : feature_group_36c62072ba0716970a002a9a1c5e615a,
+                    "Setembro" : feature_group_9e48e15709defe4a0a83f355c68756ab,
+                    "Outubro" : feature_group_e8ca7e66902126524a326b012d63a39f,
+                    "Novembro" : feature_group_6a5d2f4dafdfa093560caf86f0409bec,
+                    "Dezembro" : feature_group_139603a19aa61f10122ebbcc825379da,
+                },
+            };
+            let layer_control_040e0131a925e06a42f0aceb9444a9da = L.control.layers(
+                layer_control_040e0131a925e06a42f0aceb9444a9da_layers.base_layers,
+                layer_control_040e0131a925e06a42f0aceb9444a9da_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_fb32f493deddd67d80fea1e075cc83fc);
+
+        
+</script>
+</html>

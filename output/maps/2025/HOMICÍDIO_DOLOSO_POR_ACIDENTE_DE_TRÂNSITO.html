@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f = L.map(
+                "map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_54fd87f33bba07f0e1e6a85898f81a47 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_54fd87f33bba07f0e1e6a85898f81a47.addTo(map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f);
+        
+    
+            var feature_group_1c25e5e182944a360abf5cf628ac7cfe = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_852378de50c0e03dde6d1efc1ccdc7b6 = L.circleMarker(
+                [-23.198766000000003, -46.894506],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1c25e5e182944a360abf5cf628ac7cfe);
+        
+    
+        var popup_4a21e19355e60a522c11251453bebd3f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a07cb5e9b7b9d852b8052576a7a05f2c = $(`<div id="html_a07cb5e9b7b9d852b8052576a7a05f2c" style="width: 100.0%; height: 100.0%;">Jundiaí<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_4a21e19355e60a522c11251453bebd3f.setContent(html_a07cb5e9b7b9d852b8052576a7a05f2c);
+            
+        
+
+        circle_marker_852378de50c0e03dde6d1efc1ccdc7b6.bindPopup(popup_4a21e19355e60a522c11251453bebd3f)
+        ;
+
+        
+    
+    
+            var circle_marker_fc089e77dad0dbf38b17a3f1a1d6976b = L.circleMarker(
+                [-23.366112, -46.886945],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1c25e5e182944a360abf5cf628ac7cfe);
+        
+    
+        var popup_5685fc4481cf44ab61acce6cacde1692 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26db2018ce105143681d4e5204b578a7 = $(`<div id="html_26db2018ce105143681d4e5204b578a7" style="width: 100.0%; height: 100.0%;">Cajamar<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_5685fc4481cf44ab61acce6cacde1692.setContent(html_26db2018ce105143681d4e5204b578a7);
+            
+        
+
+        circle_marker_fc089e77dad0dbf38b17a3f1a1d6976b.bindPopup(popup_5685fc4481cf44ab61acce6cacde1692)
+        ;
+
+        
+    
+    
+            var circle_marker_00491d911f49e9f8e51d24e139c39940 = L.circleMarker(
+                [-23.72763, -46.859243],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1c25e5e182944a360abf5cf628ac7cfe);
+        
+    
+        var popup_102934ae4ed46eb42dfcfb20dcf72bd6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_007a918e88300d9f679968b210becf52 = $(`<div id="html_007a918e88300d9f679968b210becf52" style="width: 100.0%; height: 100.0%;">Itapecerica da Serra<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_102934ae4ed46eb42dfcfb20dcf72bd6.setContent(html_007a918e88300d9f679968b210becf52);
+            
+        
+
+        circle_marker_00491d911f49e9f8e51d24e139c39940.bindPopup(popup_102934ae4ed46eb42dfcfb20dcf72bd6)
+        ;
+
+        
+    
+    
+            feature_group_1c25e5e182944a360abf5cf628ac7cfe.addTo(map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f);
+        
+    
+            var feature_group_64686a1be9b725b72b369e8ab07e7e9b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_03ed50d4395076e9a2ce3b6d77fe4957 = L.circleMarker(
+                [-22.080550000000002, -50.30865],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_64686a1be9b725b72b369e8ab07e7e9b);
+        
+    
+        var popup_6e96d16c0b51febc56b3a1b11e3ac8ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17793cbbf182efb24cea60d24cef31ba = $(`<div id="html_17793cbbf182efb24cea60d24cef31ba" style="width: 100.0%; height: 100.0%;">Quintana<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_6e96d16c0b51febc56b3a1b11e3ac8ee.setContent(html_17793cbbf182efb24cea60d24cef31ba);
+            
+        
+
+        circle_marker_03ed50d4395076e9a2ce3b6d77fe4957.bindPopup(popup_6e96d16c0b51febc56b3a1b11e3ac8ee)
+        ;
+
+        
+    
+    
+            var circle_marker_95ba3166bfaac8227d857daea1bcc3ac = L.circleMarker(
+                [-23.533468000000003, -46.84068],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_64686a1be9b725b72b369e8ab07e7e9b);
+        
+    
+        var popup_ba10b98f7b88f25a29348ee02b280fc2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8328a2aebe000f88fc97ad5a02d8a465 = $(`<div id="html_8328a2aebe000f88fc97ad5a02d8a465" style="width: 100.0%; height: 100.0%;">Carapicuíba<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_ba10b98f7b88f25a29348ee02b280fc2.setContent(html_8328a2aebe000f88fc97ad5a02d8a465);
+            
+        
+
+        circle_marker_95ba3166bfaac8227d857daea1bcc3ac.bindPopup(popup_ba10b98f7b88f25a29348ee02b280fc2)
+        ;
+
+        
+    
+    
+            var circle_marker_087948856ad94f50acd250c42b86fbaf = L.circleMarker(
+                [-21.605837, -48.81227],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_64686a1be9b725b72b369e8ab07e7e9b);
+        
+    
+        var popup_1e511bf649e76787147c656a34b1ff52 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02dcb0ec725c452a4cc942de93de738b = $(`<div id="html_02dcb0ec725c452a4cc942de93de738b" style="width: 100.0%; height: 100.0%;">Itápolis<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_1e511bf649e76787147c656a34b1ff52.setContent(html_02dcb0ec725c452a4cc942de93de738b);
+            
+        
+
+        circle_marker_087948856ad94f50acd250c42b86fbaf.bindPopup(popup_1e511bf649e76787147c656a34b1ff52)
+        ;
+
+        
+    
+    
+            var feature_group_153fbf5c5437768324932f2d8886dc77 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c596a32b9409336b18ef3718f20d4359 = L.circleMarker(
+                [-23.485449000000003, -46.341402],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_153fbf5c5437768324932f2d8886dc77);
+        
+    
+        var popup_e7297ad863799e2bb269ac303738d395 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02b8fd1b7c6dd9fcdca34527f37aec31 = $(`<div id="html_02b8fd1b7c6dd9fcdca34527f37aec31" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Marco)</div>`)[0];
+                popup_e7297ad863799e2bb269ac303738d395.setContent(html_02b8fd1b7c6dd9fcdca34527f37aec31);
+            
+        
+
+        circle_marker_c596a32b9409336b18ef3718f20d4359.bindPopup(popup_e7297ad863799e2bb269ac303738d395)
+        ;
+
+        
+    
+    
+            var feature_group_fa090457473e67b3581dc9ceba59d49c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_cca15249094fc39a70c70e480bd3efa2 = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fa090457473e67b3581dc9ceba59d49c);
+        
+    
+        var popup_e64d23e8601398744b2ddb31c20f23e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be297e66622f95d59f8207a2ca498220 = $(`<div id="html_be297e66622f95d59f8207a2ca498220" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_e64d23e8601398744b2ddb31c20f23e0.setContent(html_be297e66622f95d59f8207a2ca498220);
+            
+        
+
+        circle_marker_cca15249094fc39a70c70e480bd3efa2.bindPopup(popup_e64d23e8601398744b2ddb31c20f23e0)
+        ;
+
+        
+    
+    
+            var circle_marker_e8445e406564848de2e9427950fd29ce = L.circleMarker(
+                [-23.477594, -46.507769999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fa090457473e67b3581dc9ceba59d49c);
+        
+    
+        var popup_1715da5da0c8d8e63781079b4743159f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f7d4efabb6f2e49e9c12ee9f32b58b3a = $(`<div id="html_f7d4efabb6f2e49e9c12ee9f32b58b3a" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_1715da5da0c8d8e63781079b4743159f.setContent(html_f7d4efabb6f2e49e9c12ee9f32b58b3a);
+            
+        
+
+        circle_marker_e8445e406564848de2e9427950fd29ce.bindPopup(popup_1715da5da0c8d8e63781079b4743159f)
+        ;
+
+        
+    
+    
+            var circle_marker_b1e32370856b83b1dc7376a02cd72474 = L.circleMarker(
+                [-23.629593, -46.548832],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fa090457473e67b3581dc9ceba59d49c);
+        
+    
+        var popup_ee9d026fa88832db0cda6a68d4617dbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00a8f5896d7da1d474d70d71b8a74ca4 = $(`<div id="html_00a8f5896d7da1d474d70d71b8a74ca4" style="width: 100.0%; height: 100.0%;">São Caetano do Sul<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_ee9d026fa88832db0cda6a68d4617dbd.setContent(html_00a8f5896d7da1d474d70d71b8a74ca4);
+            
+        
+
+        circle_marker_b1e32370856b83b1dc7376a02cd72474.bindPopup(popup_ee9d026fa88832db0cda6a68d4617dbd)
+        ;
+
+        
+    
+    
+            var circle_marker_524ca43d15f767257c5ffbacd1e99d13 = L.circleMarker(
+                [-21.598110000000002, -48.052426],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fa090457473e67b3581dc9ceba59d49c);
+        
+    
+        var popup_0600b3b4f07e03cbb00430d7b3ed6599 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90c096e8e128adfabbc703cf3835ebcc = $(`<div id="html_90c096e8e128adfabbc703cf3835ebcc" style="width: 100.0%; height: 100.0%;">Rincão<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_0600b3b4f07e03cbb00430d7b3ed6599.setContent(html_90c096e8e128adfabbc703cf3835ebcc);
+            
+        
+
+        circle_marker_524ca43d15f767257c5ffbacd1e99d13.bindPopup(popup_0600b3b4f07e03cbb00430d7b3ed6599)
+        ;
+
+        
+    
+    
+            var circle_marker_0a6f647efdf335b5bcc9105eae3dc0b7 = L.circleMarker(
+                [-23.041448000000003, -45.54127999999999],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fa090457473e67b3581dc9ceba59d49c);
+        
+    
+        var popup_b02373f97bd5831b4b18962fbf58a8db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e390cf727cf9529ee9babf4407f6d573 = $(`<div id="html_e390cf727cf9529ee9babf4407f6d573" style="width: 100.0%; height: 100.0%;">Taubaté<br>HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Abril)</div>`)[0];
+                popup_b02373f97bd5831b4b18962fbf58a8db.setContent(html_e390cf727cf9529ee9babf4407f6d573);
+            
+        
+
+        circle_marker_0a6f647efdf335b5bcc9105eae3dc0b7.bindPopup(popup_b02373f97bd5831b4b18962fbf58a8db)
+        ;
+
+        
+    
+    
+            var feature_group_3c631009ec26db80def218a22eaa2159 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_000c620b1fff473d40b364a150b7df02 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_27208365822fd0da162c0221c900f6af = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_90a4d77ea065df34ad6178c4d1558b86 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_f884be990aba441bdc7bd39c922076c6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_08dfef3722de029b76b5c56404b9160a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_c57495171e7b0495aed6f0151cbb3b5b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_63b82ecf634adbe8e9e171fc9c347b0a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var layer_control_78eb14d2afa70fcf5f888ccf02b13180_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_54fd87f33bba07f0e1e6a85898f81a47,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_1c25e5e182944a360abf5cf628ac7cfe,
+                    "Fevereiro" : feature_group_64686a1be9b725b72b369e8ab07e7e9b,
+                    "Marco" : feature_group_153fbf5c5437768324932f2d8886dc77,
+                    "Abril" : feature_group_fa090457473e67b3581dc9ceba59d49c,
+                    "Maio" : feature_group_3c631009ec26db80def218a22eaa2159,
+                    "Junho" : feature_group_000c620b1fff473d40b364a150b7df02,
+                    "Julho" : feature_group_27208365822fd0da162c0221c900f6af,
+                    "Agosto" : feature_group_90a4d77ea065df34ad6178c4d1558b86,
+                    "Setembro" : feature_group_f884be990aba441bdc7bd39c922076c6,
+                    "Outubro" : feature_group_08dfef3722de029b76b5c56404b9160a,
+                    "Novembro" : feature_group_c57495171e7b0495aed6f0151cbb3b5b,
+                    "Dezembro" : feature_group_63b82ecf634adbe8e9e171fc9c347b0a,
+                },
+            };
+            let layer_control_78eb14d2afa70fcf5f888ccf02b13180 = L.control.layers(
+                layer_control_78eb14d2afa70fcf5f888ccf02b13180_layers.base_layers,
+                layer_control_78eb14d2afa70fcf5f888ccf02b13180_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_e1f9aac9cfd28d4b0f1fed71fc0f9d6f);
+
+        
+</script>
+</html>

@@ -1,0 +1,4117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_932d32e978ab34efe10e629af928f3e4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_932d32e978ab34efe10e629af928f3e4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_932d32e978ab34efe10e629af928f3e4 = L.map(
+                "map_932d32e978ab34efe10e629af928f3e4",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_db6c7f771fc320688415d1b8f9f3011e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_db6c7f771fc320688415d1b8f9f3011e.addTo(map_932d32e978ab34efe10e629af928f3e4);
+        
+    
+            var feature_group_ec64c4c24b4166a43d55e7d7739ae07b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bb5bf3b16e369ddc7c833318ae6299e1 = L.circleMarker(
+                [-23.015554, -46.84977],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_58b7bb69e7467a7e78b327d110230737 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_94812f305ba77a4fc416fd35f9de0249 = $(`<div id="html_94812f305ba77a4fc416fd35f9de0249" style="width: 100.0%; height: 100.0%;">Itatiba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_58b7bb69e7467a7e78b327d110230737.setContent(html_94812f305ba77a4fc416fd35f9de0249);
+            
+        
+
+        circle_marker_bb5bf3b16e369ddc7c833318ae6299e1.bindPopup(popup_58b7bb69e7467a7e78b327d110230737)
+        ;
+
+        
+    
+    
+            var circle_marker_8905f3c86d4d0c357788925af35a2db8 = L.circleMarker(
+                [-23.198766000000003, -46.894506],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_bc1ee227fb71d5f57f8689d458d6e7ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5a5db714a369a741b64e79eb102668f = $(`<div id="html_c5a5db714a369a741b64e79eb102668f" style="width: 100.0%; height: 100.0%;">Jundiaí<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_bc1ee227fb71d5f57f8689d458d6e7ed.setContent(html_c5a5db714a369a741b64e79eb102668f);
+            
+        
+
+        circle_marker_8905f3c86d4d0c357788925af35a2db8.bindPopup(popup_bc1ee227fb71d5f57f8689d458d6e7ed)
+        ;
+
+        
+    
+    
+            var circle_marker_c18dacf50963bad6b649d907b3d3adca = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_d3c5abdf71a42e16dd5e2cf7d5ab06a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_105b9d3bc922ba0a28469331de6b7d2a = $(`<div id="html_105b9d3bc922ba0a28469331de6b7d2a" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_d3c5abdf71a42e16dd5e2cf7d5ab06a2.setContent(html_105b9d3bc922ba0a28469331de6b7d2a);
+            
+        
+
+        circle_marker_c18dacf50963bad6b649d907b3d3adca.bindPopup(popup_d3c5abdf71a42e16dd5e2cf7d5ab06a2)
+        ;
+
+        
+    
+    
+            var circle_marker_e0e6e39d0323c4f35db6b89d6950d8c9 = L.circleMarker(
+                [-23.533468000000003, -46.85068],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_02419d2eb0a74f49608749816fc7be69 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_320ee1b19031746391c90f649d9a0866 = $(`<div id="html_320ee1b19031746391c90f649d9a0866" style="width: 100.0%; height: 100.0%;">Carapicuíba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_02419d2eb0a74f49608749816fc7be69.setContent(html_320ee1b19031746391c90f649d9a0866);
+            
+        
+
+        circle_marker_e0e6e39d0323c4f35db6b89d6950d8c9.bindPopup(popup_02419d2eb0a74f49608749816fc7be69)
+        ;
+
+        
+    
+    
+            var circle_marker_47cbcef3b99d3acd26cad8ecf8f21184 = L.circleMarker(
+                [-23.72763, -46.859243],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_a820d41cca04fe54ece832b3c138e38f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c27a8dc05cfe208e7509b77e6f52f2d = $(`<div id="html_7c27a8dc05cfe208e7509b77e6f52f2d" style="width: 100.0%; height: 100.0%;">Itapecerica da Serra<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_a820d41cca04fe54ece832b3c138e38f.setContent(html_7c27a8dc05cfe208e7509b77e6f52f2d);
+            
+        
+
+        circle_marker_47cbcef3b99d3acd26cad8ecf8f21184.bindPopup(popup_a820d41cca04fe54ece832b3c138e38f)
+        ;
+
+        
+    
+    
+            var circle_marker_852af17a11ff8df120b5785786567122 = L.circleMarker(
+                [-23.485449000000003, -46.361402],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_87ed08f93e00cad867d00f8128b6d3e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85094b0486487dda6844f6e1a7b39353 = $(`<div id="html_85094b0486487dda6844f6e1a7b39353" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>HOMICÍDIO CULPOSO OUTROS: 2 (Janeiro)</div>`)[0];
+                popup_87ed08f93e00cad867d00f8128b6d3e5.setContent(html_85094b0486487dda6844f6e1a7b39353);
+            
+        
+
+        circle_marker_852af17a11ff8df120b5785786567122.bindPopup(popup_87ed08f93e00cad867d00f8128b6d3e5)
+        ;
+
+        
+    
+    
+            var circle_marker_4c6284a62d1f3badb5b141965977355b = L.circleMarker(
+                [-23.66335, -46.537904999999995],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_9ba16b3d9c6057dba09e5ff7208db4d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1fad1ef7adcd75f9da7ab1de9c6c0c49 = $(`<div id="html_1fad1ef7adcd75f9da7ab1de9c6c0c49" style="width: 100.0%; height: 100.0%;">Santo André<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_9ba16b3d9c6057dba09e5ff7208db4d0.setContent(html_1fad1ef7adcd75f9da7ab1de9c6c0c49);
+            
+        
+
+        circle_marker_4c6284a62d1f3badb5b141965977355b.bindPopup(popup_9ba16b3d9c6057dba09e5ff7208db4d0)
+        ;
+
+        
+    
+    
+            var circle_marker_e5f4d8f04731655c37843917461d5040 = L.circleMarker(
+                [-22.735164, -47.659326],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_4e0161443ea241119a099832aafd42f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d484b9943382bf041f2a41de454acda3 = $(`<div id="html_d484b9943382bf041f2a41de454acda3" style="width: 100.0%; height: 100.0%;">Piracicaba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_4e0161443ea241119a099832aafd42f6.setContent(html_d484b9943382bf041f2a41de454acda3);
+            
+        
+
+        circle_marker_e5f4d8f04731655c37843917461d5040.bindPopup(popup_4e0161443ea241119a099832aafd42f6)
+        ;
+
+        
+    
+    
+            var circle_marker_028565f01eb3f1ddf4f94899134cc934 = L.circleMarker(
+                [-22.420011000000002, -47.570394],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_824b5df86a7d196881333918bf46307b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a075c8bd22ff72f64783a9f9cd687dc5 = $(`<div id="html_a075c8bd22ff72f64783a9f9cd687dc5" style="width: 100.0%; height: 100.0%;">Rio Claro<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_824b5df86a7d196881333918bf46307b.setContent(html_a075c8bd22ff72f64783a9f9cd687dc5);
+            
+        
+
+        circle_marker_028565f01eb3f1ddf4f94899134cc934.bindPopup(popup_824b5df86a7d196881333918bf46307b)
+        ;
+
+        
+    
+    
+            var circle_marker_58615fc9cbbc90801fd0a07f27d9fe0c = L.circleMarker(
+                [-22.132517, -51.398252],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_7df5d25d35c7a1325690d4e558739875 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14c7f0aa2f2fd8fd51c0cfebaea41244 = $(`<div id="html_14c7f0aa2f2fd8fd51c0cfebaea41244" style="width: 100.0%; height: 100.0%;">Presidente Prudente<br>HOMICÍDIO CULPOSO OUTROS: 2 (Janeiro)</div>`)[0];
+                popup_7df5d25d35c7a1325690d4e558739875.setContent(html_14c7f0aa2f2fd8fd51c0cfebaea41244);
+            
+        
+
+        circle_marker_58615fc9cbbc90801fd0a07f27d9fe0c.bindPopup(popup_7df5d25d35c7a1325690d4e558739875)
+        ;
+
+        
+    
+    
+            var circle_marker_5b18adcc16aabc865d6692132b7ecd93 = L.circleMarker(
+                [-21.031364, -47.3812],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_ad9e79b5b3f480b73c6ae7f537b5a90c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10d276d63b590220f03ec72375bdaf78 = $(`<div id="html_10d276d63b590220f03ec72375bdaf78" style="width: 100.0%; height: 100.0%;">Altinópolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_ad9e79b5b3f480b73c6ae7f537b5a90c.setContent(html_10d276d63b590220f03ec72375bdaf78);
+            
+        
+
+        circle_marker_5b18adcc16aabc865d6692132b7ecd93.bindPopup(popup_ad9e79b5b3f480b73c6ae7f537b5a90c)
+        ;
+
+        
+    
+    
+            var circle_marker_14951cdd55f5c50ecdb5b7c0c62ec88a = L.circleMarker(
+                [-21.099304, -47.162344],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_e0dcdd3990f2e2a5a21465a4981287fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7948425300b9acae9e5c8b7f27aed636 = $(`<div id="html_7948425300b9acae9e5c8b7f27aed636" style="width: 100.0%; height: 100.0%;">Santo Antônio da Alegria<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_e0dcdd3990f2e2a5a21465a4981287fc.setContent(html_7948425300b9acae9e5c8b7f27aed636);
+            
+        
+
+        circle_marker_14951cdd55f5c50ecdb5b7c0c62ec88a.bindPopup(popup_e0dcdd3990f2e2a5a21465a4981287fc)
+        ;
+
+        
+    
+    
+            var circle_marker_d1cb4baa9adaa8d7a6f0975fa8725297 = L.circleMarker(
+                [-23.895798000000003, -46.434187],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_271a0ae8c6a3534c2742ed983988ca70 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_485d6318426179c720c79718c7a63771 = $(`<div id="html_485d6318426179c720c79718c7a63771" style="width: 100.0%; height: 100.0%;">Cubatão<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_271a0ae8c6a3534c2742ed983988ca70.setContent(html_485d6318426179c720c79718c7a63771);
+            
+        
+
+        circle_marker_d1cb4baa9adaa8d7a6f0975fa8725297.bindPopup(popup_271a0ae8c6a3534c2742ed983988ca70)
+        ;
+
+        
+    
+    
+            var circle_marker_1cd67c437d39604c5a4a568cea8338c1 = L.circleMarker(
+                [-24.002777000000002, -46.265833],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_ffbae6cf7db368f29d188e69daa0c14c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1eea5fa90c3e4f46a59670f0e27221fc = $(`<div id="html_1eea5fa90c3e4f46a59670f0e27221fc" style="width: 100.0%; height: 100.0%;">Guarujá<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_ffbae6cf7db368f29d188e69daa0c14c.setContent(html_1eea5fa90c3e4f46a59670f0e27221fc);
+            
+        
+
+        circle_marker_1cd67c437d39604c5a4a568cea8338c1.bindPopup(popup_ffbae6cf7db368f29d188e69daa0c14c)
+        ;
+
+        
+    
+    
+            var circle_marker_33e19f856c916a8d5cabdd2a7b171f0b = L.circleMarker(
+                [-24.018980000000003, -46.424493999999996],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_d123b86969696cb7b6523f491b3a1e90 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6104a96ffddacf4f404d7442a0eacb19 = $(`<div id="html_6104a96ffddacf4f404d7442a0eacb19" style="width: 100.0%; height: 100.0%;">Praia Grande<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_d123b86969696cb7b6523f491b3a1e90.setContent(html_6104a96ffddacf4f404d7442a0eacb19);
+            
+        
+
+        circle_marker_33e19f856c916a8d5cabdd2a7b171f0b.bindPopup(popup_d123b86969696cb7b6523f491b3a1e90)
+        ;
+
+        
+    
+    
+            var circle_marker_501d4a183ef4fc0c27c9b646dad1cdf3 = L.circleMarker(
+                [-23.9436, -46.33864],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_978a0fc476673cb78b87c7884bd6d08e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd38b866cd8bdd6bf0656535fa12df11 = $(`<div id="html_dd38b866cd8bdd6bf0656535fa12df11" style="width: 100.0%; height: 100.0%;">Santos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_978a0fc476673cb78b87c7884bd6d08e.setContent(html_dd38b866cd8bdd6bf0656535fa12df11);
+            
+        
+
+        circle_marker_501d4a183ef4fc0c27c9b646dad1cdf3.bindPopup(popup_978a0fc476673cb78b87c7884bd6d08e)
+        ;
+
+        
+    
+    
+            var circle_marker_48eb6b477de1292ac7368a02457090f0 = L.circleMarker(
+                [-23.273780000000002, -47.309847],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_8df5725886f332d3a6c63198aa8577ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_22e46330ecfac2f7b5cfdd9caff3eaf4 = $(`<div id="html_22e46330ecfac2f7b5cfdd9caff3eaf4" style="width: 100.0%; height: 100.0%;">Itu<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_8df5725886f332d3a6c63198aa8577ad.setContent(html_22e46330ecfac2f7b5cfdd9caff3eaf4);
+            
+        
+
+        circle_marker_48eb6b477de1292ac7368a02457090f0.bindPopup(popup_8df5725886f332d3a6c63198aa8577ad)
+        ;
+
+        
+    
+    
+            var circle_marker_fa7b8aea724b56c7c78ad10b9c5536fa = L.circleMarker(
+                [-22.861551000000002, -45.244093],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_a120aaaecc384452c75ba28287103bbb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d51d068638d85024be26fb49889ef6d = $(`<div id="html_6d51d068638d85024be26fb49889ef6d" style="width: 100.0%; height: 100.0%;">Aparecida<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_a120aaaecc384452c75ba28287103bbb.setContent(html_6d51d068638d85024be26fb49889ef6d);
+            
+        
+
+        circle_marker_fa7b8aea724b56c7c78ad10b9c5536fa.bindPopup(popup_a120aaaecc384452c75ba28287103bbb)
+        ;
+
+        
+    
+    
+            var circle_marker_c88de06ec592c905223886d5d07fcdd3 = L.circleMarker(
+                [-22.670559, -45.018167],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_566b83737dde4a54a39b3fc369649fb1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6251ee711a02b0a0d66a29d46f3c28e = $(`<div id="html_e6251ee711a02b0a0d66a29d46f3c28e" style="width: 100.0%; height: 100.0%;">Cachoeira Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_566b83737dde4a54a39b3fc369649fb1.setContent(html_e6251ee711a02b0a0d66a29d46f3c28e);
+            
+        
+
+        circle_marker_c88de06ec592c905223886d5d07fcdd3.bindPopup(popup_566b83737dde4a54a39b3fc369649fb1)
+        ;
+
+        
+    
+    
+            var circle_marker_a37bb2c5b3275f92c0a9fd6dccfd181c = L.circleMarker(
+                [-22.815784, -45.20089],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ec64c4c24b4166a43d55e7d7739ae07b);
+        
+    
+        var popup_00ae884b5388c8883cfc2be7ae471f64 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7b728728e7305f23a78f05061e3df72 = $(`<div id="html_d7b728728e7305f23a78f05061e3df72" style="width: 100.0%; height: 100.0%;">Guaratinguetá<br>HOMICÍDIO CULPOSO OUTROS: 1 (Janeiro)</div>`)[0];
+                popup_00ae884b5388c8883cfc2be7ae471f64.setContent(html_d7b728728e7305f23a78f05061e3df72);
+            
+        
+
+        circle_marker_a37bb2c5b3275f92c0a9fd6dccfd181c.bindPopup(popup_00ae884b5388c8883cfc2be7ae471f64)
+        ;
+
+        
+    
+    
+            feature_group_ec64c4c24b4166a43d55e7d7739ae07b.addTo(map_932d32e978ab34efe10e629af928f3e4);
+        
+    
+            var feature_group_dbb0a14e36ef43667748c8f4897f7459 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_589b32ee79153b09c7b32c35f527497c = L.circleMarker(
+                [-22.2272, -49.950005],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_d799461a9eb4a50fd5acb4d0913a2670 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36a5f5bbc6ab9bc251222c9e1918feed = $(`<div id="html_36a5f5bbc6ab9bc251222c9e1918feed" style="width: 100.0%; height: 100.0%;">Marília<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_d799461a9eb4a50fd5acb4d0913a2670.setContent(html_36a5f5bbc6ab9bc251222c9e1918feed);
+            
+        
+
+        circle_marker_589b32ee79153b09c7b32c35f527497c.bindPopup(popup_d799461a9eb4a50fd5acb4d0913a2670)
+        ;
+
+        
+    
+    
+            var circle_marker_cf48b662e6fbed06339c564bbc1cebff = L.circleMarker(
+                [-22.91564, -47.059563],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_d1603f028f59192f8db3db7d20f9cb84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a912e733551c80cfbd4040599383fae = $(`<div id="html_4a912e733551c80cfbd4040599383fae" style="width: 100.0%; height: 100.0%;">Campinas<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_d1603f028f59192f8db3db7d20f9cb84.setContent(html_4a912e733551c80cfbd4040599383fae);
+            
+        
+
+        circle_marker_cf48b662e6fbed06339c564bbc1cebff.bindPopup(popup_d1603f028f59192f8db3db7d20f9cb84)
+        ;
+
+        
+    
+    
+            var circle_marker_bb575c6567c39194fcaa8db9b06a4776 = L.circleMarker(
+                [-22.446111000000002, -46.821667],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_97f75971c27f7ddd702f19df6940d99b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7ea5c10bff15e2ee97c37f647a962d4d = $(`<div id="html_7ea5c10bff15e2ee97c37f647a962d4d" style="width: 100.0%; height: 100.0%;">Itapira<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_97f75971c27f7ddd702f19df6940d99b.setContent(html_7ea5c10bff15e2ee97c37f647a962d4d);
+            
+        
+
+        circle_marker_bb575c6567c39194fcaa8db9b06a4776.bindPopup(popup_97f75971c27f7ddd702f19df6940d99b)
+        ;
+
+        
+    
+    
+            var circle_marker_36219608920663ca2705eb21041aaea3 = L.circleMarker(
+                [-23.198766000000003, -46.884506],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_75aa1de3bf84f6931880b95bc9d894c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a622df98a4d57b8fa426974c89c1d797 = $(`<div id="html_a622df98a4d57b8fa426974c89c1d797" style="width: 100.0%; height: 100.0%;">Jundiaí<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_75aa1de3bf84f6931880b95bc9d894c5.setContent(html_a622df98a4d57b8fa426974c89c1d797);
+            
+        
+
+        circle_marker_36219608920663ca2705eb21041aaea3.bindPopup(popup_75aa1de3bf84f6931880b95bc9d894c5)
+        ;
+
+        
+    
+    
+            var circle_marker_2f9aae7f4a0594fd4ceb63c5d00dd263 = L.circleMarker(
+                [-23.560652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_71a883a5e17f51eb46ea8e16aa771af6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e08315868432d4c2c6c2e127166add30 = $(`<div id="html_e08315868432d4c2c6c2e127166add30" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 2 (Fevereiro)</div>`)[0];
+                popup_71a883a5e17f51eb46ea8e16aa771af6.setContent(html_e08315868432d4c2c6c2e127166add30);
+            
+        
+
+        circle_marker_2f9aae7f4a0594fd4ceb63c5d00dd263.bindPopup(popup_71a883a5e17f51eb46ea8e16aa771af6)
+        ;
+
+        
+    
+    
+            var circle_marker_aa667cceaa9edf02114728c50ba86586 = L.circleMarker(
+                [-23.533468000000003, -46.84068],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_78ce58cec9e69939085ed5bef297c36f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1fa80c6c1db0399f4c3cc1ced1e13373 = $(`<div id="html_1fa80c6c1db0399f4c3cc1ced1e13373" style="width: 100.0%; height: 100.0%;">Carapicuíba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_78ce58cec9e69939085ed5bef297c36f.setContent(html_1fa80c6c1db0399f4c3cc1ced1e13373);
+            
+        
+
+        circle_marker_aa667cceaa9edf02114728c50ba86586.bindPopup(popup_78ce58cec9e69939085ed5bef297c36f)
+        ;
+
+        
+    
+    
+            var circle_marker_21ebd1ec095c068f901fa50835135b34 = L.circleMarker(
+                [-22.263650000000002, -47.821255],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_18d31127d40c5709540a3c8be0d37067 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca0046471337059f6f4818579e8c636a = $(`<div id="html_ca0046471337059f6f4818579e8c636a" style="width: 100.0%; height: 100.0%;">Itirapina<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_18d31127d40c5709540a3c8be0d37067.setContent(html_ca0046471337059f6f4818579e8c636a);
+            
+        
+
+        circle_marker_21ebd1ec095c068f901fa50835135b34.bindPopup(popup_18d31127d40c5709540a3c8be0d37067)
+        ;
+
+        
+    
+    
+            var circle_marker_7e04e2f3530213eb68532b55fd738970 = L.circleMarker(
+                [-23.196779000000003, -45.885452],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_dbb0a14e36ef43667748c8f4897f7459);
+        
+    
+        var popup_65ae8892bd669a7b17a3e08ce29b730e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15a89b39db3811b7a674acf30e1c239c = $(`<div id="html_15a89b39db3811b7a674acf30e1c239c" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Fevereiro)</div>`)[0];
+                popup_65ae8892bd669a7b17a3e08ce29b730e.setContent(html_15a89b39db3811b7a674acf30e1c239c);
+            
+        
+
+        circle_marker_7e04e2f3530213eb68532b55fd738970.bindPopup(popup_65ae8892bd669a7b17a3e08ce29b730e)
+        ;
+
+        
+    
+    
+            var feature_group_0958c32fb0f4b46325502643aecb92fc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9373ef77539c5410b5ee3dfc6a1a075c = L.circleMarker(
+                [-23.221390000000003, -46.818335000000005],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_f24a453da73861af1f82e6e9469b0be3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df61f097b4c03ebb5c25f3417444d677 = $(`<div id="html_df61f097b4c03ebb5c25f3417444d677" style="width: 100.0%; height: 100.0%;">Várzea Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_f24a453da73861af1f82e6e9469b0be3.setContent(html_df61f097b4c03ebb5c25f3417444d677);
+            
+        
+
+        circle_marker_9373ef77539c5410b5ee3dfc6a1a075c.bindPopup(popup_f24a453da73861af1f82e6e9469b0be3)
+        ;
+
+        
+    
+    
+            var circle_marker_81417cf5f8d5f5cac68f69dcbd25d865 = L.circleMarker(
+                [-23.560652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_e35e25b915e2b359eb64d40827014e43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9ce9d807e2caa03ad32a7241117ae7f8 = $(`<div id="html_9ce9d807e2caa03ad32a7241117ae7f8" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 2 (Marco)</div>`)[0];
+                popup_e35e25b915e2b359eb64d40827014e43.setContent(html_9ce9d807e2caa03ad32a7241117ae7f8);
+            
+        
+
+        circle_marker_81417cf5f8d5f5cac68f69dcbd25d865.bindPopup(popup_e35e25b915e2b359eb64d40827014e43)
+        ;
+
+        
+    
+    
+            var circle_marker_6fc04cc6b372061e98248c1dc56bdf07 = L.circleMarker(
+                [-23.659529000000003, -46.842848000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_aad8ef139ab62547d7602a22d50ff298 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5028732e8fb64208eabde62f954bdcc8 = $(`<div id="html_5028732e8fb64208eabde62f954bdcc8" style="width: 100.0%; height: 100.0%;">Embu das Artes<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_aad8ef139ab62547d7602a22d50ff298.setContent(html_5028732e8fb64208eabde62f954bdcc8);
+            
+        
+
+        circle_marker_6fc04cc6b372061e98248c1dc56bdf07.bindPopup(popup_aad8ef139ab62547d7602a22d50ff298)
+        ;
+
+        
+    
+    
+            var circle_marker_3f3b3769e1f5b2ecc5799a49024796f2 = L.circleMarker(
+                [-23.477594, -46.51777],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_db60cf086b70ed8f8f440397caf6c041 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27314dfe7d60dac0ec355a2e1067b13b = $(`<div id="html_27314dfe7d60dac0ec355a2e1067b13b" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_db60cf086b70ed8f8f440397caf6c041.setContent(html_27314dfe7d60dac0ec355a2e1067b13b);
+            
+        
+
+        circle_marker_3f3b3769e1f5b2ecc5799a49024796f2.bindPopup(popup_db60cf086b70ed8f8f440397caf6c041)
+        ;
+
+        
+    
+    
+            var circle_marker_4a9da6b6674dd786c7b30082f191dc38 = L.circleMarker(
+                [-23.558880000000002, -46.923887],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_e9f7c1c3400e8ccfe83d1adba309ca38 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa0f2ffeb077510982a6c2d4a7b6d467 = $(`<div id="html_aa0f2ffeb077510982a6c2d4a7b6d467" style="width: 100.0%; height: 100.0%;">Itapevi<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_e9f7c1c3400e8ccfe83d1adba309ca38.setContent(html_aa0f2ffeb077510982a6c2d4a7b6d467);
+            
+        
+
+        circle_marker_4a9da6b6674dd786c7b30082f191dc38.bindPopup(popup_e9f7c1c3400e8ccfe83d1adba309ca38)
+        ;
+
+        
+    
+    
+            var circle_marker_6ada2773b4a4c684e6f44038ca42368e = L.circleMarker(
+                [-20.260710000000003, -47.470877],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_60822bed00e3ef4fe1aff1c74155974d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02764ef1771cbd0bf53587c43ade12be = $(`<div id="html_02764ef1771cbd0bf53587c43ade12be" style="width: 100.0%; height: 100.0%;">Pedregulho<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_60822bed00e3ef4fe1aff1c74155974d.setContent(html_02764ef1771cbd0bf53587c43ade12be);
+            
+        
+
+        circle_marker_6ada2773b4a4c684e6f44038ca42368e.bindPopup(popup_60822bed00e3ef4fe1aff1c74155974d)
+        ;
+
+        
+    
+    
+            var circle_marker_e84da05480e783679ab175139c18f3f2 = L.circleMarker(
+                [-21.187631000000003, -47.800097],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_522ba2660730a200fd671d39b7961ed0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e515881b64d4391e1de4fb438c1e6141 = $(`<div id="html_e515881b64d4391e1de4fb438c1e6141" style="width: 100.0%; height: 100.0%;">Ribeirão Preto<br>HOMICÍDIO CULPOSO OUTROS: 2 (Marco)</div>`)[0];
+                popup_522ba2660730a200fd671d39b7961ed0.setContent(html_e515881b64d4391e1de4fb438c1e6141);
+            
+        
+
+        circle_marker_e84da05480e783679ab175139c18f3f2.bindPopup(popup_522ba2660730a200fd671d39b7961ed0)
+        ;
+
+        
+    
+    
+            var circle_marker_7b4865b1a835cea8ff4e2b0354af2543 = L.circleMarker(
+                [-21.147579, -47.981375],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_21f7214f41ad3457463e71c59473eb53 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d277dd9415b18753b2be41227472c8dd = $(`<div id="html_d277dd9415b18753b2be41227472c8dd" style="width: 100.0%; height: 100.0%;">Sertãozinho<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_21f7214f41ad3457463e71c59473eb53.setContent(html_d277dd9415b18753b2be41227472c8dd);
+            
+        
+
+        circle_marker_7b4865b1a835cea8ff4e2b0354af2543.bindPopup(popup_21f7214f41ad3457463e71c59473eb53)
+        ;
+
+        
+    
+    
+            var circle_marker_4dc45b829733ecfb542b537343cd86d2 = L.circleMarker(
+                [-23.114520000000002, -48.915910000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_ed8824d09889b5d84468be65f4bd18c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7d8501488523e29c6ce159fc982d9c5 = $(`<div id="html_d7d8501488523e29c6ce159fc982d9c5" style="width: 100.0%; height: 100.0%;">Avaré<br>HOMICÍDIO CULPOSO OUTROS: 2 (Marco)</div>`)[0];
+                popup_ed8824d09889b5d84468be65f4bd18c2.setContent(html_d7d8501488523e29c6ce159fc982d9c5);
+            
+        
+
+        circle_marker_4dc45b829733ecfb542b537343cd86d2.bindPopup(popup_ed8824d09889b5d84468be65f4bd18c2)
+        ;
+
+        
+    
+    
+            var circle_marker_feb298ffa397e33fe2e46f38c6152da1 = L.circleMarker(
+                [-23.400162, -48.710867],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_a83350ad941481e1ec06357515bb569e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e085bab1a7f5b592503dd103e0081d9 = $(`<div id="html_3e085bab1a7f5b592503dd103e0081d9" style="width: 100.0%; height: 100.0%;">Paranapanema<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_a83350ad941481e1ec06357515bb569e.setContent(html_3e085bab1a7f5b592503dd103e0081d9);
+            
+        
+
+        circle_marker_feb298ffa397e33fe2e46f38c6152da1.bindPopup(popup_a83350ad941481e1ec06357515bb569e)
+        ;
+
+        
+    
+    
+            var circle_marker_f43ffbf1a8ebf482cd9b1209a8f43dff = L.circleMarker(
+                [-20.277178000000003, -50.539244000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_bd11bf860e8e1346597918fc4e65b66d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_379939075da4bf09aba754f3b750923c = $(`<div id="html_379939075da4bf09aba754f3b750923c" style="width: 100.0%; height: 100.0%;">Jales<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_bd11bf860e8e1346597918fc4e65b66d.setContent(html_379939075da4bf09aba754f3b750923c);
+            
+        
+
+        circle_marker_f43ffbf1a8ebf482cd9b1209a8f43dff.bindPopup(popup_bd11bf860e8e1346597918fc4e65b66d)
+        ;
+
+        
+    
+    
+            var circle_marker_5e9e2eb75498b026bbfbff71f0e96e34 = L.circleMarker(
+                [-23.443163000000002, -45.073416],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0958c32fb0f4b46325502643aecb92fc);
+        
+    
+        var popup_bc886799fa445b8dcbf6b2ba9d8ad038 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c46bbc0652ab0608827f91eaf0fb0d05 = $(`<div id="html_c46bbc0652ab0608827f91eaf0fb0d05" style="width: 100.0%; height: 100.0%;">Ubatuba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Marco)</div>`)[0];
+                popup_bc886799fa445b8dcbf6b2ba9d8ad038.setContent(html_c46bbc0652ab0608827f91eaf0fb0d05);
+            
+        
+
+        circle_marker_5e9e2eb75498b026bbfbff71f0e96e34.bindPopup(popup_bc886799fa445b8dcbf6b2ba9d8ad038)
+        ;
+
+        
+    
+    
+            var feature_group_4ddfbbb381cd6b5fc4e099926f0f2235 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6a73b5d4e2f45fd18b954507adef08dd = L.circleMarker(
+                [-21.569464, -50.428624],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_a3dd1bf6d7ed312348ba6cb4812552e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54c45b07769734617faf1e3099e9f4c1 = $(`<div id="html_54c45b07769734617faf1e3099e9f4c1" style="width: 100.0%; height: 100.0%;">Clementina<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_a3dd1bf6d7ed312348ba6cb4812552e3.setContent(html_54c45b07769734617faf1e3099e9f4c1);
+            
+        
+
+        circle_marker_6a73b5d4e2f45fd18b954507adef08dd.bindPopup(popup_a3dd1bf6d7ed312348ba6cb4812552e3)
+        ;
+
+        
+    
+    
+            var circle_marker_7b5c4fae2c6c06a3b4a227d35dfe0640 = L.circleMarker(
+                [-23.21779, -46.768918],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_9c6c6b2b6ad3a9f64f65a0b6a602c4de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c22c462d4412e6dbc5e5c3779eb50166 = $(`<div id="html_c22c462d4412e6dbc5e5c3779eb50166" style="width: 100.0%; height: 100.0%;">Campo Limpo Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_9c6c6b2b6ad3a9f64f65a0b6a602c4de.setContent(html_c22c462d4412e6dbc5e5c3779eb50166);
+            
+        
+
+        circle_marker_7b5c4fae2c6c06a3b4a227d35dfe0640.bindPopup(popup_9c6c6b2b6ad3a9f64f65a0b6a602c4de)
+        ;
+
+        
+    
+    
+            var circle_marker_a0ed6269b2edbcdb93ed3ff9521ab09e = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_24a3d51ae10c6ba49e4e6da60c425a5c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89a4ebfc9c71f50b7377d1ceb79fb5e1 = $(`<div id="html_89a4ebfc9c71f50b7377d1ceb79fb5e1" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 5 (Abril)</div>`)[0];
+                popup_24a3d51ae10c6ba49e4e6da60c425a5c.setContent(html_89a4ebfc9c71f50b7377d1ceb79fb5e1);
+            
+        
+
+        circle_marker_a0ed6269b2edbcdb93ed3ff9521ab09e.bindPopup(popup_24a3d51ae10c6ba49e4e6da60c425a5c)
+        ;
+
+        
+    
+    
+            var circle_marker_2ebd7accd19d3a4fc707882fc2fd314d = L.circleMarker(
+                [-23.477594, -46.507769999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_4a55006fbc327dc5921e369a077ea852 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e4ee720de718b42764e03910442b651 = $(`<div id="html_3e4ee720de718b42764e03910442b651" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_4a55006fbc327dc5921e369a077ea852.setContent(html_3e4ee720de718b42764e03910442b651);
+            
+        
+
+        circle_marker_2ebd7accd19d3a4fc707882fc2fd314d.bindPopup(popup_4a55006fbc327dc5921e369a077ea852)
+        ;
+
+        
+    
+    
+            var circle_marker_f3d44ec966d3465cad1c199bf493845e = L.circleMarker(
+                [-23.533428, -46.17267],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_10463f712c9bef253698dd37c4c76378 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c2d8c40fc622ba15ab40661cbfcb6c80 = $(`<div id="html_c2d8c40fc622ba15ab40661cbfcb6c80" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_10463f712c9bef253698dd37c4c76378.setContent(html_c2d8c40fc622ba15ab40661cbfcb6c80);
+            
+        
+
+        circle_marker_f3d44ec966d3465cad1c199bf493845e.bindPopup(popup_10463f712c9bef253698dd37c4c76378)
+        ;
+
+        
+    
+    
+            var circle_marker_2d2634b5a5a116a511bec667c136a057 = L.circleMarker(
+                [-21.538112, -46.623402],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_4bcc5331e28cac3dbf63f170d619bacc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cc919d18bdbc213db8956f9ad5e49cd = $(`<div id="html_6cc919d18bdbc213db8956f9ad5e49cd" style="width: 100.0%; height: 100.0%;">Caconde<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_4bcc5331e28cac3dbf63f170d619bacc.setContent(html_6cc919d18bdbc213db8956f9ad5e49cd);
+            
+        
+
+        circle_marker_2d2634b5a5a116a511bec667c136a057.bindPopup(popup_4bcc5331e28cac3dbf63f170d619bacc)
+        ;
+
+        
+    
+    
+            var circle_marker_2eed426608683c983c330dc02c704c8c = L.circleMarker(
+                [-22.790575, -47.279379999999996],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_d6bcce8ed08bca75f82d560542b10695 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eaab9c877e49dd220958f5f08bc2f28e = $(`<div id="html_eaab9c877e49dd220958f5f08bc2f28e" style="width: 100.0%; height: 100.0%;">Nova Odessa<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_d6bcce8ed08bca75f82d560542b10695.setContent(html_eaab9c877e49dd220958f5f08bc2f28e);
+            
+        
+
+        circle_marker_2eed426608683c983c330dc02c704c8c.bindPopup(popup_d6bcce8ed08bca75f82d560542b10695)
+        ;
+
+        
+    
+    
+            var circle_marker_a8e283375169b515202204675437898e = L.circleMarker(
+                [-22.735164, -47.629326],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_e8dd8332d05043bcd18de1ad030bcc74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_acdc6dbe36b725f4096de7c23f2e1151 = $(`<div id="html_acdc6dbe36b725f4096de7c23f2e1151" style="width: 100.0%; height: 100.0%;">Piracicaba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_e8dd8332d05043bcd18de1ad030bcc74.setContent(html_acdc6dbe36b725f4096de7c23f2e1151);
+            
+        
+
+        circle_marker_a8e283375169b515202204675437898e.bindPopup(popup_e8dd8332d05043bcd18de1ad030bcc74)
+        ;
+
+        
+    
+    
+            var circle_marker_57871cd2f096332991ad44ddc3655a93 = L.circleMarker(
+                [-20.548177000000003, -47.380978],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_7210f4ee881b9911866c3dd94eac040f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea21fe0a1b27d3a1f474e7bef391fe2c = $(`<div id="html_ea21fe0a1b27d3a1f474e7bef391fe2c" style="width: 100.0%; height: 100.0%;">Franca<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_7210f4ee881b9911866c3dd94eac040f.setContent(html_ea21fe0a1b27d3a1f474e7bef391fe2c);
+            
+        
+
+        circle_marker_57871cd2f096332991ad44ddc3655a93.bindPopup(popup_7210f4ee881b9911866c3dd94eac040f)
+        ;
+
+        
+    
+    
+            var circle_marker_b0c961b987069730cdde832f7e331724 = L.circleMarker(
+                [-21.147579, -47.971374999999995],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_22f9fa3ab2dfbe81e884e8e38207c7ec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4441fe71176c9e923810ebae3e1713f1 = $(`<div id="html_4441fe71176c9e923810ebae3e1713f1" style="width: 100.0%; height: 100.0%;">Sertãozinho<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_22f9fa3ab2dfbe81e884e8e38207c7ec.setContent(html_4441fe71176c9e923810ebae3e1713f1);
+            
+        
+
+        circle_marker_b0c961b987069730cdde832f7e331724.bindPopup(popup_22f9fa3ab2dfbe81e884e8e38207c7ec)
+        ;
+
+        
+    
+    
+            var circle_marker_db7383e12cc43e702143d890c103ce6b = L.circleMarker(
+                [-21.888801, -47.836762],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_f09d4bdefb77a41c264c40ea861dbb5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c57f6a022f1c807400df7d671eef650 = $(`<div id="html_3c57f6a022f1c807400df7d671eef650" style="width: 100.0%; height: 100.0%;">São Carlos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_f09d4bdefb77a41c264c40ea861dbb5f.setContent(html_3c57f6a022f1c807400df7d671eef650);
+            
+        
+
+        circle_marker_db7383e12cc43e702143d890c103ce6b.bindPopup(popup_f09d4bdefb77a41c264c40ea861dbb5f)
+        ;
+
+        
+    
+    
+            var circle_marker_6fc93ff0c36b22f124b2a9f24f9357e3 = L.circleMarker(
+                [-21.416433, -48.485609999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_6a09d80b25629f2715764310d419815f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a02af22963f927175466b8f650c15cfb = $(`<div id="html_a02af22963f927175466b8f650c15cfb" style="width: 100.0%; height: 100.0%;">Taquaritinga<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_6a09d80b25629f2715764310d419815f.setContent(html_a02af22963f927175466b8f650c15cfb);
+            
+        
+
+        circle_marker_6fc93ff0c36b22f124b2a9f24f9357e3.bindPopup(popup_6a09d80b25629f2715764310d419815f)
+        ;
+
+        
+    
+    
+            var circle_marker_7bbe916fb22e78c8c8c332ac722a6a2d = L.circleMarker(
+                [-24.105945000000002, -46.603435999999995],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_aebef41b1ccb8d0d6d319000a3618a9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dac02a9a470070ed156b7c4bba7edb37 = $(`<div id="html_dac02a9a470070ed156b7c4bba7edb37" style="width: 100.0%; height: 100.0%;">Mongaguá<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_aebef41b1ccb8d0d6d319000a3618a9d.setContent(html_dac02a9a470070ed156b7c4bba7edb37);
+            
+        
+
+        circle_marker_7bbe916fb22e78c8c8c332ac722a6a2d.bindPopup(popup_aebef41b1ccb8d0d6d319000a3618a9d)
+        ;
+
+        
+    
+    
+            var circle_marker_16e0e158232670f9bc8486088e2cfd48 = L.circleMarker(
+                [-23.114520000000002, -48.90591],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_38d94a41956e75fbb8b815ce9f6fc6ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24be0e055657c51f483a667c5d88f8b7 = $(`<div id="html_24be0e055657c51f483a667c5d88f8b7" style="width: 100.0%; height: 100.0%;">Avaré<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_38d94a41956e75fbb8b815ce9f6fc6ca.setContent(html_24be0e055657c51f483a667c5d88f8b7);
+            
+        
+
+        circle_marker_16e0e158232670f9bc8486088e2cfd48.bindPopup(popup_38d94a41956e75fbb8b815ce9f6fc6ca)
+        ;
+
+        
+    
+    
+            var circle_marker_58b2e5dd2cdf13c73b0d003ebbcff246 = L.circleMarker(
+                [-23.543731, -49.225255],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_db55ea6a8a38cad9702045c68479652f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1878849f2d8cbbce5101ef057d9f4ff9 = $(`<div id="html_1878849f2d8cbbce5101ef057d9f4ff9" style="width: 100.0%; height: 100.0%;">Taquarituba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_db55ea6a8a38cad9702045c68479652f.setContent(html_1878849f2d8cbbce5101ef057d9f4ff9);
+            
+        
+
+        circle_marker_58b2e5dd2cdf13c73b0d003ebbcff246.bindPopup(popup_db55ea6a8a38cad9702045c68479652f)
+        ;
+
+        
+    
+    
+            var circle_marker_8f0078b7abc89e44e2df8f5c1e03a314 = L.circleMarker(
+                [-20.292564000000002, -50.230076],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ddfbbb381cd6b5fc4e099926f0f2235);
+        
+    
+        var popup_4eba7bb530a6f6296f9746de50a6111f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73f98f303601304434f1df714b640c5c = $(`<div id="html_73f98f303601304434f1df714b640c5c" style="width: 100.0%; height: 100.0%;">Fernandópolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Abril)</div>`)[0];
+                popup_4eba7bb530a6f6296f9746de50a6111f.setContent(html_73f98f303601304434f1df714b640c5c);
+            
+        
+
+        circle_marker_8f0078b7abc89e44e2df8f5c1e03a314.bindPopup(popup_4eba7bb530a6f6296f9746de50a6111f)
+        ;
+
+        
+    
+    
+            var feature_group_52127b79a2b6859e24e2a138565dbc49 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1593560e609d83c3eb1e1e4f7cc2b3bd = L.circleMarker(
+                [-21.41924, -50.086557],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_6030bf58f0fba7f6c7c0354ee0cdd000 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dff4ebf387b01b6f3e9adda0fe90b8d9 = $(`<div id="html_dff4ebf387b01b6f3e9adda0fe90b8d9" style="width: 100.0%; height: 100.0%;">Penápolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_6030bf58f0fba7f6c7c0354ee0cdd000.setContent(html_dff4ebf387b01b6f3e9adda0fe90b8d9);
+            
+        
+
+        circle_marker_1593560e609d83c3eb1e1e4f7cc2b3bd.bindPopup(popup_6030bf58f0fba7f6c7c0354ee0cdd000)
+        ;
+
+        
+    
+    
+            var circle_marker_6d89ba57bd74e7c40fc06acbabc68809 = L.circleMarker(
+                [-21.223038, -50.876639999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_1cf067d399731691994083fa4d33154e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6889c5b21daa07cddeab98a0b6988229 = $(`<div id="html_6889c5b21daa07cddeab98a0b6988229" style="width: 100.0%; height: 100.0%;">Valparaíso<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_1cf067d399731691994083fa4d33154e.setContent(html_6889c5b21daa07cddeab98a0b6988229);
+            
+        
+
+        circle_marker_6d89ba57bd74e7c40fc06acbabc68809.bindPopup(popup_1cf067d399731691994083fa4d33154e)
+        ;
+
+        
+    
+    
+            var circle_marker_e2abe84598410a17c612410749fb8363 = L.circleMarker(
+                [-22.70111, -46.77444],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_d6084fb39335c179e8e5f9bfb9ae871a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_32dd2ad2b3cfdd2bb3000cfdb36a26c6 = $(`<div id="html_32dd2ad2b3cfdd2bb3000cfdb36a26c6" style="width: 100.0%; height: 100.0%;">Amparo<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_d6084fb39335c179e8e5f9bfb9ae871a.setContent(html_32dd2ad2b3cfdd2bb3000cfdb36a26c6);
+            
+        
+
+        circle_marker_e2abe84598410a17c612410749fb8363.bindPopup(popup_d6084fb39335c179e8e5f9bfb9ae871a)
+        ;
+
+        
+    
+    
+            var circle_marker_e0797893ea779553e8a7ae8b4529c14f = L.circleMarker(
+                [-22.90564, -47.069562999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_bcc6551c39e45f82acd8f49360fbae07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ace773145e5d1c2cfd5c065fd1c5d506 = $(`<div id="html_ace773145e5d1c2cfd5c065fd1c5d506" style="width: 100.0%; height: 100.0%;">Campinas<br>HOMICÍDIO CULPOSO OUTROS: 2 (Maio)</div>`)[0];
+                popup_bcc6551c39e45f82acd8f49360fbae07.setContent(html_ace773145e5d1c2cfd5c065fd1c5d506);
+            
+        
+
+        circle_marker_e0797893ea779553e8a7ae8b4529c14f.bindPopup(popup_bcc6551c39e45f82acd8f49360fbae07)
+        ;
+
+        
+    
+    
+            var circle_marker_ba69c29ce512d5092e5d6189bac80cc1 = L.circleMarker(
+                [-23.550652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_b36ed62980fe544639e2754e6221a050 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12bbe3c63132a54f7643a87d8a3215ce = $(`<div id="html_12bbe3c63132a54f7643a87d8a3215ce" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 5 (Maio)</div>`)[0];
+                popup_b36ed62980fe544639e2754e6221a050.setContent(html_12bbe3c63132a54f7643a87d8a3215ce);
+            
+        
+
+        circle_marker_ba69c29ce512d5092e5d6189bac80cc1.bindPopup(popup_b36ed62980fe544639e2754e6221a050)
+        ;
+
+        
+    
+    
+            var circle_marker_c38bc42a1ad2d43911aeead2c28746a9 = L.circleMarker(
+                [-23.364462, -46.758478],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_2eb4b17b7be912f8b88688fa8e5c1ada = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc6d0401066e69503404f089064a692b = $(`<div id="html_dc6d0401066e69503404f089064a692b" style="width: 100.0%; height: 100.0%;">Caieiras<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_2eb4b17b7be912f8b88688fa8e5c1ada.setContent(html_dc6d0401066e69503404f089064a692b);
+            
+        
+
+        circle_marker_c38bc42a1ad2d43911aeead2c28746a9.bindPopup(popup_2eb4b17b7be912f8b88688fa8e5c1ada)
+        ;
+
+        
+    
+    
+            var circle_marker_7372d8eb2b70ebee36b0d5ccd9feb888 = L.circleMarker(
+                [-23.28173, -46.7549],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_149c3f090bc4fdeb79f9a788feb73275 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7660f590403b56bca7a5e14917691759 = $(`<div id="html_7660f590403b56bca7a5e14917691759" style="width: 100.0%; height: 100.0%;">Francisco Morato<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_149c3f090bc4fdeb79f9a788feb73275.setContent(html_7660f590403b56bca7a5e14917691759);
+            
+        
+
+        circle_marker_7372d8eb2b70ebee36b0d5ccd9feb888.bindPopup(popup_149c3f090bc4fdeb79f9a788feb73275)
+        ;
+
+        
+    
+    
+            var circle_marker_9a95024d18e55c4ad0d1c7205dcdedc5 = L.circleMarker(
+                [-23.467594, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_2562ec72af2963ddedbd1f1eb8c512fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_623088a85741259aad0e58fc5af74940 = $(`<div id="html_623088a85741259aad0e58fc5af74940" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 2 (Maio)</div>`)[0];
+                popup_2562ec72af2963ddedbd1f1eb8c512fb.setContent(html_623088a85741259aad0e58fc5af74940);
+            
+        
+
+        circle_marker_9a95024d18e55c4ad0d1c7205dcdedc5.bindPopup(popup_2562ec72af2963ddedbd1f1eb8c512fb)
+        ;
+
+        
+    
+    
+            var circle_marker_9e9f180c4fe1512313802cfdfb9e088f = L.circleMarker(
+                [-23.523428, -46.20267],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_effedee0b48ee947d5c6f240038ee16e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_99d973ad5463ce50880fb59103a298f3 = $(`<div id="html_99d973ad5463ce50880fb59103a298f3" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_effedee0b48ee947d5c6f240038ee16e.setContent(html_99d973ad5463ce50880fb59103a298f3);
+            
+        
+
+        circle_marker_9e9f180c4fe1512313802cfdfb9e088f.bindPopup(popup_effedee0b48ee947d5c6f240038ee16e)
+        ;
+
+        
+    
+    
+            var circle_marker_9a695974c9a66bcbce705a1fc7b59057 = L.circleMarker(
+                [-23.708035, -46.560674],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_0bc47c626c4b8821f9808dcb3a2eb9cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bf6e4b5ba9e3fd4b6f08d314ea7f0401 = $(`<div id="html_bf6e4b5ba9e3fd4b6f08d314ea7f0401" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_0bc47c626c4b8821f9808dcb3a2eb9cf.setContent(html_bf6e4b5ba9e3fd4b6f08d314ea7f0401);
+            
+        
+
+        circle_marker_9a695974c9a66bcbce705a1fc7b59057.bindPopup(popup_0bc47c626c4b8821f9808dcb3a2eb9cf)
+        ;
+
+        
+    
+    
+            var circle_marker_b698e6e29fa6bbc4b19cc1b711cfc76d = L.circleMarker(
+                [-22.18448, -47.395295999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_de3448bde0be90d283ede2ab1bf3de3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_86348c8b9e2b1a1657190267998780b3 = $(`<div id="html_86348c8b9e2b1a1657190267998780b3" style="width: 100.0%; height: 100.0%;">Leme<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_de3448bde0be90d283ede2ab1bf3de3c.setContent(html_86348c8b9e2b1a1657190267998780b3);
+            
+        
+
+        circle_marker_b698e6e29fa6bbc4b19cc1b711cfc76d.bindPopup(popup_de3448bde0be90d283ede2ab1bf3de3c)
+        ;
+
+        
+    
+    
+            var circle_marker_c4406bd2c45289ebf85eb6c0c70b46cc = L.circleMarker(
+                [-21.788671, -48.18731],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_fb493e25c7fb9ad41a3c89ca581198c7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de9d0b13e541872defff991aa6c1c790 = $(`<div id="html_de9d0b13e541872defff991aa6c1c790" style="width: 100.0%; height: 100.0%;">Araraquara<br>HOMICÍDIO CULPOSO OUTROS: 2 (Maio)</div>`)[0];
+                popup_fb493e25c7fb9ad41a3c89ca581198c7.setContent(html_de9d0b13e541872defff991aa6c1c790);
+            
+        
+
+        circle_marker_c4406bd2c45289ebf85eb6c0c70b46cc.bindPopup(popup_fb493e25c7fb9ad41a3c89ca581198c7)
+        ;
+
+        
+    
+    
+            var circle_marker_f5ee356238aa5f939237e5e41e80d9ca = L.circleMarker(
+                [-20.17743, -48.697283],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_56a8968e52a6672a1fc6931b177867c4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1659ab17047b50c34d8926c58f0ec24b = $(`<div id="html_1659ab17047b50c34d8926c58f0ec24b" style="width: 100.0%; height: 100.0%;">Colômbia<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_56a8968e52a6672a1fc6931b177867c4.setContent(html_1659ab17047b50c34d8926c58f0ec24b);
+            
+        
+
+        circle_marker_f5ee356238aa5f939237e5e41e80d9ca.bindPopup(popup_56a8968e52a6672a1fc6931b177867c4)
+        ;
+
+        
+    
+    
+            var circle_marker_bc1475f5760ead6310e46f83c1ab444f = L.circleMarker(
+                [-21.545624, -47.791371999999996],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_76e15df41111ac6da6bfc934e186d3e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6227784c4419047a57cd5949b30c188 = $(`<div id="html_e6227784c4419047a57cd5949b30c188" style="width: 100.0%; height: 100.0%;">Luís Antônio<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_76e15df41111ac6da6bfc934e186d3e0.setContent(html_e6227784c4419047a57cd5949b30c188);
+            
+        
+
+        circle_marker_bc1475f5760ead6310e46f83c1ab444f.bindPopup(popup_76e15df41111ac6da6bfc934e186d3e0)
+        ;
+
+        
+    
+    
+            var circle_marker_c5919d17183d83646c8c31c09e96a096 = L.circleMarker(
+                [-25.010462, -47.941564],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_dc54a0122d85660c5cde1d2370e00a4c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_425655818a7061ba496d87c5d1be075d = $(`<div id="html_425655818a7061ba496d87c5d1be075d" style="width: 100.0%; height: 100.0%;">Cananéia<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_dc54a0122d85660c5cde1d2370e00a4c.setContent(html_425655818a7061ba496d87c5d1be075d);
+            
+        
+
+        circle_marker_c5919d17183d83646c8c31c09e96a096.bindPopup(popup_dc54a0122d85660c5cde1d2370e00a4c)
+        ;
+
+        
+    
+    
+            var circle_marker_4e97bc23cf1241ea2eab9a8053265423 = L.circleMarker(
+                [-22.887962, -48.45107],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_864b07b9f1175c949134c1f32e7efa04 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5db65f15306f99909d6fcf198159b4f5 = $(`<div id="html_5db65f15306f99909d6fcf198159b4f5" style="width: 100.0%; height: 100.0%;">Botucatu<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_864b07b9f1175c949134c1f32e7efa04.setContent(html_5db65f15306f99909d6fcf198159b4f5);
+            
+        
+
+        circle_marker_4e97bc23cf1241ea2eab9a8053265423.bindPopup(popup_864b07b9f1175c949134c1f32e7efa04)
+        ;
+
+        
+    
+    
+            var circle_marker_64870e723ec00d544cc3e24f710e4ecb = L.circleMarker(
+                [-20.029593, -49.409859999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_02d294d26b1e9815cde1133607181c32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cb83e1a0ddd8caf2328ebbe52b0d768 = $(`<div id="html_0cb83e1a0ddd8caf2328ebbe52b0d768" style="width: 100.0%; height: 100.0%;">Paulo de Faria<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_02d294d26b1e9815cde1133607181c32.setContent(html_0cb83e1a0ddd8caf2328ebbe52b0d768);
+            
+        
+
+        circle_marker_64870e723ec00d544cc3e24f710e4ecb.bindPopup(popup_02d294d26b1e9815cde1133607181c32)
+        ;
+
+        
+    
+    
+            var circle_marker_6a7fd64621907b1e571ba30102885769 = L.circleMarker(
+                [-20.812586, -49.39042],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_afceb75fd7ef5acc4d60303cb82dac79 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e005d89fff0c37d1cffd8d1af9d936b6 = $(`<div id="html_e005d89fff0c37d1cffd8d1af9d936b6" style="width: 100.0%; height: 100.0%;">São José do Rio Preto<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_afceb75fd7ef5acc4d60303cb82dac79.setContent(html_e005d89fff0c37d1cffd8d1af9d936b6);
+            
+        
+
+        circle_marker_6a7fd64621907b1e571ba30102885769.bindPopup(popup_afceb75fd7ef5acc4d60303cb82dac79)
+        ;
+
+        
+    
+    
+            var circle_marker_097cd7596e369518b6618c356122b6ec = L.circleMarker(
+                [-23.186779, -45.895452],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52127b79a2b6859e24e2a138565dbc49);
+        
+    
+        var popup_eb26f1324e6c4ef4fcb7390d3a48c09b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_acb5f7d146d5f50e91bc46e661364eec = $(`<div id="html_acb5f7d146d5f50e91bc46e661364eec" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Maio)</div>`)[0];
+                popup_eb26f1324e6c4ef4fcb7390d3a48c09b.setContent(html_acb5f7d146d5f50e91bc46e661364eec);
+            
+        
+
+        circle_marker_097cd7596e369518b6618c356122b6ec.bindPopup(popup_eb26f1324e6c4ef4fcb7390d3a48c09b)
+        ;
+
+        
+    
+    
+            var feature_group_c3134913c717b58742d3ba01578ec27b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c71e8de3178740467c479aa34471059a = L.circleMarker(
+                [-21.41924, -50.076557],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_6dde3660d7acfc84eb6bd7992b73b13c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f9f45f4eb4e5b6d375b779038f41e848 = $(`<div id="html_f9f45f4eb4e5b6d375b779038f41e848" style="width: 100.0%; height: 100.0%;">Penápolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_6dde3660d7acfc84eb6bd7992b73b13c.setContent(html_f9f45f4eb4e5b6d375b779038f41e848);
+            
+        
+
+        circle_marker_c71e8de3178740467c479aa34471059a.bindPopup(popup_6dde3660d7acfc84eb6bd7992b73b13c)
+        ;
+
+        
+    
+    
+            var circle_marker_1f3533854c6758f497d9da1104174a8b = L.circleMarker(
+                [-22.977793, -49.868202],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_51de25312c0b23a4c36ee65c1da058d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11170a0d2950168a7afe9ac30350fb3c = $(`<div id="html_11170a0d2950168a7afe9ac30350fb3c" style="width: 100.0%; height: 100.0%;">Ourinhos<br>HOMICÍDIO CULPOSO OUTROS: 2 (Junho)</div>`)[0];
+                popup_51de25312c0b23a4c36ee65c1da058d2.setContent(html_11170a0d2950168a7afe9ac30350fb3c);
+            
+        
+
+        circle_marker_1f3533854c6758f497d9da1104174a8b.bindPopup(popup_51de25312c0b23a4c36ee65c1da058d2)
+        ;
+
+        
+    
+    
+            var circle_marker_16f68598d9987c925d49a475305c29d3 = L.circleMarker(
+                [-22.97056, -46.99583],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_dad323a9b17065b9e5d037c9cdfad063 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7adf1031491d712857ca55fc5204541c = $(`<div id="html_7adf1031491d712857ca55fc5204541c" style="width: 100.0%; height: 100.0%;">Valinhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_dad323a9b17065b9e5d037c9cdfad063.setContent(html_7adf1031491d712857ca55fc5204541c);
+            
+        
+
+        circle_marker_16f68598d9987c925d49a475305c29d3.bindPopup(popup_dad323a9b17065b9e5d037c9cdfad063)
+        ;
+
+        
+    
+    
+            var circle_marker_1d3d17de8b4877413dfadf2ec98fae60 = L.circleMarker(
+                [-23.21139, -46.828335],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_3c2cdaa56a15ed032c920da63e9712b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ccd75e8b37733e9f1f3d030657f52c8 = $(`<div id="html_2ccd75e8b37733e9f1f3d030657f52c8" style="width: 100.0%; height: 100.0%;">Várzea Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_3c2cdaa56a15ed032c920da63e9712b3.setContent(html_2ccd75e8b37733e9f1f3d030657f52c8);
+            
+        
+
+        circle_marker_1d3d17de8b4877413dfadf2ec98fae60.bindPopup(popup_3c2cdaa56a15ed032c920da63e9712b3)
+        ;
+
+        
+    
+    
+            var circle_marker_eca6634810300a80ea5ff0b384021962 = L.circleMarker(
+                [-23.550652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_8c77befa447ed56008fe0386b3167624 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_83c1b7f5eeb89457608bb5875f8954ca = $(`<div id="html_83c1b7f5eeb89457608bb5875f8954ca" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 4 (Junho)</div>`)[0];
+                popup_8c77befa447ed56008fe0386b3167624.setContent(html_83c1b7f5eeb89457608bb5875f8954ca);
+            
+        
+
+        circle_marker_eca6634810300a80ea5ff0b384021962.bindPopup(popup_8c77befa447ed56008fe0386b3167624)
+        ;
+
+        
+    
+    
+            var circle_marker_818cddcac5e40ccd344f21e6aefd1694 = L.circleMarker(
+                [-23.364462, -46.748478],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_06890dd3c0d887a8f7ba4eac138af54c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e57633de35dd8c4428de4f3061baeeb = $(`<div id="html_0e57633de35dd8c4428de4f3061baeeb" style="width: 100.0%; height: 100.0%;">Caieiras<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_06890dd3c0d887a8f7ba4eac138af54c.setContent(html_0e57633de35dd8c4428de4f3061baeeb);
+            
+        
+
+        circle_marker_818cddcac5e40ccd344f21e6aefd1694.bindPopup(popup_06890dd3c0d887a8f7ba4eac138af54c)
+        ;
+
+        
+    
+    
+            var circle_marker_469bd442e24c6c4da0a146e535ff2112 = L.circleMarker(
+                [-23.332804, -46.724445],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_7aae839c421295d12a2f259c241b2811 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f2ddb990f6db5359614453c5d4e080e = $(`<div id="html_2f2ddb990f6db5359614453c5d4e080e" style="width: 100.0%; height: 100.0%;">Franco da Rocha<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_7aae839c421295d12a2f259c241b2811.setContent(html_2f2ddb990f6db5359614453c5d4e080e);
+            
+        
+
+        circle_marker_469bd442e24c6c4da0a146e535ff2112.bindPopup(popup_7aae839c421295d12a2f259c241b2811)
+        ;
+
+        
+    
+    
+            var circle_marker_1df60b80db3a2218b505d099050090f8 = L.circleMarker(
+                [-23.467594, -46.52777],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_78336b65ae5fecb85edd6c711f5dcd5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5868a526dd81a567000e3942b8fae2d = $(`<div id="html_c5868a526dd81a567000e3942b8fae2d" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 2 (Junho)</div>`)[0];
+                popup_78336b65ae5fecb85edd6c711f5dcd5a.setContent(html_c5868a526dd81a567000e3942b8fae2d);
+            
+        
+
+        circle_marker_1df60b80db3a2218b505d099050090f8.bindPopup(popup_78336b65ae5fecb85edd6c711f5dcd5a)
+        ;
+
+        
+    
+    
+            var circle_marker_da20ba6d6597e7f94ce2a4f5a164ed05 = L.circleMarker(
+                [-22.64374, -47.19721],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_c5088bbe5c6440aabd3f461d6c5010ab = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff3f2f7da35a9c3b09c1c8ec0f01cbf3 = $(`<div id="html_ff3f2f7da35a9c3b09c1c8ec0f01cbf3" style="width: 100.0%; height: 100.0%;">Cosmópolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_c5088bbe5c6440aabd3f461d6c5010ab.setContent(html_ff3f2f7da35a9c3b09c1c8ec0f01cbf3);
+            
+        
+
+        circle_marker_da20ba6d6597e7f94ce2a4f5a164ed05.bindPopup(popup_c5088bbe5c6440aabd3f461d6c5010ab)
+        ;
+
+        
+    
+    
+            var circle_marker_db4cfffd5572ba5659c0bbfb940888a9 = L.circleMarker(
+                [-22.122517, -51.388252],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_dad27c9a84822433cc1c595b80b0a92a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1b47c33f879189c35a5d67de8159fed = $(`<div id="html_d1b47c33f879189c35a5d67de8159fed" style="width: 100.0%; height: 100.0%;">Presidente Prudente<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_dad27c9a84822433cc1c595b80b0a92a.setContent(html_d1b47c33f879189c35a5d67de8159fed);
+            
+        
+
+        circle_marker_db4cfffd5572ba5659c0bbfb940888a9.bindPopup(popup_dad27c9a84822433cc1c595b80b0a92a)
+        ;
+
+        
+    
+    
+            var circle_marker_0fbf6b5a0498b189ee571bb41b011470 = L.circleMarker(
+                [-20.538177, -47.400978],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_54c91d757f366b7ea28c5a57ef81ba87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4c641a190e4fafb3005e68b0a8e4a3c = $(`<div id="html_c4c641a190e4fafb3005e68b0a8e4a3c" style="width: 100.0%; height: 100.0%;">Franca<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_54c91d757f366b7ea28c5a57ef81ba87.setContent(html_c4c641a190e4fafb3005e68b0a8e4a3c);
+            
+        
+
+        circle_marker_0fbf6b5a0498b189ee571bb41b011470.bindPopup(popup_54c91d757f366b7ea28c5a57ef81ba87)
+        ;
+
+        
+    
+    
+            var circle_marker_40475190df155f081af0b0e03a476c4f = L.circleMarker(
+                [-23.533731, -49.245255],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_c5797540bd6fffcd5e5c78159425858a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a2e9b471f777808d017c16e5cbaf7ef2 = $(`<div id="html_a2e9b471f777808d017c16e5cbaf7ef2" style="width: 100.0%; height: 100.0%;">Taquarituba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_c5797540bd6fffcd5e5c78159425858a.setContent(html_a2e9b471f777808d017c16e5cbaf7ef2);
+            
+        
+
+        circle_marker_40475190df155f081af0b0e03a476c4f.bindPopup(popup_c5797540bd6fffcd5e5c78159425858a)
+        ;
+
+        
+    
+    
+            var circle_marker_3e6ad65e76b8b36be7a7ee559d391526 = L.circleMarker(
+                [-20.267178, -50.549244],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_f7d9a13cb5e023b34d640ba6ff5c4eb3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad079324d166700f03539d27f8fa5258 = $(`<div id="html_ad079324d166700f03539d27f8fa5258" style="width: 100.0%; height: 100.0%;">Jales<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_f7d9a13cb5e023b34d640ba6ff5c4eb3.setContent(html_ad079324d166700f03539d27f8fa5258);
+            
+        
+
+        circle_marker_3e6ad65e76b8b36be7a7ee559d391526.bindPopup(popup_f7d9a13cb5e023b34d640ba6ff5c4eb3)
+        ;
+
+        
+    
+    
+            var circle_marker_c57415dc93ae95457a479baa93df5745 = L.circleMarker(
+                [-20.81414, -49.50745],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c3134913c717b58742d3ba01578ec27b);
+        
+    
+        var popup_e3beb0f83e39ca377c5a50b741ac1a36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e665a0ac9cc0acf51f4ffeb061c6a6e1 = $(`<div id="html_e665a0ac9cc0acf51f4ffeb061c6a6e1" style="width: 100.0%; height: 100.0%;">Mirassol<br>HOMICÍDIO CULPOSO OUTROS: 1 (Junho)</div>`)[0];
+                popup_e3beb0f83e39ca377c5a50b741ac1a36.setContent(html_e665a0ac9cc0acf51f4ffeb061c6a6e1);
+            
+        
+
+        circle_marker_c57415dc93ae95457a479baa93df5745.bindPopup(popup_e3beb0f83e39ca377c5a50b741ac1a36)
+        ;
+
+        
+    
+    
+            var feature_group_d13c0d139ee7c64f049942a2bd927d31 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_5bdb5593c493468003c1763f7c5d5bba = L.circleMarker(
+                [-22.90564, -47.049563],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_42be66209259bdf51d940c12527315c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57047fbcb1130b7affbfcd2d93ab4ac4 = $(`<div id="html_57047fbcb1130b7affbfcd2d93ab4ac4" style="width: 100.0%; height: 100.0%;">Campinas<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_42be66209259bdf51d940c12527315c0.setContent(html_57047fbcb1130b7affbfcd2d93ab4ac4);
+            
+        
+
+        circle_marker_5bdb5593c493468003c1763f7c5d5bba.bindPopup(popup_42be66209259bdf51d940c12527315c0)
+        ;
+
+        
+    
+    
+            var circle_marker_53e6bb087260981a22ace375a6a19f2c = L.circleMarker(
+                [-23.550652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_bc1030f33b3c609dad493c8edfd33c89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_180d863649a52619d5e6f8afc58f82f4 = $(`<div id="html_180d863649a52619d5e6f8afc58f82f4" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 3 (Julho)</div>`)[0];
+                popup_bc1030f33b3c609dad493c8edfd33c89.setContent(html_180d863649a52619d5e6f8afc58f82f4);
+            
+        
+
+        circle_marker_53e6bb087260981a22ace375a6a19f2c.bindPopup(popup_bc1030f33b3c609dad493c8edfd33c89)
+        ;
+
+        
+    
+    
+            var circle_marker_1c95ca14d3d4bc4191ecaa0d8df85c9f = L.circleMarker(
+                [-23.364462, -46.738478],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_91b40dca0a49970e46ae166c9eefe6d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b19789c27c4b751e68ca87f6c067303c = $(`<div id="html_b19789c27c4b751e68ca87f6c067303c" style="width: 100.0%; height: 100.0%;">Caieiras<br>HOMICÍDIO CULPOSO OUTROS: 2 (Julho)</div>`)[0];
+                popup_91b40dca0a49970e46ae166c9eefe6d9.setContent(html_b19789c27c4b751e68ca87f6c067303c);
+            
+        
+
+        circle_marker_1c95ca14d3d4bc4191ecaa0d8df85c9f.bindPopup(popup_91b40dca0a49970e46ae166c9eefe6d9)
+        ;
+
+        
+    
+    
+            var circle_marker_88acdfe0e3cd54565a738180562ee24b = L.circleMarker(
+                [-23.60389, -46.908888000000005],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_70564aa799a0059bc6e6ccc27167d14d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c856bb05a7ed55d87f3d69dd0429ef7b = $(`<div id="html_c856bb05a7ed55d87f3d69dd0429ef7b" style="width: 100.0%; height: 100.0%;">Cotia<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_70564aa799a0059bc6e6ccc27167d14d.setContent(html_c856bb05a7ed55d87f3d69dd0429ef7b);
+            
+        
+
+        circle_marker_88acdfe0e3cd54565a738180562ee24b.bindPopup(popup_70564aa799a0059bc6e6ccc27167d14d)
+        ;
+
+        
+    
+    
+            var circle_marker_17c417feb341fb40dae4f04c37e74ebd = L.circleMarker(
+                [-23.686644, -46.614695000000005],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_630e5f8ab04174e684ae8735be814d5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc4ff0a28e25feca3bf6eef0fdd82586 = $(`<div id="html_cc4ff0a28e25feca3bf6eef0fdd82586" style="width: 100.0%; height: 100.0%;">Diadema<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_630e5f8ab04174e684ae8735be814d5f.setContent(html_cc4ff0a28e25feca3bf6eef0fdd82586);
+            
+        
+
+        circle_marker_17c417feb341fb40dae4f04c37e74ebd.bindPopup(popup_630e5f8ab04174e684ae8735be814d5f)
+        ;
+
+        
+    
+    
+            var circle_marker_8151a147fe1bfc859edcb54703b62a06 = L.circleMarker(
+                [-23.523428, -46.18267],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_5aba4c51b8bf63f7b0acee7482056267 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b4e2c9280d8e6abc568bee279c8cc94 = $(`<div id="html_2b4e2c9280d8e6abc568bee279c8cc94" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_5aba4c51b8bf63f7b0acee7482056267.setContent(html_2b4e2c9280d8e6abc568bee279c8cc94);
+            
+        
+
+        circle_marker_8151a147fe1bfc859edcb54703b62a06.bindPopup(popup_5aba4c51b8bf63f7b0acee7482056267)
+        ;
+
+        
+    
+    
+            var circle_marker_0398cffdfb5943461e1a7b0df8d8270b = L.circleMarker(
+                [-23.524908, -46.334566],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_acf76d9bf3e3dd19c671ff7599ae7298 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d43f49566bfe2f30718ffbdf60ef6ea0 = $(`<div id="html_d43f49566bfe2f30718ffbdf60ef6ea0" style="width: 100.0%; height: 100.0%;">Poá<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_acf76d9bf3e3dd19c671ff7599ae7298.setContent(html_d43f49566bfe2f30718ffbdf60ef6ea0);
+            
+        
+
+        circle_marker_0398cffdfb5943461e1a7b0df8d8270b.bindPopup(popup_acf76d9bf3e3dd19c671ff7599ae7298)
+        ;
+
+        
+    
+    
+            var circle_marker_b6d63b05eefac594aa223d2b447b95e1 = L.circleMarker(
+                [-22.64374, -47.18721],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_b76d5f1d4c9106696dd13e452b608b3d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_328fcb77e1f5b1ba205a3d898cdb1e71 = $(`<div id="html_328fcb77e1f5b1ba205a3d898cdb1e71" style="width: 100.0%; height: 100.0%;">Cosmópolis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_b76d5f1d4c9106696dd13e452b608b3d.setContent(html_328fcb77e1f5b1ba205a3d898cdb1e71);
+            
+        
+
+        circle_marker_b6d63b05eefac594aa223d2b447b95e1.bindPopup(popup_b76d5f1d4c9106696dd13e452b608b3d)
+        ;
+
+        
+    
+    
+            var circle_marker_cd895c146b296645ebdd6db4eaf099c7 = L.circleMarker(
+                [-22.662088, -50.410624],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_7698deb4177cc1eb8a6f0ddca0ec4119 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd4d05befafd3dc0fbe00327b3f23098 = $(`<div id="html_cd4d05befafd3dc0fbe00327b3f23098" style="width: 100.0%; height: 100.0%;">Assis<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_7698deb4177cc1eb8a6f0ddca0ec4119.setContent(html_cd4d05befafd3dc0fbe00327b3f23098);
+            
+        
+
+        circle_marker_cd895c146b296645ebdd6db4eaf099c7.bindPopup(popup_7698deb4177cc1eb8a6f0ddca0ec4119)
+        ;
+
+        
+    
+    
+            var circle_marker_b5632aead62d3f8f5cd9bcb68ef77b4f = L.circleMarker(
+                [-21.614061, -51.162955000000004],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_30da07245d521c54744d66325b75d2d8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84c003dc3e3577203f2ee9dd309a6570 = $(`<div id="html_84c003dc3e3577203f2ee9dd309a6570" style="width: 100.0%; height: 100.0%;">Flórida Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_30da07245d521c54744d66325b75d2d8.setContent(html_84c003dc3e3577203f2ee9dd309a6570);
+            
+        
+
+        circle_marker_b5632aead62d3f8f5cd9bcb68ef77b4f.bindPopup(popup_30da07245d521c54744d66325b75d2d8)
+        ;
+
+        
+    
+    
+            var circle_marker_5905cd8826bc8b8782e45540cc5a4625 = L.circleMarker(
+                [-22.578865, -53.045225],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_3b9361d96f1d86c78b57669fe0f6ec0a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e2942195eca140fe4cb1d57eb3943e8 = $(`<div id="html_8e2942195eca140fe4cb1d57eb3943e8" style="width: 100.0%; height: 100.0%;">Rosana<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_3b9361d96f1d86c78b57669fe0f6ec0a.setContent(html_8e2942195eca140fe4cb1d57eb3943e8);
+            
+        
+
+        circle_marker_5905cd8826bc8b8782e45540cc5a4625.bindPopup(popup_3b9361d96f1d86c78b57669fe0f6ec0a)
+        ;
+
+        
+    
+    
+            var circle_marker_9e2daf165b054c40b429b7c565f4f0eb = L.circleMarker(
+                [-20.25071, -47.470877],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_21d0f3774725ea548383929864291d03 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf47283e32cf4606788954c993c517a5 = $(`<div id="html_cf47283e32cf4606788954c993c517a5" style="width: 100.0%; height: 100.0%;">Pedregulho<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_21d0f3774725ea548383929864291d03.setContent(html_cf47283e32cf4606788954c993c517a5);
+            
+        
+
+        circle_marker_9e2daf165b054c40b429b7c565f4f0eb.bindPopup(popup_21d0f3774725ea548383929864291d03)
+        ;
+
+        
+    
+    
+            var circle_marker_a0e6c7ccce3611415caf6aaa64b43cd2 = L.circleMarker(
+                [-23.493895, -48.401068],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_ce280e6f6aaeff8464c229b1cb7480e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efe160da718ba7b499f85afe832a464b = $(`<div id="html_efe160da718ba7b499f85afe832a464b" style="width: 100.0%; height: 100.0%;">Angatuba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_ce280e6f6aaeff8464c229b1cb7480e1.setContent(html_efe160da718ba7b499f85afe832a464b);
+            
+        
+
+        circle_marker_a0e6c7ccce3611415caf6aaa64b43cd2.bindPopup(popup_ce280e6f6aaeff8464c229b1cb7480e1)
+        ;
+
+        
+    
+    
+            var circle_marker_c7124310fd647204ed6751449c95c2fc = L.circleMarker(
+                [-23.226034, -47.944453],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_7959b1b89b6d15b73948aca2fe83637d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd94b2747009a5647bd4e36020575b9d = $(`<div id="html_dd94b2747009a5647bd4e36020575b9d" style="width: 100.0%; height: 100.0%;">Cesário Lange<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_7959b1b89b6d15b73948aca2fe83637d.setContent(html_dd94b2747009a5647bd4e36020575b9d);
+            
+        
+
+        circle_marker_c7124310fd647204ed6751449c95c2fc.bindPopup(popup_7959b1b89b6d15b73948aca2fe83637d)
+        ;
+
+        
+    
+    
+            var circle_marker_e5c5f4f8ab882d43c531b4028653c7dc = L.circleMarker(
+                [-23.198997, -47.281367],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_70135cf5391a6d7c9a2cf0871ecd00d4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7d08403f10d83f6e3bfb3928ac44745 = $(`<div id="html_c7d08403f10d83f6e3bfb3928ac44745" style="width: 100.0%; height: 100.0%;">Salto<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_70135cf5391a6d7c9a2cf0871ecd00d4.setContent(html_c7d08403f10d83f6e3bfb3928ac44745);
+            
+        
+
+        circle_marker_e5c5f4f8ab882d43c531b4028653c7dc.bindPopup(popup_70135cf5391a6d7c9a2cf0871ecd00d4)
+        ;
+
+        
+    
+    
+            var circle_marker_fd6c160f1a7ea6e969b930340abc208b = L.circleMarker(
+                [-21.133104, -48.961283],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_3133dba1328d196e59510666d7a228e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49996df26c55123a4cc5a57da9c26e81 = $(`<div id="html_49996df26c55123a4cc5a57da9c26e81" style="width: 100.0%; height: 100.0%;">Catanduva<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_3133dba1328d196e59510666d7a228e6.setContent(html_49996df26c55123a4cc5a57da9c26e81);
+            
+        
+
+        circle_marker_fd6c160f1a7ea6e969b930340abc208b.bindPopup(popup_3133dba1328d196e59510666d7a228e6)
+        ;
+
+        
+    
+    
+            var circle_marker_80f84f4157d3dae2694c66b7eeed5df0 = L.circleMarker(
+                [-20.267178, -50.539244000000004],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d13c0d139ee7c64f049942a2bd927d31);
+        
+    
+        var popup_1744afd49c4ab2f2da39222f9026f077 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_687cc76baadd635546c139d662487fb8 = $(`<div id="html_687cc76baadd635546c139d662487fb8" style="width: 100.0%; height: 100.0%;">Jales<br>HOMICÍDIO CULPOSO OUTROS: 1 (Julho)</div>`)[0];
+                popup_1744afd49c4ab2f2da39222f9026f077.setContent(html_687cc76baadd635546c139d662487fb8);
+            
+        
+
+        circle_marker_80f84f4157d3dae2694c66b7eeed5df0.bindPopup(popup_1744afd49c4ab2f2da39222f9026f077)
+        ;
+
+        
+    
+    
+            var feature_group_51dad406b8ff9e3da174e5a1358c0f16 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_50b6261887fe60709b08fdbbf1dbecad = L.circleMarker(
+                [-22.293585, -48.539193],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_19427c628d5cabaf3dca5d120785ceda = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a8cc23135658064da344e08c07c392d = $(`<div id="html_4a8cc23135658064da344e08c07c392d" style="width: 100.0%; height: 100.0%;">Jaú<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_19427c628d5cabaf3dca5d120785ceda.setContent(html_4a8cc23135658064da344e08c07c392d);
+            
+        
+
+        circle_marker_50b6261887fe60709b08fdbbf1dbecad.bindPopup(popup_19427c628d5cabaf3dca5d120785ceda)
+        ;
+
+        
+    
+    
+            var circle_marker_74831b928a42813d19e96b3308e14218 = L.circleMarker(
+                [-22.351086, -48.758114],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_604df3c39506eac84000e51e4a9af4e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_775d761854f7bf60034dce8ae3e54c0e = $(`<div id="html_775d761854f7bf60034dce8ae3e54c0e" style="width: 100.0%; height: 100.0%;">Pederneiras<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_604df3c39506eac84000e51e4a9af4e7.setContent(html_775d761854f7bf60034dce8ae3e54c0e);
+            
+        
+
+        circle_marker_74831b928a42813d19e96b3308e14218.bindPopup(popup_604df3c39506eac84000e51e4a9af4e7)
+        ;
+
+        
+    
+    
+            var circle_marker_ad00f7902c42b9c3213d34c570af8953 = L.circleMarker(
+                [-23.550652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_5281b6f8fd29693c49c135671ff13974 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9399ff22dc2146c24f478414b62a9871 = $(`<div id="html_9399ff22dc2146c24f478414b62a9871" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 3 (Agosto)</div>`)[0];
+                popup_5281b6f8fd29693c49c135671ff13974.setContent(html_9399ff22dc2146c24f478414b62a9871);
+            
+        
+
+        circle_marker_ad00f7902c42b9c3213d34c570af8953.bindPopup(popup_5281b6f8fd29693c49c135671ff13974)
+        ;
+
+        
+    
+    
+            var circle_marker_ba791efbdaa1201f6cfa86ceda2a6981 = L.circleMarker(
+                [-23.71763, -46.829243],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_e9a0b4f3d2770d5987b1cbd67cb4a503 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4a52008a5fe73b5050ce8d0a7195a8c8 = $(`<div id="html_4a52008a5fe73b5050ce8d0a7195a8c8" style="width: 100.0%; height: 100.0%;">Itapecerica da Serra<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_e9a0b4f3d2770d5987b1cbd67cb4a503.setContent(html_4a52008a5fe73b5050ce8d0a7195a8c8);
+            
+        
+
+        circle_marker_ba791efbdaa1201f6cfa86ceda2a6981.bindPopup(popup_e9a0b4f3d2770d5987b1cbd67cb4a503)
+        ;
+
+        
+    
+    
+            var circle_marker_43c6c1bdaf067a9a595bea3567885fbd = L.circleMarker(
+                [-23.54888, -46.913886999999995],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_3d1aac82435b9b3dcae42f7eb517f61a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_690fa61d4da218715adbe93e7df747f5 = $(`<div id="html_690fa61d4da218715adbe93e7df747f5" style="width: 100.0%; height: 100.0%;">Itapevi<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_3d1aac82435b9b3dcae42f7eb517f61a.setContent(html_690fa61d4da218715adbe93e7df747f5);
+            
+        
+
+        circle_marker_43c6c1bdaf067a9a595bea3567885fbd.bindPopup(popup_3d1aac82435b9b3dcae42f7eb517f61a)
+        ;
+
+        
+    
+    
+            var circle_marker_eb483926ca464f516d4d88714cc5f3f7 = L.circleMarker(
+                [-23.619593, -46.548832],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_10fb65ecd6901ffed9d64c13394ba532 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa75030498dd771e91976bcdc11ea3df = $(`<div id="html_aa75030498dd771e91976bcdc11ea3df" style="width: 100.0%; height: 100.0%;">São Caetano do Sul<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_10fb65ecd6901ffed9d64c13394ba532.setContent(html_aa75030498dd771e91976bcdc11ea3df);
+            
+        
+
+        circle_marker_eb483926ca464f516d4d88714cc5f3f7.bindPopup(popup_10fb65ecd6901ffed9d64c13394ba532)
+        ;
+
+        
+    
+    
+            var circle_marker_9a849bdd1de4c45821a370daf1efb829 = L.circleMarker(
+                [-22.25365, -47.801255],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_e120a5c96aee24cd4faf0a22a58aef78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1cb67f500871bf069c71d337ed8f94e7 = $(`<div id="html_1cb67f500871bf069c71d337ed8f94e7" style="width: 100.0%; height: 100.0%;">Itirapina<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_e120a5c96aee24cd4faf0a22a58aef78.setContent(html_1cb67f500871bf069c71d337ed8f94e7);
+            
+        
+
+        circle_marker_9a849bdd1de4c45821a370daf1efb829.bindPopup(popup_e120a5c96aee24cd4faf0a22a58aef78)
+        ;
+
+        
+    
+    
+            var circle_marker_cec4dbcd28205712f5b8da858d6c02ee = L.circleMarker(
+                [-21.788671, -48.157309999999995],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_0461d4adeb66ee1edb7fa2905acc6749 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8809f70a1b6d33ee743013013a8ef4bd = $(`<div id="html_8809f70a1b6d33ee743013013a8ef4bd" style="width: 100.0%; height: 100.0%;">Araraquara<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_0461d4adeb66ee1edb7fa2905acc6749.setContent(html_8809f70a1b6d33ee743013013a8ef4bd);
+            
+        
+
+        circle_marker_cec4dbcd28205712f5b8da858d6c02ee.bindPopup(popup_0461d4adeb66ee1edb7fa2905acc6749)
+        ;
+
+        
+    
+    
+            var circle_marker_33e6ae3f1ea4c94639da96253892c084 = L.circleMarker(
+                [-23.885798, -46.404187],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_e748b80fa487ebac5145e8f647474178 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98e9a3963159e1cb532c48a22eee5a1b = $(`<div id="html_98e9a3963159e1cb532c48a22eee5a1b" style="width: 100.0%; height: 100.0%;">Cubatão<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_e748b80fa487ebac5145e8f647474178.setContent(html_98e9a3963159e1cb532c48a22eee5a1b);
+            
+        
+
+        circle_marker_33e6ae3f1ea4c94639da96253892c084.bindPopup(popup_e748b80fa487ebac5145e8f647474178)
+        ;
+
+        
+    
+    
+            var circle_marker_cdd0090611317d5cbb41846c5a678e3c = L.circleMarker(
+                [-23.9336, -46.30864],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_9ea89573913eecb791e2beb8d088d019 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_242d4dfeee67728c9787bc54ff19c041 = $(`<div id="html_242d4dfeee67728c9787bc54ff19c041" style="width: 100.0%; height: 100.0%;">Santos<br>HOMICÍDIO CULPOSO OUTROS: 2 (Agosto)</div>`)[0];
+                popup_9ea89573913eecb791e2beb8d088d019.setContent(html_242d4dfeee67728c9787bc54ff19c041);
+            
+        
+
+        circle_marker_cdd0090611317d5cbb41846c5a678e3c.bindPopup(popup_9ea89573913eecb791e2beb8d088d019)
+        ;
+
+        
+    
+    
+            var circle_marker_e73044544fc22a16cd87a00006c0d25c = L.circleMarker(
+                [-23.984911, -48.860389999999995],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_f6b00a195e3303531ee12ee752976a94 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b58cfa1c8f0136e671ad1145a2c5118 = $(`<div id="html_8b58cfa1c8f0136e671ad1145a2c5118" style="width: 100.0%; height: 100.0%;">Itapeva<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_f6b00a195e3303531ee12ee752976a94.setContent(html_8b58cfa1c8f0136e671ad1145a2c5118);
+            
+        
+
+        circle_marker_e73044544fc22a16cd87a00006c0d25c.bindPopup(popup_f6b00a195e3303531ee12ee752976a94)
+        ;
+
+        
+    
+    
+            var circle_marker_b106e855d2e1605b557fbe0bf8c3b0ea = L.circleMarker(
+                [-20.694332, -50.020604],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_b3d8ba29e93afc4d0243ceb5970d1cbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6cb075d7c74b46d168247822be3c7b6 = $(`<div id="html_c6cb075d7c74b46d168247822be3c7b6" style="width: 100.0%; height: 100.0%;">Nhandeara<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_b3d8ba29e93afc4d0243ceb5970d1cbd.setContent(html_c6cb075d7c74b46d168247822be3c7b6);
+            
+        
+
+        circle_marker_b106e855d2e1605b557fbe0bf8c3b0ea.bindPopup(popup_b3d8ba29e93afc4d0243ceb5970d1cbd)
+        ;
+
+        
+    
+    
+            var circle_marker_c6aa47a7c666070ed6c1f2641b401ca8 = L.circleMarker(
+                [-20.425291, -49.952026999999994],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_9e7dd3d6417208269f2ba759b74ffa77 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_280b2ecc50e4b6481973ce3acf788206 = $(`<div id="html_280b2ecc50e4b6481973ce3acf788206" style="width: 100.0%; height: 100.0%;">Votuporanga<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_9e7dd3d6417208269f2ba759b74ffa77.setContent(html_280b2ecc50e4b6481973ce3acf788206);
+            
+        
+
+        circle_marker_c6aa47a7c666070ed6c1f2641b401ca8.bindPopup(popup_9e7dd3d6417208269f2ba759b74ffa77)
+        ;
+
+        
+    
+    
+            var circle_marker_4fda139a06474fb2e845f376e4eed83a = L.circleMarker(
+                [-22.570047, -44.88236],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_51dad406b8ff9e3da174e5a1358c0f16);
+        
+    
+        var popup_96da980823c1b5101d68171b1be2e473 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5816c9cd43516d819b75f136cc91b7b4 = $(`<div id="html_5816c9cd43516d819b75f136cc91b7b4" style="width: 100.0%; height: 100.0%;">Lavrinhas<br>HOMICÍDIO CULPOSO OUTROS: 1 (Agosto)</div>`)[0];
+                popup_96da980823c1b5101d68171b1be2e473.setContent(html_5816c9cd43516d819b75f136cc91b7b4);
+            
+        
+
+        circle_marker_4fda139a06474fb2e845f376e4eed83a.bindPopup(popup_96da980823c1b5101d68171b1be2e473)
+        ;
+
+        
+    
+    
+            var feature_group_8628d98ecd7f4a223d9a72406b1e38c4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_a73fc1542dfe360f47145e176332de6f = L.circleMarker(
+                [-22.207199999999997, -49.960004999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_f45503cf9f11d123d581a92776f9caf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e04666785d1ff1c71c825488a961fb51 = $(`<div id="html_e04666785d1ff1c71c825488a961fb51" style="width: 100.0%; height: 100.0%;">Marília<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_f45503cf9f11d123d581a92776f9caf3.setContent(html_e04666785d1ff1c71c825488a961fb51);
+            
+        
+
+        circle_marker_a73fc1542dfe360f47145e176332de6f.bindPopup(popup_f45503cf9f11d123d581a92776f9caf3)
+        ;
+
+        
+    
+    
+            var circle_marker_c38415038e02eacc9324eafa80c7d63d = L.circleMarker(
+                [-22.960559999999997, -47.005829999999996],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_83076c9de19c15eea58ce973173e3cdc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9da866230da0a30c0616a3a6f70a3f23 = $(`<div id="html_9da866230da0a30c0616a3a6f70a3f23" style="width: 100.0%; height: 100.0%;">Valinhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_83076c9de19c15eea58ce973173e3cdc.setContent(html_9da866230da0a30c0616a3a6f70a3f23);
+            
+        
+
+        circle_marker_c38415038e02eacc9324eafa80c7d63d.bindPopup(popup_83076c9de19c15eea58ce973173e3cdc)
+        ;
+
+        
+    
+    
+            var circle_marker_8dbd3a0cdf58587a30a2cae4906e6765 = L.circleMarker(
+                [-23.540651999999998, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_df2459ae4b4e4ef964a7b43c5d82c56f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d33deabe3ad5a0896cb40fce708a1b08 = $(`<div id="html_d33deabe3ad5a0896cb40fce708a1b08" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 3 (Setembro)</div>`)[0];
+                popup_df2459ae4b4e4ef964a7b43c5d82c56f.setContent(html_d33deabe3ad5a0896cb40fce708a1b08);
+            
+        
+
+        circle_marker_8dbd3a0cdf58587a30a2cae4906e6765.bindPopup(popup_df2459ae4b4e4ef964a7b43c5d82c56f)
+        ;
+
+        
+    
+    
+            var circle_marker_84ee4ff713d336d6e22dabf6219cd103 = L.circleMarker(
+                [-23.532784, -46.32084],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_1bd96633ac4a83f833e8958573c5154d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c61720a6ffef3240efeaf363d087b8f9 = $(`<div id="html_c61720a6ffef3240efeaf363d087b8f9" style="width: 100.0%; height: 100.0%;">Suzano<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_1bd96633ac4a83f833e8958573c5154d.setContent(html_c61720a6ffef3240efeaf363d087b8f9);
+            
+        
+
+        circle_marker_84ee4ff713d336d6e22dabf6219cd103.bindPopup(popup_1bd96633ac4a83f833e8958573c5154d)
+        ;
+
+        
+    
+    
+            var circle_marker_0392c0d9e2d72bf2f987f2b995b45dfd = L.circleMarker(
+                [-22.729246, -47.340605],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_80d437ddff982e5fa352ddfd833e21ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6890357d7f182f2edd5f06a8acf36dd = $(`<div id="html_c6890357d7f182f2edd5f06a8acf36dd" style="width: 100.0%; height: 100.0%;">Americana<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_80d437ddff982e5fa352ddfd833e21ca.setContent(html_c6890357d7f182f2edd5f06a8acf36dd);
+            
+        
+
+        circle_marker_0392c0d9e2d72bf2f987f2b995b45dfd.bindPopup(popup_80d437ddff982e5fa352ddfd833e21ca)
+        ;
+
+        
+    
+    
+            var circle_marker_6602e412409ec47c3214c248bd8d70b6 = L.circleMarker(
+                [-21.45824, -46.759319999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_df16aa1fe5302be780927fd8bb88d3c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2828728dab895743465ce94927a2e935 = $(`<div id="html_2828728dab895743465ce94927a2e935" style="width: 100.0%; height: 100.0%;">Tapiratiba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_df16aa1fe5302be780927fd8bb88d3c8.setContent(html_2828728dab895743465ce94927a2e935);
+            
+        
+
+        circle_marker_6602e412409ec47c3214c248bd8d70b6.bindPopup(popup_df16aa1fe5302be780927fd8bb88d3c8)
+        ;
+
+        
+    
+    
+            var circle_marker_e46b17b3da18a6e490bb5a5c8c293f40 = L.circleMarker(
+                [-23.697408999999997, -47.435232],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_7c8736be7c48e2d75307209f157803dd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b4a21307e4566bed91e48a3cd62bedf = $(`<div id="html_3b4a21307e4566bed91e48a3cd62bedf" style="width: 100.0%; height: 100.0%;">Piedade<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_7c8736be7c48e2d75307209f157803dd.setContent(html_3b4a21307e4566bed91e48a3cd62bedf);
+            
+        
+
+        circle_marker_e46b17b3da18a6e490bb5a5c8c293f40.bindPopup(popup_7c8736be7c48e2d75307209f157803dd)
+        ;
+
+        
+    
+    
+            var circle_marker_e561972325c0bb14bf2c00edb4dc97ce = L.circleMarker(
+                [-21.457456999999998, -49.233537],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_4472cee0e2218ca6d1cc9972879ea602 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b06a3519ea4f40daca8e0f7f0b35226c = $(`<div id="html_b06a3519ea4f40daca8e0f7f0b35226c" style="width: 100.0%; height: 100.0%;">Novo Horizonte<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_4472cee0e2218ca6d1cc9972879ea602.setContent(html_b06a3519ea4f40daca8e0f7f0b35226c);
+            
+        
+
+        circle_marker_e561972325c0bb14bf2c00edb4dc97ce.bindPopup(popup_4472cee0e2218ca6d1cc9972879ea602)
+        ;
+
+        
+    
+    
+            var circle_marker_6cbe2e843b14b2294305204413aa95b1 = L.circleMarker(
+                [-22.650558999999998, -45.018167],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_0f8d38b693c93bab9d504955e5cffb12 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f2229d4da22609e3c62da4036437034 = $(`<div id="html_7f2229d4da22609e3c62da4036437034" style="width: 100.0%; height: 100.0%;">Cachoeira Paulista<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_0f8d38b693c93bab9d504955e5cffb12.setContent(html_7f2229d4da22609e3c62da4036437034);
+            
+        
+
+        circle_marker_6cbe2e843b14b2294305204413aa95b1.bindPopup(popup_0f8d38b693c93bab9d504955e5cffb12)
+        ;
+
+        
+    
+    
+            var circle_marker_c014ce483284d3c0d6efef0d5275f9c7 = L.circleMarker(
+                [-23.089202999999998, -45.717645],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_c0c949ea2523a493ee9a5c323e04ec96 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76d966928ddbebdeb11eb368d80f1a78 = $(`<div id="html_76d966928ddbebdeb11eb368d80f1a78" style="width: 100.0%; height: 100.0%;">Caçapava<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_c0c949ea2523a493ee9a5c323e04ec96.setContent(html_76d966928ddbebdeb11eb368d80f1a78);
+            
+        
+
+        circle_marker_c014ce483284d3c0d6efef0d5275f9c7.bindPopup(popup_c0c949ea2523a493ee9a5c323e04ec96)
+        ;
+
+        
+    
+    
+            var circle_marker_a19f657db83c2fe2760e0b099b9ff59e = L.circleMarker(
+                [-22.795783999999998, -45.20089],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_845e6b29880525490590045ffd61d7de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7a3401c09e08b802ac668e4daa970a2a = $(`<div id="html_7a3401c09e08b802ac668e4daa970a2a" style="width: 100.0%; height: 100.0%;">Guaratinguetá<br>HOMICÍDIO CULPOSO OUTROS: 1 (Setembro)</div>`)[0];
+                popup_845e6b29880525490590045ffd61d7de.setContent(html_7a3401c09e08b802ac668e4daa970a2a);
+            
+        
+
+        circle_marker_a19f657db83c2fe2760e0b099b9ff59e.bindPopup(popup_845e6b29880525490590045ffd61d7de)
+        ;
+
+        
+    
+    
+            var circle_marker_3a2313fdf97441ef638192041461d314 = L.circleMarker(
+                [-23.176779, -45.895452],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_8628d98ecd7f4a223d9a72406b1e38c4);
+        
+    
+        var popup_f93c3ea866c5c732265f0105ce078ac9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ca7d1f5e3b817711e4963e9b4cf7b1d = $(`<div id="html_5ca7d1f5e3b817711e4963e9b4cf7b1d" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>HOMICÍDIO CULPOSO OUTROS: 2 (Setembro)</div>`)[0];
+                popup_f93c3ea866c5c732265f0105ce078ac9.setContent(html_5ca7d1f5e3b817711e4963e9b4cf7b1d);
+            
+        
+
+        circle_marker_3a2313fdf97441ef638192041461d314.bindPopup(popup_f93c3ea866c5c732265f0105ce078ac9)
+        ;
+
+        
+    
+    
+            var feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_061894f07d7240b9d63cbfcd7055e07e = L.circleMarker(
+                [-22.362223, -46.9425],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_155c2d4d72f47ff26d04ed6601a17347 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1d6b91d8ed88241056a105d04edd71b = $(`<div id="html_e1d6b91d8ed88241056a105d04edd71b" style="width: 100.0%; height: 100.0%;">Mogi Guaçu<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_155c2d4d72f47ff26d04ed6601a17347.setContent(html_e1d6b91d8ed88241056a105d04edd71b);
+            
+        
+
+        circle_marker_061894f07d7240b9d63cbfcd7055e07e.bindPopup(popup_155c2d4d72f47ff26d04ed6601a17347)
+        ;
+
+        
+    
+    
+            var circle_marker_c47d752989ff0b25550fff90dffae466 = L.circleMarker(
+                [-23.540651999999998, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_dccc1a84ed8461c9b75778c4b2260150 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c98a977b047a8f5e6842c4d1a1ab3ded = $(`<div id="html_c98a977b047a8f5e6842c4d1a1ab3ded" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 6 (Outubro)</div>`)[0];
+                popup_dccc1a84ed8461c9b75778c4b2260150.setContent(html_c98a977b047a8f5e6842c4d1a1ab3ded);
+            
+        
+
+        circle_marker_c47d752989ff0b25550fff90dffae466.bindPopup(popup_dccc1a84ed8461c9b75778c4b2260150)
+        ;
+
+        
+    
+    
+            var circle_marker_c392cde50a7907a7a8902daa2975ba0e = L.circleMarker(
+                [-23.59389, -46.918888],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_cc2413bb0c3ae579f91ecbd286d796f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e7b9032665541230a5637412f055ca9 = $(`<div id="html_0e7b9032665541230a5637412f055ca9" style="width: 100.0%; height: 100.0%;">Cotia<br>HOMICÍDIO CULPOSO OUTROS: 3 (Outubro)</div>`)[0];
+                popup_cc2413bb0c3ae579f91ecbd286d796f6.setContent(html_0e7b9032665541230a5637412f055ca9);
+            
+        
+
+        circle_marker_c392cde50a7907a7a8902daa2975ba0e.bindPopup(popup_cc2413bb0c3ae579f91ecbd286d796f6)
+        ;
+
+        
+    
+    
+            var circle_marker_1110d05c2b566ceeefa52dbbc7a03616 = L.circleMarker(
+                [-23.457593999999997, -46.52777],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_6b54a6ebdef37bc25069fb0487c1770c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_488e2bd4aac09fdceac4ed1da09c5284 = $(`<div id="html_488e2bd4aac09fdceac4ed1da09c5284" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_6b54a6ebdef37bc25069fb0487c1770c.setContent(html_488e2bd4aac09fdceac4ed1da09c5284);
+            
+        
+
+        circle_marker_1110d05c2b566ceeefa52dbbc7a03616.bindPopup(popup_6b54a6ebdef37bc25069fb0487c1770c)
+        ;
+
+        
+    
+    
+            var circle_marker_150c30b740a5e0a7bcb8cb94c866b25f = L.circleMarker(
+                [-22.551506, -47.401768],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_1525f0d438c89678d9a3b34820b37502 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_357433836a1dd03cf81692ca41950ec7 = $(`<div id="html_357433836a1dd03cf81692ca41950ec7" style="width: 100.0%; height: 100.0%;">Limeira<br>HOMICÍDIO CULPOSO OUTROS: 2 (Outubro)</div>`)[0];
+                popup_1525f0d438c89678d9a3b34820b37502.setContent(html_357433836a1dd03cf81692ca41950ec7);
+            
+        
+
+        circle_marker_150c30b740a5e0a7bcb8cb94c866b25f.bindPopup(popup_1525f0d438c89678d9a3b34820b37502)
+        ;
+
+        
+    
+    
+            var circle_marker_e00270e8087486bd4caeb959ca192d9f = L.circleMarker(
+                [-22.811795999999998, -47.267105],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_6b27507097b7c838ef7bb274c060aaf8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d44ebe635eaddf069fedcc796cf18230 = $(`<div id="html_d44ebe635eaddf069fedcc796cf18230" style="width: 100.0%; height: 100.0%;">Sumaré<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_6b27507097b7c838ef7bb274c060aaf8.setContent(html_d44ebe635eaddf069fedcc796cf18230);
+            
+        
+
+        circle_marker_e00270e8087486bd4caeb959ca192d9f.bindPopup(popup_6b27507097b7c838ef7bb274c060aaf8)
+        ;
+
+        
+    
+    
+            var circle_marker_c58ed25d98846afa162e57f38e3f2461 = L.circleMarker(
+                [-22.219497999999998, -50.892235],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_69f291c5963c6a794b3b02cbb122f0d2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4cefb36c0ef3f89f18c60ed0883a569 = $(`<div id="html_b4cefb36c0ef3f89f18c60ed0883a569" style="width: 100.0%; height: 100.0%;">Rancharia<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_69f291c5963c6a794b3b02cbb122f0d2.setContent(html_b4cefb36c0ef3f89f18c60ed0883a569);
+            
+        
+
+        circle_marker_c58ed25d98846afa162e57f38e3f2461.bindPopup(popup_69f291c5963c6a794b3b02cbb122f0d2)
+        ;
+
+        
+    
+    
+            var circle_marker_5d760b82bc9c67cdf7d65a1816c842e6 = L.circleMarker(
+                [-20.528177, -47.400978],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_988053e6cb65584b01e1ff4afc732164 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_954dbe2503c607f637d22fdfe0cd52c5 = $(`<div id="html_954dbe2503c607f637d22fdfe0cd52c5" style="width: 100.0%; height: 100.0%;">Franca<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_988053e6cb65584b01e1ff4afc732164.setContent(html_954dbe2503c607f637d22fdfe0cd52c5);
+            
+        
+
+        circle_marker_5d760b82bc9c67cdf7d65a1816c842e6.bindPopup(popup_988053e6cb65584b01e1ff4afc732164)
+        ;
+
+        
+    
+    
+            var circle_marker_46db29854debf3bb10d380bb14395b98 = L.circleMarker(
+                [-21.946202, -48.000786],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_60c53316c5308cb67f8a75bc90d05f81 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fd6c67ebcc63928b1917f18e5975827 = $(`<div id="html_0fd6c67ebcc63928b1917f18e5975827" style="width: 100.0%; height: 100.0%;">Ibaté<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_60c53316c5308cb67f8a75bc90d05f81.setContent(html_0fd6c67ebcc63928b1917f18e5975827);
+            
+        
+
+        circle_marker_46db29854debf3bb10d380bb14395b98.bindPopup(popup_60c53316c5308cb67f8a75bc90d05f81)
+        ;
+
+        
+    
+    
+            var circle_marker_e506da0d7302cdb24646453e14dbbfd5 = L.circleMarker(
+                [-23.923599999999997, -46.32864],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_375aee044424458f3c9ed67c9e39e64d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73b689f3503ed5956840048d3f20b57b = $(`<div id="html_73b689f3503ed5956840048d3f20b57b" style="width: 100.0%; height: 100.0%;">Santos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_375aee044424458f3c9ed67c9e39e64d.setContent(html_73b689f3503ed5956840048d3f20b57b);
+            
+        
+
+        circle_marker_e506da0d7302cdb24646453e14dbbfd5.bindPopup(popup_375aee044424458f3c9ed67c9e39e64d)
+        ;
+
+        
+    
+    
+            var circle_marker_f45b177c5bb4b0a6e0add382b8b7a267 = L.circleMarker(
+                [-23.956417, -46.38614],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_339d262b1d6918b9e37471a4ea337e25 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dfac0bacdadf28fdf90ede681d3c147 = $(`<div id="html_5dfac0bacdadf28fdf90ede681d3c147" style="width: 100.0%; height: 100.0%;">São Vicente<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_339d262b1d6918b9e37471a4ea337e25.setContent(html_5dfac0bacdadf28fdf90ede681d3c147);
+            
+        
+
+        circle_marker_f45b177c5bb4b0a6e0add382b8b7a267.bindPopup(popup_339d262b1d6918b9e37471a4ea337e25)
+        ;
+
+        
+    
+    
+            var circle_marker_78112c8650af12909dcf8834542d70a5 = L.circleMarker(
+                [-23.639249999999997, -47.572945],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_a4f72b33cf10a861b0d2df1d549875b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af1edf68fae28ce30b2c9a1649f25736 = $(`<div id="html_af1edf68fae28ce30b2c9a1649f25736" style="width: 100.0%; height: 100.0%;">Salto de Pirapora<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_a4f72b33cf10a861b0d2df1d549875b3.setContent(html_af1edf68fae28ce30b2c9a1649f25736);
+            
+        
+
+        circle_marker_78112c8650af12909dcf8834542d70a5.bindPopup(popup_a4f72b33cf10a861b0d2df1d549875b3)
+        ;
+
+        
+    
+    
+            var circle_marker_376e0e1e4cc57fbacfc333cb332737ff = L.circleMarker(
+                [-20.78663, -49.22539],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_673acdaf7fb10dbf79702e581f2a2c5d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_639bc49ef2a021c208602d56ed4736de = $(`<div id="html_639bc49ef2a021c208602d56ed4736de" style="width: 100.0%; height: 100.0%;">Guapiaçu<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_673acdaf7fb10dbf79702e581f2a2c5d.setContent(html_639bc49ef2a021c208602d56ed4736de);
+            
+        
+
+        circle_marker_376e0e1e4cc57fbacfc333cb332737ff.bindPopup(popup_673acdaf7fb10dbf79702e581f2a2c5d)
+        ;
+
+        
+    
+    
+            var circle_marker_f06483b0dc8f2526bfd5699333edeb4d = L.circleMarker(
+                [-20.75257, -49.70884],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_6c2b38ad6d5dc1a7ecf9e34cbb193058 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba88b248ece14778145b008b4ada4852 = $(`<div id="html_ba88b248ece14778145b008b4ada4852" style="width: 100.0%; height: 100.0%;">Monte Aprazível<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_6c2b38ad6d5dc1a7ecf9e34cbb193058.setContent(html_ba88b248ece14778145b008b4ada4852);
+            
+        
+
+        circle_marker_f06483b0dc8f2526bfd5699333edeb4d.bindPopup(popup_6c2b38ad6d5dc1a7ecf9e34cbb193058)
+        ;
+
+        
+    
+    
+            var circle_marker_377353dd8bfdc0f185dda779bb42e360 = L.circleMarker(
+                [-20.615164, -49.65199],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_2fce1f4c19d0c95e83ccea3ce6e970a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c8870d1dab9da700cebbaa4f9647b8b = $(`<div id="html_4c8870d1dab9da700cebbaa4f9647b8b" style="width: 100.0%; height: 100.0%;">Tanabi<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_2fce1f4c19d0c95e83ccea3ce6e970a0.setContent(html_4c8870d1dab9da700cebbaa4f9647b8b);
+            
+        
+
+        circle_marker_377353dd8bfdc0f185dda779bb42e360.bindPopup(popup_2fce1f4c19d0c95e83ccea3ce6e970a0)
+        ;
+
+        
+    
+    
+            var circle_marker_ded84d859202be8b56ea83a666ed4ba6 = L.circleMarker(
+                [-23.61028, -45.41306],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_a6871cae17ab9b998d3824051422ac4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc7840f45262e72eeb8c53df7d733572 = $(`<div id="html_cc7840f45262e72eeb8c53df7d733572" style="width: 100.0%; height: 100.0%;">Caraguatatuba<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_a6871cae17ab9b998d3824051422ac4e.setContent(html_cc7840f45262e72eeb8c53df7d733572);
+            
+        
+
+        circle_marker_ded84d859202be8b56ea83a666ed4ba6.bindPopup(popup_a6871cae17ab9b998d3824051422ac4e)
+        ;
+
+        
+    
+    
+            var circle_marker_930d115b21f6f0403f529691e2d67e0d = L.circleMarker(
+                [-22.726764999999997, -45.107086],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5);
+        
+    
+        var popup_e1a716bc037573259a55da1063352759 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3da082e377626e992e627c15168d874 = $(`<div id="html_b3da082e377626e992e627c15168d874" style="width: 100.0%; height: 100.0%;">Lorena<br>HOMICÍDIO CULPOSO OUTROS: 1 (Outubro)</div>`)[0];
+                popup_e1a716bc037573259a55da1063352759.setContent(html_b3da082e377626e992e627c15168d874);
+            
+        
+
+        circle_marker_930d115b21f6f0403f529691e2d67e0d.bindPopup(popup_e1a716bc037573259a55da1063352759)
+        ;
+
+        
+    
+    
+            var feature_group_81036541d57715a158871154880652b9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_8c7241154596225482e6c26a3a7ba178 = L.circleMarker(
+                [-20.859564, -51.477778],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_199cce01f6225419ce2aeff83503532b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fef93596025329589b18621c5c81c812 = $(`<div id="html_fef93596025329589b18621c5c81c812" style="width: 100.0%; height: 100.0%;">Castilho<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_199cce01f6225419ce2aeff83503532b.setContent(html_fef93596025329589b18621c5c81c812);
+            
+        
+
+        circle_marker_8c7241154596225482e6c26a3a7ba178.bindPopup(popup_199cce01f6225419ce2aeff83503532b)
+        ;
+
+        
+    
+    
+            var circle_marker_c6a5ad59d341b45fe7c691c4be570b53 = L.circleMarker(
+                [-23.143105, -47.048033000000004],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_71307758af36c9d65350985ae0b3cec4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3ea561a0d8b4171ea557f6ef8071d76 = $(`<div id="html_c3ea561a0d8b4171ea557f6ef8071d76" style="width: 100.0%; height: 100.0%;">Itupeva<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_71307758af36c9d65350985ae0b3cec4.setContent(html_c3ea561a0d8b4171ea557f6ef8071d76);
+            
+        
+
+        circle_marker_c6a5ad59d341b45fe7c691c4be570b53.bindPopup(popup_71307758af36c9d65350985ae0b3cec4)
+        ;
+
+        
+    
+    
+            var circle_marker_ae524f012a4d889ff4a69f1ddbceb372 = L.circleMarker(
+                [-23.540651999999998, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_24a2c56f3759aa380f6b9ce57db5ee56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c4164969f9561dfabe855ee498c097b = $(`<div id="html_1c4164969f9561dfabe855ee498c097b" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 12 (Novembro)</div>`)[0];
+                popup_24a2c56f3759aa380f6b9ce57db5ee56.setContent(html_1c4164969f9561dfabe855ee498c097b);
+            
+        
+
+        circle_marker_ae524f012a4d889ff4a69f1ddbceb372.bindPopup(popup_24a2c56f3759aa380f6b9ce57db5ee56)
+        ;
+
+        
+    
+    
+            var circle_marker_cc0cdc412947d0e9399d13b4a46402e1 = L.circleMarker(
+                [-23.457593999999997, -46.51777],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_110515418050f932bc5166a41e9a4a45 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9565af56f471003845eaea2d861847a7 = $(`<div id="html_9565af56f471003845eaea2d861847a7" style="width: 100.0%; height: 100.0%;">Guarulhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_110515418050f932bc5166a41e9a4a45.setContent(html_9565af56f471003845eaea2d861847a7);
+            
+        
+
+        circle_marker_cc0cdc412947d0e9399d13b4a46402e1.bindPopup(popup_110515418050f932bc5166a41e9a4a45)
+        ;
+
+        
+    
+    
+            var circle_marker_53cfa631d16d6f874e9b5474c5195479 = L.circleMarker(
+                [-23.513427999999998, -46.18267],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_540a04b5cf53a22042afa781e9a63adf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9eb3c92cee7b7c32e3dc28ae769c19c7 = $(`<div id="html_9eb3c92cee7b7c32e3dc28ae769c19c7" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>HOMICÍDIO CULPOSO OUTROS: 2 (Novembro)</div>`)[0];
+                popup_540a04b5cf53a22042afa781e9a63adf.setContent(html_9eb3c92cee7b7c32e3dc28ae769c19c7);
+            
+        
+
+        circle_marker_53cfa631d16d6f874e9b5474c5195479.bindPopup(popup_540a04b5cf53a22042afa781e9a63adf)
+        ;
+
+        
+    
+    
+            var circle_marker_5f09dc944c73460113e588f2c22df25c = L.circleMarker(
+                [-22.744252999999997, -47.403788],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_adbd39ef95f3b3e24170b298e0a48364 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8174c8f1a0ee6cd76cd23a475dfa1cf9 = $(`<div id="html_8174c8f1a0ee6cd76cd23a475dfa1cf9" style="width: 100.0%; height: 100.0%;">Santa Bárbara d'Oeste<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_adbd39ef95f3b3e24170b298e0a48364.setContent(html_8174c8f1a0ee6cd76cd23a475dfa1cf9);
+            
+        
+
+        circle_marker_5f09dc944c73460113e588f2c22df25c.bindPopup(popup_adbd39ef95f3b3e24170b298e0a48364)
+        ;
+
+        
+    
+    
+            var circle_marker_1183efd8255d17bb349a461a211dd855 = L.circleMarker(
+                [-21.330278999999997, -47.719443000000005],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_757f7c4e9662518d7edf9fc13ef63c72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a20a5c7059c4dcf6d2e1154af8b7c2f = $(`<div id="html_8a20a5c7059c4dcf6d2e1154af8b7c2f" style="width: 100.0%; height: 100.0%;">Cravinhos<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_757f7c4e9662518d7edf9fc13ef63c72.setContent(html_8a20a5c7059c4dcf6d2e1154af8b7c2f);
+            
+        
+
+        circle_marker_1183efd8255d17bb349a461a211dd855.bindPopup(popup_757f7c4e9662518d7edf9fc13ef63c72)
+        ;
+
+        
+    
+    
+            var circle_marker_12ac4588d0e9c1ae5e3a3954bee6c218 = L.circleMarker(
+                [-20.528177, -47.390978000000004],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_2f6af109c52d862b4070d7dca3c735c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6beb8d87f04067eed55cbe8f1f506c9 = $(`<div id="html_d6beb8d87f04067eed55cbe8f1f506c9" style="width: 100.0%; height: 100.0%;">Franca<br>HOMICÍDIO CULPOSO OUTROS: 2 (Novembro)</div>`)[0];
+                popup_2f6af109c52d862b4070d7dca3c735c1.setContent(html_d6beb8d87f04067eed55cbe8f1f506c9);
+            
+        
+
+        circle_marker_12ac4588d0e9c1ae5e3a3954bee6c218.bindPopup(popup_2f6af109c52d862b4070d7dca3c735c1)
+        ;
+
+        
+    
+    
+            var circle_marker_e4ff1e9684953dd370dc284b23c49dfe = L.circleMarker(
+                [-21.167631, -47.800097],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_81036541d57715a158871154880652b9);
+        
+    
+        var popup_75e42bae48d7151165cfa519b2f1e4de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7491f236f1874fbcd2943883a8d29dff = $(`<div id="html_7491f236f1874fbcd2943883a8d29dff" style="width: 100.0%; height: 100.0%;">Ribeirão Preto<br>HOMICÍDIO CULPOSO OUTROS: 1 (Novembro)</div>`)[0];
+                popup_75e42bae48d7151165cfa519b2f1e4de.setContent(html_7491f236f1874fbcd2943883a8d29dff);
+            
+        
+
+        circle_marker_e4ff1e9684953dd370dc284b23c49dfe.bindPopup(popup_75e42bae48d7151165cfa519b2f1e4de)
+        ;
+
+        
+    
+    
+            var feature_group_1bb131ba1e13380e6ad9df84c74b704e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7c33bbd3c13bdf8baf3bcb75fd0d7201 = L.circleMarker(
+                [-22.895639999999997, -47.039562999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_f09d56c2613ae4772bc9e3981abed5c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c0b1999b5d5690a42640a3d05a60c60 = $(`<div id="html_3c0b1999b5d5690a42640a3d05a60c60" style="width: 100.0%; height: 100.0%;">Campinas<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_f09d56c2613ae4772bc9e3981abed5c1.setContent(html_3c0b1999b5d5690a42640a3d05a60c60);
+            
+        
+
+        circle_marker_7c33bbd3c13bdf8baf3bcb75fd0d7201.bindPopup(popup_f09d56c2613ae4772bc9e3981abed5c1)
+        ;
+
+        
+    
+    
+            var circle_marker_4eb6ab40492ddc75067be85ab150eb2d = L.circleMarker(
+                [-23.540651999999998, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_6079a9e801248359c8f35f5545bd0652 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4dad1e64d968093d1a33faee3427d50 = $(`<div id="html_b4dad1e64d968093d1a33faee3427d50" style="width: 100.0%; height: 100.0%;">São Paulo<br>HOMICÍDIO CULPOSO OUTROS: 3 (Dezembro)</div>`)[0];
+                popup_6079a9e801248359c8f35f5545bd0652.setContent(html_b4dad1e64d968093d1a33faee3427d50);
+            
+        
+
+        circle_marker_4eb6ab40492ddc75067be85ab150eb2d.bindPopup(popup_6079a9e801248359c8f35f5545bd0652)
+        ;
+
+        
+    
+    
+            var circle_marker_3d3e8274916ca12b46f3a08a61a83240 = L.circleMarker(
+                [-23.309421999999998, -46.207192],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_00ef353f2d03ad9f591bebe101616cb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64f5a31ad0b5e7ab2ac6e192611c2c8c = $(`<div id="html_64f5a31ad0b5e7ab2ac6e192611c2c8c" style="width: 100.0%; height: 100.0%;">Santa Isabel<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_00ef353f2d03ad9f591bebe101616cb4.setContent(html_64f5a31ad0b5e7ab2ac6e192611c2c8c);
+            
+        
+
+        circle_marker_3d3e8274916ca12b46f3a08a61a83240.bindPopup(popup_00ef353f2d03ad9f591bebe101616cb4)
+        ;
+
+        
+    
+    
+            var circle_marker_74feffe824fa5f3e5b073e1f7cac0823 = L.circleMarker(
+                [-23.698034999999997, -46.530674],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_1f0636b7af9332ae9287596719b59a82 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5401b325b57f4fd8332be571495c6006 = $(`<div id="html_5401b325b57f4fd8332be571495c6006" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_1f0636b7af9332ae9287596719b59a82.setContent(html_5401b325b57f4fd8332be571495c6006);
+            
+        
+
+        circle_marker_74feffe824fa5f3e5b073e1f7cac0823.bindPopup(popup_1f0636b7af9332ae9287596719b59a82)
+        ;
+
+        
+    
+    
+            var circle_marker_65324c6a687b2db137fd4046a1d9f7f2 = L.circleMarker(
+                [-22.112516999999997, -51.368252],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_2fea4d84f5afb6e375006325bf2d8ed1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8f8147b84ea2472998853ca1007733f6 = $(`<div id="html_8f8147b84ea2472998853ca1007733f6" style="width: 100.0%; height: 100.0%;">Presidente Prudente<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_2fea4d84f5afb6e375006325bf2d8ed1.setContent(html_8f8147b84ea2472998853ca1007733f6);
+            
+        
+
+        circle_marker_65324c6a687b2db137fd4046a1d9f7f2.bindPopup(popup_2fea4d84f5afb6e375006325bf2d8ed1)
+        ;
+
+        
+    
+    
+            var circle_marker_e884c5463e17527546e046a7ed2e84bb = L.circleMarker(
+                [-20.513894999999998, -49.040609999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_c6c1bb528f35f3c566974d66ea209b79 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f57b882d7fb19375080408b917e809c9 = $(`<div id="html_f57b882d7fb19375080408b917e809c9" style="width: 100.0%; height: 100.0%;">Altair<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_c6c1bb528f35f3c566974d66ea209b79.setContent(html_f57b882d7fb19375080408b917e809c9);
+            
+        
+
+        circle_marker_e884c5463e17527546e046a7ed2e84bb.bindPopup(popup_c6c1bb528f35f3c566974d66ea209b79)
+        ;
+
+        
+    
+    
+            var circle_marker_bf030ba0da9e325c4a45f34a583ca235 = L.circleMarker(
+                [-20.710278, -47.866665],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_377f4497f2b4f5305cc29df1db4d1bbc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b55c35d8e126913cd9a2c5654af10dd = $(`<div id="html_1b55c35d8e126913cd9a2c5654af10dd" style="width: 100.0%; height: 100.0%;">Orlândia<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_377f4497f2b4f5305cc29df1db4d1bbc.setContent(html_1b55c35d8e126913cd9a2c5654af10dd);
+            
+        
+
+        circle_marker_bf030ba0da9e325c4a45f34a583ca235.bindPopup(popup_377f4497f2b4f5305cc29df1db4d1bbc)
+        ;
+
+        
+    
+    
+            var circle_marker_3e1ed4a457340e61e090def6c7a51a49 = L.circleMarker(
+                [-21.196687999999998, -47.585376999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_034f1e4ba0e32e04ee0b205a0a2b48aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3295d3d4d6a8941bcb9c869ab5b41fd0 = $(`<div id="html_3295d3d4d6a8941bcb9c869ab5b41fd0" style="width: 100.0%; height: 100.0%;">Serrana<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_034f1e4ba0e32e04ee0b205a0a2b48aa.setContent(html_3295d3d4d6a8941bcb9c869ab5b41fd0);
+            
+        
+
+        circle_marker_3e1ed4a457340e61e090def6c7a51a49.bindPopup(popup_034f1e4ba0e32e04ee0b205a0a2b48aa)
+        ;
+
+        
+    
+    
+            var circle_marker_6832d8dee71e89f482e5d67462127385 = L.circleMarker(
+                [-23.838568, -46.119586999999996],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_9a851f9d7d753d2a51c2e7d3cfbf7023 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b49f8c01c0f6fb96c1304f3dd5838ca7 = $(`<div id="html_b49f8c01c0f6fb96c1304f3dd5838ca7" style="width: 100.0%; height: 100.0%;">Bertioga<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_9a851f9d7d753d2a51c2e7d3cfbf7023.setContent(html_b49f8c01c0f6fb96c1304f3dd5838ca7);
+            
+        
+
+        circle_marker_6832d8dee71e89f482e5d67462127385.bindPopup(popup_9a851f9d7d753d2a51c2e7d3cfbf7023)
+        ;
+
+        
+    
+    
+            var circle_marker_639ea694ed661ac68e22637314481a90 = L.circleMarker(
+                [-23.875798, -46.404187],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_79a5ba44ab65844fbdf86547ef31a029 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ed3562040b48961bd9cc46d6d54a523b = $(`<div id="html_ed3562040b48961bd9cc46d6d54a523b" style="width: 100.0%; height: 100.0%;">Cubatão<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_79a5ba44ab65844fbdf86547ef31a029.setContent(html_ed3562040b48961bd9cc46d6d54a523b);
+            
+        
+
+        circle_marker_639ea694ed661ac68e22637314481a90.bindPopup(popup_79a5ba44ab65844fbdf86547ef31a029)
+        ;
+
+        
+    
+    
+            var circle_marker_e6104481e43a9e1a587b5f94e2507914 = L.circleMarker(
+                [-20.804139999999997, -49.487449999999995],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_5e456032b1d45fbce1dd1891d4283846 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0819307f43f464aa214135da357bf02a = $(`<div id="html_0819307f43f464aa214135da357bf02a" style="width: 100.0%; height: 100.0%;">Mirassol<br>HOMICÍDIO CULPOSO OUTROS: 1 (Dezembro)</div>`)[0];
+                popup_5e456032b1d45fbce1dd1891d4283846.setContent(html_0819307f43f464aa214135da357bf02a);
+            
+        
+
+        circle_marker_e6104481e43a9e1a587b5f94e2507914.bindPopup(popup_5e456032b1d45fbce1dd1891d4283846)
+        ;
+
+        
+    
+    
+            var circle_marker_3df5d93cfb327efeac1619309b3d7cd1 = L.circleMarker(
+                [-23.021448, -45.54127999999999],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1bb131ba1e13380e6ad9df84c74b704e);
+        
+    
+        var popup_51c21750a45f1239c08c37845b8b0289 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48a9108f5f0305c2366fecb187df8403 = $(`<div id="html_48a9108f5f0305c2366fecb187df8403" style="width: 100.0%; height: 100.0%;">Taubaté<br>HOMICÍDIO CULPOSO OUTROS: 2 (Dezembro)</div>`)[0];
+                popup_51c21750a45f1239c08c37845b8b0289.setContent(html_48a9108f5f0305c2366fecb187df8403);
+            
+        
+
+        circle_marker_3df5d93cfb327efeac1619309b3d7cd1.bindPopup(popup_51c21750a45f1239c08c37845b8b0289)
+        ;
+
+        
+    
+    
+            var layer_control_1fef7814ba2cee5ee69df69d558a350b_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_db6c7f771fc320688415d1b8f9f3011e,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_ec64c4c24b4166a43d55e7d7739ae07b,
+                    "Fevereiro" : feature_group_dbb0a14e36ef43667748c8f4897f7459,
+                    "Marco" : feature_group_0958c32fb0f4b46325502643aecb92fc,
+                    "Abril" : feature_group_4ddfbbb381cd6b5fc4e099926f0f2235,
+                    "Maio" : feature_group_52127b79a2b6859e24e2a138565dbc49,
+                    "Junho" : feature_group_c3134913c717b58742d3ba01578ec27b,
+                    "Julho" : feature_group_d13c0d139ee7c64f049942a2bd927d31,
+                    "Agosto" : feature_group_51dad406b8ff9e3da174e5a1358c0f16,
+                    "Setembro" : feature_group_8628d98ecd7f4a223d9a72406b1e38c4,
+                    "Outubro" : feature_group_2cf5d75f80d3e04fb4cf998c5ac33fd5,
+                    "Novembro" : feature_group_81036541d57715a158871154880652b9,
+                    "Dezembro" : feature_group_1bb131ba1e13380e6ad9df84c74b704e,
+                },
+            };
+            let layer_control_1fef7814ba2cee5ee69df69d558a350b = L.control.layers(
+                layer_control_1fef7814ba2cee5ee69df69d558a350b_layers.base_layers,
+                layer_control_1fef7814ba2cee5ee69df69d558a350b_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_932d32e978ab34efe10e629af928f3e4);
+
+        
+</script>
+</html>

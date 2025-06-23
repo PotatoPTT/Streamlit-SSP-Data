@@ -1,0 +1,2806 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7faa9970d42c5dcda6dd1db2b87c0af2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7faa9970d42c5dcda6dd1db2b87c0af2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7faa9970d42c5dcda6dd1db2b87c0af2 = L.map(
+                "map_7faa9970d42c5dcda6dd1db2b87c0af2",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f147b3adc94a3a81f3e639fe01171260 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f147b3adc94a3a81f3e639fe01171260.addTo(map_7faa9970d42c5dcda6dd1db2b87c0af2);
+        
+    
+            var feature_group_f1913e73a9c9bd8414b4bc939bacb378 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_067bea1373c175971e8df6cc4eced553 = L.circleMarker(
+                [-23.100836, -47.228066999999996],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_76016f698869a47b60a7a839cb441db5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7cf21431a5845046e45efa7086daa25d = $(`<div id="html_7cf21431a5845046e45efa7086daa25d" style="width: 100.0%; height: 100.0%;">Indaiatuba<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_76016f698869a47b60a7a839cb441db5.setContent(html_7cf21431a5845046e45efa7086daa25d);
+            
+        
+
+        circle_marker_067bea1373c175971e8df6cc4eced553.bindPopup(popup_76016f698869a47b60a7a839cb441db5)
+        ;
+
+        
+    
+    
+            var circle_marker_307af5212efc5a975e7832d9774d4527 = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_693463c77b2a07879126c0cf215c336c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd6ea17d87292030fb26f62a9e206910 = $(`<div id="html_dd6ea17d87292030fb26f62a9e206910" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 8 (Janeiro)</div>`)[0];
+                popup_693463c77b2a07879126c0cf215c336c.setContent(html_dd6ea17d87292030fb26f62a9e206910);
+            
+        
+
+        circle_marker_307af5212efc5a975e7832d9774d4527.bindPopup(popup_693463c77b2a07879126c0cf215c336c)
+        ;
+
+        
+    
+    
+            var circle_marker_9d64d1c93a48bcd85678c83333b2f79e = L.circleMarker(
+                [-23.477594, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_ae0a1ecb5a209c91954c40be080fc7ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6276d7a1e7192798a2b7acc63bac78c2 = $(`<div id="html_6276d7a1e7192798a2b7acc63bac78c2" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 2 (Janeiro)</div>`)[0];
+                popup_ae0a1ecb5a209c91954c40be080fc7ad.setContent(html_6276d7a1e7192798a2b7acc63bac78c2);
+            
+        
+
+        circle_marker_9d64d1c93a48bcd85678c83333b2f79e.bindPopup(popup_ae0a1ecb5a209c91954c40be080fc7ad)
+        ;
+
+        
+    
+    
+            var circle_marker_99989f64044fe213deff188ce62de9f2 = L.circleMarker(
+                [-24.32722, -47.645562999999996],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_8f31203b7ee4f2d749c676414ce01989 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_568fa6afdd6207eab34664b5df484432 = $(`<div id="html_568fa6afdd6207eab34664b5df484432" style="width: 100.0%; height: 100.0%;">Juquiá<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_8f31203b7ee4f2d749c676414ce01989.setContent(html_568fa6afdd6207eab34664b5df484432);
+            
+        
+
+        circle_marker_99989f64044fe213deff188ce62de9f2.bindPopup(popup_8f31203b7ee4f2d749c676414ce01989)
+        ;
+
+        
+    
+    
+            var circle_marker_4aae0c647468b93ed549637d7d379e29 = L.circleMarker(
+                [-23.510345, -47.468286],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_5f1dbcadaca1f083c4cb1075d01ab258 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_049ae86ef80b04b923730a738afba08b = $(`<div id="html_049ae86ef80b04b923730a738afba08b" style="width: 100.0%; height: 100.0%;">Sorocaba<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_5f1dbcadaca1f083c4cb1075d01ab258.setContent(html_049ae86ef80b04b923730a738afba08b);
+            
+        
+
+        circle_marker_4aae0c647468b93ed549637d7d379e29.bindPopup(popup_5f1dbcadaca1f083c4cb1075d01ab258)
+        ;
+
+        
+    
+    
+            var circle_marker_542ff2d67aeaadd9361b5d8c78498f19 = L.circleMarker(
+                [-23.315069, -45.98231],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_fb22ae30e8ead336b7de11de0aca55e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2244359e1870f89c7e2a267a8071f74b = $(`<div id="html_2244359e1870f89c7e2a267a8071f74b" style="width: 100.0%; height: 100.0%;">Jacareí<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_fb22ae30e8ead336b7de11de0aca55e7.setContent(html_2244359e1870f89c7e2a267a8071f74b);
+            
+        
+
+        circle_marker_542ff2d67aeaadd9361b5d8c78498f19.bindPopup(popup_fb22ae30e8ead336b7de11de0aca55e7)
+        ;
+
+        
+    
+    
+            var circle_marker_ce6e141ccc7311cd7b0d9f21a4e3697b = L.circleMarker(
+                [-23.196779000000003, -45.895452],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f1913e73a9c9bd8414b4bc939bacb378);
+        
+    
+        var popup_77ed9c2efa8216b52e0f20f593ab64f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_320d963a4c99772674dfa0c25e142ed2 = $(`<div id="html_320d963a4c99772674dfa0c25e142ed2" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>ROUBO A BANCO: 1 (Janeiro)</div>`)[0];
+                popup_77ed9c2efa8216b52e0f20f593ab64f2.setContent(html_320d963a4c99772674dfa0c25e142ed2);
+            
+        
+
+        circle_marker_ce6e141ccc7311cd7b0d9f21a4e3697b.bindPopup(popup_77ed9c2efa8216b52e0f20f593ab64f2)
+        ;
+
+        
+    
+    
+            feature_group_f1913e73a9c9bd8414b4bc939bacb378.addTo(map_7faa9970d42c5dcda6dd1db2b87c0af2);
+        
+    
+            var feature_group_52af0c6e8ceb54ff30637ea8ec1beac2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_224cea799d45d896750716d4615d1a55 = L.circleMarker(
+                [-23.560652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 32.64285714285714, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_d8b51a8e962fc7126d49da7f79f8cef4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9518f153750a30327b135fdcd7e27d26 = $(`<div id="html_9518f153750a30327b135fdcd7e27d26" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 14 (Fevereiro)</div>`)[0];
+                popup_d8b51a8e962fc7126d49da7f79f8cef4.setContent(html_9518f153750a30327b135fdcd7e27d26);
+            
+        
+
+        circle_marker_224cea799d45d896750716d4615d1a55.bindPopup(popup_d8b51a8e962fc7126d49da7f79f8cef4)
+        ;
+
+        
+    
+    
+            var circle_marker_08154e5b3f95311206a6cbcb9995d1f7 = L.circleMarker(
+                [-23.542486, -46.79168],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_0ebf1f7d9f6ff77fb072925b6761766d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc17a02b8d959a40be77b78efe8b6645 = $(`<div id="html_dc17a02b8d959a40be77b78efe8b6645" style="width: 100.0%; height: 100.0%;">Osasco<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_0ebf1f7d9f6ff77fb072925b6761766d.setContent(html_dc17a02b8d959a40be77b78efe8b6645);
+            
+        
+
+        circle_marker_08154e5b3f95311206a6cbcb9995d1f7.bindPopup(popup_0ebf1f7d9f6ff77fb072925b6761766d)
+        ;
+
+        
+    
+    
+            var circle_marker_56ead826722e208711a55a1b6102a06c = L.circleMarker(
+                [-23.718035, -46.550674],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_9b3a0c49a1987bb39d940a3293173326 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc3cf6119a289394e3bbe234c982304f = $(`<div id="html_dc3cf6119a289394e3bbe234c982304f" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>ROUBO A BANCO: 2 (Fevereiro)</div>`)[0];
+                popup_9b3a0c49a1987bb39d940a3293173326.setContent(html_dc3cf6119a289394e3bbe234c982304f);
+            
+        
+
+        circle_marker_56ead826722e208711a55a1b6102a06c.bindPopup(popup_9b3a0c49a1987bb39d940a3293173326)
+        ;
+
+        
+    
+    
+            var circle_marker_fe2803dc89d63ceab941c9ae3543e97e = L.circleMarker(
+                [-22.445658, -47.714672],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_b2cf1bc4054fe3ede508ee875aa444c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8eb46450397307468a7a8903e7069094 = $(`<div id="html_8eb46450397307468a7a8903e7069094" style="width: 100.0%; height: 100.0%;">Ipeúna<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_b2cf1bc4054fe3ede508ee875aa444c6.setContent(html_8eb46450397307468a7a8903e7069094);
+            
+        
+
+        circle_marker_fe2803dc89d63ceab941c9ae3543e97e.bindPopup(popup_b2cf1bc4054fe3ede508ee875aa444c6)
+        ;
+
+        
+    
+    
+            var circle_marker_76bce1fb82c0489049b20c6f4805d4e1 = L.circleMarker(
+                [-22.735164, -47.649326],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_01cf8df824763d19b584474240784f7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5c0d04ed7e964af724127daf81b7555 = $(`<div id="html_e5c0d04ed7e964af724127daf81b7555" style="width: 100.0%; height: 100.0%;">Piracicaba<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_01cf8df824763d19b584474240784f7c.setContent(html_e5c0d04ed7e964af724127daf81b7555);
+            
+        
+
+        circle_marker_76bce1fb82c0489049b20c6f4805d4e1.bindPopup(popup_01cf8df824763d19b584474240784f7c)
+        ;
+
+        
+    
+    
+            var circle_marker_c0279aef35d62977a32e8e69e7169941 = L.circleMarker(
+                [-21.798671000000002, -48.17731],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_141fcb8c72fa64fc254c218289e7b97c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73ea4134f6cf41909522b2beec459759 = $(`<div id="html_73ea4134f6cf41909522b2beec459759" style="width: 100.0%; height: 100.0%;">Araraquara<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_141fcb8c72fa64fc254c218289e7b97c.setContent(html_73ea4134f6cf41909522b2beec459759);
+            
+        
+
+        circle_marker_c0279aef35d62977a32e8e69e7169941.bindPopup(popup_141fcb8c72fa64fc254c218289e7b97c)
+        ;
+
+        
+    
+    
+            var circle_marker_2dc42f61efb795d567251fefc0ad7cec = L.circleMarker(
+                [-23.9436, -46.32864],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_e4fde14f52905f83223820bb04f30055 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1f1a8c41fb61994342c1febc96c7175 = $(`<div id="html_e1f1a8c41fb61994342c1febc96c7175" style="width: 100.0%; height: 100.0%;">Santos<br>ROUBO A BANCO: 2 (Fevereiro)</div>`)[0];
+                popup_e4fde14f52905f83223820bb04f30055.setContent(html_e1f1a8c41fb61994342c1febc96c7175);
+            
+        
+
+        circle_marker_2dc42f61efb795d567251fefc0ad7cec.bindPopup(popup_e4fde14f52905f83223820bb04f30055)
+        ;
+
+        
+    
+    
+            var circle_marker_91dd92033a835873a01d287cb6d0bd82 = L.circleMarker(
+                [-23.400162, -48.720867],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_b02c552943ef5db723ccbbf840c0eeae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8f2d33a52b450ccac5a0282ec087d2bd = $(`<div id="html_8f2d33a52b450ccac5a0282ec087d2bd" style="width: 100.0%; height: 100.0%;">Paranapanema<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_b02c552943ef5db723ccbbf840c0eeae.setContent(html_8f2d33a52b450ccac5a0282ec087d2bd);
+            
+        
+
+        circle_marker_91dd92033a835873a01d287cb6d0bd82.bindPopup(popup_b02c552943ef5db723ccbbf840c0eeae)
+        ;
+
+        
+    
+    
+            var circle_marker_900a76eb35bceffe143903e39b689087 = L.circleMarker(
+                [-22.692018, -44.32218],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_b1322572edad20a92964110d92b55c62 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93cb8c556323e09df84b0e87b0fddde9 = $(`<div id="html_93cb8c556323e09df84b0e87b0fddde9" style="width: 100.0%; height: 100.0%;">Bananal<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_b1322572edad20a92964110d92b55c62.setContent(html_93cb8c556323e09df84b0e87b0fddde9);
+            
+        
+
+        circle_marker_900a76eb35bceffe143903e39b689087.bindPopup(popup_b1322572edad20a92964110d92b55c62)
+        ;
+
+        
+    
+    
+            var circle_marker_0a67fbefaba5d1712dcc0a8c7b658011 = L.circleMarker(
+                [-23.630280000000003, -45.41306],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_5684e3ab6fb318bc115b68d7f915ef1f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9013b20a2e3177feb82fce01d95490d = $(`<div id="html_c9013b20a2e3177feb82fce01d95490d" style="width: 100.0%; height: 100.0%;">Caraguatatuba<br>ROUBO A BANCO: 1 (Fevereiro)</div>`)[0];
+                popup_5684e3ab6fb318bc115b68d7f915ef1f.setContent(html_c9013b20a2e3177feb82fce01d95490d);
+            
+        
+
+        circle_marker_0a67fbefaba5d1712dcc0a8c7b658011.bindPopup(popup_5684e3ab6fb318bc115b68d7f915ef1f)
+        ;
+
+        
+    
+    
+            var circle_marker_055db36d8768a8d2a0ec473c27c3096b = L.circleMarker(
+                [-23.196779000000003, -45.885452],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_52af0c6e8ceb54ff30637ea8ec1beac2);
+        
+    
+        var popup_33b1d213ace0b83e3d648acc03e65bd2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa71bced6236e58d6aa8bc00c44784ac = $(`<div id="html_fa71bced6236e58d6aa8bc00c44784ac" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>ROUBO A BANCO: 2 (Fevereiro)</div>`)[0];
+                popup_33b1d213ace0b83e3d648acc03e65bd2.setContent(html_fa71bced6236e58d6aa8bc00c44784ac);
+            
+        
+
+        circle_marker_055db36d8768a8d2a0ec473c27c3096b.bindPopup(popup_33b1d213ace0b83e3d648acc03e65bd2)
+        ;
+
+        
+    
+    
+            var feature_group_d0827757fc745a54e0a9d5abb4cb6aac = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2fc5a65d4c1b573695e5d506323b1368 = L.circleMarker(
+                [-22.443123, -46.948244],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_82a5c4d2d73d0e7da4cc9ba4d24ca92b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00ac319f0f4487bce0aae3b8077d24d8 = $(`<div id="html_00ac319f0f4487bce0aae3b8077d24d8" style="width: 100.0%; height: 100.0%;">Mogi Mirim<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_82a5c4d2d73d0e7da4cc9ba4d24ca92b.setContent(html_00ac319f0f4487bce0aae3b8077d24d8);
+            
+        
+
+        circle_marker_2fc5a65d4c1b573695e5d506323b1368.bindPopup(popup_82a5c4d2d73d0e7da4cc9ba4d24ca92b)
+        ;
+
+        
+    
+    
+            var circle_marker_37ecfcea08af2284dbc31dc9d3b20704 = L.circleMarker(
+                [-23.560652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.571428571428573, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_76800cffb4a95e7411b41ff4bee98c38 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ed2567e52f6a595ab47ed37db1b8e408 = $(`<div id="html_ed2567e52f6a595ab47ed37db1b8e408" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 11 (Marco)</div>`)[0];
+                popup_76800cffb4a95e7411b41ff4bee98c38.setContent(html_ed2567e52f6a595ab47ed37db1b8e408);
+            
+        
+
+        circle_marker_37ecfcea08af2284dbc31dc9d3b20704.bindPopup(popup_76800cffb4a95e7411b41ff4bee98c38)
+        ;
+
+        
+    
+    
+            var circle_marker_957d558811098d4849663af513117e74 = L.circleMarker(
+                [-23.696644000000003, -46.614695000000005],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_bcd6869b8416f91450eb2f72a6df1830 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_766f91ee76c3ab21db058f0ebb19aa42 = $(`<div id="html_766f91ee76c3ab21db058f0ebb19aa42" style="width: 100.0%; height: 100.0%;">Diadema<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_bcd6869b8416f91450eb2f72a6df1830.setContent(html_766f91ee76c3ab21db058f0ebb19aa42);
+            
+        
+
+        circle_marker_957d558811098d4849663af513117e74.bindPopup(popup_bcd6869b8416f91450eb2f72a6df1830)
+        ;
+
+        
+    
+    
+            var circle_marker_bb4a1d5c2a16b6ffe9097661f1c67ec1 = L.circleMarker(
+                [-23.718035, -46.540674],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_531d25da12d67c7e1b45791bfae1e495 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3113625d19a2fd85a10b88381f602e0 = $(`<div id="html_e3113625d19a2fd85a10b88381f602e0" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>ROUBO A BANCO: 2 (Marco)</div>`)[0];
+                popup_531d25da12d67c7e1b45791bfae1e495.setContent(html_e3113625d19a2fd85a10b88381f602e0);
+            
+        
+
+        circle_marker_bb4a1d5c2a16b6ffe9097661f1c67ec1.bindPopup(popup_531d25da12d67c7e1b45791bfae1e495)
+        ;
+
+        
+    
+    
+            var circle_marker_a7ad12ad514984dc07fd60408c356f20 = L.circleMarker(
+                [-23.629593, -46.558832],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_7a90bf51e070368463b41a3929308484 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f34b876029d842f9532b1e2ea80fc2f0 = $(`<div id="html_f34b876029d842f9532b1e2ea80fc2f0" style="width: 100.0%; height: 100.0%;">São Caetano do Sul<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_7a90bf51e070368463b41a3929308484.setContent(html_f34b876029d842f9532b1e2ea80fc2f0);
+            
+        
+
+        circle_marker_a7ad12ad514984dc07fd60408c356f20.bindPopup(popup_7a90bf51e070368463b41a3929308484)
+        ;
+
+        
+    
+    
+            var circle_marker_e9f1bc07684a3dde56c24406fc8bb2b9 = L.circleMarker(
+                [-22.596908000000003, -47.506098],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_7cf92337cf2797a1ae837118dc4ea870 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7edae64fc7b6e19dd5ae5600d65d684a = $(`<div id="html_7edae64fc7b6e19dd5ae5600d65d684a" style="width: 100.0%; height: 100.0%;">Iracemápolis<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_7cf92337cf2797a1ae837118dc4ea870.setContent(html_7edae64fc7b6e19dd5ae5600d65d684a);
+            
+        
+
+        circle_marker_e9f1bc07684a3dde56c24406fc8bb2b9.bindPopup(popup_7cf92337cf2797a1ae837118dc4ea870)
+        ;
+
+        
+    
+    
+            var circle_marker_f4e5f06edd8edf6200a3764bde909569 = L.circleMarker(
+                [-22.735164, -47.639326000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_6f3a18c907e33e4e31efdcabcf31d8ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3804e0060ec268ac3b6b5b24c2ceaf7 = $(`<div id="html_e3804e0060ec268ac3b6b5b24c2ceaf7" style="width: 100.0%; height: 100.0%;">Piracicaba<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_6f3a18c907e33e4e31efdcabcf31d8ac.setContent(html_e3804e0060ec268ac3b6b5b24c2ceaf7);
+            
+        
+
+        circle_marker_f4e5f06edd8edf6200a3764bde909569.bindPopup(popup_6f3a18c907e33e4e31efdcabcf31d8ac)
+        ;
+
+        
+    
+    
+            var circle_marker_16f260f9789f29681dbd3e318215f1c6 = L.circleMarker(
+                [-21.49002, -47.54311],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_c9dfe5cfcafdcbd236c226dd6020f2c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4ebaf5c93fb8fe63e60c919c0633aba = $(`<div id="html_c4ebaf5c93fb8fe63e60c919c0633aba" style="width: 100.0%; height: 100.0%;">São Simão<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_c9dfe5cfcafdcbd236c226dd6020f2c5.setContent(html_c4ebaf5c93fb8fe63e60c919c0633aba);
+            
+        
+
+        circle_marker_16f260f9789f29681dbd3e318215f1c6.bindPopup(popup_c9dfe5cfcafdcbd236c226dd6020f2c5)
+        ;
+
+        
+    
+    
+            var circle_marker_64a9a61506a9eebdf81351fbd7c76dd5 = L.circleMarker(
+                [-21.322294000000003, -49.049635],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_7371d61a61badabd727a027bc7218a1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f29438cd53d1253fc0dd8769964fa17 = $(`<div id="html_2f29438cd53d1253fc0dd8769964fa17" style="width: 100.0%; height: 100.0%;">Itajobi<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_7371d61a61badabd727a027bc7218a1b.setContent(html_2f29438cd53d1253fc0dd8769964fa17);
+            
+        
+
+        circle_marker_64a9a61506a9eebdf81351fbd7c76dd5.bindPopup(popup_7371d61a61badabd727a027bc7218a1b)
+        ;
+
+        
+    
+    
+            var circle_marker_f8d567b68f109f2db0197cd7a8f8d886 = L.circleMarker(
+                [-20.704332, -50.030604000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d0827757fc745a54e0a9d5abb4cb6aac);
+        
+    
+        var popup_70e80c88dad786b91c7d462cff270c70 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1673de3e47ba47e99d61302c67838a58 = $(`<div id="html_1673de3e47ba47e99d61302c67838a58" style="width: 100.0%; height: 100.0%;">Nhandeara<br>ROUBO A BANCO: 1 (Marco)</div>`)[0];
+                popup_70e80c88dad786b91c7d462cff270c70.setContent(html_1673de3e47ba47e99d61302c67838a58);
+            
+        
+
+        circle_marker_f8d567b68f109f2db0197cd7a8f8d886.bindPopup(popup_70e80c88dad786b91c7d462cff270c70)
+        ;
+
+        
+    
+    
+            var feature_group_6f7e0ff58d7d44bf895738f57aa49908 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ad52e12bf1f03320386f89ec9c3cdb53 = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.428571428571429, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_7f90dcb4034da886a2d7fc8a53909209 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5e955d22179c24263de96d310c8639f = $(`<div id="html_c5e955d22179c24263de96d310c8639f" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 5 (Abril)</div>`)[0];
+                popup_7f90dcb4034da886a2d7fc8a53909209.setContent(html_c5e955d22179c24263de96d310c8639f);
+            
+        
+
+        circle_marker_ad52e12bf1f03320386f89ec9c3cdb53.bindPopup(popup_7f90dcb4034da886a2d7fc8a53909209)
+        ;
+
+        
+    
+    
+            var circle_marker_fccfb8e0cb8a58766975803f9d6c98c4 = L.circleMarker(
+                [-23.477594, -46.507769999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_dcfae608593d353b9d72df5ff6b3b1a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c0ddd24a27f1cb0fc80fcae0c0ebf14 = $(`<div id="html_4c0ddd24a27f1cb0fc80fcae0c0ebf14" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 1 (Abril)</div>`)[0];
+                popup_dcfae608593d353b9d72df5ff6b3b1a2.setContent(html_4c0ddd24a27f1cb0fc80fcae0c0ebf14);
+            
+        
+
+        circle_marker_fccfb8e0cb8a58766975803f9d6c98c4.bindPopup(popup_dcfae608593d353b9d72df5ff6b3b1a2)
+        ;
+
+        
+    
+    
+            var circle_marker_41e7d6f1b8ecc12f7ead4e2856f23f73 = L.circleMarker(
+                [-23.533428, -46.17267],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_a390b826c7135940a13eeb0bdb6a2b5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40bd47aa5943632de40035c5149e847d = $(`<div id="html_40bd47aa5943632de40035c5149e847d" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>ROUBO A BANCO: 1 (Abril)</div>`)[0];
+                popup_a390b826c7135940a13eeb0bdb6a2b5b.setContent(html_40bd47aa5943632de40035c5149e847d);
+            
+        
+
+        circle_marker_41e7d6f1b8ecc12f7ead4e2856f23f73.bindPopup(popup_a390b826c7135940a13eeb0bdb6a2b5b)
+        ;
+
+        
+    
+    
+            var circle_marker_1fa6b4882e0d5640c58349206d316e29 = L.circleMarker(
+                [-23.718035, -46.530674],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_a29f7631ef27f0bb66d2a7a6745e0561 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_97354aa6349cd146d0ddd61d16175c35 = $(`<div id="html_97354aa6349cd146d0ddd61d16175c35" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>ROUBO A BANCO: 1 (Abril)</div>`)[0];
+                popup_a29f7631ef27f0bb66d2a7a6745e0561.setContent(html_97354aa6349cd146d0ddd61d16175c35);
+            
+        
+
+        circle_marker_1fa6b4882e0d5640c58349206d316e29.bindPopup(popup_a29f7631ef27f0bb66d2a7a6745e0561)
+        ;
+
+        
+    
+    
+            var circle_marker_6eafbdbc65e27561ffd2be9bed6c8c83 = L.circleMarker(
+                [-23.629593, -46.548832],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_7beb907200f187459e4001faf5ba1787 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9090c16cbf323ecff7bea16b3f556ca6 = $(`<div id="html_9090c16cbf323ecff7bea16b3f556ca6" style="width: 100.0%; height: 100.0%;">São Caetano do Sul<br>ROUBO A BANCO: 1 (Abril)</div>`)[0];
+                popup_7beb907200f187459e4001faf5ba1787.setContent(html_9090c16cbf323ecff7bea16b3f556ca6);
+            
+        
+
+        circle_marker_6eafbdbc65e27561ffd2be9bed6c8c83.bindPopup(popup_7beb907200f187459e4001faf5ba1787)
+        ;
+
+        
+    
+    
+            var circle_marker_66bb6f11529e229919d09677fbf7c20a = L.circleMarker(
+                [-22.735164, -47.629326],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.071428571428571, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6f7e0ff58d7d44bf895738f57aa49908);
+        
+    
+        var popup_6c4c66f7e70731dc9eb2641099e4d520 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_185217128a49b5e3ea7a7c303ec56ee2 = $(`<div id="html_185217128a49b5e3ea7a7c303ec56ee2" style="width: 100.0%; height: 100.0%;">Piracicaba<br>ROUBO A BANCO: 4 (Abril)</div>`)[0];
+                popup_6c4c66f7e70731dc9eb2641099e4d520.setContent(html_185217128a49b5e3ea7a7c303ec56ee2);
+            
+        
+
+        circle_marker_66bb6f11529e229919d09677fbf7c20a.bindPopup(popup_6c4c66f7e70731dc9eb2641099e4d520)
+        ;
+
+        
+    
+    
+            var feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9488232723e54b154b09433ee4b10169 = L.circleMarker(
+                [-22.456291, -49.348566],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_2617ab2706429ab914f7f3f0a872b14b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e88aa205c7c3a4a4ba1a439616b7a56b = $(`<div id="html_e88aa205c7c3a4a4ba1a439616b7a56b" style="width: 100.0%; height: 100.0%;">Cabrália Paulista<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_2617ab2706429ab914f7f3f0a872b14b.setContent(html_e88aa205c7c3a4a4ba1a439616b7a56b);
+            
+        
+
+        circle_marker_9488232723e54b154b09433ee4b10169.bindPopup(popup_2617ab2706429ab914f7f3f0a872b14b)
+        ;
+
+        
+    
+    
+            var circle_marker_c7a94c3173c418939c7fc8d771c1fdff = L.circleMarker(
+                [-22.90564, -47.069562999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_3c895cdadd2f4eaf5dfdb6c6c7bfd28a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ba6febf53d41627687af8d11d329376 = $(`<div id="html_8ba6febf53d41627687af8d11d329376" style="width: 100.0%; height: 100.0%;">Campinas<br>ROUBO A BANCO: 2 (Maio)</div>`)[0];
+                popup_3c895cdadd2f4eaf5dfdb6c6c7bfd28a.setContent(html_8ba6febf53d41627687af8d11d329376);
+            
+        
+
+        circle_marker_c7a94c3173c418939c7fc8d771c1fdff.bindPopup(popup_3c895cdadd2f4eaf5dfdb6c6c7bfd28a)
+        ;
+
+        
+    
+    
+            var circle_marker_457fb8dec73275ab014e32f42d4a4b72 = L.circleMarker(
+                [-23.550652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_046ca3291bf4eb151531c7b086bacf27 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_819163b80859bc406b72f18130456e9b = $(`<div id="html_819163b80859bc406b72f18130456e9b" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 15 (Maio)</div>`)[0];
+                popup_046ca3291bf4eb151531c7b086bacf27.setContent(html_819163b80859bc406b72f18130456e9b);
+            
+        
+
+        circle_marker_457fb8dec73275ab014e32f42d4a4b72.bindPopup(popup_046ca3291bf4eb151531c7b086bacf27)
+        ;
+
+        
+    
+    
+            var circle_marker_1725b50690828b541d4180bcfb19f91b = L.circleMarker(
+                [-23.686644, -46.634695],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_abff1e9506b75ec66ef1a4e901e04b62 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e419e4ce80aadbb449fee3b4ffb5569a = $(`<div id="html_e419e4ce80aadbb449fee3b4ffb5569a" style="width: 100.0%; height: 100.0%;">Diadema<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_abff1e9506b75ec66ef1a4e901e04b62.setContent(html_e419e4ce80aadbb449fee3b4ffb5569a);
+            
+        
+
+        circle_marker_1725b50690828b541d4180bcfb19f91b.bindPopup(popup_abff1e9506b75ec66ef1a4e901e04b62)
+        ;
+
+        
+    
+    
+            var circle_marker_c7f60430cdf64aa9c56545343bbb8c78 = L.circleMarker(
+                [-23.467594, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_3c8986e5c3e7067bab4163cbca646fe3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b17815f08ff9c66bdf86dd84b2ce4d1 = $(`<div id="html_1b17815f08ff9c66bdf86dd84b2ce4d1" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_3c8986e5c3e7067bab4163cbca646fe3.setContent(html_1b17815f08ff9c66bdf86dd84b2ce4d1);
+            
+        
+
+        circle_marker_c7f60430cdf64aa9c56545343bbb8c78.bindPopup(popup_3c8986e5c3e7067bab4163cbca646fe3)
+        ;
+
+        
+    
+    
+            var circle_marker_adadca219f2f091b642571b4b537f721 = L.circleMarker(
+                [-23.532486, -46.80168],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_9c70381e4d92b1d7e197de9008027a78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f73d695d7631402c7e4c5a0f4475ffab = $(`<div id="html_f73d695d7631402c7e4c5a0f4475ffab" style="width: 100.0%; height: 100.0%;">Osasco<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_9c70381e4d92b1d7e197de9008027a78.setContent(html_f73d695d7631402c7e4c5a0f4475ffab);
+            
+        
+
+        circle_marker_adadca219f2f091b642571b4b537f721.bindPopup(popup_9c70381e4d92b1d7e197de9008027a78)
+        ;
+
+        
+    
+    
+            var circle_marker_cfad6bd1c9d5f983a8408420eea2ecf8 = L.circleMarker(
+                [-23.65335, -46.537904999999995],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_c064bab834e5f6fa5395eb90b45c9882 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dd4f31ae8c2f51dc5b0a3fd23066978 = $(`<div id="html_5dd4f31ae8c2f51dc5b0a3fd23066978" style="width: 100.0%; height: 100.0%;">Santo André<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_c064bab834e5f6fa5395eb90b45c9882.setContent(html_5dd4f31ae8c2f51dc5b0a3fd23066978);
+            
+        
+
+        circle_marker_cfad6bd1c9d5f983a8408420eea2ecf8.bindPopup(popup_c064bab834e5f6fa5395eb90b45c9882)
+        ;
+
+        
+    
+    
+            var circle_marker_b792ec232cbd5d89898574e3c2ad06f5 = L.circleMarker(
+                [-23.708035, -46.560674],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_e63a6ea2d890ac79ee7099c0dc1555ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14dcb5aceafad7f68a1f9ae08fe0ad68 = $(`<div id="html_14dcb5aceafad7f68a1f9ae08fe0ad68" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_e63a6ea2d890ac79ee7099c0dc1555ac.setContent(html_14dcb5aceafad7f68a1f9ae08fe0ad68);
+            
+        
+
+        circle_marker_b792ec232cbd5d89898574e3c2ad06f5.bindPopup(popup_e63a6ea2d890ac79ee7099c0dc1555ac)
+        ;
+
+        
+    
+    
+            var circle_marker_4e455964bedc4645a9771e9cdd182005 = L.circleMarker(
+                [-22.476833, -47.465055],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_6c002b714fca6dcd3da965a5d67c9c67 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_338d6c900d37613fc4568a7d5ba1b167 = $(`<div id="html_338d6c900d37613fc4568a7d5ba1b167" style="width: 100.0%; height: 100.0%;">Cordeirópolis<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_6c002b714fca6dcd3da965a5d67c9c67.setContent(html_338d6c900d37613fc4568a7d5ba1b167);
+            
+        
+
+        circle_marker_4e455964bedc4645a9771e9cdd182005.bindPopup(popup_6c002b714fca6dcd3da965a5d67c9c67)
+        ;
+
+        
+    
+    
+            var circle_marker_7be4ed9919158c7ecc05c6dfaaacbe03 = L.circleMarker(
+                [-22.410011, -47.570394],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_e5c4659bac91a25b5f024b01ce40502c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_926b787c5e4c3230960d3cc212fdee42 = $(`<div id="html_926b787c5e4c3230960d3cc212fdee42" style="width: 100.0%; height: 100.0%;">Rio Claro<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_e5c4659bac91a25b5f024b01ce40502c.setContent(html_926b787c5e4c3230960d3cc212fdee42);
+            
+        
+
+        circle_marker_7be4ed9919158c7ecc05c6dfaaacbe03.bindPopup(popup_e5c4659bac91a25b5f024b01ce40502c)
+        ;
+
+        
+    
+    
+            var circle_marker_668d588d903e1ecb508d02555b0e3787 = L.circleMarker(
+                [-21.788671, -48.18731],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_c2258019678d340b33b48a2a032beb3a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f07ea3725adb76d0ec904f1f6ba5f9d9 = $(`<div id="html_f07ea3725adb76d0ec904f1f6ba5f9d9" style="width: 100.0%; height: 100.0%;">Araraquara<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_c2258019678d340b33b48a2a032beb3a.setContent(html_f07ea3725adb76d0ec904f1f6ba5f9d9);
+            
+        
+
+        circle_marker_668d588d903e1ecb508d02555b0e3787.bindPopup(popup_c2258019678d340b33b48a2a032beb3a)
+        ;
+
+        
+    
+    
+            var circle_marker_1b4e02319cb16a2b08989903ce69d8b5 = L.circleMarker(
+                [-21.177631, -47.820097],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_90e274b40306c4c566b1a13383f79afd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14d4f1f0febb21765436c522ef82890d = $(`<div id="html_14d4f1f0febb21765436c522ef82890d" style="width: 100.0%; height: 100.0%;">Ribeirão Preto<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_90e274b40306c4c566b1a13383f79afd.setContent(html_14d4f1f0febb21765436c522ef82890d);
+            
+        
+
+        circle_marker_1b4e02319cb16a2b08989903ce69d8b5.bindPopup(popup_90e274b40306c4c566b1a13383f79afd)
+        ;
+
+        
+    
+    
+            var circle_marker_1f604c61533055b6732bfa9839e91069 = L.circleMarker(
+                [-24.00898, -46.424493999999996],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_7b019724c56e0d5b7ae70f5fc9b2e1a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f87609c4552c2680fdf0159203c0d166 = $(`<div id="html_f87609c4552c2680fdf0159203c0d166" style="width: 100.0%; height: 100.0%;">Praia Grande<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_7b019724c56e0d5b7ae70f5fc9b2e1a0.setContent(html_f87609c4552c2680fdf0159203c0d166);
+            
+        
+
+        circle_marker_1f604c61533055b6732bfa9839e91069.bindPopup(popup_7b019724c56e0d5b7ae70f5fc9b2e1a0)
+        ;
+
+        
+    
+    
+            var circle_marker_3f8ddb06594c1b7efbe7a5fbeb3d0db3 = L.circleMarker(
+                [-23.9336, -46.33864],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e);
+        
+    
+        var popup_475f691f420e78d73f5a1a331a881f4d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8469138590ab62830316adcc7cadd1c0 = $(`<div id="html_8469138590ab62830316adcc7cadd1c0" style="width: 100.0%; height: 100.0%;">Santos<br>ROUBO A BANCO: 1 (Maio)</div>`)[0];
+                popup_475f691f420e78d73f5a1a331a881f4d.setContent(html_8469138590ab62830316adcc7cadd1c0);
+            
+        
+
+        circle_marker_3f8ddb06594c1b7efbe7a5fbeb3d0db3.bindPopup(popup_475f691f420e78d73f5a1a331a881f4d)
+        ;
+
+        
+    
+    
+            var feature_group_9c544b07661cac163b92b4ad8cf9191a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f54c82ac2802db9e0956e9a8e7e8b3cb = L.circleMarker(
+                [-22.90564, -47.059563],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_a254ca61892100467110baeedbe18cea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_50fc9b6fbba98f3168e220dae94f2f75 = $(`<div id="html_50fc9b6fbba98f3168e220dae94f2f75" style="width: 100.0%; height: 100.0%;">Campinas<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_a254ca61892100467110baeedbe18cea.setContent(html_50fc9b6fbba98f3168e220dae94f2f75);
+            
+        
+
+        circle_marker_f54c82ac2802db9e0956e9a8e7e8b3cb.bindPopup(popup_a254ca61892100467110baeedbe18cea)
+        ;
+
+        
+    
+    
+            var circle_marker_2739d749e4ccaa5ad36c1c1e5e7bc7ab = L.circleMarker(
+                [-23.550652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.142857142857142, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_bea45c379c36d9f7e49adf40ec4572f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ffe557b540a79b6cb059df8543491d98 = $(`<div id="html_ffe557b540a79b6cb059df8543491d98" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 7 (Junho)</div>`)[0];
+                popup_bea45c379c36d9f7e49adf40ec4572f0.setContent(html_ffe557b540a79b6cb059df8543491d98);
+            
+        
+
+        circle_marker_2739d749e4ccaa5ad36c1c1e5e7bc7ab.bindPopup(popup_bea45c379c36d9f7e49adf40ec4572f0)
+        ;
+
+        
+    
+    
+            var circle_marker_d921dedb571072c0236629cf9a93b4d7 = L.circleMarker(
+                [-23.467594, -46.52777],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_bc5ba960e9dd724fca1f6e9d73fc0680 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01acad992c3956ed81ee621858d37467 = $(`<div id="html_01acad992c3956ed81ee621858d37467" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_bc5ba960e9dd724fca1f6e9d73fc0680.setContent(html_01acad992c3956ed81ee621858d37467);
+            
+        
+
+        circle_marker_d921dedb571072c0236629cf9a93b4d7.bindPopup(popup_bc5ba960e9dd724fca1f6e9d73fc0680)
+        ;
+
+        
+    
+    
+            var circle_marker_6169fcf86b3927fe6a25f4027ccd48f7 = L.circleMarker(
+                [-23.475449, -46.351402],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_e7ca6fff6f396ee2a848af29f5e2ecee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef534b0ebe1f3a00339eb42a0704707d = $(`<div id="html_ef534b0ebe1f3a00339eb42a0704707d" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>ROUBO A BANCO: 2 (Junho)</div>`)[0];
+                popup_e7ca6fff6f396ee2a848af29f5e2ecee.setContent(html_ef534b0ebe1f3a00339eb42a0704707d);
+            
+        
+
+        circle_marker_6169fcf86b3927fe6a25f4027ccd48f7.bindPopup(popup_e7ca6fff6f396ee2a848af29f5e2ecee)
+        ;
+
+        
+    
+    
+            var circle_marker_219bedc8d0bc81088a4d3b9f6c830131 = L.circleMarker(
+                [-23.523428, -46.19267],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_44f2de51688edc5d5462297fd9ddc3e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb12bb1b96fa9625b1222ca7ba9752b0 = $(`<div id="html_bb12bb1b96fa9625b1222ca7ba9752b0" style="width: 100.0%; height: 100.0%;">Mogi das Cruzes<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_44f2de51688edc5d5462297fd9ddc3e0.setContent(html_bb12bb1b96fa9625b1222ca7ba9752b0);
+            
+        
+
+        circle_marker_219bedc8d0bc81088a4d3b9f6c830131.bindPopup(popup_44f2de51688edc5d5462297fd9ddc3e0)
+        ;
+
+        
+    
+    
+            var circle_marker_8d3c8d06a2b3d8ac2e4a2b2b2e33fced = L.circleMarker(
+                [-22.739246, -47.330605],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_6c3ada57a75b4ef6a4c9408b1302d90a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5a0877544c4037df7b045bea5d8c39d = $(`<div id="html_b5a0877544c4037df7b045bea5d8c39d" style="width: 100.0%; height: 100.0%;">Americana<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_6c3ada57a75b4ef6a4c9408b1302d90a.setContent(html_b5a0877544c4037df7b045bea5d8c39d);
+            
+        
+
+        circle_marker_8d3c8d06a2b3d8ac2e4a2b2b2e33fced.bindPopup(popup_6c3ada57a75b4ef6a4c9408b1302d90a)
+        ;
+
+        
+    
+    
+            var circle_marker_0f86c0e2f731747b8769463f97c7411d = L.circleMarker(
+                [-22.645237, -44.580524],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_e4d1fa21fb6351b3a2c48ad510f1e265 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9cea0e3fc8660c8bb53032bd4d71583 = $(`<div id="html_c9cea0e3fc8660c8bb53032bd4d71583" style="width: 100.0%; height: 100.0%;">São José do Barreiro<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_e4d1fa21fb6351b3a2c48ad510f1e265.setContent(html_c9cea0e3fc8660c8bb53032bd4d71583);
+            
+        
+
+        circle_marker_0f86c0e2f731747b8769463f97c7411d.bindPopup(popup_e4d1fa21fb6351b3a2c48ad510f1e265)
+        ;
+
+        
+    
+    
+            var circle_marker_c8703414e5b44011915ed111865fd37e = L.circleMarker(
+                [-23.802786, -45.40705],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_6c85571406fa812e41f4bebf3ce70e11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51a0007196492e925e0dad2d6d662635 = $(`<div id="html_51a0007196492e925e0dad2d6d662635" style="width: 100.0%; height: 100.0%;">São Sebastião<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_6c85571406fa812e41f4bebf3ce70e11.setContent(html_51a0007196492e925e0dad2d6d662635);
+            
+        
+
+        circle_marker_c8703414e5b44011915ed111865fd37e.bindPopup(popup_6c85571406fa812e41f4bebf3ce70e11)
+        ;
+
+        
+    
+    
+            var circle_marker_cc4a65a55d3f304509f1d2ed8b471943 = L.circleMarker(
+                [-23.031448, -45.56128],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_9c544b07661cac163b92b4ad8cf9191a);
+        
+    
+        var popup_bdbe48509f177a21765f854b3f90c753 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6d5b73fd3f390d1a5369c117d1798fb = $(`<div id="html_d6d5b73fd3f390d1a5369c117d1798fb" style="width: 100.0%; height: 100.0%;">Taubaté<br>ROUBO A BANCO: 1 (Junho)</div>`)[0];
+                popup_bdbe48509f177a21765f854b3f90c753.setContent(html_d6d5b73fd3f390d1a5369c117d1798fb);
+            
+        
+
+        circle_marker_cc4a65a55d3f304509f1d2ed8b471943.bindPopup(popup_bdbe48509f177a21765f854b3f90c753)
+        ;
+
+        
+    
+    
+            var feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6e37012c91999642d06ce6fcf7102aa5 = L.circleMarker(
+                [-23.117739, -46.544787],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1);
+        
+    
+        var popup_d03689f5dce2422e85c1e12992d87632 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cc66b7f962d0d71c821d4d67bcdc6d6 = $(`<div id="html_3cc66b7f962d0d71c821d4d67bcdc6d6" style="width: 100.0%; height: 100.0%;">Atibaia<br>ROUBO A BANCO: 1 (Julho)</div>`)[0];
+                popup_d03689f5dce2422e85c1e12992d87632.setContent(html_3cc66b7f962d0d71c821d4d67bcdc6d6);
+            
+        
+
+        circle_marker_6e37012c91999642d06ce6fcf7102aa5.bindPopup(popup_d03689f5dce2422e85c1e12992d87632)
+        ;
+
+        
+    
+    
+            var circle_marker_9673499867f725fa5daf3fa5f7760998 = L.circleMarker(
+                [-23.550652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 27.928571428571427, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1);
+        
+    
+        var popup_8876bb318619ad46194d2f9d1b4eb3ad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1b6380a655ae218560b306fdf8f0986 = $(`<div id="html_e1b6380a655ae218560b306fdf8f0986" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 12 (Julho)</div>`)[0];
+                popup_8876bb318619ad46194d2f9d1b4eb3ad.setContent(html_e1b6380a655ae218560b306fdf8f0986);
+            
+        
+
+        circle_marker_9673499867f725fa5daf3fa5f7760998.bindPopup(popup_8876bb318619ad46194d2f9d1b4eb3ad)
+        ;
+
+        
+    
+    
+            var circle_marker_2dc1660c1393048d5a9eca83f3c1cf6b = L.circleMarker(
+                [-22.25365, -47.811255],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1);
+        
+    
+        var popup_7d2ccc5b51dc6cf8b7c4e17dac80e0bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_184278be6892d9ad5479e3094a554641 = $(`<div id="html_184278be6892d9ad5479e3094a554641" style="width: 100.0%; height: 100.0%;">Itirapina<br>ROUBO A BANCO: 2 (Julho)</div>`)[0];
+                popup_7d2ccc5b51dc6cf8b7c4e17dac80e0bc.setContent(html_184278be6892d9ad5479e3094a554641);
+            
+        
+
+        circle_marker_2dc1660c1393048d5a9eca83f3c1cf6b.bindPopup(popup_7d2ccc5b51dc6cf8b7c4e17dac80e0bc)
+        ;
+
+        
+    
+    
+            var circle_marker_fc4a0ae874a345cc17d8796c81b09b11 = L.circleMarker(
+                [-22.45909, -47.522036],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1);
+        
+    
+        var popup_62059e65cd20a8971fbe6b1f567764f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_822903f55fa0824df158e3856d44e7b0 = $(`<div id="html_822903f55fa0824df158e3856d44e7b0" style="width: 100.0%; height: 100.0%;">Santa Gertrudes<br>ROUBO A BANCO: 2 (Julho)</div>`)[0];
+                popup_62059e65cd20a8971fbe6b1f567764f0.setContent(html_822903f55fa0824df158e3856d44e7b0);
+            
+        
+
+        circle_marker_fc4a0ae874a345cc17d8796c81b09b11.bindPopup(popup_62059e65cd20a8971fbe6b1f567764f0)
+        ;
+
+        
+    
+    
+            var feature_group_6382f4d5159c9365eb90b9e5957742dc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7c6dc81058ee528edda58d507972c20f = L.circleMarker(
+                [-22.90564, -47.039562999999994],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_0fd5a6e3367ab52f0e85a6646c2db720 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17be1d889b31f5977085bbc2cfc32645 = $(`<div id="html_17be1d889b31f5977085bbc2cfc32645" style="width: 100.0%; height: 100.0%;">Campinas<br>ROUBO A BANCO: 2 (Agosto)</div>`)[0];
+                popup_0fd5a6e3367ab52f0e85a6646c2db720.setContent(html_17be1d889b31f5977085bbc2cfc32645);
+            
+        
+
+        circle_marker_7c6dc81058ee528edda58d507972c20f.bindPopup(popup_0fd5a6e3367ab52f0e85a6646c2db720)
+        ;
+
+        
+    
+    
+            var circle_marker_f462d0d968d3961db4fb619b9757cd81 = L.circleMarker(
+                [-22.70374, -46.965059999999994],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_f9e612aba9ef9bd967a7aed0622a303e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b6ca4b83c3180231bcc371d1b8d4c2a = $(`<div id="html_0b6ca4b83c3180231bcc371d1b8d4c2a" style="width: 100.0%; height: 100.0%;">Jaguariúna<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_f9e612aba9ef9bd967a7aed0622a303e.setContent(html_0b6ca4b83c3180231bcc371d1b8d4c2a);
+            
+        
+
+        circle_marker_f462d0d968d3961db4fb619b9757cd81.bindPopup(popup_f9e612aba9ef9bd967a7aed0622a303e)
+        ;
+
+        
+    
+    
+            var circle_marker_245c235fdaac626795682bcfde3299f2 = L.circleMarker(
+                [-23.550652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.214285714285715, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_c51eeea18876111e96d6e0d7bdb58560 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1748d5d8943c72f9b184ad62900badc8 = $(`<div id="html_1748d5d8943c72f9b184ad62900badc8" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 10 (Agosto)</div>`)[0];
+                popup_c51eeea18876111e96d6e0d7bdb58560.setContent(html_1748d5d8943c72f9b184ad62900badc8);
+            
+        
+
+        circle_marker_245c235fdaac626795682bcfde3299f2.bindPopup(popup_c51eeea18876111e96d6e0d7bdb58560)
+        ;
+
+        
+    
+    
+            var circle_marker_af612a71ff1eb39612f24589e1390187 = L.circleMarker(
+                [-23.528805, -45.82653],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_396be4da7b0996a14d6b81d62bdfe117 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d507986c593fbfe155778236c79564e = $(`<div id="html_2d507986c593fbfe155778236c79564e" style="width: 100.0%; height: 100.0%;">Salesópolis<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_396be4da7b0996a14d6b81d62bdfe117.setContent(html_2d507986c593fbfe155778236c79564e);
+            
+        
+
+        circle_marker_af612a71ff1eb39612f24589e1390187.bindPopup(popup_396be4da7b0996a14d6b81d62bdfe117)
+        ;
+
+        
+    
+    
+            var circle_marker_cda1104df62df919c3cf9e7a6b0b1d1e = L.circleMarker(
+                [-23.65335, -46.507904999999994],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_c981737bc05c7620ea665e50ade8f24c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d5252c7c1bbc5e1d1c29e33c558cf31 = $(`<div id="html_0d5252c7c1bbc5e1d1c29e33c558cf31" style="width: 100.0%; height: 100.0%;">Santo André<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_c981737bc05c7620ea665e50ade8f24c.setContent(html_0d5252c7c1bbc5e1d1c29e33c558cf31);
+            
+        
+
+        circle_marker_cda1104df62df919c3cf9e7a6b0b1d1e.bindPopup(popup_c981737bc05c7620ea665e50ade8f24c)
+        ;
+
+        
+    
+    
+            var circle_marker_5f3d75d8f60e592e6f02794d52b6eb42 = L.circleMarker(
+                [-21.788671, -48.157309999999995],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_3814595b7eb6907ca5e48aedb040076c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3940b860bc9b7f0205d212cdc6445dd = $(`<div id="html_a3940b860bc9b7f0205d212cdc6445dd" style="width: 100.0%; height: 100.0%;">Araraquara<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_3814595b7eb6907ca5e48aedb040076c.setContent(html_a3940b860bc9b7f0205d212cdc6445dd);
+            
+        
+
+        circle_marker_5f3d75d8f60e592e6f02794d52b6eb42.bindPopup(popup_3814595b7eb6907ca5e48aedb040076c)
+        ;
+
+        
+    
+    
+            var circle_marker_e14d6444dff5e079a98d7b870ae0eb39 = L.circleMarker(
+                [-21.48002, -47.53310999999999],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_56dee7889b199e2047655c6a5fb3c0fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9cbc2bd4f318fb00c9a241686d1769b7 = $(`<div id="html_9cbc2bd4f318fb00c9a241686d1769b7" style="width: 100.0%; height: 100.0%;">São Simão<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_56dee7889b199e2047655c6a5fb3c0fb.setContent(html_9cbc2bd4f318fb00c9a241686d1769b7);
+            
+        
+
+        circle_marker_e14d6444dff5e079a98d7b870ae0eb39.bindPopup(popup_56dee7889b199e2047655c6a5fb3c0fb)
+        ;
+
+        
+    
+    
+            var circle_marker_a635d4ff2e7f988595c091453d33fa30 = L.circleMarker(
+                [-23.992777, -46.235833],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_66e31f958ce646c2c4a792e8271d3b3f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0c1824b066bf8f07e3a76a97c6c89cf2 = $(`<div id="html_0c1824b066bf8f07e3a76a97c6c89cf2" style="width: 100.0%; height: 100.0%;">Guarujá<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_66e31f958ce646c2c4a792e8271d3b3f.setContent(html_0c1824b066bf8f07e3a76a97c6c89cf2);
+            
+        
+
+        circle_marker_a635d4ff2e7f988595c091453d33fa30.bindPopup(popup_66e31f958ce646c2c4a792e8271d3b3f)
+        ;
+
+        
+    
+    
+            var circle_marker_67da174a99cc936e54d447a23a9b35f9 = L.circleMarker(
+                [-23.305069, -45.95231],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_d4b6fb7c1b1d49203d0fec828d8e3b65 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d5a449f1c7706211b3aa0b2890d5d7b = $(`<div id="html_9d5a449f1c7706211b3aa0b2890d5d7b" style="width: 100.0%; height: 100.0%;">Jacareí<br>ROUBO A BANCO: 1 (Agosto)</div>`)[0];
+                popup_d4b6fb7c1b1d49203d0fec828d8e3b65.setContent(html_9d5a449f1c7706211b3aa0b2890d5d7b);
+            
+        
+
+        circle_marker_67da174a99cc936e54d447a23a9b35f9.bindPopup(popup_d4b6fb7c1b1d49203d0fec828d8e3b65)
+        ;
+
+        
+    
+    
+            var circle_marker_d3d5c0a4533cd922a08d80f6e47574b8 = L.circleMarker(
+                [-23.186779, -45.865452],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6382f4d5159c9365eb90b9e5957742dc);
+        
+    
+        var popup_f79d2f8ed07f13f0fe60a3b1c5f0c8ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7b7b168fa68135cedf1d2909d015997 = $(`<div id="html_c7b7b168fa68135cedf1d2909d015997" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>ROUBO A BANCO: 2 (Agosto)</div>`)[0];
+                popup_f79d2f8ed07f13f0fe60a3b1c5f0c8ba.setContent(html_c7b7b168fa68135cedf1d2909d015997);
+            
+        
+
+        circle_marker_d3d5c0a4533cd922a08d80f6e47574b8.bindPopup(popup_f79d2f8ed07f13f0fe60a3b1c5f0c8ba)
+        ;
+
+        
+    
+    
+            var feature_group_76842698cef6ea2d8dad5297030758df = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_64d45571660cf1e30b8ecf72e2f3bde2 = L.circleMarker(
+                [-22.895639999999997, -47.069562999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_aa74a578fe986f7af5d825a1e0e230f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc6bf4cfde5ed0da3ee071a524330b1e = $(`<div id="html_cc6bf4cfde5ed0da3ee071a524330b1e" style="width: 100.0%; height: 100.0%;">Campinas<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_aa74a578fe986f7af5d825a1e0e230f0.setContent(html_cc6bf4cfde5ed0da3ee071a524330b1e);
+            
+        
+
+        circle_marker_64d45571660cf1e30b8ecf72e2f3bde2.bindPopup(popup_aa74a578fe986f7af5d825a1e0e230f0)
+        ;
+
+        
+    
+    
+            var circle_marker_c66c749c2264fd5261fb60af8243d04f = L.circleMarker(
+                [-23.540651999999998, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.785714285714286, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_839a35eacff7ed1e899b1f7d394195b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01686481c4bdca001abd293586c21921 = $(`<div id="html_01686481c4bdca001abd293586c21921" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 6 (Setembro)</div>`)[0];
+                popup_839a35eacff7ed1e899b1f7d394195b8.setContent(html_01686481c4bdca001abd293586c21921);
+            
+        
+
+        circle_marker_c66c749c2264fd5261fb60af8243d04f.bindPopup(popup_839a35eacff7ed1e899b1f7d394195b8)
+        ;
+
+        
+    
+    
+            var circle_marker_957d13796485213786ea292235fadd8e = L.circleMarker(
+                [-23.457593999999997, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_1471b33cf31991662aab9e3f2167f540 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3d595c14905536b766623a3fef05199 = $(`<div id="html_e3d595c14905536b766623a3fef05199" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_1471b33cf31991662aab9e3f2167f540.setContent(html_e3d595c14905536b766623a3fef05199);
+            
+        
+
+        circle_marker_957d13796485213786ea292235fadd8e.bindPopup(popup_1471b33cf31991662aab9e3f2167f540)
+        ;
+
+        
+    
+    
+            var circle_marker_5848f0b294d56f791f3df792a14c1b11 = L.circleMarker(
+                [-23.602189999999997, -46.789052999999996],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_79d23ee6927e8a13e04c48f621e61f3d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4176218b48c506088fa99bd543d3fc4 = $(`<div id="html_c4176218b48c506088fa99bd543d3fc4" style="width: 100.0%; height: 100.0%;">Taboão da Serra<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_79d23ee6927e8a13e04c48f621e61f3d.setContent(html_c4176218b48c506088fa99bd543d3fc4);
+            
+        
+
+        circle_marker_5848f0b294d56f791f3df792a14c1b11.bindPopup(popup_79d23ee6927e8a13e04c48f621e61f3d)
+        ;
+
+        
+    
+    
+            var circle_marker_3937db48da0ce4cc7a39fcaa0010b0ec = L.circleMarker(
+                [-22.852017, -47.226423],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_f5ea0430ffd37e49c0f2ea2a7febb7e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eea1d4f962470a3075ea9e590bd90f90 = $(`<div id="html_eea1d4f962470a3075ea9e590bd90f90" style="width: 100.0%; height: 100.0%;">Hortolândia<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_f5ea0430ffd37e49c0f2ea2a7febb7e7.setContent(html_eea1d4f962470a3075ea9e590bd90f90);
+            
+        
+
+        circle_marker_3937db48da0ce4cc7a39fcaa0010b0ec.bindPopup(popup_f5ea0430ffd37e49c0f2ea2a7febb7e7)
+        ;
+
+        
+    
+    
+            var circle_marker_cd3645e489e0477ba5a0e340166fdcb9 = L.circleMarker(
+                [-22.551506, -47.411767999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_6ecc300bbd7dc3fd44db012c5066cc76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_050c2483426a7f2e4763ac5f296ac987 = $(`<div id="html_050c2483426a7f2e4763ac5f296ac987" style="width: 100.0%; height: 100.0%;">Limeira<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_6ecc300bbd7dc3fd44db012c5066cc76.setContent(html_050c2483426a7f2e4763ac5f296ac987);
+            
+        
+
+        circle_marker_cd3645e489e0477ba5a0e340166fdcb9.bindPopup(popup_6ecc300bbd7dc3fd44db012c5066cc76)
+        ;
+
+        
+    
+    
+            var circle_marker_22050da77d440d8f7dea7bfc1e1ea550 = L.circleMarker(
+                [-21.167631, -47.820097],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_7a31141e67341d3cbd46ade74bcabab0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_301e9393f7efe28ef58bf2bfda194d3f = $(`<div id="html_301e9393f7efe28ef58bf2bfda194d3f" style="width: 100.0%; height: 100.0%;">Ribeirão Preto<br>ROUBO A BANCO: 2 (Setembro)</div>`)[0];
+                popup_7a31141e67341d3cbd46ade74bcabab0.setContent(html_301e9393f7efe28ef58bf2bfda194d3f);
+            
+        
+
+        circle_marker_22050da77d440d8f7dea7bfc1e1ea550.bindPopup(popup_7a31141e67341d3cbd46ade74bcabab0)
+        ;
+
+        
+    
+    
+            var circle_marker_c91ab07366abc92261467687e09e6dc0 = L.circleMarker(
+                [-23.956417, -46.396139999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_76842698cef6ea2d8dad5297030758df);
+        
+    
+        var popup_9cd92a0469062761de1bf45067bfed69 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea6ffaa15121953e40b7f9a508878b63 = $(`<div id="html_ea6ffaa15121953e40b7f9a508878b63" style="width: 100.0%; height: 100.0%;">São Vicente<br>ROUBO A BANCO: 1 (Setembro)</div>`)[0];
+                popup_9cd92a0469062761de1bf45067bfed69.setContent(html_ea6ffaa15121953e40b7f9a508878b63);
+            
+        
+
+        circle_marker_c91ab07366abc92261467687e09e6dc0.bindPopup(popup_9cd92a0469062761de1bf45067bfed69)
+        ;
+
+        
+    
+    
+            var feature_group_e1ff974a073257e3b3e919e883e368e3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_0ad4f9ee53d16378e6ea44a55d21ce64 = L.circleMarker(
+                [-22.967792999999997, -49.868202],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_9ed7d3fe4798e7b2856ba6d3eaeddd78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9316ea9b18965252c46085389dfe4de = $(`<div id="html_b9316ea9b18965252c46085389dfe4de" style="width: 100.0%; height: 100.0%;">Ourinhos<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_9ed7d3fe4798e7b2856ba6d3eaeddd78.setContent(html_b9316ea9b18965252c46085389dfe4de);
+            
+        
+
+        circle_marker_0ad4f9ee53d16378e6ea44a55d21ce64.bindPopup(popup_9ed7d3fe4798e7b2856ba6d3eaeddd78)
+        ;
+
+        
+    
+    
+            var circle_marker_29052c877eaf67c8a597ddeb4272d7c6 = L.circleMarker(
+                [-23.540651999999998, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.571428571428573, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_c9219e78aa6645efaaf03ccd1ffb4b09 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_730feb85b086206b0ec93edb024857cb = $(`<div id="html_730feb85b086206b0ec93edb024857cb" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 11 (Outubro)</div>`)[0];
+                popup_c9219e78aa6645efaaf03ccd1ffb4b09.setContent(html_730feb85b086206b0ec93edb024857cb);
+            
+        
+
+        circle_marker_29052c877eaf67c8a597ddeb4272d7c6.bindPopup(popup_c9219e78aa6645efaaf03ccd1ffb4b09)
+        ;
+
+        
+    
+    
+            var circle_marker_22fa8b333819699976151c255b4ab07a = L.circleMarker(
+                [-23.457593999999997, -46.52777],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_25e6c78e067b45458be3a46066a1683e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_325741377cd7844a5a4bb9c09fea76ea = $(`<div id="html_325741377cd7844a5a4bb9c09fea76ea" style="width: 100.0%; height: 100.0%;">Guarulhos<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_25e6c78e067b45458be3a46066a1683e.setContent(html_325741377cd7844a5a4bb9c09fea76ea);
+            
+        
+
+        circle_marker_22fa8b333819699976151c255b4ab07a.bindPopup(popup_25e6c78e067b45458be3a46066a1683e)
+        ;
+
+        
+    
+    
+            var circle_marker_ee06ccb15fed320ac343011eceff26b0 = L.circleMarker(
+                [-23.522485999999997, -46.79168],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_8168eb1d9e0480e472f00fd05cbf70cc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4e355bbd8c71ff1b2d064a4a3b44266 = $(`<div id="html_b4e355bbd8c71ff1b2d064a4a3b44266" style="width: 100.0%; height: 100.0%;">Osasco<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_8168eb1d9e0480e472f00fd05cbf70cc.setContent(html_b4e355bbd8c71ff1b2d064a4a3b44266);
+            
+        
+
+        circle_marker_ee06ccb15fed320ac343011eceff26b0.bindPopup(popup_8168eb1d9e0480e472f00fd05cbf70cc)
+        ;
+
+        
+    
+    
+            var circle_marker_704624568af1b2c1c08017aa0417b40d = L.circleMarker(
+                [-23.643349999999998, -46.527905],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_bf6f55ba749ef46f685fc215de59899f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cf929576d2629e278dffb795ea0fa1e = $(`<div id="html_3cf929576d2629e278dffb795ea0fa1e" style="width: 100.0%; height: 100.0%;">Santo André<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_bf6f55ba749ef46f685fc215de59899f.setContent(html_3cf929576d2629e278dffb795ea0fa1e);
+            
+        
+
+        circle_marker_704624568af1b2c1c08017aa0417b40d.bindPopup(popup_bf6f55ba749ef46f685fc215de59899f)
+        ;
+
+        
+    
+    
+            var circle_marker_4ceda7878d86c59f0d4c814d2c3fec7a = L.circleMarker(
+                [-23.698034999999997, -46.550674],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_d8fcf6e330c352ad7a3de88a01b00e3c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7e44b8b6f53a2ba9b6a1489017f25fe4 = $(`<div id="html_7e44b8b6f53a2ba9b6a1489017f25fe4" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_d8fcf6e330c352ad7a3de88a01b00e3c.setContent(html_7e44b8b6f53a2ba9b6a1489017f25fe4);
+            
+        
+
+        circle_marker_4ceda7878d86c59f0d4c814d2c3fec7a.bindPopup(popup_d8fcf6e330c352ad7a3de88a01b00e3c)
+        ;
+
+        
+    
+    
+            var circle_marker_9af0e468adcb38b9917ebadd7228a2ac = L.circleMarker(
+                [-22.576908, -47.516098],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_bf2d11a13399ee01f85c485c10adea8a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01014afcbc35ddae99280ded49ee3162 = $(`<div id="html_01014afcbc35ddae99280ded49ee3162" style="width: 100.0%; height: 100.0%;">Iracemápolis<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_bf2d11a13399ee01f85c485c10adea8a.setContent(html_01014afcbc35ddae99280ded49ee3162);
+            
+        
+
+        circle_marker_9af0e468adcb38b9917ebadd7228a2ac.bindPopup(popup_bf2d11a13399ee01f85c485c10adea8a)
+        ;
+
+        
+    
+    
+            var circle_marker_641a16bb3a68b841cfe7e96ea7bbe1a4 = L.circleMarker(
+                [-22.834125999999998, -47.606567],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_ccb963a9ac7508422c4daa9b0e2fae19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_535cd29275bab76dd9c895773040667f = $(`<div id="html_535cd29275bab76dd9c895773040667f" style="width: 100.0%; height: 100.0%;">Rio das Pedras<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_ccb963a9ac7508422c4daa9b0e2fae19.setContent(html_535cd29275bab76dd9c895773040667f);
+            
+        
+
+        circle_marker_641a16bb3a68b841cfe7e96ea7bbe1a4.bindPopup(popup_ccb963a9ac7508422c4daa9b0e2fae19)
+        ;
+
+        
+    
+    
+            var circle_marker_25ce71f7b7311c33fbe6f06b5697cf20 = L.circleMarker(
+                [-21.242037, -48.325222],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_43c6cba252a67eb582fd5eae190bacf7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1935a39c1cf0139e9d9ad19c4f66fc7c = $(`<div id="html_1935a39c1cf0139e9d9ad19c4f66fc7c" style="width: 100.0%; height: 100.0%;">Jaboticabal<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_43c6cba252a67eb582fd5eae190bacf7.setContent(html_1935a39c1cf0139e9d9ad19c4f66fc7c);
+            
+        
+
+        circle_marker_25ce71f7b7311c33fbe6f06b5697cf20.bindPopup(popup_43c6cba252a67eb582fd5eae190bacf7)
+        ;
+
+        
+    
+    
+            var circle_marker_a97f7867f83604746915294d25cad087 = L.circleMarker(
+                [-21.593360999999998, -48.366062],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_6c51e1c6ab546d5c20ce94af1d7ad5df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_88f25fdac498e023139c7c35be60d2c3 = $(`<div id="html_88f25fdac498e023139c7c35be60d2c3" style="width: 100.0%; height: 100.0%;">Matão<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_6c51e1c6ab546d5c20ce94af1d7ad5df.setContent(html_88f25fdac498e023139c7c35be60d2c3);
+            
+        
+
+        circle_marker_a97f7867f83604746915294d25cad087.bindPopup(popup_6c51e1c6ab546d5c20ce94af1d7ad5df)
+        ;
+
+        
+    
+    
+            var circle_marker_41dcbdc1f725a5ad5f8bb86f19c7ed3d = L.circleMarker(
+                [-23.923599999999997, -46.32864],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_6b8f5646cff06179e53cab32d0c87d56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_081fe7467b0107baf57cbbb08d229171 = $(`<div id="html_081fe7467b0107baf57cbbb08d229171" style="width: 100.0%; height: 100.0%;">Santos<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_6b8f5646cff06179e53cab32d0c87d56.setContent(html_081fe7467b0107baf57cbbb08d229171);
+            
+        
+
+        circle_marker_41dcbdc1f725a5ad5f8bb86f19c7ed3d.bindPopup(popup_6b8f5646cff06179e53cab32d0c87d56)
+        ;
+
+        
+    
+    
+            var circle_marker_d8b76f037715183a8402c750629c6e20 = L.circleMarker(
+                [-20.802585999999998, -49.38042],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_42a532225c894f2099be12bb850f2813 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bea5735dc97b4068bf967b7f5e7cca81 = $(`<div id="html_bea5735dc97b4068bf967b7f5e7cca81" style="width: 100.0%; height: 100.0%;">São José do Rio Preto<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_42a532225c894f2099be12bb850f2813.setContent(html_bea5735dc97b4068bf967b7f5e7cca81);
+            
+        
+
+        circle_marker_d8b76f037715183a8402c750629c6e20.bindPopup(popup_42a532225c894f2099be12bb850f2813)
+        ;
+
+        
+    
+    
+            var circle_marker_70386a9e5a7f5fd534e2d9a60e5851ed = L.circleMarker(
+                [-23.376420999999997, -45.66268],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_918e48356e7e2e10db0b014c009b2bf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd4ea14dfd766059704acc4ec125fc05 = $(`<div id="html_fd4ea14dfd766059704acc4ec125fc05" style="width: 100.0%; height: 100.0%;">Paraibuna<br>ROUBO A BANCO: 1 (Outubro)</div>`)[0];
+                popup_918e48356e7e2e10db0b014c009b2bf3.setContent(html_fd4ea14dfd766059704acc4ec125fc05);
+            
+        
+
+        circle_marker_70386a9e5a7f5fd534e2d9a60e5851ed.bindPopup(popup_918e48356e7e2e10db0b014c009b2bf3)
+        ;
+
+        
+    
+    
+            var circle_marker_200ad5cd148f98b442bfd12157c90598 = L.circleMarker(
+                [-23.176779, -45.885452],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1ff974a073257e3b3e919e883e368e3);
+        
+    
+        var popup_2f4c729cd2445fab7383ca9ea12e9768 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbc3f7faa8ce1c76429b0f081f969006 = $(`<div id="html_bbc3f7faa8ce1c76429b0f081f969006" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>ROUBO A BANCO: 2 (Outubro)</div>`)[0];
+                popup_2f4c729cd2445fab7383ca9ea12e9768.setContent(html_bbc3f7faa8ce1c76429b0f081f969006);
+            
+        
+
+        circle_marker_200ad5cd148f98b442bfd12157c90598.bindPopup(popup_2f4c729cd2445fab7383ca9ea12e9768)
+        ;
+
+        
+    
+    
+            var feature_group_19754f7f275217f866ab7b65cf21148f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_abc5dcc34fea870f59b383338203ec23 = L.circleMarker(
+                [-22.69111, -46.75444],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_2586ca9b39452a6166f3dae1084476b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9212f42f80bce2b7ea4f4048957901c5 = $(`<div id="html_9212f42f80bce2b7ea4f4048957901c5" style="width: 100.0%; height: 100.0%;">Amparo<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_2586ca9b39452a6166f3dae1084476b2.setContent(html_9212f42f80bce2b7ea4f4048957901c5);
+            
+        
+
+        circle_marker_abc5dcc34fea870f59b383338203ec23.bindPopup(popup_2586ca9b39452a6166f3dae1084476b2)
+        ;
+
+        
+    
+    
+            var circle_marker_c242f4624dae2fab4f27596fb62738ee = L.circleMarker(
+                [-23.107739, -46.544787],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_c94cd2dbc1250daaf83ab1bd0a50266b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_279f84ea4a39bb8c474c36bf755a0993 = $(`<div id="html_279f84ea4a39bb8c474c36bf755a0993" style="width: 100.0%; height: 100.0%;">Atibaia<br>ROUBO A BANCO: 2 (Novembro)</div>`)[0];
+                popup_c94cd2dbc1250daaf83ab1bd0a50266b.setContent(html_279f84ea4a39bb8c474c36bf755a0993);
+            
+        
+
+        circle_marker_c242f4624dae2fab4f27596fb62738ee.bindPopup(popup_c94cd2dbc1250daaf83ab1bd0a50266b)
+        ;
+
+        
+    
+    
+            var circle_marker_5331a7aa2d065497a65cdde377fe7bc9 = L.circleMarker(
+                [-22.69374, -46.97506],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_f375eba5e5ecfa0b0f19a2650bff21c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6571ad9224501ec98058b87eb9254c9 = $(`<div id="html_e6571ad9224501ec98058b87eb9254c9" style="width: 100.0%; height: 100.0%;">Jaguariúna<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_f375eba5e5ecfa0b0f19a2650bff21c0.setContent(html_e6571ad9224501ec98058b87eb9254c9);
+            
+        
+
+        circle_marker_5331a7aa2d065497a65cdde377fe7bc9.bindPopup(popup_f375eba5e5ecfa0b0f19a2650bff21c0)
+        ;
+
+        
+    
+    
+            var circle_marker_fd4632c4d237dae860e39c461293d7d2 = L.circleMarker(
+                [-22.423122999999997, -46.948244],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_054111f8280024f1bdb758a9412f45ae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26505120ca33cdbc62d05870ec35f7df = $(`<div id="html_26505120ca33cdbc62d05870ec35f7df" style="width: 100.0%; height: 100.0%;">Mogi Mirim<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_054111f8280024f1bdb758a9412f45ae.setContent(html_26505120ca33cdbc62d05870ec35f7df);
+            
+        
+
+        circle_marker_fd4632c4d237dae860e39c461293d7d2.bindPopup(popup_054111f8280024f1bdb758a9412f45ae)
+        ;
+
+        
+    
+    
+            var circle_marker_9b2d591c58dd99e949663fe074233c79 = L.circleMarker(
+                [-23.540651999999998, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.857142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_70e39797ce17e9dd13e01179a7e9bbf7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10fe9bde2e642d4fae9e7165ef15c6d4 = $(`<div id="html_10fe9bde2e642d4fae9e7165ef15c6d4" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 9 (Novembro)</div>`)[0];
+                popup_70e39797ce17e9dd13e01179a7e9bbf7.setContent(html_10fe9bde2e642d4fae9e7165ef15c6d4);
+            
+        
+
+        circle_marker_9b2d591c58dd99e949663fe074233c79.bindPopup(popup_70e39797ce17e9dd13e01179a7e9bbf7)
+        ;
+
+        
+    
+    
+            var circle_marker_1a8804e21e5a629326136b1ff7ef3207 = L.circleMarker(
+                [-23.403677, -46.028376],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_8f55c4dd6070cf7f602cd3f31c97e03c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fccf1ec4d9fff51983474dc4179684c = $(`<div id="html_0fccf1ec4d9fff51983474dc4179684c" style="width: 100.0%; height: 100.0%;">Guararema<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_8f55c4dd6070cf7f602cd3f31c97e03c.setContent(html_0fccf1ec4d9fff51983474dc4179684c);
+            
+        
+
+        circle_marker_1a8804e21e5a629326136b1ff7ef3207.bindPopup(popup_8f55c4dd6070cf7f602cd3f31c97e03c)
+        ;
+
+        
+    
+    
+            var circle_marker_f1004171a3f8062467547b3b2c1048b1 = L.circleMarker(
+                [-22.400011, -47.550394000000004],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_57986767c27883fe6dd09da9b040e7d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0308f605a9e33302e8419aea28bac79f = $(`<div id="html_0308f605a9e33302e8419aea28bac79f" style="width: 100.0%; height: 100.0%;">Rio Claro<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_57986767c27883fe6dd09da9b040e7d9.setContent(html_0308f605a9e33302e8419aea28bac79f);
+            
+        
+
+        circle_marker_f1004171a3f8062467547b3b2c1048b1.bindPopup(popup_57986767c27883fe6dd09da9b040e7d9)
+        ;
+
+        
+    
+    
+            var circle_marker_7092e05d00cb0e22937f00fd3a334c1c = L.circleMarker(
+                [-22.77911, -48.121676],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_e3ee1a861ad033c21aa09844e3e70567 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a858df7f39d65fe07b99f4a81ea7d3b2 = $(`<div id="html_a858df7f39d65fe07b99f4a81ea7d3b2" style="width: 100.0%; height: 100.0%;">Anhembi<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_e3ee1a861ad033c21aa09844e3e70567.setContent(html_a858df7f39d65fe07b99f4a81ea7d3b2);
+            
+        
+
+        circle_marker_7092e05d00cb0e22937f00fd3a334c1c.bindPopup(popup_e3ee1a861ad033c21aa09844e3e70567)
+        ;
+
+        
+    
+    
+            var circle_marker_3bbf058db5532908d88644de4f636005 = L.circleMarker(
+                [-23.490344999999998, -47.448286],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_d010752241792a66feeb64314c39ff6d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a9b470c7ed62c4838bfb3bef4ca4ee93 = $(`<div id="html_a9b470c7ed62c4838bfb3bef4ca4ee93" style="width: 100.0%; height: 100.0%;">Sorocaba<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_d010752241792a66feeb64314c39ff6d.setContent(html_a9b470c7ed62c4838bfb3bef4ca4ee93);
+            
+        
+
+        circle_marker_3bbf058db5532908d88644de4f636005.bindPopup(popup_d010752241792a66feeb64314c39ff6d)
+        ;
+
+        
+    
+    
+            var circle_marker_c9795e3341053011dbdc6a8ed3ce4e86 = L.circleMarker(
+                [-22.527188, -44.765257000000005],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_6ccfa5ed43294f1c753eaf0fb6cd8f6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89e1afc12ef58eb869fe605305c6bf3c = $(`<div id="html_89e1afc12ef58eb869fe605305c6bf3c" style="width: 100.0%; height: 100.0%;">Queluz<br>ROUBO A BANCO: 1 (Novembro)</div>`)[0];
+                popup_6ccfa5ed43294f1c753eaf0fb6cd8f6f.setContent(html_89e1afc12ef58eb869fe605305c6bf3c);
+            
+        
+
+        circle_marker_c9795e3341053011dbdc6a8ed3ce4e86.bindPopup(popup_6ccfa5ed43294f1c753eaf0fb6cd8f6f)
+        ;
+
+        
+    
+    
+            var circle_marker_bc9f87967b026ac624b7a15b43f1fb3f = L.circleMarker(
+                [-23.176779, -45.875452],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.357142857142858, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19754f7f275217f866ab7b65cf21148f);
+        
+    
+        var popup_1829071230ff9d356ab63931484f793d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57c8114b1e6a4afe21c151908d2b1780 = $(`<div id="html_57c8114b1e6a4afe21c151908d2b1780" style="width: 100.0%; height: 100.0%;">São José dos Campos<br>ROUBO A BANCO: 2 (Novembro)</div>`)[0];
+                popup_1829071230ff9d356ab63931484f793d.setContent(html_57c8114b1e6a4afe21c151908d2b1780);
+            
+        
+
+        circle_marker_bc9f87967b026ac624b7a15b43f1fb3f.bindPopup(popup_1829071230ff9d356ab63931484f793d)
+        ;
+
+        
+    
+    
+            var feature_group_b1152323d255edd9c3b0137e0fcd6d42 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_653dafa87c860481d86e9f73ba585fbd = L.circleMarker(
+                [-23.107739, -46.534786999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_0f22680f1892c352eb544305c00d1b23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fdfd64cef5dcb67c08808000283d0f92 = $(`<div id="html_fdfd64cef5dcb67c08808000283d0f92" style="width: 100.0%; height: 100.0%;">Atibaia<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_0f22680f1892c352eb544305c00d1b23.setContent(html_fdfd64cef5dcb67c08808000283d0f92);
+            
+        
+
+        circle_marker_653dafa87c860481d86e9f73ba585fbd.bindPopup(popup_0f22680f1892c352eb544305c00d1b23)
+        ;
+
+        
+    
+    
+            var circle_marker_b237479f044345a8347cb4a9c496300e = L.circleMarker(
+                [-22.942023, -46.52186],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_6f27fc230c295b960f9ff00f27b2bc33 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59f5beba04b1058b19ce6975350b9931 = $(`<div id="html_59f5beba04b1058b19ce6975350b9931" style="width: 100.0%; height: 100.0%;">Bragança Paulista<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_6f27fc230c295b960f9ff00f27b2bc33.setContent(html_59f5beba04b1058b19ce6975350b9931);
+            
+        
+
+        circle_marker_b237479f044345a8347cb4a9c496300e.bindPopup(popup_6f27fc230c295b960f9ff00f27b2bc33)
+        ;
+
+        
+    
+    
+            var circle_marker_1425d258570b1292d8ee7af3c9e8d7f7 = L.circleMarker(
+                [-22.895639999999997, -47.039562999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_99b852ab996b6402835eddb66d46dcdc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee80a9155d4f5cd529518a3c18816292 = $(`<div id="html_ee80a9155d4f5cd529518a3c18816292" style="width: 100.0%; height: 100.0%;">Campinas<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_99b852ab996b6402835eddb66d46dcdc.setContent(html_ee80a9155d4f5cd529518a3c18816292);
+            
+        
+
+        circle_marker_1425d258570b1292d8ee7af3c9e8d7f7.bindPopup(popup_99b852ab996b6402835eddb66d46dcdc)
+        ;
+
+        
+    
+    
+            var circle_marker_88970cf55c77059bfc8ad01c34b43f60 = L.circleMarker(
+                [-23.540651999999998, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.785714285714286, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_9565068d18ce9905dd99e2f65b325c2c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_50efe05f9fe427b8ec8246cdc28b4f3a = $(`<div id="html_50efe05f9fe427b8ec8246cdc28b4f3a" style="width: 100.0%; height: 100.0%;">São Paulo<br>ROUBO A BANCO: 6 (Dezembro)</div>`)[0];
+                popup_9565068d18ce9905dd99e2f65b325c2c.setContent(html_50efe05f9fe427b8ec8246cdc28b4f3a);
+            
+        
+
+        circle_marker_88970cf55c77059bfc8ad01c34b43f60.bindPopup(popup_9565068d18ce9905dd99e2f65b325c2c)
+        ;
+
+        
+    
+    
+            var circle_marker_7b7633e38f84b6711f1b49f122e95268 = L.circleMarker(
+                [-23.522485999999997, -46.771679999999996],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_1cc08c982cea53b6a99913a8e65631d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e798330f59b2b68a59c7811bdc3be69f = $(`<div id="html_e798330f59b2b68a59c7811bdc3be69f" style="width: 100.0%; height: 100.0%;">Osasco<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_1cc08c982cea53b6a99913a8e65631d3.setContent(html_e798330f59b2b68a59c7811bdc3be69f);
+            
+        
+
+        circle_marker_7b7633e38f84b6711f1b49f122e95268.bindPopup(popup_1cc08c982cea53b6a99913a8e65631d3)
+        ;
+
+        
+    
+    
+            var circle_marker_34e8b31abfa01160a34a89c61fd6bd5b = L.circleMarker(
+                [-23.518804999999997, -45.82653],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_581a672188400049079fef6b1814a8bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_254575c901b316c984c975128a1b7ffa = $(`<div id="html_254575c901b316c984c975128a1b7ffa" style="width: 100.0%; height: 100.0%;">Salesópolis<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_581a672188400049079fef6b1814a8bc.setContent(html_254575c901b316c984c975128a1b7ffa);
+            
+        
+
+        circle_marker_34e8b31abfa01160a34a89c61fd6bd5b.bindPopup(popup_581a672188400049079fef6b1814a8bc)
+        ;
+
+        
+    
+    
+            var circle_marker_8c8b6f732ac0b45194b69998041f1704 = L.circleMarker(
+                [-22.729246, -47.310604999999995],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_a299a99bc2eeebedc39ef9730f3e07ef = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_765671ab844dfef1da4eb2634dabf59d = $(`<div id="html_765671ab844dfef1da4eb2634dabf59d" style="width: 100.0%; height: 100.0%;">Americana<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_a299a99bc2eeebedc39ef9730f3e07ef.setContent(html_765671ab844dfef1da4eb2634dabf59d);
+            
+        
+
+        circle_marker_8c8b6f732ac0b45194b69998041f1704.bindPopup(popup_a299a99bc2eeebedc39ef9730f3e07ef)
+        ;
+
+        
+    
+    
+            var circle_marker_e2c97bb792c7928f1172ba30e3c54674 = L.circleMarker(
+                [-21.868800999999998, -47.836762],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_5d3326e2679cb18d97caa42ddd2faadb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9863f6b41ecb013a3d8c7806cfd0313 = $(`<div id="html_b9863f6b41ecb013a3d8c7806cfd0313" style="width: 100.0%; height: 100.0%;">São Carlos<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_5d3326e2679cb18d97caa42ddd2faadb.setContent(html_b9863f6b41ecb013a3d8c7806cfd0313);
+            
+        
+
+        circle_marker_e2c97bb792c7928f1172ba30e3c54674.bindPopup(popup_5d3326e2679cb18d97caa42ddd2faadb)
+        ;
+
+        
+    
+    
+            var circle_marker_b63abc77384f1d78d57ba6072b80740d = L.circleMarker(
+                [-23.956417, -46.366139999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1152323d255edd9c3b0137e0fcd6d42);
+        
+    
+        var popup_a860190bab3f2d26720a8162527975b7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52197716307b195efb7efab69f9df466 = $(`<div id="html_52197716307b195efb7efab69f9df466" style="width: 100.0%; height: 100.0%;">São Vicente<br>ROUBO A BANCO: 1 (Dezembro)</div>`)[0];
+                popup_a860190bab3f2d26720a8162527975b7.setContent(html_52197716307b195efb7efab69f9df466);
+            
+        
+
+        circle_marker_b63abc77384f1d78d57ba6072b80740d.bindPopup(popup_a860190bab3f2d26720a8162527975b7)
+        ;
+
+        
+    
+    
+            var layer_control_7a431442cf7c1914fc36296f1c720c47_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f147b3adc94a3a81f3e639fe01171260,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_f1913e73a9c9bd8414b4bc939bacb378,
+                    "Fevereiro" : feature_group_52af0c6e8ceb54ff30637ea8ec1beac2,
+                    "Marco" : feature_group_d0827757fc745a54e0a9d5abb4cb6aac,
+                    "Abril" : feature_group_6f7e0ff58d7d44bf895738f57aa49908,
+                    "Maio" : feature_group_ac3bcc3b72e55474b60c6dfe1ee4748e,
+                    "Junho" : feature_group_9c544b07661cac163b92b4ad8cf9191a,
+                    "Julho" : feature_group_0940bae12c8c8beeb4f5dcc67a21d6e1,
+                    "Agosto" : feature_group_6382f4d5159c9365eb90b9e5957742dc,
+                    "Setembro" : feature_group_76842698cef6ea2d8dad5297030758df,
+                    "Outubro" : feature_group_e1ff974a073257e3b3e919e883e368e3,
+                    "Novembro" : feature_group_19754f7f275217f866ab7b65cf21148f,
+                    "Dezembro" : feature_group_b1152323d255edd9c3b0137e0fcd6d42,
+                },
+            };
+            let layer_control_7a431442cf7c1914fc36296f1c720c47 = L.control.layers(
+                layer_control_7a431442cf7c1914fc36296f1c720c47_layers.base_layers,
+                layer_control_7a431442cf7c1914fc36296f1c720c47_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_7faa9970d42c5dcda6dd1db2b87c0af2);
+
+        
+</script>
+</html>

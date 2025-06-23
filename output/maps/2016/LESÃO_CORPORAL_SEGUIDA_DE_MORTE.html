@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b44fb58c4208f954f7305e3397013b10 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b44fb58c4208f954f7305e3397013b10" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b44fb58c4208f954f7305e3397013b10 = L.map(
+                "map_b44fb58c4208f954f7305e3397013b10",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c142bb5d07554a85e0542ed908700056 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c142bb5d07554a85e0542ed908700056.addTo(map_b44fb58c4208f954f7305e3397013b10);
+        
+    
+            var feature_group_89aecc44841a788ab3837a09fe70ba6b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_89aecc44841a788ab3837a09fe70ba6b.addTo(map_b44fb58c4208f954f7305e3397013b10);
+        
+    
+            var feature_group_4e66bccff2b263d80e8578e11181613f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_90034cf104577fef683591f91ac37488 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_1a25f9549b3371505ff2c84d824a7ed9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_1de2d28649220636266c5119f40c2506 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_eb64cbb4d4177c81b004f571f8b2d273 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_bad51440f980df088425a50f971b8947 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_95d4c7ab76b34311addb71882c6808fa = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_6091d96837417aade119ce29dd0ad6ff = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_20518b1134e6dd4ff248479c6b8daf5c = L.circleMarker(
+                [-23.540651999999998, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6091d96837417aade119ce29dd0ad6ff);
+        
+    
+        var popup_e6048609748a6c2de66049cf8acae95d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cda9771a70254538698051329bbd7734 = $(`<div id="html_cda9771a70254538698051329bbd7734" style="width: 100.0%; height: 100.0%;">São Paulo<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Setembro)</div>`)[0];
+                popup_e6048609748a6c2de66049cf8acae95d.setContent(html_cda9771a70254538698051329bbd7734);
+            
+        
+
+        circle_marker_20518b1134e6dd4ff248479c6b8daf5c.bindPopup(popup_e6048609748a6c2de66049cf8acae95d)
+        ;
+
+        
+    
+    
+            var circle_marker_3927c0666ea2c0fbeb1a6766e20e6913 = L.circleMarker(
+                [-23.643349999999998, -46.537904999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_6091d96837417aade119ce29dd0ad6ff);
+        
+    
+        var popup_a7b529ff3702469f49ecaad9e2969b21 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_500b31c334cd70c4d57cfe94d6957d5b = $(`<div id="html_500b31c334cd70c4d57cfe94d6957d5b" style="width: 100.0%; height: 100.0%;">Santo André<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Setembro)</div>`)[0];
+                popup_a7b529ff3702469f49ecaad9e2969b21.setContent(html_500b31c334cd70c4d57cfe94d6957d5b);
+            
+        
+
+        circle_marker_3927c0666ea2c0fbeb1a6766e20e6913.bindPopup(popup_a7b529ff3702469f49ecaad9e2969b21)
+        ;
+
+        
+    
+    
+            var feature_group_40d8422f82743c9ae34e0780151b2f84 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_76414358e954b2a9f4ec2ad6e438da3c = L.circleMarker(
+                [-23.540651999999998, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_40d8422f82743c9ae34e0780151b2f84);
+        
+    
+        var popup_3e0d7cad10d0758d42f9d6466b4f25cf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5121d40cf18fe4d005bf09f0511ca71b = $(`<div id="html_5121d40cf18fe4d005bf09f0511ca71b" style="width: 100.0%; height: 100.0%;">São Paulo<br>LESÃO CORPORAL SEGUIDA DE MORTE: 2 (Outubro)</div>`)[0];
+                popup_3e0d7cad10d0758d42f9d6466b4f25cf.setContent(html_5121d40cf18fe4d005bf09f0511ca71b);
+            
+        
+
+        circle_marker_76414358e954b2a9f4ec2ad6e438da3c.bindPopup(popup_3e0d7cad10d0758d42f9d6466b4f25cf)
+        ;
+
+        
+    
+    
+            var circle_marker_81955d18b88086e38f704edb0f1c3f4b = L.circleMarker(
+                [-23.61028, -45.41306],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_40d8422f82743c9ae34e0780151b2f84);
+        
+    
+        var popup_b36aa77464bf06756814ace5fda8572f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_199e9cf02d56ede1af072c4fb1511988 = $(`<div id="html_199e9cf02d56ede1af072c4fb1511988" style="width: 100.0%; height: 100.0%;">Caraguatatuba<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Outubro)</div>`)[0];
+                popup_b36aa77464bf06756814ace5fda8572f.setContent(html_199e9cf02d56ede1af072c4fb1511988);
+            
+        
+
+        circle_marker_81955d18b88086e38f704edb0f1c3f4b.bindPopup(popup_b36aa77464bf06756814ace5fda8572f)
+        ;
+
+        
+    
+    
+            var feature_group_3488103127231746bcd845058c4e0c9c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_0cd95e8bbc98c013c50004fd20f8d28b = L.circleMarker(
+                [-21.167631, -47.800097],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3488103127231746bcd845058c4e0c9c);
+        
+    
+        var popup_f5c0550cf24bea3cb2303771586a850b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8903b5d391e4f16835c927acd4d1c6c8 = $(`<div id="html_8903b5d391e4f16835c927acd4d1c6c8" style="width: 100.0%; height: 100.0%;">Ribeirão Preto<br>LESÃO CORPORAL SEGUIDA DE MORTE: 2 (Novembro)</div>`)[0];
+                popup_f5c0550cf24bea3cb2303771586a850b.setContent(html_8903b5d391e4f16835c927acd4d1c6c8);
+            
+        
+
+        circle_marker_0cd95e8bbc98c013c50004fd20f8d28b.bindPopup(popup_f5c0550cf24bea3cb2303771586a850b)
+        ;
+
+        
+    
+    
+            var circle_marker_455afcc1d89c80aaf6621ea9a5f77354 = L.circleMarker(
+                [-24.311809999999998, -46.987746],
+                {"bubblingMouseEvents": true, "color": "#008080", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008080", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3488103127231746bcd845058c4e0c9c);
+        
+    
+        var popup_c0106a7484323e4da99083a5106205c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_155c2e00621dfa671e82acd1fa856973 = $(`<div id="html_155c2e00621dfa671e82acd1fa856973" style="width: 100.0%; height: 100.0%;">Peruíbe<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Novembro)</div>`)[0];
+                popup_c0106a7484323e4da99083a5106205c8.setContent(html_155c2e00621dfa671e82acd1fa856973);
+            
+        
+
+        circle_marker_455afcc1d89c80aaf6621ea9a5f77354.bindPopup(popup_c0106a7484323e4da99083a5106205c8)
+        ;
+
+        
+    
+    
+            var feature_group_63fb68b20e04aca29631a6ea56b124d1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_12f4ed4c51c2c5e1673ea2ab96c63dbb = L.circleMarker(
+                [-23.457593999999997, -46.507769999999994],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_63fb68b20e04aca29631a6ea56b124d1);
+        
+    
+        var popup_73e8730f9fa06c32c15289b782d8067a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f375428973d1208956b39c2577dee34 = $(`<div id="html_5f375428973d1208956b39c2577dee34" style="width: 100.0%; height: 100.0%;">Guarulhos<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Dezembro)</div>`)[0];
+                popup_73e8730f9fa06c32c15289b782d8067a.setContent(html_5f375428973d1208956b39c2577dee34);
+            
+        
+
+        circle_marker_12f4ed4c51c2c5e1673ea2ab96c63dbb.bindPopup(popup_73e8730f9fa06c32c15289b782d8067a)
+        ;
+
+        
+    
+    
+            var circle_marker_0a1863c1ef1ed03aadaa2900fe4d4aeb = L.circleMarker(
+                [-22.729246, -47.310604999999995],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_63fb68b20e04aca29631a6ea56b124d1);
+        
+    
+        var popup_b1454e604ddf7af0b8fc3ee7847ce4b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_359038124ed96eb9da66afc585c209ce = $(`<div id="html_359038124ed96eb9da66afc585c209ce" style="width: 100.0%; height: 100.0%;">Americana<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Dezembro)</div>`)[0];
+                popup_b1454e604ddf7af0b8fc3ee7847ce4b3.setContent(html_359038124ed96eb9da66afc585c209ce);
+            
+        
+
+        circle_marker_0a1863c1ef1ed03aadaa2900fe4d4aeb.bindPopup(popup_b1454e604ddf7af0b8fc3ee7847ce4b3)
+        ;
+
+        
+    
+    
+            var circle_marker_7caea4647ddf642e5ab1ea7f4050e596 = L.circleMarker(
+                [-22.811795999999998, -47.247105],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_63fb68b20e04aca29631a6ea56b124d1);
+        
+    
+        var popup_89366c4c35058912a192d752b68a18de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_16b1e9e1bfd50bbf358639aa7d89e34e = $(`<div id="html_16b1e9e1bfd50bbf358639aa7d89e34e" style="width: 100.0%; height: 100.0%;">Sumaré<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Dezembro)</div>`)[0];
+                popup_89366c4c35058912a192d752b68a18de.setContent(html_16b1e9e1bfd50bbf358639aa7d89e34e);
+            
+        
+
+        circle_marker_7caea4647ddf642e5ab1ea7f4050e596.bindPopup(popup_89366c4c35058912a192d752b68a18de)
+        ;
+
+        
+    
+    
+            var circle_marker_05bb25238d82181221ef3c9dd26d4be7 = L.circleMarker(
+                [-23.460479999999997, -47.71523],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_63fb68b20e04aca29631a6ea56b124d1);
+        
+    
+        var popup_97247c814594d3dca2599e043a9a4503 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b735cdfd526e5685f187a937e22f03f7 = $(`<div id="html_b735cdfd526e5685f187a937e22f03f7" style="width: 100.0%; height: 100.0%;">Capela do Alto<br>LESÃO CORPORAL SEGUIDA DE MORTE: 1 (Dezembro)</div>`)[0];
+                popup_97247c814594d3dca2599e043a9a4503.setContent(html_b735cdfd526e5685f187a937e22f03f7);
+            
+        
+
+        circle_marker_05bb25238d82181221ef3c9dd26d4be7.bindPopup(popup_97247c814594d3dca2599e043a9a4503)
+        ;
+
+        
+    
+    
+            var layer_control_73a27a74701a98ca030a0ba8182dab83_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_c142bb5d07554a85e0542ed908700056,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_89aecc44841a788ab3837a09fe70ba6b,
+                    "Fevereiro" : feature_group_4e66bccff2b263d80e8578e11181613f,
+                    "Marco" : feature_group_90034cf104577fef683591f91ac37488,
+                    "Abril" : feature_group_1a25f9549b3371505ff2c84d824a7ed9,
+                    "Maio" : feature_group_1de2d28649220636266c5119f40c2506,
+                    "Junho" : feature_group_eb64cbb4d4177c81b004f571f8b2d273,
+                    "Julho" : feature_group_bad51440f980df088425a50f971b8947,
+                    "Agosto" : feature_group_95d4c7ab76b34311addb71882c6808fa,
+                    "Setembro" : feature_group_6091d96837417aade119ce29dd0ad6ff,
+                    "Outubro" : feature_group_40d8422f82743c9ae34e0780151b2f84,
+                    "Novembro" : feature_group_3488103127231746bcd845058c4e0c9c,
+                    "Dezembro" : feature_group_63fb68b20e04aca29631a6ea56b124d1,
+                },
+            };
+            let layer_control_73a27a74701a98ca030a0ba8182dab83 = L.control.layers(
+                layer_control_73a27a74701a98ca030a0ba8182dab83_layers.base_layers,
+                layer_control_73a27a74701a98ca030a0ba8182dab83_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_b44fb58c4208f954f7305e3397013b10);
+
+        
+</script>
+</html>

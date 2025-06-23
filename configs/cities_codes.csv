@@ -1,0 +1,646 @@
+ID_Regiao,Nome_Regiao,ID_Municipio,Nome_Municipio
+12,Araçatuba,13,Alto Alegre
+12,Araçatuba,24,Andradina
+12,Araçatuba,32,Araçatuba
+12,Araçatuba,49,Auriflama
+12,Araçatuba,51,Avanhandava
+12,Araçatuba,58,Barbosa
+12,Araçatuba,70,Bento de Abreu
+12,Araçatuba,73,Bilac
+12,Araçatuba,74,Birigui
+12,Araçatuba,88,Braúna
+12,Araçatuba,89,Brejo Alegre
+12,Araçatuba,93,Buritama
+12,Araçatuba,126,Castilho
+12,Araçatuba,135,Clementina
+12,Araçatuba,141,Coroados
+12,Araçatuba,191,Gabriel Monteiro
+12,Araçatuba,194,Gastão Vidigal
+12,Araçatuba,196,General Salgado
+12,Araçatuba,198,Glicério
+12,Araçatuba,205,Guaraçaí
+12,Araçatuba,209,Guararapes
+12,Araçatuba,217,Guzolândia
+12,Araçatuba,236,Ilha Solteira
+12,Araçatuba,266,Itapura
+12,Araçatuba,302,Lavínia
+12,Araçatuba,310,Lourdes
+12,Araçatuba,315,Luiziânia
+12,Araçatuba,341,Mirandópolis
+12,Araçatuba,362,Murutinga do Sul
+12,Araçatuba,373,Nova Castilho
+12,Araçatuba,377,Nova Independência
+12,Araçatuba,378,Nova Luzitânia
+12,Araçatuba,423,Penápolis
+12,Araçatuba,424,Pereira Barreto
+12,Araçatuba,427,Piacatu
+12,Araçatuba,501,Rubiácea
+12,Araçatuba,540,Santo Antônio do Aracanguá
+12,Araçatuba,544,Santópolis do Aguapeí
+12,Araçatuba,553,São João de Iracema
+12,Araçatuba,585,Sud Mennucci
+12,Araçatuba,587,Suzanápolis
+12,Araçatuba,621,Turiúba
+12,Araçatuba,633,Valparaíso
+6,Bauru,8,Agudos
+6,Bauru,17,Álvaro de Carvalho
+6,Bauru,18,Alvinlândia
+6,Bauru,39,Arco-Íris
+6,Bauru,40,Arealva
+6,Bauru,50,Avaí
+6,Bauru,54,Balbinos
+6,Bauru,59,Bariri
+6,Bauru,60,Barra Bonita
+6,Bauru,66,Bastos
+6,Bauru,68,Bauru
+6,Bauru,71,Bernardino de Campos
+6,Bauru,77,Bocaina
+6,Bauru,82,Borá
+6,Bauru,83,Boracéia
+6,Bauru,85,Borebi
+6,Bauru,95,Cabrália Paulista
+6,Bauru,100,Cafelândia
+6,Bauru,117,Canitar
+6,Bauru,134,Chavantes
+6,Bauru,158,Dois Córregos
+6,Bauru,162,Duartina
+6,Bauru,164,Echaporã
+6,Bauru,174,Espírito Santo do Turvo
+6,Bauru,182,Fernão
+6,Bauru,192,Gália
+6,Bauru,193,Garça
+6,Bauru,197,Getulina
+6,Bauru,199,Guaiçara
+6,Bauru,200,Guaimbê
+6,Bauru,208,Guarantã
+6,Bauru,218,Herculândia
+6,Bauru,221,Iacanga
+6,Bauru,222,Iacri
+6,Bauru,231,Igaraçu do Tietê
+6,Bauru,242,Ipaussu
+6,Bauru,254,Itaju
+6,Bauru,265,Itapuí
+6,Bauru,289,Jaú
+6,Bauru,294,Júlio Mesquita
+6,Bauru,305,Lençóis Paulista
+6,Bauru,308,Lins
+6,Bauru,313,Lucianópolis
+6,Bauru,316,Lupércio
+6,Bauru,318,Macatuba
+6,Bauru,329,Marília
+6,Bauru,338,Mineiros do Tietê
+6,Bauru,383,Ocauçu
+6,Bauru,384,Óleo
+6,Bauru,387,Oriente
+6,Bauru,391,Oscar Bressane
+6,Bauru,393,Ourinhos
+6,Bauru,407,Parapuã
+6,Bauru,414,Paulistânia
+6,Bauru,416,Pederneiras
+6,Bauru,438,Pirajuí
+6,Bauru,443,Piratininga
+6,Bauru,449,Pompéia
+6,Bauru,450,Pongaí
+6,Bauru,464,Presidente Alves
+6,Bauru,469,Promissão
+6,Bauru,471,Quatá
+6,Bauru,472,Queiroz
+6,Bauru,474,Quintana
+6,Bauru,479,Reginópolis
+6,Bauru,486,Ribeirão do Sul
+6,Bauru,493,Rinópolis
+6,Bauru,503,Sabino
+6,Bauru,512,Salto Grande
+6,Bauru,522,Santa Cruz do Rio Pardo
+6,Bauru,567,São Pedro do Turvo
+6,Bauru,612,Timburi
+6,Bauru,619,Tupã
+6,Bauru,625,Ubirajara
+6,Bauru,629,Uru
+6,Bauru,638,Vera Cruz
+4,Campinas,5,Águas de Lindóia
+4,Campinas,22,Amparo
+4,Campinas,48,Atibaia
+4,Campinas,80,Bom Jesus dos Perdões
+4,Campinas,87,Bragança Paulista
+4,Campinas,96,Cabreúva
+4,Campinas,109,Campinas
+4,Campinas,110,Campo Limpo Paulista
+4,Campinas,175,Estiva Gerbi
+4,Campinas,219,Holambra
+4,Campinas,238,Indaiatuba
+4,Campinas,261,Itapira
+4,Campinas,270,Itatiba
+4,Campinas,276,Itupeva
+4,Campinas,283,Jaguariúna
+4,Campinas,288,Jarinu
+4,Campinas,291,Joanópolis
+4,Campinas,296,Jundiaí
+4,Campinas,307,Lindóia
+4,Campinas,311,Louveira
+4,Campinas,347,Mogi Guaçu
+4,Campinas,348,Mogi Mirim
+4,Campinas,352,Monte Alegre do Sul
+4,Campinas,360,Morungaba
+4,Campinas,366,Nazaré Paulista
+4,Campinas,413,Paulínia
+4,Campinas,417,Pedra Bela
+4,Campinas,420,Pedreira
+4,Campinas,432,Pinhalzinho
+4,Campinas,435,Piracaia
+4,Campinas,539,Santo Antônio de Posse
+4,Campinas,577,Serra Negra
+4,Campinas,583,Socorro
+4,Campinas,618,Tuiuti
+4,Campinas,632,Valinhos
+4,Campinas,634,Vargem
+4,Campinas,637,Várzea Paulista
+4,Campinas,639,Vinhedo
+1,Capital,565,São Paulo
+2,Grande São Paulo (exclui a Capital),45,Arujá
+2,Grande São Paulo (exclui a Capital),65,Barueri
+2,Grande São Paulo (exclui a Capital),75,Biritiba Mirim
+2,Grande São Paulo (exclui a Capital),102,Caieiras
+2,Grande São Paulo (exclui a Capital),104,Cajamar
+2,Grande São Paulo (exclui a Capital),122,Carapicuíba
+2,Grande São Paulo (exclui a Capital),146,Cotia
+2,Grande São Paulo (exclui a Capital),154,Diadema
+2,Grande São Paulo (exclui a Capital),169,Embu das Artes
+2,Grande São Paulo (exclui a Capital),170,Embu Guaçú
+2,Grande São Paulo (exclui a Capital),183,Ferraz de Vasconcelos
+2,Grande São Paulo (exclui a Capital),189,Francisco Morato
+2,Grande São Paulo (exclui a Capital),190,Franco da Rocha
+2,Grande São Paulo (exclui a Capital),210,Guararema
+2,Grande São Paulo (exclui a Capital),215,Guarulhos
+2,Grande São Paulo (exclui a Capital),257,Itapecerica da Serra
+2,Grande São Paulo (exclui a Capital),260,Itapevi
+2,Grande São Paulo (exclui a Capital),267,Itaquaquecetuba
+2,Grande São Paulo (exclui a Capital),286,Jandira
+2,Grande São Paulo (exclui a Capital),299,Juquitiba
+2,Grande São Paulo (exclui a Capital),323,Mairiporã
+2,Grande São Paulo (exclui a Capital),333,Mauá
+2,Grande São Paulo (exclui a Capital),346,Mogi das Cruzes
+2,Grande São Paulo (exclui a Capital),390,Osasco
+2,Grande São Paulo (exclui a Capital),440,Pirapora do Bom Jesus
+2,Grande São Paulo (exclui a Capital),447,Poá
+2,Grande São Paulo (exclui a Capital),489,Ribeirão Pires
+2,Grande São Paulo (exclui a Capital),496,Rio Grande da Serra
+2,Grande São Paulo (exclui a Capital),507,Salesópolis
+2,Grande São Paulo (exclui a Capital),526,Santa Isabel
+2,Grande São Paulo (exclui a Capital),535,Santana de Parnaíba
+2,Grande São Paulo (exclui a Capital),537,Santo André
+2,Grande São Paulo (exclui a Capital),547,São Bernardo do Campo
+2,Grande São Paulo (exclui a Capital),548,São Caetano do Sul
+2,Grande São Paulo (exclui a Capital),561,São Lourenço da Serra
+2,Grande São Paulo (exclui a Capital),588,Suzano
+2,Grande São Paulo (exclui a Capital),591,Taboão da Serra
+2,Grande São Paulo (exclui a Capital),636,Vargem Grande Paulista
+11,Piracicaba,3,Aguaí
+11,Piracicaba,4,Águas da Prata
+11,Piracicaba,7,Águas de São Pedro
+11,Piracicaba,19,Americana
+11,Piracicaba,23,Analândia
+11,Piracicaba,38,Araras
+11,Piracicaba,44,Artur Nogueira
+11,Piracicaba,91,Brotas
+11,Piracicaba,99,Caconde
+11,Piracicaba,120,Capivari
+11,Piracicaba,124,Casa Branca
+11,Piracicaba,133,Charqueada
+11,Piracicaba,138,Conchal
+11,Piracicaba,140,Cordeirópolis
+11,Piracicaba,143,Corumbataí
+11,Piracicaba,144,Cosmópolis
+11,Piracicaba,156,Divinolândia
+11,Piracicaba,166,Elias Fausto
+11,Piracicaba,172,Engenheiro Coelho
+11,Piracicaba,173,Espírito Santo do Pinhal
+11,Piracicaba,220,Hortolândia
+11,Piracicaba,244,Ipeúna
+11,Piracicaba,248,Iracemápolis
+11,Piracicaba,272,Itirapina
+11,Piracicaba,274,Itobi
+11,Piracicaba,304,Leme
+11,Piracicaba,306,Limeira
+11,Piracicaba,345,Mococa
+11,Piracicaba,349,Mombuca
+11,Piracicaba,357,Monte Mor
+11,Piracicaba,379,Nova Odessa
+11,Piracicaba,436,Piracicaba
+11,Piracicaba,442,Pirassununga
+11,Piracicaba,475,Rafard
+11,Piracicaba,494,Rio Claro
+11,Piracicaba,495,Rio das Pedras
+11,Piracicaba,509,Saltinho
+11,Piracicaba,516,Santa Bárbara d'Oeste
+11,Piracicaba,519,Santa Cruz da Conceição
+11,Piracicaba,521,Santa Cruz das Palmeiras
+11,Piracicaba,525,Santa Gertrudes
+11,Piracicaba,528,Santa Maria da Serra
+11,Piracicaba,541,Santo Antônio do Jardim
+11,Piracicaba,551,São João da Boa Vista
+11,Piracicaba,558,São José do Rio Pardo
+11,Piracicaba,566,São Pedro
+11,Piracicaba,570,São Sebastião da Grama
+11,Piracicaba,586,Sumaré
+11,Piracicaba,596,Tambaú
+11,Piracicaba,599,Tapiratiba
+11,Piracicaba,614,Torrinha
+11,Piracicaba,635,Vargem Grande do Sul
+10,Presidente Prudente,1,Adamantina
+10,Presidente Prudente,10,Alfredo Marcondes
+10,Presidente Prudente,16,Álvares Machado
+10,Presidente Prudente,27,Anhumas
+10,Presidente Prudente,47,Assis
+10,Presidente Prudente,101,Caiabu
+10,Presidente Prudente,103,Caiuá
+10,Presidente Prudente,112,Campos Novos Paulista
+10,Presidente Prudente,115,Cândido Mota
+10,Presidente Prudente,149,Cruzália
+10,Presidente Prudente,161,Dracena
+10,Presidente Prudente,171,Emilianópolis
+10,Presidente Prudente,176,Estrela do Norte
+10,Presidente Prudente,178,Euclides da Cunha Paulista
+10,Presidente Prudente,184,Flora Rica
+10,Presidente Prudente,186,Flórida Paulista
+10,Presidente Prudente,187,Florínia
+10,Presidente Prudente,226,Ibirarema
+10,Presidente Prudente,230,Iepê
+10,Presidente Prudente,239,Indiana
+10,Presidente Prudente,241,Inúbia Paulista
+10,Presidente Prudente,250,Irapuru
+10,Presidente Prudente,292,João Ramalho
+10,Presidente Prudente,297,Junqueirópolis
+10,Presidente Prudente,312,Lucélia
+10,Presidente Prudente,317,Lutécia
+10,Presidente Prudente,325,Marabá Paulista
+10,Presidente Prudente,326,Maracaí
+10,Presidente Prudente,328,Mariápolis
+10,Presidente Prudente,331,Martinópolis
+10,Presidente Prudente,342,Mirante do Paranapanema
+10,Presidente Prudente,356,Monte Castelo
+10,Presidente Prudente,363,Nantes
+10,Presidente Prudente,364,Narandiba
+10,Presidente Prudente,376,Nova Guataporanga
+10,Presidente Prudente,392,Osvaldo Cruz
+10,Presidente Prudente,394,Ouro Verde
+10,Presidente Prudente,396,Pacaembu
+10,Presidente Prudente,400,Palmital
+10,Presidente Prudente,401,Panorama
+10,Presidente Prudente,402,Paraguaçu Paulista
+10,Presidente Prudente,412,Paulicéia
+10,Presidente Prudente,421,Pedrinhas Paulista
+10,Presidente Prudente,433,Piquerobi
+10,Presidente Prudente,441,Pirapozinho
+10,Presidente Prudente,446,Platina
+10,Presidente Prudente,460,Pracinha
+10,Presidente Prudente,465,Presidente Bernardes
+10,Presidente Prudente,466,Presidente Epitácio
+10,Presidente Prudente,467,Presidente Prudente
+10,Presidente Prudente,468,Presidente Venceslau
+10,Presidente Prudente,476,Rancharia
+10,Presidente Prudente,478,Regente Feijó
+10,Presidente Prudente,487,Ribeirão dos Índios
+10,Presidente Prudente,499,Rosana
+10,Presidente Prudente,504,Sagres
+10,Presidente Prudente,508,Salmourão
+10,Presidente Prudente,513,Sandovalina
+10,Presidente Prudente,529,Santa Mercedes
+10,Presidente Prudente,536,Santo Anastácio
+10,Presidente Prudente,543,Santo Expedito
+10,Presidente Prudente,554,São João do Pau d'Alho
+10,Presidente Prudente,592,Taciba
+10,Presidente Prudente,604,Tarabaí
+10,Presidente Prudente,605,Tarumã
+10,Presidente Prudente,609,Teodoro Sampaio
+10,Presidente Prudente,620,Tupi Paulista
+5,Ribeirão Preto,11,Altair
+5,Ribeirão Preto,12,Altinópolis
+5,Ribeirão Preto,20,Américo Brasiliense
+5,Ribeirão Preto,34,Aramina
+5,Ribeirão Preto,37,Araraquara
+5,Ribeirão Preto,63,Barretos
+5,Ribeirão Preto,64,Barrinha
+5,Ribeirão Preto,67,Batatais
+5,Ribeirão Preto,69,Bebedouro
+5,Ribeirão Preto,76,Boa Esperança do Sul
+5,Ribeirão Preto,84,Borborema
+5,Ribeirão Preto,90,Brodowski
+5,Ribeirão Preto,94,Buritizal
+5,Ribeirão Preto,106,Cajobi
+5,Ribeirão Preto,107,Cajuru
+5,Ribeirão Preto,116,Cândido Rodrigues
+5,Ribeirão Preto,125,Cássia dos Coqueiros
+5,Ribeirão Preto,136,Colina
+5,Ribeirão Preto,137,Colômbia
+5,Ribeirão Preto,147,Cravinhos
+5,Ribeirão Preto,148,Cristais Paulista
+5,Ribeirão Preto,153,Descalvado
+5,Ribeirão Preto,157,Dobrada
+5,Ribeirão Preto,160,Dourado
+5,Ribeirão Preto,163,Dumont
+5,Ribeirão Preto,168,Embaúba
+5,Ribeirão Preto,180,Fernando Prestes
+5,Ribeirão Preto,188,Franca
+5,Ribeirão Preto,195,Gavião Peixoto
+5,Ribeirão Preto,201,Guaíra
+5,Ribeirão Preto,204,Guará
+5,Ribeirão Preto,206,Guaraci
+5,Ribeirão Preto,213,Guariba
+5,Ribeirão Preto,216,Guatapará
+5,Ribeirão Preto,224,Ibaté
+5,Ribeirão Preto,227,Ibitinga
+5,Ribeirão Preto,232,Igarapava
+5,Ribeirão Preto,247,Ipuã
+5,Ribeirão Preto,263,Itápolis
+5,Ribeirão Preto,273,Itirapuã
+5,Ribeirão Preto,277,Ituverava
+5,Ribeirão Preto,278,Jaborandi
+5,Ribeirão Preto,279,Jaboticabal
+5,Ribeirão Preto,287,Jardinópolis
+5,Ribeirão Preto,290,Jeriquara
+5,Ribeirão Preto,314,Luís Antônio
+5,Ribeirão Preto,332,Matão
+5,Ribeirão Preto,337,Miguelópolis
+5,Ribeirão Preto,353,Monte Alto
+5,Ribeirão Preto,355,Monte Azul Paulista
+5,Ribeirão Preto,359,Morro Agudo
+5,Ribeirão Preto,361,Motuca
+5,Ribeirão Preto,374,Nova Europa
+5,Ribeirão Preto,382,Nuporanga
+5,Ribeirão Preto,385,Olímpia
+5,Ribeirão Preto,389,Orlândia
+5,Ribeirão Preto,411,Patrocínio Paulista
+5,Ribeirão Preto,419,Pedregulho
+5,Ribeirão Preto,439,Pirangi
+5,Ribeirão Preto,444,Pitangueiras
+5,Ribeirão Preto,451,Pontal
+5,Ribeirão Preto,457,Porto Ferreira
+5,Ribeirão Preto,461,Pradópolis
+5,Ribeirão Preto,481,Restinga
+5,Ribeirão Preto,483,Ribeirão Bonito
+5,Ribeirão Preto,485,Ribeirão Corrente
+5,Ribeirão Preto,490,Ribeirão Preto
+5,Ribeirão Preto,491,Rifaina
+5,Ribeirão Preto,492,Rincão
+5,Ribeirão Preto,506,Sales Oliveira
+5,Ribeirão Preto,520,Santa Cruz da Esperança
+5,Ribeirão Preto,523,Santa Ernestina
+5,Ribeirão Preto,527,Santa Lúcia
+5,Ribeirão Preto,530,Santa Rita do Passa Quatro
+5,Ribeirão Preto,532,Santa Rosa do Viterbo
+5,Ribeirão Preto,538,Santo Antônio da Alegria
+5,Ribeirão Preto,549,São Carlos
+5,Ribeirão Preto,555,São Joaquim da Barra
+5,Ribeirão Preto,556,São José da Bela Vista
+5,Ribeirão Preto,571,São Simão
+5,Ribeirão Preto,576,Serra Azul
+5,Ribeirão Preto,578,Serrana
+5,Ribeirão Preto,579,Sertãozinho
+5,Ribeirão Preto,581,Severínia
+5,Ribeirão Preto,590,Tabatinga
+5,Ribeirão Preto,594,Taiaçu
+5,Ribeirão Preto,595,Taiúva
+5,Ribeirão Preto,600,Taquaral
+5,Ribeirão Preto,601,Taquaritinga
+5,Ribeirão Preto,610,Terra Roxa
+5,Ribeirão Preto,615,Trabiju
+5,Ribeirão Preto,640,Viradouro
+5,Ribeirão Preto,641,Vista Alegre do Alto
+8,Santos,62,Barra do Turvo
+8,Santos,72,Bertioga
+8,Santos,105,Cajati
+8,Santos,113,Cananéia
+8,Santos,151,Cubatão
+8,Santos,165,Eldorado
+8,Santos,214,Guarujá
+8,Santos,234,Iguape
+8,Santos,235,Ilha Comprida
+8,Santos,246,Iporanga
+8,Santos,255,Itanhaém
+8,Santos,269,Itariri
+8,Santos,282,Jacupiranga
+8,Santos,298,Juquiá
+8,Santos,340,Miracatu
+8,Santos,351,Mongaguá
+8,Santos,409,Pariquera-Açu
+8,Santos,422,Pedro de Toledo
+8,Santos,426,Peruíbe
+8,Santos,462,Praia Grande
+8,Santos,480,Registro
+8,Santos,545,Santos
+8,Santos,572,São Vicente
+8,Santos,580,Sete Barras
+7,São José do Rio Preto,2,Adolfo
+7,São José do Rio Preto,15,Álvares Florence
+7,São José do Rio Preto,21,Américo de Campos
+7,São José do Rio Preto,29,Aparecida d'Oeste
+7,São José do Rio Preto,43,Ariranha
+7,São José do Rio Preto,46,Aspásia
+7,São José do Rio Preto,53,Bady Bassitt
+7,São José do Rio Preto,55,Bálsamo
+7,São José do Rio Preto,123,Cardoso
+7,São José do Rio Preto,127,Catanduva
+7,São José do Rio Preto,128,Catiguá
+7,São José do Rio Preto,129,Cedral
+7,São José do Rio Preto,145,Cosmorama
+7,São José do Rio Preto,155,Dirce Reis
+7,São José do Rio Preto,159,Dolcinópolis
+7,São José do Rio Preto,167,Elisiário
+7,São José do Rio Preto,177,Estrela d'Oeste
+7,São José do Rio Preto,181,Fernandópolis
+7,São José do Rio Preto,185,Floreal
+7,São José do Rio Preto,202,Guapiaçu
+7,São José do Rio Preto,207,Guarani d'Oeste
+7,São José do Rio Preto,225,Ibirá
+7,São José do Rio Preto,229,Icém
+7,São José do Rio Preto,240,Indiaporã
+7,São José do Rio Preto,245,Ipiguá
+7,São José do Rio Preto,249,Irapuã
+7,São José do Rio Preto,253,Itajobi
+7,São José do Rio Preto,281,Jaci
+7,São José do Rio Preto,284,Jales
+7,São José do Rio Preto,293,José Bonifácio
+7,São José do Rio Preto,319,Macaubal
+7,São José do Rio Preto,320,Macedônia
+7,São José do Rio Preto,321,Magda
+7,São José do Rio Preto,327,Marapoama
+7,São José do Rio Preto,330,Marinópolis
+7,São José do Rio Preto,334,Mendonça
+7,São José do Rio Preto,335,Meridiano
+7,São José do Rio Preto,336,Mesópolis
+7,São José do Rio Preto,339,Mira Estrela
+7,São José do Rio Preto,343,Mirassol
+7,São José do Rio Preto,344,Mirassolândia
+7,São José do Rio Preto,350,Monções
+7,São José do Rio Preto,354,Monte Aprazível
+7,São José do Rio Preto,367,Neves Paulista
+7,São José do Rio Preto,368,Nhandeara
+7,São José do Rio Preto,369,Nipoã
+7,São José do Rio Preto,370,Nova Aliança
+7,São José do Rio Preto,372,Nova Canaã Paulista
+7,São José do Rio Preto,375,Nova Granada
+7,São José do Rio Preto,380,Novais
+7,São José do Rio Preto,381,Novo Horizonte
+7,São José do Rio Preto,386,Onda Verde
+7,São José do Rio Preto,388,Orindiúva
+7,São José do Rio Preto,395,Ouroeste
+7,São José do Rio Preto,397,Palestina
+7,São José do Rio Preto,398,Palmares Paulista
+7,São José do Rio Preto,399,Palmeira d'Oeste
+7,São José do Rio Preto,404,Paraíso
+7,São José do Rio Preto,406,Paranapuã
+7,São José do Rio Preto,410,Parisi
+7,São José do Rio Preto,415,Paulo de Faria
+7,São José do Rio Preto,418,Pedranópolis
+7,São José do Rio Preto,431,Pindorama
+7,São José do Rio Preto,445,Planalto
+7,São José do Rio Preto,448,Poloni
+7,São José do Rio Preto,452,Pontalinda
+7,São José do Rio Preto,453,Pontes Gestal
+7,São José do Rio Preto,454,Populina
+7,São José do Rio Preto,459,Potirendaba
+7,São José do Rio Preto,497,Riolândia
+7,São José do Rio Preto,502,Rubinéia
+7,São José do Rio Preto,505,Sales
+7,São José do Rio Preto,514,Santa Adélia
+7,São José do Rio Preto,515,Santa Albertina
+7,São José do Rio Preto,518,Santa Clara d'Oeste
+7,São José do Rio Preto,524,Santa Fé do Sul
+7,São José do Rio Preto,531,Santa Rita d'Oeste
+7,São José do Rio Preto,533,Santa Salete
+7,São José do Rio Preto,534,Santana da Ponte Pensa
+7,São José do Rio Preto,550,São Francisco
+7,São José do Rio Preto,552,São João das Duas Pontes
+7,São José do Rio Preto,559,São José do Rio Preto
+7,São José do Rio Preto,575,Sebastianópolis do Sul
+7,São José do Rio Preto,589,Tabapuã
+7,São José do Rio Preto,597,Tanabi
+7,São José do Rio Preto,617,Três Fronteiras
+7,São José do Rio Preto,622,Turmalina
+7,São José do Rio Preto,623,Ubarana
+7,São José do Rio Preto,626,Uchôa
+7,São José do Rio Preto,627,União Paulista
+7,São José do Rio Preto,628,Urânia
+7,São José do Rio Preto,630,Urupês
+7,São José do Rio Preto,631,Valentim Gentil
+7,São José do Rio Preto,642,Vitória Brasil
+7,São José do Rio Preto,644,Votuporanga
+7,São José do Rio Preto,645,Zacarias
+3,São José dos Campos,28,Aparecida
+3,São José dos Campos,36,Arapeí
+3,São José dos Campos,41,Areias
+3,São José dos Campos,56,Bananal
+3,São José dos Campos,97,Caçapava
+3,São José dos Campos,98,Cachoeira Paulista
+3,São José dos Campos,111,Campos do Jordão
+3,São José dos Campos,114,Canas
+3,São José dos Campos,121,Caraguatatuba
+3,São José dos Campos,150,Cruzeiro
+3,São José dos Campos,152,Cunha
+3,São José dos Campos,211,Guaratinguetá
+3,São José dos Campos,233,Igaratá
+3,São José dos Campos,237,Ilhabela
+3,São José dos Campos,280,Jacareí
+3,São José dos Campos,285,Jambeiro
+3,São José dos Campos,300,Lagoinha
+3,São José dos Campos,303,Lavrinhas
+3,São José dos Campos,309,Lorena
+3,São José dos Campos,358,Monteiro Lobato
+3,São José dos Campos,365,Natividade da Serra
+3,São José dos Campos,403,Paraibuna
+3,São José dos Campos,430,Pindamonhangaba
+3,São José dos Campos,434,Piquete
+3,São José dos Campos,458,Potim
+3,São José dos Campos,473,Queluz
+3,São José dos Campos,477,Redenção da Serra
+3,São José dos Campos,500,Roseira
+3,São José dos Campos,517,Santa Branca
+3,São José dos Campos,542,Santo Antônio do Pinhal
+3,São José dos Campos,546,São Bento do Sapucaí
+3,São José dos Campos,557,São José do Barreiro
+3,São José dos Campos,560,São José dos Campos
+3,São José dos Campos,562,São Luís do Paraitinga
+3,São José dos Campos,569,São Sebastião
+3,São José dos Campos,582,Silveiras
+3,São José dos Campos,607,Taubaté
+3,São José dos Campos,616,Tremembé
+3,São José dos Campos,624,Ubatuba
+9,Sorocaba,6,Águas de Santa Bárbara
+9,Sorocaba,9,Alambari
+9,Sorocaba,14,Alumínio
+9,Sorocaba,25,Angatuba
+9,Sorocaba,26,Anhembi
+9,Sorocaba,30,Apiaí
+9,Sorocaba,31,Araçariguama
+9,Sorocaba,33,Araçoiaba da Serra
+9,Sorocaba,35,Arandu
+9,Sorocaba,42,Areiópolis
+9,Sorocaba,52,Avaré
+9,Sorocaba,57,Barão de Antonina
+9,Sorocaba,61,Barra do Chapéu
+9,Sorocaba,78,Bofete
+9,Sorocaba,79,Boituva
+9,Sorocaba,81,Bom Sucesso de Itararé
+9,Sorocaba,86,Botucatu
+9,Sorocaba,92,Buri
+9,Sorocaba,108,Campina do Monte Alegre
+9,Sorocaba,118,Capão Bonito
+9,Sorocaba,119,Capela do Alto
+9,Sorocaba,130,Cerqueira César
+9,Sorocaba,131,Cerquilho
+9,Sorocaba,132,Cesário Lange
+9,Sorocaba,139,Conchas
+9,Sorocaba,142,Coronel Macedo
+9,Sorocaba,179,Fartura
+9,Sorocaba,203,Guapiara
+9,Sorocaba,212,Guareí
+9,Sorocaba,223,Iaras
+9,Sorocaba,228,Ibiúna
+9,Sorocaba,243,Iperó
+9,Sorocaba,251,Itaberá
+9,Sorocaba,252,Itaí
+9,Sorocaba,256,Itaóca
+9,Sorocaba,258,Itapetininga
+9,Sorocaba,259,Itapeva
+9,Sorocaba,262,Itapirapuã Paulista
+9,Sorocaba,264,Itaporanga
+9,Sorocaba,268,Itararé
+9,Sorocaba,271,Itatinga
+9,Sorocaba,275,Itu
+9,Sorocaba,295,Jumirim
+9,Sorocaba,301,Laranjal Paulista
+9,Sorocaba,322,Mairinque
+9,Sorocaba,324,Manduri
+9,Sorocaba,371,Nova Campina
+9,Sorocaba,405,Paranapanema
+9,Sorocaba,408,Pardinho
+9,Sorocaba,425,Pereiras
+9,Sorocaba,428,Piedade
+9,Sorocaba,429,Pilar do Sul
+9,Sorocaba,437,Piraju
+9,Sorocaba,455,Porangaba
+9,Sorocaba,456,Porto Feliz
+9,Sorocaba,463,Pratânia
+9,Sorocaba,470,Quadra
+9,Sorocaba,482,Ribeira
+9,Sorocaba,484,Ribeirão Branco
+9,Sorocaba,488,Ribeirão Grande
+9,Sorocaba,498,Riversul
+9,Sorocaba,510,Salto
+9,Sorocaba,511,Salto de Pirapora
+9,Sorocaba,563,São Manuel
+9,Sorocaba,564,São Miguel Arcanjo
+9,Sorocaba,568,São Roque
+9,Sorocaba,573,Sarapuí
+9,Sorocaba,574,Sarutaiá
+9,Sorocaba,584,Sorocaba
+9,Sorocaba,593,Taguaí
+9,Sorocaba,598,Tapiraí
+9,Sorocaba,602,Taquarituba
+9,Sorocaba,603,Taquarivaí
+9,Sorocaba,606,Tatuí
+9,Sorocaba,608,Tejupá
+9,Sorocaba,611,Tietê
+9,Sorocaba,613,Torre de Pedra
+9,Sorocaba,643,Votorantim

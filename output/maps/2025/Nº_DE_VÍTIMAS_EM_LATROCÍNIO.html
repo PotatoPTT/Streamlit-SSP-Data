@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9816130f9ec0ac624741f2588ed38402 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9816130f9ec0ac624741f2588ed38402" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9816130f9ec0ac624741f2588ed38402 = L.map(
+                "map_9816130f9ec0ac624741f2588ed38402",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b2fbc0b89f2ee4903e0873457b105eb9 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b2fbc0b89f2ee4903e0873457b105eb9.addTo(map_9816130f9ec0ac624741f2588ed38402);
+        
+    
+            var feature_group_c966f17a791f4d142de81a3aebadc347 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e79ea7da9f8d844feff6795b3a4c23a4 = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 26.75, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_6fe1c5b0be18e407eb66b43eae59eb69 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa4bfc7d2bb9911a6819c9c49edc3e62 = $(`<div id="html_fa4bfc7d2bb9911a6819c9c49edc3e62" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 4 (Janeiro)</div>`)[0];
+                popup_6fe1c5b0be18e407eb66b43eae59eb69.setContent(html_fa4bfc7d2bb9911a6819c9c49edc3e62);
+            
+        
+
+        circle_marker_e79ea7da9f8d844feff6795b3a4c23a4.bindPopup(popup_6fe1c5b0be18e407eb66b43eae59eb69)
+        ;
+
+        
+    
+    
+            var circle_marker_f0806badc2f6b4d99c4c21d145258ed9 = L.circleMarker(
+                [-23.533468000000003, -46.85068],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_d79b19a5ea509fba750cba0251588516 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68666538efe672befa1abc3e114218ba = $(`<div id="html_68666538efe672befa1abc3e114218ba" style="width: 100.0%; height: 100.0%;">Carapicuíba<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_d79b19a5ea509fba750cba0251588516.setContent(html_68666538efe672befa1abc3e114218ba);
+            
+        
+
+        circle_marker_f0806badc2f6b4d99c4c21d145258ed9.bindPopup(popup_d79b19a5ea509fba750cba0251588516)
+        ;
+
+        
+    
+    
+            var circle_marker_d7dc9be60ef329665192914c5d1d8c34 = L.circleMarker(
+                [-23.477594, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_fc393b22d6c6d172e5463a30121c000c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_596ba318c2813451782d18da27c890be = $(`<div id="html_596ba318c2813451782d18da27c890be" style="width: 100.0%; height: 100.0%;">Guarulhos<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_fc393b22d6c6d172e5463a30121c000c.setContent(html_596ba318c2813451782d18da27c890be);
+            
+        
+
+        circle_marker_d7dc9be60ef329665192914c5d1d8c34.bindPopup(popup_fc393b22d6c6d172e5463a30121c000c)
+        ;
+
+        
+    
+    
+            var circle_marker_24984b71d675092b2dd266b1638c1458 = L.circleMarker(
+                [-23.558880000000002, -46.943887],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_bb3f85f2cf7fad942748661234055688 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02c701689e59a3892b8b2344b41f9b57 = $(`<div id="html_02c701689e59a3892b8b2344b41f9b57" style="width: 100.0%; height: 100.0%;">Itapevi<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_bb3f85f2cf7fad942748661234055688.setContent(html_02c701689e59a3892b8b2344b41f9b57);
+            
+        
+
+        circle_marker_24984b71d675092b2dd266b1638c1458.bindPopup(popup_bb3f85f2cf7fad942748661234055688)
+        ;
+
+        
+    
+    
+            var circle_marker_32f55ba9f02d92b9be65836bdf103e38 = L.circleMarker(
+                [-23.542486, -46.80168],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_e42436f3c10cd646dfcbe48f3414b470 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_199e2ffcd251f4f6b4a000b740677135 = $(`<div id="html_199e2ffcd251f4f6b4a000b740677135" style="width: 100.0%; height: 100.0%;">Osasco<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_e42436f3c10cd646dfcbe48f3414b470.setContent(html_199e2ffcd251f4f6b4a000b740677135);
+            
+        
+
+        circle_marker_32f55ba9f02d92b9be65836bdf103e38.bindPopup(popup_e42436f3c10cd646dfcbe48f3414b470)
+        ;
+
+        
+    
+    
+            var circle_marker_75c883090dbe0fc61f9f9f7179da0817 = L.circleMarker(
+                [-23.718035, -46.560674],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_a69690fab9977ce30add200bbc3b9f7f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f6a4a12e8c3a961e47e51aa6bd25c4d = $(`<div id="html_3f6a4a12e8c3a961e47e51aa6bd25c4d" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_a69690fab9977ce30add200bbc3b9f7f.setContent(html_3f6a4a12e8c3a961e47e51aa6bd25c4d);
+            
+        
+
+        circle_marker_75c883090dbe0fc61f9f9f7179da0817.bindPopup(popup_a69690fab9977ce30add200bbc3b9f7f)
+        ;
+
+        
+    
+    
+            var circle_marker_d1613e554bf68903dfdd76271b93b662 = L.circleMarker(
+                [-21.978710000000003, -46.80692],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_a7d445c4269b6d6b9bb91d9012f025b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b76088332112dba05c560f8126a2b9af = $(`<div id="html_b76088332112dba05c560f8126a2b9af" style="width: 100.0%; height: 100.0%;">São João da Boa Vista<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_a7d445c4269b6d6b9bb91d9012f025b5.setContent(html_b76088332112dba05c560f8126a2b9af);
+            
+        
+
+        circle_marker_d1613e554bf68903dfdd76271b93b662.bindPopup(popup_a7d445c4269b6d6b9bb91d9012f025b5)
+        ;
+
+        
+    
+    
+            var circle_marker_93735801706453f0d79516d87c2a1c58 = L.circleMarker(
+                [-20.189611000000003, -48.041],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_29eca6b4c3cc88123f832c1a4d35dd74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1adc73d7ac86398cfee1206cba5fc2d3 = $(`<div id="html_1adc73d7ac86398cfee1206cba5fc2d3" style="width: 100.0%; height: 100.0%;">Miguelópolis<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_29eca6b4c3cc88123f832c1a4d35dd74.setContent(html_1adc73d7ac86398cfee1206cba5fc2d3);
+            
+        
+
+        circle_marker_93735801706453f0d79516d87c2a1c58.bindPopup(popup_29eca6b4c3cc88123f832c1a4d35dd74)
+        ;
+
+        
+    
+    
+            var circle_marker_495bb98b1d3899bb8c823f8383a699b3 = L.circleMarker(
+                [-21.888801, -47.866762],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_cb61463b66e234f4a2f56b38b381783c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c65d0a8e7a42a9e44432910c339767d = $(`<div id="html_6c65d0a8e7a42a9e44432910c339767d" style="width: 100.0%; height: 100.0%;">São Carlos<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_cb61463b66e234f4a2f56b38b381783c.setContent(html_6c65d0a8e7a42a9e44432910c339767d);
+            
+        
+
+        circle_marker_495bb98b1d3899bb8c823f8383a699b3.bindPopup(popup_cb61463b66e234f4a2f56b38b381783c)
+        ;
+
+        
+    
+    
+            var circle_marker_4ea0aea4e94869108357e002c00bc4a0 = L.circleMarker(
+                [-23.976417, -46.396139999999995],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_aaf9a4d4b2f5f373c7a37c284ad4acc4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e961455e09d93a099d6567d857fc63c = $(`<div id="html_3e961455e09d93a099d6567d857fc63c" style="width: 100.0%; height: 100.0%;">São Vicente<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_aaf9a4d4b2f5f373c7a37c284ad4acc4.setContent(html_3e961455e09d93a099d6567d857fc63c);
+            
+        
+
+        circle_marker_4ea0aea4e94869108357e002c00bc4a0.bindPopup(popup_aaf9a4d4b2f5f373c7a37c284ad4acc4)
+        ;
+
+        
+    
+    
+            var circle_marker_42f474b4e845d530075e0050653518a6 = L.circleMarker(
+                [-23.530348, -47.267526],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_d39386bae49a90579cd1dc0a0f139b1a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5afa4eca3ce16acd2240e3e701621f68 = $(`<div id="html_5afa4eca3ce16acd2240e3e701621f68" style="width: 100.0%; height: 100.0%;">Alumínio<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_d39386bae49a90579cd1dc0a0f139b1a.setContent(html_5afa4eca3ce16acd2240e3e701621f68);
+            
+        
+
+        circle_marker_42f474b4e845d530075e0050653518a6.bindPopup(popup_d39386bae49a90579cd1dc0a0f139b1a)
+        ;
+
+        
+    
+    
+            var circle_marker_cbd469ecb2c004696f8f31242a3ac6be = L.circleMarker(
+                [-23.994911000000002, -48.89039],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_03094db9bd7eeeebb6324c623ea6b5c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d0735441008e1d344b837878f74f8d8 = $(`<div id="html_5d0735441008e1d344b837878f74f8d8" style="width: 100.0%; height: 100.0%;">Itapeva<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_03094db9bd7eeeebb6324c623ea6b5c6.setContent(html_5d0735441008e1d344b837878f74f8d8);
+            
+        
+
+        circle_marker_cbd469ecb2c004696f8f31242a3ac6be.bindPopup(popup_03094db9bd7eeeebb6324c623ea6b5c6)
+        ;
+
+        
+    
+    
+            var circle_marker_11bb61c57d3dd5ed826724420f15240a = L.circleMarker(
+                [-23.550125, -47.19463],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_aea2f6521ed212b0defccbcc1c099e46 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ae67042e38b8d47ffbb6ca4138a52b2 = $(`<div id="html_8ae67042e38b8d47ffbb6ca4138a52b2" style="width: 100.0%; height: 100.0%;">Mairinque<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_aea2f6521ed212b0defccbcc1c099e46.setContent(html_8ae67042e38b8d47ffbb6ca4138a52b2);
+            
+        
+
+        circle_marker_11bb61c57d3dd5ed826724420f15240a.bindPopup(popup_aea2f6521ed212b0defccbcc1c099e46)
+        ;
+
+        
+    
+    
+            var circle_marker_46545296565680da69abac70f5f924d9 = L.circleMarker(
+                [-23.358986, -47.85902],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_d03b0992584dd3148ed3e09d8d6fdae1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1bec5a20740860ec27f0d59d7d50acb7 = $(`<div id="html_1bec5a20740860ec27f0d59d7d50acb7" style="width: 100.0%; height: 100.0%;">Tatuí<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_d03b0992584dd3148ed3e09d8d6fdae1.setContent(html_1bec5a20740860ec27f0d59d7d50acb7);
+            
+        
+
+        circle_marker_46545296565680da69abac70f5f924d9.bindPopup(popup_d03b0992584dd3148ed3e09d8d6fdae1)
+        ;
+
+        
+    
+    
+            var circle_marker_62109252ae19678fbf08057cc40cc780 = L.circleMarker(
+                [-21.143104, -48.981283],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c966f17a791f4d142de81a3aebadc347);
+        
+    
+        var popup_cdbc301f9277b25d3ef0755d353b7253 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e7c36d5ef79335d257790bd675577f5 = $(`<div id="html_0e7c36d5ef79335d257790bd675577f5" style="width: 100.0%; height: 100.0%;">Catanduva<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Janeiro)</div>`)[0];
+                popup_cdbc301f9277b25d3ef0755d353b7253.setContent(html_0e7c36d5ef79335d257790bd675577f5);
+            
+        
+
+        circle_marker_62109252ae19678fbf08057cc40cc780.bindPopup(popup_cdbc301f9277b25d3ef0755d353b7253)
+        ;
+
+        
+    
+    
+            feature_group_c966f17a791f4d142de81a3aebadc347.addTo(map_9816130f9ec0ac624741f2588ed38402);
+        
+    
+            var feature_group_a8d356b6ef9951e29cc4063d021083fd = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_236fa58cf7da0d03aa68ac7ca2836e36 = L.circleMarker(
+                [-23.560652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_c40173776229534b8a9189a1aa9fc6b1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_999d925919870d118e747c3a307600ad = $(`<div id="html_999d925919870d118e747c3a307600ad" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 5 (Fevereiro)</div>`)[0];
+                popup_c40173776229534b8a9189a1aa9fc6b1.setContent(html_999d925919870d118e747c3a307600ad);
+            
+        
+
+        circle_marker_236fa58cf7da0d03aa68ac7ca2836e36.bindPopup(popup_c40173776229534b8a9189a1aa9fc6b1)
+        ;
+
+        
+    
+    
+            var circle_marker_7f27e78c6857e63a8f779b86d2315405 = L.circleMarker(
+                [-23.542486, -46.79168],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_1d2a1c54faa04409eb803acb2829d1cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fda43687e7db5a8defb90e8924a60141 = $(`<div id="html_fda43687e7db5a8defb90e8924a60141" style="width: 100.0%; height: 100.0%;">Osasco<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Fevereiro)</div>`)[0];
+                popup_1d2a1c54faa04409eb803acb2829d1cd.setContent(html_fda43687e7db5a8defb90e8924a60141);
+            
+        
+
+        circle_marker_7f27e78c6857e63a8f779b86d2315405.bindPopup(popup_1d2a1c54faa04409eb803acb2829d1cd)
+        ;
+
+        
+    
+    
+            var circle_marker_cbb39bd8dd9861a42b42ca207123a5e4 = L.circleMarker(
+                [-23.534908, -46.344566],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_f348b9aef60d7013d2dc5e6ccf315b51 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c454a3a910f4cc7c7048be61b8dafee = $(`<div id="html_5c454a3a910f4cc7c7048be61b8dafee" style="width: 100.0%; height: 100.0%;">Poá<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Fevereiro)</div>`)[0];
+                popup_f348b9aef60d7013d2dc5e6ccf315b51.setContent(html_5c454a3a910f4cc7c7048be61b8dafee);
+            
+        
+
+        circle_marker_cbb39bd8dd9861a42b42ca207123a5e4.bindPopup(popup_f348b9aef60d7013d2dc5e6ccf315b51)
+        ;
+
+        
+    
+    
+            var circle_marker_f3c5bd5511ef7534e808f3be9ceecb58 = L.circleMarker(
+                [-20.702108000000003, -48.414406],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_e030c1fe501bd5eed39f26ec4f059dc3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b94798a0c1000955db39c5980194e8d = $(`<div id="html_2b94798a0c1000955db39c5980194e8d" style="width: 100.0%; height: 100.0%;">Jaborandi<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Fevereiro)</div>`)[0];
+                popup_e030c1fe501bd5eed39f26ec4f059dc3.setContent(html_2b94798a0c1000955db39c5980194e8d);
+            
+        
+
+        circle_marker_f3c5bd5511ef7534e808f3be9ceecb58.bindPopup(popup_e030c1fe501bd5eed39f26ec4f059dc3)
+        ;
+
+        
+    
+    
+            var circle_marker_51f0f0d5a9fb09ecf90532551ad2a591 = L.circleMarker(
+                [-23.598608000000002, -48.048325],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_5601191a9eddcd3c4ae1af19d93f3dfc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_038db5aa8548cb4146587d67af412f98 = $(`<div id="html_038db5aa8548cb4146587d67af412f98" style="width: 100.0%; height: 100.0%;">Itapetininga<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Fevereiro)</div>`)[0];
+                popup_5601191a9eddcd3c4ae1af19d93f3dfc.setContent(html_038db5aa8548cb4146587d67af412f98);
+            
+        
+
+        circle_marker_51f0f0d5a9fb09ecf90532551ad2a591.bindPopup(popup_5601191a9eddcd3c4ae1af19d93f3dfc)
+        ;
+
+        
+    
+    
+            var circle_marker_bd663b96b21952836436098a7d131a73 = L.circleMarker(
+                [-21.065061, -49.68923],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a8d356b6ef9951e29cc4063d021083fd);
+        
+    
+        var popup_c142ce928aa29655dcf8b6a1c1d84d56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c53ac9ee77ef2974adf8b60f9b71c8e7 = $(`<div id="html_c53ac9ee77ef2974adf8b60f9b71c8e7" style="width: 100.0%; height: 100.0%;">José Bonifácio<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Fevereiro)</div>`)[0];
+                popup_c142ce928aa29655dcf8b6a1c1d84d56.setContent(html_c53ac9ee77ef2974adf8b60f9b71c8e7);
+            
+        
+
+        circle_marker_bd663b96b21952836436098a7d131a73.bindPopup(popup_c142ce928aa29655dcf8b6a1c1d84d56)
+        ;
+
+        
+    
+    
+            var feature_group_14a921b41f5224886db8b35028333e30 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_a5f607ceba9c5e5f6b8c17d0c0c63d1c = L.circleMarker(
+                [-23.039854000000002, -46.964983000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_32d5dd6db7742faa716363f41bfeddc3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e14b701dd23fefe6a590b6d3aef211d3 = $(`<div id="html_e14b701dd23fefe6a590b6d3aef211d3" style="width: 100.0%; height: 100.0%;">Vinhedo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_32d5dd6db7742faa716363f41bfeddc3.setContent(html_e14b701dd23fefe6a590b6d3aef211d3);
+            
+        
+
+        circle_marker_a5f607ceba9c5e5f6b8c17d0c0c63d1c.bindPopup(popup_32d5dd6db7742faa716363f41bfeddc3)
+        ;
+
+        
+    
+    
+            var circle_marker_662d19ac0ed68c671114ab24ab067f68 = L.circleMarker(
+                [-23.560652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 26.75, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_f1e5398e5c674134345f9d3716c47c0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc2ae9574b88344146d93df6a9749c03 = $(`<div id="html_bc2ae9574b88344146d93df6a9749c03" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 4 (Marco)</div>`)[0];
+                popup_f1e5398e5c674134345f9d3716c47c0f.setContent(html_bc2ae9574b88344146d93df6a9749c03);
+            
+        
+
+        circle_marker_662d19ac0ed68c671114ab24ab067f68.bindPopup(popup_f1e5398e5c674134345f9d3716c47c0f)
+        ;
+
+        
+    
+    
+            var circle_marker_889fea264da941e4c806a7250c41fd26 = L.circleMarker(
+                [-23.485449000000003, -46.341402],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_426d77037b64883708390bb92b32564d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0c482a941d40b5bd108696c460c2d72e = $(`<div id="html_0c482a941d40b5bd108696c460c2d72e" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_426d77037b64883708390bb92b32564d.setContent(html_0c482a941d40b5bd108696c460c2d72e);
+            
+        
+
+        circle_marker_889fea264da941e4c806a7250c41fd26.bindPopup(popup_426d77037b64883708390bb92b32564d)
+        ;
+
+        
+    
+    
+            var circle_marker_0385d89caa60f9c4a40d4f22e95a6080 = L.circleMarker(
+                [-23.676952, -46.451693],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_1b8ffa7c9ef1aded8506ced66006503b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_400f09db5f48b0ed9ad376b56e949c99 = $(`<div id="html_400f09db5f48b0ed9ad376b56e949c99" style="width: 100.0%; height: 100.0%;">Mauá<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_1b8ffa7c9ef1aded8506ced66006503b.setContent(html_400f09db5f48b0ed9ad376b56e949c99);
+            
+        
+
+        circle_marker_0385d89caa60f9c4a40d4f22e95a6080.bindPopup(popup_1b8ffa7c9ef1aded8506ced66006503b)
+        ;
+
+        
+    
+    
+            var circle_marker_1ee3424ea8204edee2bf65f166aaa621 = L.circleMarker(
+                [-21.888801, -47.846762000000005],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_929fd8e8da743f299c86c00101e9077c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95363d5269dc92887e2b8b8271c61c58 = $(`<div id="html_95363d5269dc92887e2b8b8271c61c58" style="width: 100.0%; height: 100.0%;">São Carlos<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_929fd8e8da743f299c86c00101e9077c.setContent(html_95363d5269dc92887e2b8b8271c61c58);
+            
+        
+
+        circle_marker_1ee3424ea8204edee2bf65f166aaa621.bindPopup(popup_929fd8e8da743f299c86c00101e9077c)
+        ;
+
+        
+    
+    
+            var circle_marker_eff3c433105dde2cb276adfd467d8251 = L.circleMarker(
+                [-23.976417, -46.37614],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_83064afec46a3e8687bca9d47997b37d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35d2f285424986f9db83c71b9665ade8 = $(`<div id="html_35d2f285424986f9db83c71b9665ade8" style="width: 100.0%; height: 100.0%;">São Vicente<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_83064afec46a3e8687bca9d47997b37d.setContent(html_35d2f285424986f9db83c71b9665ade8);
+            
+        
+
+        circle_marker_eff3c433105dde2cb276adfd467d8251.bindPopup(popup_83064afec46a3e8687bca9d47997b37d)
+        ;
+
+        
+    
+    
+            var circle_marker_7c9877d65f4b6de5459d0fd86cb35f67 = L.circleMarker(
+                [-23.510345, -47.448286],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_14a921b41f5224886db8b35028333e30);
+        
+    
+        var popup_d97463e7f1faccea7e24e01100338278 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b3a6c21ec03db7580082c3524ea26a2 = $(`<div id="html_1b3a6c21ec03db7580082c3524ea26a2" style="width: 100.0%; height: 100.0%;">Sorocaba<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Marco)</div>`)[0];
+                popup_d97463e7f1faccea7e24e01100338278.setContent(html_1b3a6c21ec03db7580082c3524ea26a2);
+            
+        
+
+        circle_marker_7c9877d65f4b6de5459d0fd86cb35f67.bindPopup(popup_d97463e7f1faccea7e24e01100338278)
+        ;
+
+        
+    
+    
+            var feature_group_c31f302e5ab855b3b00d1b6d05083b9d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7772c61df8b26e1cc449d37bcd9b09c6 = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_09c29d6af859d3f9e5354eaa5c9ecc13 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5687080df238ed890cd35fc6992a188 = $(`<div id="html_c5687080df238ed890cd35fc6992a188" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM LATROCÍNIO: 3 (Abril)</div>`)[0];
+                popup_09c29d6af859d3f9e5354eaa5c9ecc13.setContent(html_c5687080df238ed890cd35fc6992a188);
+            
+        
+
+        circle_marker_7772c61df8b26e1cc449d37bcd9b09c6.bindPopup(popup_09c29d6af859d3f9e5354eaa5c9ecc13)
+        ;
+
+        
+    
+    
+            var circle_marker_008dbb11ede2a9e015c607120c9d6854 = L.circleMarker(
+                [-23.477594, -46.507769999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.25, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_a5de298a08447d41a670872974710e13 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eb4bd92398611697134c69a86cec18a3 = $(`<div id="html_eb4bd92398611697134c69a86cec18a3" style="width: 100.0%; height: 100.0%;">Guarulhos<br>Nº DE VÍTIMAS EM LATROCÍNIO: 2 (Abril)</div>`)[0];
+                popup_a5de298a08447d41a670872974710e13.setContent(html_eb4bd92398611697134c69a86cec18a3);
+            
+        
+
+        circle_marker_008dbb11ede2a9e015c607120c9d6854.bindPopup(popup_a5de298a08447d41a670872974710e13)
+        ;
+
+        
+    
+    
+            var circle_marker_fb463f5d97a734492cf0896638118cbb = L.circleMarker(
+                [-23.485449000000003, -46.331402],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_a6ddc6754b223a041361206823f40a78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72a17bec4ba56a7159d4bb5b3d2caeb8 = $(`<div id="html_72a17bec4ba56a7159d4bb5b3d2caeb8" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_a6ddc6754b223a041361206823f40a78.setContent(html_72a17bec4ba56a7159d4bb5b3d2caeb8);
+            
+        
+
+        circle_marker_fb463f5d97a734492cf0896638118cbb.bindPopup(popup_a6ddc6754b223a041361206823f40a78)
+        ;
+
+        
+    
+    
+            var circle_marker_656123bb1b6223470287d6d45da46af3 = L.circleMarker(
+                [-23.552784000000003, -46.290839999999996],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_d2a2c85fd7d10bf5208df0a6975b1a89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6bccf8fddf58e8c24870c4c59ecf1d03 = $(`<div id="html_6bccf8fddf58e8c24870c4c59ecf1d03" style="width: 100.0%; height: 100.0%;">Suzano<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_d2a2c85fd7d10bf5208df0a6975b1a89.setContent(html_6bccf8fddf58e8c24870c4c59ecf1d03);
+            
+        
+
+        circle_marker_656123bb1b6223470287d6d45da46af3.bindPopup(popup_d2a2c85fd7d10bf5208df0a6975b1a89)
+        ;
+
+        
+    
+    
+            var circle_marker_48fc0ce93bb1718526326e533078383c = L.circleMarker(
+                [-23.62219, -46.759052999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.25, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_b4a46d6124a46a34c6bc10eab2d58eec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7799686ac1edae18d45d2794dac58ad9 = $(`<div id="html_7799686ac1edae18d45d2794dac58ad9" style="width: 100.0%; height: 100.0%;">Taboão da Serra<br>Nº DE VÍTIMAS EM LATROCÍNIO: 2 (Abril)</div>`)[0];
+                popup_b4a46d6124a46a34c6bc10eab2d58eec.setContent(html_7799686ac1edae18d45d2794dac58ad9);
+            
+        
+
+        circle_marker_48fc0ce93bb1718526326e533078383c.bindPopup(popup_b4a46d6124a46a34c6bc10eab2d58eec)
+        ;
+
+        
+    
+    
+            var circle_marker_84f218ed1ea846f508d2d76a52c93d28 = L.circleMarker(
+                [-20.548177000000003, -47.380978],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_48d7e8031f541d71d01f53eb4e6dae51 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_938b0b158447810c85659fd26d4173c4 = $(`<div id="html_938b0b158447810c85659fd26d4173c4" style="width: 100.0%; height: 100.0%;">Franca<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_48d7e8031f541d71d01f53eb4e6dae51.setContent(html_938b0b158447810c85659fd26d4173c4);
+            
+        
+
+        circle_marker_84f218ed1ea846f508d2d76a52c93d28.bindPopup(popup_48d7e8031f541d71d01f53eb4e6dae51)
+        ;
+
+        
+    
+    
+            var circle_marker_ed6524ff8181ba93481b2ea102267e43 = L.circleMarker(
+                [-21.033972000000002, -48.019344999999994],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_33a8b76a0db24f12d361066a59623ed1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6908946624ec14ec184cb27a1181abbe = $(`<div id="html_6908946624ec14ec184cb27a1181abbe" style="width: 100.0%; height: 100.0%;">Pontal<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_33a8b76a0db24f12d361066a59623ed1.setContent(html_6908946624ec14ec184cb27a1181abbe);
+            
+        
+
+        circle_marker_ed6524ff8181ba93481b2ea102267e43.bindPopup(popup_33a8b76a0db24f12d361066a59623ed1)
+        ;
+
+        
+    
+    
+            var circle_marker_9316d9ed2d46b267cdb1d2a50a56771e = L.circleMarker(
+                [-21.888801, -47.836762],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_6a5429c9153fa7c57691ed54d09790e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b8b430bb264531a19dcbab46025ed38b = $(`<div id="html_b8b430bb264531a19dcbab46025ed38b" style="width: 100.0%; height: 100.0%;">São Carlos<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_6a5429c9153fa7c57691ed54d09790e5.setContent(html_b8b430bb264531a19dcbab46025ed38b);
+            
+        
+
+        circle_marker_9316d9ed2d46b267cdb1d2a50a56771e.bindPopup(popup_6a5429c9153fa7c57691ed54d09790e5)
+        ;
+
+        
+    
+    
+            var circle_marker_7ad702d9745ff6657d8fac6392bfb765 = L.circleMarker(
+                [-23.598608000000002, -48.028324999999995],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_874ae55d4616580a5a5f2cf6fa955461 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43d17c907e30f1eaeac365e8686cc37d = $(`<div id="html_43d17c907e30f1eaeac365e8686cc37d" style="width: 100.0%; height: 100.0%;">Itapetininga<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_874ae55d4616580a5a5f2cf6fa955461.setContent(html_43d17c907e30f1eaeac365e8686cc37d);
+            
+        
+
+        circle_marker_7ad702d9745ff6657d8fac6392bfb765.bindPopup(popup_874ae55d4616580a5a5f2cf6fa955461)
+        ;
+
+        
+    
+    
+            var circle_marker_ff025b731f1d418abf438c2470d3cb76 = L.circleMarker(
+                [-23.443163000000002, -45.063416],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c31f302e5ab855b3b00d1b6d05083b9d);
+        
+    
+        var popup_9f4fdabee1fc32c53cdf6dbba3c193cc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2472a567043c5da5fafa743c7a15bc3e = $(`<div id="html_2472a567043c5da5fafa743c7a15bc3e" style="width: 100.0%; height: 100.0%;">Ubatuba<br>Nº DE VÍTIMAS EM LATROCÍNIO: 1 (Abril)</div>`)[0];
+                popup_9f4fdabee1fc32c53cdf6dbba3c193cc.setContent(html_2472a567043c5da5fafa743c7a15bc3e);
+            
+        
+
+        circle_marker_ff025b731f1d418abf438c2470d3cb76.bindPopup(popup_9f4fdabee1fc32c53cdf6dbba3c193cc)
+        ;
+
+        
+    
+    
+            var feature_group_6567c419894ee81b2b41b9fc8e2077cb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_cbecfb2a08d6ebaab7c54a9ae69fe810 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_eb8dc561e1e0cdc955d6bb7f94a1516f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_ab00ef3459883dc21cb2e58c041a8880 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_fc32b6604bd0430e3c4e8990ab5949c5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_c8364849e7a7802325adba56bfd1addc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_1ca425666525e3b2dae3d665bace7c9c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_d36aad65b44a0676bca63c507301048a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var layer_control_31c41feb6803f49d4f0ee4d8809de2e7_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_b2fbc0b89f2ee4903e0873457b105eb9,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_c966f17a791f4d142de81a3aebadc347,
+                    "Fevereiro" : feature_group_a8d356b6ef9951e29cc4063d021083fd,
+                    "Marco" : feature_group_14a921b41f5224886db8b35028333e30,
+                    "Abril" : feature_group_c31f302e5ab855b3b00d1b6d05083b9d,
+                    "Maio" : feature_group_6567c419894ee81b2b41b9fc8e2077cb,
+                    "Junho" : feature_group_cbecfb2a08d6ebaab7c54a9ae69fe810,
+                    "Julho" : feature_group_eb8dc561e1e0cdc955d6bb7f94a1516f,
+                    "Agosto" : feature_group_ab00ef3459883dc21cb2e58c041a8880,
+                    "Setembro" : feature_group_fc32b6604bd0430e3c4e8990ab5949c5,
+                    "Outubro" : feature_group_c8364849e7a7802325adba56bfd1addc,
+                    "Novembro" : feature_group_1ca425666525e3b2dae3d665bace7c9c,
+                    "Dezembro" : feature_group_d36aad65b44a0676bca63c507301048a,
+                },
+            };
+            let layer_control_31c41feb6803f49d4f0ee4d8809de2e7 = L.control.layers(
+                layer_control_31c41feb6803f49d4f0ee4d8809de2e7_layers.base_layers,
+                layer_control_31c41feb6803f49d4f0ee4d8809de2e7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_9816130f9ec0ac624741f2588ed38402);
+
+        
+</script>
+</html>

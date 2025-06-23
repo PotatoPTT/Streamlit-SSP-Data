@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a4c5fc3cd55740a879136f6db9454db9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a4c5fc3cd55740a879136f6db9454db9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a4c5fc3cd55740a879136f6db9454db9 = L.map(
+                "map_a4c5fc3cd55740a879136f6db9454db9",
+                {
+                    center: [-21.8, -49.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f540c044e33bf55b36e97e955ef85296 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f540c044e33bf55b36e97e955ef85296.addTo(map_a4c5fc3cd55740a879136f6db9454db9);
+        
+    
+            var feature_group_ff583f98cc078a39deef74ba7688471f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b75a41acac0d74f2d3bfa3b5532c6d01 = L.circleMarker(
+                [-23.560652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_b34f15fb2ddebf1e001922d37cc3a3c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f798fb12e555794dcee27fd02febc495 = $(`<div id="html_f798fb12e555794dcee27fd02febc495" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_b34f15fb2ddebf1e001922d37cc3a3c9.setContent(html_f798fb12e555794dcee27fd02febc495);
+            
+        
+
+        circle_marker_b75a41acac0d74f2d3bfa3b5532c6d01.bindPopup(popup_b34f15fb2ddebf1e001922d37cc3a3c9)
+        ;
+
+        
+    
+    
+            var circle_marker_f15d962bff47a67f7d7a869a153b42ef = L.circleMarker(
+                [-23.477594, -46.537769999999995],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_d174b8cce46e7b5dd44b96cdba034707 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a523fb1eeeb37fccd99a7014fb32472 = $(`<div id="html_6a523fb1eeeb37fccd99a7014fb32472" style="width: 100.0%; height: 100.0%;">Guarulhos<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_d174b8cce46e7b5dd44b96cdba034707.setContent(html_6a523fb1eeeb37fccd99a7014fb32472);
+            
+        
+
+        circle_marker_f15d962bff47a67f7d7a869a153b42ef.bindPopup(popup_d174b8cce46e7b5dd44b96cdba034707)
+        ;
+
+        
+    
+    
+            var circle_marker_3540a9da6c88fbca36a0c846abdafd1b = L.circleMarker(
+                [-23.718035, -46.560674],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 35.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_dc36397ad1dcfa95270de7ed5f8cba2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bff1f43a3fe0fb7b36edc8d711c58a28 = $(`<div id="html_bff1f43a3fe0fb7b36edc8d711c58a28" style="width: 100.0%; height: 100.0%;">São Bernardo do Campo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 3 (Janeiro)</div>`)[0];
+                popup_dc36397ad1dcfa95270de7ed5f8cba2e.setContent(html_bff1f43a3fe0fb7b36edc8d711c58a28);
+            
+        
+
+        circle_marker_3540a9da6c88fbca36a0c846abdafd1b.bindPopup(popup_dc36397ad1dcfa95270de7ed5f8cba2e)
+        ;
+
+        
+    
+    
+            var circle_marker_cd32050f9f85b79a30c082b98a5a654b = L.circleMarker(
+                [-20.413568, -47.430914],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_9e596a9b7f9628de525b3cd65dbae860 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f9e8cac944493c9943fb52a3fa9f273a = $(`<div id="html_f9e8cac944493c9943fb52a3fa9f273a" style="width: 100.0%; height: 100.0%;">Cristais Paulista<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Janeiro)</div>`)[0];
+                popup_9e596a9b7f9628de525b3cd65dbae860.setContent(html_f9e8cac944493c9943fb52a3fa9f273a);
+            
+        
+
+        circle_marker_cd32050f9f85b79a30c082b98a5a654b.bindPopup(popup_9e596a9b7f9628de525b3cd65dbae860)
+        ;
+
+        
+    
+    
+            var circle_marker_b5ca57b27e88492b1a2d9255a2375cdf = L.circleMarker(
+                [-21.147579, -48.001374999999996],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_e6b4df3726734695c2e872c6e28f1fa4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b3cf4f33e8d3f318772ae382ebd13c0 = $(`<div id="html_2b3cf4f33e8d3f318772ae382ebd13c0" style="width: 100.0%; height: 100.0%;">Sertãozinho<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Janeiro)</div>`)[0];
+                popup_e6b4df3726734695c2e872c6e28f1fa4.setContent(html_2b3cf4f33e8d3f318772ae382ebd13c0);
+            
+        
+
+        circle_marker_b5ca57b27e88492b1a2d9255a2375cdf.bindPopup(popup_e6b4df3726734695c2e872c6e28f1fa4)
+        ;
+
+        
+    
+    
+            var circle_marker_35e1ce5a26e4a29842d26eea167fdb4b = L.circleMarker(
+                [-23.443163000000002, -45.093416],
+                {"bubblingMouseEvents": true, "color": "#e6194b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6194b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ff583f98cc078a39deef74ba7688471f);
+        
+    
+        var popup_a5e9c11014a2f8ba7b8d63f7da2019e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d39b2eff2317bb664d9e25e80a12b64 = $(`<div id="html_7d39b2eff2317bb664d9e25e80a12b64" style="width: 100.0%; height: 100.0%;">Ubatuba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Janeiro)</div>`)[0];
+                popup_a5e9c11014a2f8ba7b8d63f7da2019e9.setContent(html_7d39b2eff2317bb664d9e25e80a12b64);
+            
+        
+
+        circle_marker_35e1ce5a26e4a29842d26eea167fdb4b.bindPopup(popup_a5e9c11014a2f8ba7b8d63f7da2019e9)
+        ;
+
+        
+    
+    
+            feature_group_ff583f98cc078a39deef74ba7688471f.addTo(map_a4c5fc3cd55740a879136f6db9454db9);
+        
+    
+            var feature_group_fccfc24fae56d1030fa07b7a9f8b741c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e58352dc9b3ee4c9e0842b8cba34abe0 = L.circleMarker(
+                [-22.486833, -47.455055],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fccfc24fae56d1030fa07b7a9f8b741c);
+        
+    
+        var popup_f87382ae5670926e2a6aafb156f9b756 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de1423e4ba98c06eca322d01e6033b32 = $(`<div id="html_de1423e4ba98c06eca322d01e6033b32" style="width: 100.0%; height: 100.0%;">Cordeirópolis<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_f87382ae5670926e2a6aafb156f9b756.setContent(html_de1423e4ba98c06eca322d01e6033b32);
+            
+        
+
+        circle_marker_e58352dc9b3ee4c9e0842b8cba34abe0.bindPopup(popup_f87382ae5670926e2a6aafb156f9b756)
+        ;
+
+        
+    
+    
+            var circle_marker_1bb28753cc1608aa9126d4629752ad9f = L.circleMarker(
+                [-21.478240000000003, -46.74932],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fccfc24fae56d1030fa07b7a9f8b741c);
+        
+    
+        var popup_f9c3b5e268a19dd27358bbde4d83a59d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_113036e0b1e228a32361e9d235e545a8 = $(`<div id="html_113036e0b1e228a32361e9d235e545a8" style="width: 100.0%; height: 100.0%;">Tapiratiba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_f9c3b5e268a19dd27358bbde4d83a59d.setContent(html_113036e0b1e228a32361e9d235e545a8);
+            
+        
+
+        circle_marker_1bb28753cc1608aa9126d4629752ad9f.bindPopup(popup_f9c3b5e268a19dd27358bbde4d83a59d)
+        ;
+
+        
+    
+    
+            var circle_marker_0dad2941aa7347479ed7bcc559b7132d = L.circleMarker(
+                [-23.273780000000002, -47.299847],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fccfc24fae56d1030fa07b7a9f8b741c);
+        
+    
+        var popup_71c51811375b41c3e97b0b0689e03548 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f55bcbcaca3af46a477f627efd5b410e = $(`<div id="html_f55bcbcaca3af46a477f627efd5b410e" style="width: 100.0%; height: 100.0%;">Itu<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_71c51811375b41c3e97b0b0689e03548.setContent(html_f55bcbcaca3af46a477f627efd5b410e);
+            
+        
+
+        circle_marker_0dad2941aa7347479ed7bcc559b7132d.bindPopup(popup_71c51811375b41c3e97b0b0689e03548)
+        ;
+
+        
+    
+    
+            var circle_marker_26276e2bbaa9886041ecedeb67627ea6 = L.circleMarker(
+                [-23.510345, -47.458286],
+                {"bubblingMouseEvents": true, "color": "#3cb44b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3cb44b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_fccfc24fae56d1030fa07b7a9f8b741c);
+        
+    
+        var popup_38518009ea563bd52d5a07112283fc91 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2db924ef75f0f6464b8e110c48906de4 = $(`<div id="html_2db924ef75f0f6464b8e110c48906de4" style="width: 100.0%; height: 100.0%;">Sorocaba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Fevereiro)</div>`)[0];
+                popup_38518009ea563bd52d5a07112283fc91.setContent(html_2db924ef75f0f6464b8e110c48906de4);
+            
+        
+
+        circle_marker_26276e2bbaa9886041ecedeb67627ea6.bindPopup(popup_38518009ea563bd52d5a07112283fc91)
+        ;
+
+        
+    
+    
+            var feature_group_f887357da36c5aadb9279311675c92c4 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_375d1589d00193e1bd0ee9f900fce46d = L.circleMarker(
+                [-23.560652, -46.623380000000004],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f887357da36c5aadb9279311675c92c4);
+        
+    
+        var popup_66ff31c945f1f34b0f7ed4022f0a37ae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_300cd64f714442e31e9b403f3e156094 = $(`<div id="html_300cd64f714442e31e9b403f3e156094" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Marco)</div>`)[0];
+                popup_66ff31c945f1f34b0f7ed4022f0a37ae.setContent(html_300cd64f714442e31e9b403f3e156094);
+            
+        
+
+        circle_marker_375d1589d00193e1bd0ee9f900fce46d.bindPopup(popup_66ff31c945f1f34b0f7ed4022f0a37ae)
+        ;
+
+        
+    
+    
+            var circle_marker_514b2a5e5ea97b5c9023e4b05bbc9486 = L.circleMarker(
+                [-23.485449000000003, -46.341402],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f887357da36c5aadb9279311675c92c4);
+        
+    
+        var popup_2e554e0c38fa143f2d65b0f35a85e236 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_547cbdd5b383f954484c2291d17b1e09 = $(`<div id="html_547cbdd5b383f954484c2291d17b1e09" style="width: 100.0%; height: 100.0%;">Itaquaquecetuba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Marco)</div>`)[0];
+                popup_2e554e0c38fa143f2d65b0f35a85e236.setContent(html_547cbdd5b383f954484c2291d17b1e09);
+            
+        
+
+        circle_marker_514b2a5e5ea97b5c9023e4b05bbc9486.bindPopup(popup_2e554e0c38fa143f2d65b0f35a85e236)
+        ;
+
+        
+    
+    
+            var circle_marker_2f1d32905f91f661b2dd76581c34038f = L.circleMarker(
+                [-24.397844000000003, -47.91658],
+                {"bubblingMouseEvents": true, "color": "#ffe119", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe119", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f887357da36c5aadb9279311675c92c4);
+        
+    
+        var popup_8c12cc3583ec75d98d4415a6faaa8226 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14e0807063e4fd507967c70e5625f95e = $(`<div id="html_14e0807063e4fd507967c70e5625f95e" style="width: 100.0%; height: 100.0%;">Sete Barras<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Marco)</div>`)[0];
+                popup_8c12cc3583ec75d98d4415a6faaa8226.setContent(html_14e0807063e4fd507967c70e5625f95e);
+            
+        
+
+        circle_marker_2f1d32905f91f661b2dd76581c34038f.bindPopup(popup_8c12cc3583ec75d98d4415a6faaa8226)
+        ;
+
+        
+    
+    
+            var feature_group_27f8f707c20ceefad2db05b82a34d711 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_573760bec4f5e030f9196ef894663e92 = L.circleMarker(
+                [-23.560652, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_27f8f707c20ceefad2db05b82a34d711);
+        
+    
+        var popup_6e4724f0ff68193cc6ffe1a3f9010593 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2b3f258f61467f6ea73e514a1ba27cc = $(`<div id="html_b2b3f258f61467f6ea73e514a1ba27cc" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Abril)</div>`)[0];
+                popup_6e4724f0ff68193cc6ffe1a3f9010593.setContent(html_b2b3f258f61467f6ea73e514a1ba27cc);
+            
+        
+
+        circle_marker_573760bec4f5e030f9196ef894663e92.bindPopup(popup_6e4724f0ff68193cc6ffe1a3f9010593)
+        ;
+
+        
+    
+    
+            var circle_marker_9b12bbf06227e86e954acafe6967d4be = L.circleMarker(
+                [-20.97484, -49.013239999999996],
+                {"bubblingMouseEvents": true, "color": "#4363d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4363d8", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_27f8f707c20ceefad2db05b82a34d711);
+        
+    
+        var popup_cd64651c62960ef746f8d29497648e08 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f6605fa42755fb9cc09f87122076b44e = $(`<div id="html_f6605fa42755fb9cc09f87122076b44e" style="width: 100.0%; height: 100.0%;">Tabapuã<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Abril)</div>`)[0];
+                popup_cd64651c62960ef746f8d29497648e08.setContent(html_f6605fa42755fb9cc09f87122076b44e);
+            
+        
+
+        circle_marker_9b12bbf06227e86e954acafe6967d4be.bindPopup(popup_cd64651c62960ef746f8d29497648e08)
+        ;
+
+        
+    
+    
+            var feature_group_01ef6393556d995a3b15fedcd27cba48 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1f888fb7c48940dd9a2a1b081c16f7db = L.circleMarker(
+                [-23.550652, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#f58231", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f58231", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_01ef6393556d995a3b15fedcd27cba48);
+        
+    
+        var popup_b78f0d3674ec2a4b63339d5ad307b97c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74c5f694c5d9678bd6a46306922885ff = $(`<div id="html_74c5f694c5d9678bd6a46306922885ff" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Maio)</div>`)[0];
+                popup_b78f0d3674ec2a4b63339d5ad307b97c.setContent(html_74c5f694c5d9678bd6a46306922885ff);
+            
+        
+
+        circle_marker_1f888fb7c48940dd9a2a1b081c16f7db.bindPopup(popup_b78f0d3674ec2a4b63339d5ad307b97c)
+        ;
+
+        
+    
+    
+            var feature_group_295afb1dbe175a76031c52425a2c1530 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e791aa62350cc3f51c220a2ba44456bd = L.circleMarker(
+                [-23.18193, -46.3993],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_295afb1dbe175a76031c52425a2c1530);
+        
+    
+        var popup_0a18c8e611f5b9c326182a831a976c47 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6c4b1dab4b2ab6de1aea706edeb4b54 = $(`<div id="html_d6c4b1dab4b2ab6de1aea706edeb4b54" style="width: 100.0%; height: 100.0%;">Nazaré Paulista<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Junho)</div>`)[0];
+                popup_0a18c8e611f5b9c326182a831a976c47.setContent(html_d6c4b1dab4b2ab6de1aea706edeb4b54);
+            
+        
+
+        circle_marker_e791aa62350cc3f51c220a2ba44456bd.bindPopup(popup_0a18c8e611f5b9c326182a831a976c47)
+        ;
+
+        
+    
+    
+            var circle_marker_d242a855ccbbb1ce3cc43f05f9efc0f5 = L.circleMarker(
+                [-23.550652, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#911eb4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#911eb4", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_295afb1dbe175a76031c52425a2c1530);
+        
+    
+        var popup_fc9a8cb587c125197b526103f0c3aafa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e402bdc2e0295c1f6ce4ee7c573e13fe = $(`<div id="html_e402bdc2e0295c1f6ce4ee7c573e13fe" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Junho)</div>`)[0];
+                popup_fc9a8cb587c125197b526103f0c3aafa.setContent(html_e402bdc2e0295c1f6ce4ee7c573e13fe);
+            
+        
+
+        circle_marker_d242a855ccbbb1ce3cc43f05f9efc0f5.bindPopup(popup_fc9a8cb587c125197b526103f0c3aafa)
+        ;
+
+        
+    
+    
+            var feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_828ac2e0e604c9b955071b32037b69a0 = L.circleMarker(
+                [-22.32181, -49.060587000000005],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5);
+        
+    
+        var popup_e6d239c81376f7869979e75c57c82ae6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a4f25c2ae56d3186c9f7aa119f8bffa8 = $(`<div id="html_a4f25c2ae56d3186c9f7aa119f8bffa8" style="width: 100.0%; height: 100.0%;">Bauru<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Julho)</div>`)[0];
+                popup_e6d239c81376f7869979e75c57c82ae6.setContent(html_a4f25c2ae56d3186c9f7aa119f8bffa8);
+            
+        
+
+        circle_marker_828ac2e0e604c9b955071b32037b69a0.bindPopup(popup_e6d239c81376f7869979e75c57c82ae6)
+        ;
+
+        
+    
+    
+            var circle_marker_e7a3459d758a1044fc8b9603ae46fdad = L.circleMarker(
+                [-22.725164, -47.639326000000004],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5);
+        
+    
+        var popup_71d5f108fb47d900378b6bd6af1a68f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_16a3b945b2da74a45047233ffe12f3e9 = $(`<div id="html_16a3b945b2da74a45047233ffe12f3e9" style="width: 100.0%; height: 100.0%;">Piracicaba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Julho)</div>`)[0];
+                popup_71d5f108fb47d900378b6bd6af1a68f5.setContent(html_16a3b945b2da74a45047233ffe12f3e9);
+            
+        
+
+        circle_marker_e7a3459d758a1044fc8b9603ae46fdad.bindPopup(popup_71d5f108fb47d900378b6bd6af1a68f5)
+        ;
+
+        
+    
+    
+            var circle_marker_a2554e7603a2a6a8de76fc4fb9b28786 = L.circleMarker(
+                [-21.837753, -48.48285],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5);
+        
+    
+        var popup_bb9bd9a53f00f168dffb3a7810147376 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ca648bc08697c3ba1ebb9ab719b0ecb = $(`<div id="html_1ca648bc08697c3ba1ebb9ab719b0ecb" style="width: 100.0%; height: 100.0%;">Gavião Peixoto<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Julho)</div>`)[0];
+                popup_bb9bd9a53f00f168dffb3a7810147376.setContent(html_1ca648bc08697c3ba1ebb9ab719b0ecb);
+            
+        
+
+        circle_marker_a2554e7603a2a6a8de76fc4fb9b28786.bindPopup(popup_bb9bd9a53f00f168dffb3a7810147376)
+        ;
+
+        
+    
+    
+            var circle_marker_38bd7f6e5b504c3740df25023c1d733d = L.circleMarker(
+                [-23.966417, -46.37614],
+                {"bubblingMouseEvents": true, "color": "#46f0f0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#46f0f0", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5);
+        
+    
+        var popup_d75904a93ff4ca4a0d538545557f1c9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11da309b358ba53cca3ffa5444dc732d = $(`<div id="html_11da309b358ba53cca3ffa5444dc732d" style="width: 100.0%; height: 100.0%;">São Vicente<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Julho)</div>`)[0];
+                popup_d75904a93ff4ca4a0d538545557f1c9d.setContent(html_11da309b358ba53cca3ffa5444dc732d);
+            
+        
+
+        circle_marker_38bd7f6e5b504c3740df25023c1d733d.bindPopup(popup_d75904a93ff4ca4a0d538545557f1c9d)
+        ;
+
+        
+    
+    
+            var feature_group_b1d90ea94f1dc5afea4b7e9843eaef46 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9a612a2edb4e98f282ded60e9c08ff39 = L.circleMarker(
+                [-21.013203, -48.20095],
+                {"bubblingMouseEvents": true, "color": "#f032e6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f032e6", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b1d90ea94f1dc5afea4b7e9843eaef46);
+        
+    
+        var popup_b4a42a66b81a0de607fb34722cc09cdb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4b5e4755898fd235568dec9dd032eba = $(`<div id="html_c4b5e4755898fd235568dec9dd032eba" style="width: 100.0%; height: 100.0%;">Pitangueiras<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Agosto)</div>`)[0];
+                popup_b4a42a66b81a0de607fb34722cc09cdb.setContent(html_c4b5e4755898fd235568dec9dd032eba);
+            
+        
+
+        circle_marker_9a612a2edb4e98f282ded60e9c08ff39.bindPopup(popup_b4a42a66b81a0de607fb34722cc09cdb)
+        ;
+
+        
+    
+    
+            var feature_group_7ca47b3c87208676ca746fb66161bf0d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_21c3a71b3cc4834666526a7e86610dd0 = L.circleMarker(
+                [-22.020190999999997, -48.921194],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7ca47b3c87208676ca746fb66161bf0d);
+        
+    
+        var popup_951b787c1c7d6bfb1f93fe75fb622516 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_46b5863f8c66ee7f3aace73ebb378515 = $(`<div id="html_46b5863f8c66ee7f3aace73ebb378515" style="width: 100.0%; height: 100.0%;">Arealva<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Setembro)</div>`)[0];
+                popup_951b787c1c7d6bfb1f93fe75fb622516.setContent(html_46b5863f8c66ee7f3aace73ebb378515);
+            
+        
+
+        circle_marker_21c3a71b3cc4834666526a7e86610dd0.bindPopup(popup_951b787c1c7d6bfb1f93fe75fb622516)
+        ;
+
+        
+    
+    
+            var circle_marker_8d29cd9ade1afd97441d78152daa5e02 = L.circleMarker(
+                [-23.540651999999998, -46.64338],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7ca47b3c87208676ca746fb66161bf0d);
+        
+    
+        var popup_73812695923647dc7ea93367ae341ced = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_983c22d29d4043d365887c4ca52fac39 = $(`<div id="html_983c22d29d4043d365887c4ca52fac39" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Setembro)</div>`)[0];
+                popup_73812695923647dc7ea93367ae341ced.setContent(html_983c22d29d4043d365887c4ca52fac39);
+            
+        
+
+        circle_marker_8d29cd9ade1afd97441d78152daa5e02.bindPopup(popup_73812695923647dc7ea93367ae341ced)
+        ;
+
+        
+    
+    
+            var circle_marker_4e3c2f51205986b77ed82ee894283627 = L.circleMarker(
+                [-23.656951999999997, -46.471692999999995],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7ca47b3c87208676ca746fb66161bf0d);
+        
+    
+        var popup_55e8f419b49fb6d397500bb4ab38fe49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62d7638f9e27e446b04a64359d61b545 = $(`<div id="html_62d7638f9e27e446b04a64359d61b545" style="width: 100.0%; height: 100.0%;">Mauá<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Setembro)</div>`)[0];
+                popup_55e8f419b49fb6d397500bb4ab38fe49.setContent(html_62d7638f9e27e446b04a64359d61b545);
+            
+        
+
+        circle_marker_4e3c2f51205986b77ed82ee894283627.bindPopup(popup_55e8f419b49fb6d397500bb4ab38fe49)
+        ;
+
+        
+    
+    
+            var circle_marker_77c6c4de08da134ebf0374cc22a7489f = L.circleMarker(
+                [-23.852134999999997, -49.149893],
+                {"bubblingMouseEvents": true, "color": "#bcf60c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bcf60c", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7ca47b3c87208676ca746fb66161bf0d);
+        
+    
+        var popup_89dda849b31536807d9d48db7fc00f80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9b9f478df22263b64f7ee832cd051cf = $(`<div id="html_d9b9f478df22263b64f7ee832cd051cf" style="width: 100.0%; height: 100.0%;">Itaberá<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Setembro)</div>`)[0];
+                popup_89dda849b31536807d9d48db7fc00f80.setContent(html_d9b9f478df22263b64f7ee832cd051cf);
+            
+        
+
+        circle_marker_77c6c4de08da134ebf0374cc22a7489f.bindPopup(popup_89dda849b31536807d9d48db7fc00f80)
+        ;
+
+        
+    
+    
+            var feature_group_7aa853199ce27a3b82c2bfb0c852a3f1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_45489bcff2310f5332a3ecfccfa5f0cf = L.circleMarker(
+                [-23.540651999999998, -46.63338],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.5, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7aa853199ce27a3b82c2bfb0c852a3f1);
+        
+    
+        var popup_0c1975c52a941d54670beb36980cd030 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4eee304af77eb118445cb368f7a00d7d = $(`<div id="html_4eee304af77eb118445cb368f7a00d7d" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 2 (Outubro)</div>`)[0];
+                popup_0c1975c52a941d54670beb36980cd030.setContent(html_4eee304af77eb118445cb368f7a00d7d);
+            
+        
+
+        circle_marker_45489bcff2310f5332a3ecfccfa5f0cf.bindPopup(popup_0c1975c52a941d54670beb36980cd030)
+        ;
+
+        
+    
+    
+            var circle_marker_838ef2692f44a07016e8767df9f80810 = L.circleMarker(
+                [-23.273889999999998, -47.673824],
+                {"bubblingMouseEvents": true, "color": "#fabebe", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fabebe", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7aa853199ce27a3b82c2bfb0c852a3f1);
+        
+    
+        var popup_1919b72527b8f87a63ecd6da9bf8b251 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28a6b41c31d0d641493c2c7e417a4268 = $(`<div id="html_28a6b41c31d0d641493c2c7e417a4268" style="width: 100.0%; height: 100.0%;">Boituva<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Outubro)</div>`)[0];
+                popup_1919b72527b8f87a63ecd6da9bf8b251.setContent(html_28a6b41c31d0d641493c2c7e417a4268);
+            
+        
+
+        circle_marker_838ef2692f44a07016e8767df9f80810.bindPopup(popup_1919b72527b8f87a63ecd6da9bf8b251)
+        ;
+
+        
+    
+    
+            var feature_group_1de41891e349caf2a8b33be82b9e94e2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var feature_group_713a52a4862e5387c406d75084a44a4a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_02446ec3bda6206312ce2ce56b733cec = L.circleMarker(
+                [-23.540651999999998, -46.61338],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_713a52a4862e5387c406d75084a44a4a);
+        
+    
+        var popup_d9a74a390504b751bfc8de9315ae1b4a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a6704b073ffd44c875f4a640648da26 = $(`<div id="html_1a6704b073ffd44c875f4a640648da26" style="width: 100.0%; height: 100.0%;">São Paulo<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Dezembro)</div>`)[0];
+                popup_d9a74a390504b751bfc8de9315ae1b4a.setContent(html_1a6704b073ffd44c875f4a640648da26);
+            
+        
+
+        circle_marker_02446ec3bda6206312ce2ce56b733cec.bindPopup(popup_d9a74a390504b751bfc8de9315ae1b4a)
+        ;
+
+        
+    
+    
+            var circle_marker_f5f2560f15beb83f7fd7fb1dbdddb5b4 = L.circleMarker(
+                [-23.434672, -46.89677],
+                {"bubblingMouseEvents": true, "color": "#e6beff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e6beff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_713a52a4862e5387c406d75084a44a4a);
+        
+    
+        var popup_eb52201e1b3910ffb377e4356cf7eff1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49d744400e0d11e1d5ab66e218e0be24 = $(`<div id="html_49d744400e0d11e1d5ab66e218e0be24" style="width: 100.0%; height: 100.0%;">Santana de Parnaíba<br>Nº DE VÍTIMAS EM HOMICÍDIO DOLOSO POR ACIDENTE DE TRÂNSITO: 1 (Dezembro)</div>`)[0];
+                popup_eb52201e1b3910ffb377e4356cf7eff1.setContent(html_49d744400e0d11e1d5ab66e218e0be24);
+            
+        
+
+        circle_marker_f5f2560f15beb83f7fd7fb1dbdddb5b4.bindPopup(popup_eb52201e1b3910ffb377e4356cf7eff1)
+        ;
+
+        
+    
+    
+            var layer_control_b27529a954f5ea1419eeca847298a351_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f540c044e33bf55b36e97e955ef85296,
+                },
+                overlays :  {
+                    "Janeiro" : feature_group_ff583f98cc078a39deef74ba7688471f,
+                    "Fevereiro" : feature_group_fccfc24fae56d1030fa07b7a9f8b741c,
+                    "Marco" : feature_group_f887357da36c5aadb9279311675c92c4,
+                    "Abril" : feature_group_27f8f707c20ceefad2db05b82a34d711,
+                    "Maio" : feature_group_01ef6393556d995a3b15fedcd27cba48,
+                    "Junho" : feature_group_295afb1dbe175a76031c52425a2c1530,
+                    "Julho" : feature_group_a003ea8c3210a0bc8e5a5a5e67061bd5,
+                    "Agosto" : feature_group_b1d90ea94f1dc5afea4b7e9843eaef46,
+                    "Setembro" : feature_group_7ca47b3c87208676ca746fb66161bf0d,
+                    "Outubro" : feature_group_7aa853199ce27a3b82c2bfb0c852a3f1,
+                    "Novembro" : feature_group_1de41891e349caf2a8b33be82b9e94e2,
+                    "Dezembro" : feature_group_713a52a4862e5387c406d75084a44a4a,
+                },
+            };
+            let layer_control_b27529a954f5ea1419eeca847298a351 = L.control.layers(
+                layer_control_b27529a954f5ea1419eeca847298a351_layers.base_layers,
+                layer_control_b27529a954f5ea1419eeca847298a351_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_a4c5fc3cd55740a879136f6db9454db9);
+
+        
+</script>
+</html>
