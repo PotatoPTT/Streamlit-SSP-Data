@@ -51,6 +51,11 @@ POSTGRES_PORT = "5432"
 
 ## Colaboradores
 
+<a href="https://github.com/antony-pereira" target="_blank">
+  <img src="https://github.com/antony-pereira.png" width="40" height="40" style="border-radius:50%; vertical-align:middle; margin-right:8px;" />
+  <b>Antony Pereira</b>
+</a>
+<br>
 <a href="https://github.com/PotatoPTT" target="_blank">
   <img src="https://github.com/PotatoPTT.png" width="40" height="40" style="border-radius:50%; vertical-align:middle; margin-right:8px;" />
   <b>Caio Henrique</b>
@@ -59,9 +64,4 @@ POSTGRES_PORT = "5432"
 <a href="https://github.com/k-nylander" target="_blank">
   <img src="https://github.com/k-nylander.png" width="40" height="40" style="border-radius:50%; vertical-align:middle; margin-right:8px;" />
   <b>Kauã Nylander</b>
-</a>
-<br/>
-<a href="https://github.com/antony-pereira" target="_blank">
-  <img src="https://github.com/antony-pereira.png" width="40" height="40" style="border-radius:50%; vertical-align:middle; margin-right:8px;" />
-  <b>Antony Pereira</b>
 </a>
