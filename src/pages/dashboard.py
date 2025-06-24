@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import streamlit.components.v1 as components
 import unicodedata
+from utils.graph.graph_pipeline import GraphPipeline  # type: ignore
 
 
 def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
@@ -41,14 +42,14 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
         if st.button("🔄 Atualizar Dados", help="Executa o pipeline completo de atualização de dados"):
             import subprocess
             import sys
-            root_dir = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), '../..'))
-            cmd = [sys.executable, "-m", "src.utils.pipeline_runner"]
+            src_dir = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), '..'))
+            cmd = [sys.executable, "-m", "utils.pipeline_runner"]
             st.session_state['pipeline_output'] = []
 
             def run_and_stream():
                 process = subprocess.Popen(
-                    cmd, cwd=root_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+                    cmd, cwd=src_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
                 if process.stdout is not None:
                     for line in process.stdout:
                         st.session_state['pipeline_output'].append(line)
@@ -164,6 +165,13 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     mapas_base = Path("output/maps")
     ano_mapa = str(year_filter)
     mapas_ano_path = mapas_base / ano_mapa
+    # Geração sob demanda dos mapas
+    if not mapas_ano_path.exists() or not any(mapas_ano_path.glob("*.html")):
+        with st.spinner(f"Gerando mapas para o ano {ano_mapa}..."):
+            pipeline = GraphPipeline()
+            pipeline.run(year_filter=int(ano_mapa))
+        # Atualiza o path após geração
+        mapas_ano_path = mapas_base / ano_mapa
     if not mapas_ano_path.exists() or not any(mapas_ano_path.glob("*.html")):
         st.info(f"Nenhum mapa interativo disponível para o ano {ano_mapa}.")
     else:

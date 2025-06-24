@@ -5,6 +5,9 @@ import logging
 warnings.filterwarnings("ignore", category=UserWarning,
                         module="openpyxl")  # Ignorar avisos do openpyxl
 
+# Certifique-se de que o diretório de trabalho está correto
+os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
 logging.basicConfig(
     level=logging.INFO,
     format="[%(levelname)s] %(message)s"

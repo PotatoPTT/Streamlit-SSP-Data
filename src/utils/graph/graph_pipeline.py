@@ -1,6 +1,6 @@
 import os
 import logging
-from src.utils.graph.mapPlotter import MapPlotter
+from utils.graph.mapPlotter import MapPlotter
 
 logging.basicConfig(
     level=logging.INFO,

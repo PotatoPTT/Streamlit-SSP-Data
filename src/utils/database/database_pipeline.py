@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from src.utils.database.connection import DatabaseConnection
+from utils.database.connection import DatabaseConnection
 import logging
 
 logging.basicConfig(

@@ -2,7 +2,7 @@ import os
 import folium
 import pandas as pd
 import logging
-from src.utils.database.connection import DatabaseConnection
+from utils.database.connection import DatabaseConnection
 
 logging.basicConfig(
     level=logging.INFO,

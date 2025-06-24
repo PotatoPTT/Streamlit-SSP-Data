@@ -1,7 +1,7 @@
-from src.utils.download.dataDownloader import SSPDataDownloader, BASE_URL, YEARS, GRUPO_DELITO, TIPO_GRUPO, OUTPUT_DIR, ZIP_FILENAME, MAX_WORKERS, DEBUG, HEADERS
+from utils.download.dataDownloader import SSPDataDownloader, BASE_URL, YEARS, GRUPO_DELITO, TIPO_GRUPO, OUTPUT_DIR, ZIP_FILENAME, MAX_WORKERS, DEBUG, HEADERS
 import os
 from concurrent.futures import ThreadPoolExecutor
-from src.utils.download.dataProcessor import DataProcessor
+from utils.download.dataProcessor import DataProcessor
 import pandas as pd
 import logging
 

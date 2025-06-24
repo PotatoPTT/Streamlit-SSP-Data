@@ -11,8 +11,12 @@ from geopy.geocoders import Nominatim  # type: ignore
 from geopy.location import Location  # type: ignore
 import logging
 import re
-from src.utils.database.connection import DatabaseConnection
+from utils.database.connection import DatabaseConnection
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+import os
+# Garante que o diretório de trabalho seja o root do projeto
+os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 logging.basicConfig(
     level=logging.INFO,
