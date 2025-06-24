@@ -15,6 +15,7 @@ LOCK_FILE = os.path.join(ROOT_DIR, 'configs', 'update.lock')
 COOLDOWN_SECONDS = 60 * 60  # 60 minutos
 #! Implementar um sistema de atualizar automaticamente os dados do dashboard
 
+
 def is_pipeline_locked():
     if not os.path.exists(LOCK_FILE):
         return False, None
@@ -29,10 +30,12 @@ def is_pipeline_locked():
     except Exception:
         return False, None
 
+
 def set_pipeline_lock():
     os.makedirs(os.path.dirname(LOCK_FILE), exist_ok=True)
     with open(LOCK_FILE, 'w') as f:
         f.write(str(time.time()))
+
 
 def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     """Main dashboard page"""
@@ -78,6 +81,7 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
                 cmd = [sys.executable, "-m", "utils.pipeline_runner"]
                 st.session_state['pipeline_output'] = []
                 set_pipeline_lock()
+
                 def run_and_stream():
                     process = subprocess.Popen(
                         cmd, cwd=src_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
@@ -108,14 +112,15 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     ).reset_index().sort_values("total", ascending=True)
     total_ocorrencias = df_dados["total"].sum()
     total_anterior = df_anterior["total"].sum()
-    mes_top = df_dados.groupby("mes")["total"].sum().idxmax()
-    media_mensal = df_dados["total"].sum() / 12
-
     meses = {
         1: "Jan", 2: "Fev", 3: "Mar", 4: "Abr",
         5: "Mai", 6: "Jun", 7: "Jul", 8: "Ago",
         9: "Set", 10: "Out", 11: "Nov", 12: "Dez"
     }
+    mes_top = df_dados.groupby("mes")["total"].sum().idxmax()
+    mes_top_nome = meses.get(mes_top, str(mes_top))
+    media_mensal = df_dados["total"].sum() / 12
+
     df_dados["mes_nome"] = df_dados["mes"].map(meses)
     df_anterior["mes_nome"] = df_anterior["mes"].map(meses)
     tabela_atual = df_dados.pivot_table(
@@ -158,8 +163,8 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
 
     with kpi_col3:
         st.metric(label="Mês com mais ocorrências",
-                  value=f"{mes_top:,}",
-                  help="Número do mês com mais ocorrências")
+                  value=f"{mes_top_nome}",
+                  help="Mês com mais ocorrências")
 
     with kpi_col4:
         st.metric(label="Média Mensal de Ocorrências",
