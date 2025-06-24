@@ -5,7 +5,33 @@ from pathlib import Path
 import streamlit.components.v1 as components
 import unicodedata
 from utils.graph.graph_pipeline import GraphPipeline  # type: ignore
+import time
+import sys
+import subprocess
 
+# Caminho absoluto para o lockfile na pasta configs do root do projeto
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+LOCK_FILE = os.path.join(ROOT_DIR, 'configs', 'update.lock')
+COOLDOWN_SECONDS = 60 * 60  # 60 minutos
+
+def is_pipeline_locked():
+    if not os.path.exists(LOCK_FILE):
+        return False, None
+    try:
+        with open(LOCK_FILE, 'r') as f:
+            ts = float(f.read().strip())
+        elapsed = time.time() - ts
+        if elapsed < COOLDOWN_SECONDS:
+            return True, int(COOLDOWN_SECONDS - elapsed)
+        else:
+            return False, None
+    except Exception:
+        return False, None
+
+def set_pipeline_lock():
+    os.makedirs(os.path.dirname(LOCK_FILE), exist_ok=True)
+    with open(LOCK_FILE, 'w') as f:
+        f.write(str(time.time()))
 
 def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
     """Main dashboard page"""
@@ -38,34 +64,37 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
             "Município", ["Todos"] + mun_opts["nome"].tolist())
 
     with col4:
-        # Botão para rodar o pipeline
-        if st.button("🔄 Atualizar Dados", help="Executa o pipeline completo de atualização de dados"):
-            import subprocess
-            import sys
-            src_dir = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), '..'))
-            cmd = [sys.executable, "-m", "utils.pipeline_runner"]
-            st.session_state['pipeline_output'] = []
-
-            def run_and_stream():
-                process = subprocess.Popen(
-                    cmd, cwd=src_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
-                if process.stdout is not None:
-                    for line in process.stdout:
-                        st.session_state['pipeline_output'].append(line)
-                        # Limita para as últimas 40 linhas
-                        output = ''.join(
-                            st.session_state['pipeline_output'][-20:])
-                        pipeline_placeholder.code(output, language="bash")
-                process.wait()
-                if process.returncode == 0:
-                    pipeline_placeholder.success(
-                        "Pipeline executado com sucesso!")
-            run_and_stream()
-        # Exibe o output anterior, se houver
-        elif st.session_state['pipeline_output']:
-            output = ''.join(st.session_state['pipeline_output'][-40:])
-            pipeline_placeholder.code(output, language="bash")
+        locked, cooldown_left = is_pipeline_locked()
+        if locked:
+            cooldown_msg = f"Aguarde {cooldown_left//60} min para nova atualização." if cooldown_left is not None else "Aguarde o cooldown."
+            st.button("🔄 Atualizar Dados", disabled=True, help=cooldown_msg)
+            info_msg = f"A atualização já foi executada recentemente. Tente novamente em {cooldown_left//60} minutos." if cooldown_left is not None else "O pipeline está em cooldown."
+            st.info(info_msg)
+        else:
+            if st.button("🔄 Atualizar Dados", help="Executa o pipeline completo de atualização de dados"):
+                src_dir = os.path.abspath(
+                    os.path.join(os.path.dirname(__file__), '..'))
+                cmd = [sys.executable, "-m", "utils.pipeline_runner"]
+                st.session_state['pipeline_output'] = []
+                set_pipeline_lock()
+                def run_and_stream():
+                    process = subprocess.Popen(
+                        cmd, cwd=src_dir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+                    if process.stdout is not None:
+                        for line in process.stdout:
+                            st.session_state['pipeline_output'].append(line)
+                            output = ''.join(
+                                st.session_state['pipeline_output'][-20:])
+                            pipeline_placeholder.code(output, language="bash")
+                    process.wait()
+                    if process.returncode == 0:
+                        pipeline_placeholder.success(
+                            "Pipeline executado com sucesso!")
+                        set_pipeline_lock()  # Atualiza timestamp lock ao finalizar
+                run_and_stream()
+            elif st.session_state['pipeline_output']:
+                output = ''.join(st.session_state['pipeline_output'][-40:])
+                pipeline_placeholder.code(output, language="bash")
 
     st.divider()
 
