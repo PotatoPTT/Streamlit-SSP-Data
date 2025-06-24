@@ -10,7 +10,6 @@ Este projeto é um painel interativo desenvolvido com [Streamlit](https://stream
 - **src/pages/**: Contém os módulos das páginas do app (Dashboard, Análises, Relatórios, Sobre).
 - **src/utils/**: Funções utilitárias, como geração de gráficos e conexão com o banco de dados.
 - **configs/**: Arquivos de configuração, como código dos municípios e localizações de cidades, além do script `_createTables.sql` para criação das tabelas necessárias no banco de dados.
-- **output/maps/**: Mapas gerados pelo sistema, são criados caso os dados sejam alterados porem como são demorados para gerar eles servem como um cache.
 
 ## Lógica Principal
 
