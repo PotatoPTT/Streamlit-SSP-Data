@@ -8,7 +8,6 @@ from datetime import datetime
 import concurrent.futures
 from threading import Lock
 from geopy.geocoders import Nominatim  # type: ignore
-from typing import Optional
 from geopy.location import Location  # type: ignore
 import logging
 import re

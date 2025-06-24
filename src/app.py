@@ -2,16 +2,13 @@ from pages.about import show_about
 from pages.reports import show_reports
 from pages.analytics import show_analytics
 from pages.dashboard import show_dashboard
-from utils.graph.graphPlotter import create_monthly_evolution_chart, create_occurrence_types_chart
 from utils.database.connection import DatabaseConnection
 import streamlit as st
-import plotly.graph_objects as go
 import pandas as pd
-import psycopg2
 
 
 # Page configuration
-st.set_page_config(page_title="SP Segurança - Dashboard",
+st.set_page_config(page_title="SSP Data",
                    page_icon="🛡️",
                    layout="wide",
                    initial_sidebar_state="collapsed")

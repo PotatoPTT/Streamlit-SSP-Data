@@ -5,7 +5,6 @@ def show_about():
     """About page"""
     st.markdown("# ℹ️ Sobre o Sistema")
     st.markdown("""
-    ## SP Segurança Dashboard
     
     Este dashboard foi desenvolvido como projeto de conclusão de curso para a disciplina de **Projetos em Computação**.
     
