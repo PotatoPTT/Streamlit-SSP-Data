@@ -13,6 +13,7 @@ import subprocess
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 LOCK_FILE = os.path.join(ROOT_DIR, 'configs', 'update.lock')
 COOLDOWN_SECONDS = 60 * 60  # 60 minutos
+#! Implementar um sistema de atualizar automaticamente os dados do dashboard
 
 def is_pipeline_locked():
     if not os.path.exists(LOCK_FILE):
