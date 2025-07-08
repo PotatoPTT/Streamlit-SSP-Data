@@ -20,13 +20,9 @@ def show_about():
     
     ### Recursos Futuros
     - Análises avançadas com machine learning
+    - Análise de séries temporais
     - Relatórios customizados
-    - Dashboard responsivo para dispositivos móveis
-    - Mapa interativo com dados georreferenciados
-    - Alertas automáticos para anomalias
-    - Integração com sistemas de emergência
-    - API pública para desenvolvedores
     
     ### Suporte Técnico
-    Para suporte técnico e mais informações, entre em contato através do GitHub.
+    Para mais informações, entre em contato através do GitHub.
     """)
