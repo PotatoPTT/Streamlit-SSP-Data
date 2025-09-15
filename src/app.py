@@ -9,6 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 import threading
+from collections import deque
 
 
 # Page configuration
@@ -198,6 +199,9 @@ if 'api_background' not in st.session_state:
     st.session_state['api_background'] = False
 if 'api_process_pid' not in st.session_state:
     st.session_state['api_process_pid'] = None
+if 'api_logs' not in st.session_state:
+    # keep last 500 log lines
+    st.session_state['api_logs'] = deque(maxlen=500)
 
 if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
     # start background process automatically (no user checkbox)
@@ -226,8 +230,15 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
                 for line in iter(pipe.readline, ''):
                     if not line:
                         break
+                    text = f"{prefix} {line.rstrip()}"
                     # write to stdout so it appears in the Streamlit process console
-                    print(f"{prefix} {line.rstrip()}")
+                    print(text)
+                    # append to session_state deque for in-app display
+                    try:
+                        st.session_state['api_logs'].append(text)
+                    except Exception:
+                        # session_state may not be thread-safe in all Streamlit versions; ignore errors
+                        pass
             except Exception:
                 pass
             finally:
@@ -243,6 +254,22 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
         t_err.start()
     else:
         st.warning('API not started: python executable for auto-start not found. Toggle RUN_API_IN_BACKGROUND in the source to change this behavior.')
+
+# Show recent API logs in an expander
+with st.expander('API logs (últimas linhas)'):
+    cols = st.columns([9, 1])
+    with cols[1]:
+        if st.button('Clear logs'):
+            st.session_state['api_logs'].clear()
+            st.experimental_rerun()
+
+    logs = list(st.session_state.get('api_logs', []))
+    if logs:
+        # show last 200 lines only to avoid huge renders
+        for ln in logs[-200:]:
+            st.text(ln)
+    else:
+        st.text('Nenhuma linha de log disponível ainda.')
 
 
 # Import das páginas
