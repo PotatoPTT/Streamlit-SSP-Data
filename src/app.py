@@ -214,7 +214,7 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
             spec.loader.exec_module(api_mod)
 
             # Start the API main loop in a daemon thread
-            t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True)
+            t = threading.Thread(target=getattr(api_mod, 'main'), daemon=False)
             t.start()
             st.session_state['api_background'] = True
             started_in_thread = True
