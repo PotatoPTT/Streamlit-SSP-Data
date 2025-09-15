@@ -10,6 +10,7 @@ import importlib.util
 import sys
 from pathlib import Path
 import threading
+import os
 # no in-app log buffer: logs will be written to the Streamlit console only
 
 
@@ -196,50 +197,34 @@ show_navigation()
 # Set to True in the source when you want the API to run together with Streamlit.
 RUN_API_IN_BACKGROUND = True
 
-st.session_state['api_background'] = st.session_state.get('api_background', False)
+if 'api_background' not in st.session_state:
+    st.session_state['api_background'] = False
+if 'api_process_pid' not in st.session_state:
+    st.session_state['api_process_pid'] = None
 
 
-if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
-    # start background process automatically (no user checkbox)
+if RUN_API_IN_BACKGROUND and not st.session_state.get('api_started_once', False):
+    # Very simple: start the API subprocess once when the app is first loaded.
     api_script = Path('api') / 'api.py'
-    # Prefer starting the API inside the same Python process (thread) so it
-    # uses the same environment/packages as Streamlit. If import/execution
-    # fails, fall back to starting a subprocess (older behavior).
-    started_in_thread = False
-    try:
-        spec = importlib.util.spec_from_file_location('ssp_api_module', str(api_script))
-        if spec and spec.loader:
-            api_mod = importlib.util.module_from_spec(spec)
-            # Execute module to make functions/classes available (won't run main() because __name__ != '__main__')
-            spec.loader.exec_module(api_mod)
+    python_exec = sys.executable or None
+    if not python_exec and sys.platform.startswith('win'):
+        venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
+        if venv_python.exists():
+            python_exec = str(venv_python)
 
-            # Start the API main loop in a daemon thread
-            t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True)
-            t.start()
-            st.session_state['api_background'] = True
-            started_in_thread = True
-
-    except Exception as e:
-        # Import/execution in-process failed; we'll fall back to subprocess below
-        print(f"[app] Failed to start api in-thread: {e}")
-
-    if not started_in_thread:
-        # fallback: spawn subprocess. Prefer the same interpreter running Streamlit
-        python_exec = sys.executable if getattr(sys, 'executable', None) else None
-        if not python_exec and sys.platform.startswith('win'):
-            venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
-            if venv_python.exists():
-                python_exec = str(venv_python)
-
-        if python_exec:
-            # start subprocess WITHOUT redirecting stdout/stderr so logs appear in the
-            # same console where Streamlit was started.
+    st.session_state['api_started_once'] = True
+    if python_exec:
+        try:
             p = subprocess.Popen([python_exec, str(api_script)])
-            st.session_state['api_background'] = True
             st.session_state['api_process_pid'] = p.pid
+            st.session_state['api_background'] = True
             st.info(f'API started in background subprocess (pid={p.pid})')
-        else:
-            st.warning('API not started: python executable for auto-start not found. Toggle RUN_API_IN_BACKGROUND in the source to change this behavior.')
+        except Exception as e:
+            st.error(f'Falha ao iniciar API: {e}')
+            st.session_state['api_process_pid'] = None
+            st.session_state['api_background'] = False
+    else:
+        st.warning('API não iniciada: python executável não encontrado no ambiente atual.')
 
 # no in-app log UI: logs go to the console where Streamlit was started
 

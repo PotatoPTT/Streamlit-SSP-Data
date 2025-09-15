@@ -29,6 +29,11 @@ MODELS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # Configure simple stdout logging
 logger = logging.getLogger('ssp_api')
 logger.setLevel(logging.INFO)
+if not logger.handlers:
+    h = logging.StreamHandler(sys.stdout)
+    h.setFormatter(logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', '%Y-%m-%d %H:%M:%S'))
+    logger.addHandler(h)
+
 
 def get_pending_job(db_conn):
     """Busca a primeira solicitação pendente no banco de dados."""
