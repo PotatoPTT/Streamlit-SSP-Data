@@ -8,6 +8,7 @@ import pandas as pd
 import subprocess
 import sys
 from pathlib import Path
+import threading
 
 
 # Page configuration
@@ -213,10 +214,33 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
         python_exec = 'python'
 
     if python_exec:
-        p = subprocess.Popen([python_exec, str(api_script)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # start subprocess with text streams and line buffering
+        p = subprocess.Popen([python_exec, str(api_script)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1)
         st.session_state['api_background'] = True
         st.session_state['api_process_pid'] = p.pid
         st.info(f'API started in background (pid={p.pid})')
+
+        # helper to stream subprocess output into Streamlit's console
+        def _stream_pipe(pipe, prefix='[api]'):
+            try:
+                for line in iter(pipe.readline, ''):
+                    if not line:
+                        break
+                    # write to stdout so it appears in the Streamlit process console
+                    print(f"{prefix} {line.rstrip()}")
+            except Exception:
+                pass
+            finally:
+                try:
+                    pipe.close()
+                except Exception:
+                    pass
+
+        # spawn reader threads for stdout and stderr
+        t_out = threading.Thread(target=_stream_pipe, args=(p.stdout, '[api][out]'), daemon=True)
+        t_err = threading.Thread(target=_stream_pipe, args=(p.stderr, '[api][err]'), daemon=True)
+        t_out.start()
+        t_err.start()
     else:
         st.warning('API not started: python executable for auto-start not found. Toggle RUN_API_IN_BACKGROUND in the source to change this behavior.')
 

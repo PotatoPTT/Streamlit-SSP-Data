@@ -5,6 +5,7 @@ import joblib
 import os
 import sys
 import json
+import logging
 from sklearn.metrics import silhouette_score
 from tslearn.clustering import TimeSeriesKMeans
 from tslearn.preprocessing import TimeSeriesScalerMeanVariance
@@ -24,6 +25,14 @@ POLLING_INTERVAL_SECONDS = 15
 K_RANGE = range(2, 11)  # Silhouette score não é definido para k=1
 MODELS_OUTPUT_DIR = ROOT_DIR / 'output' / 'models'
 MODELS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+# Configure simple stdout logging
+logger = logging.getLogger('ssp_api')
+logger.setLevel(logging.INFO)
+if not logger.handlers:
+    h = logging.StreamHandler(sys.stdout)
+    h.setFormatter(logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', '%Y-%m-%d %H:%M:%S'))
+    logger.addHandler(h)
 
 
 def get_pending_job(db_conn):
@@ -45,7 +54,7 @@ def get_pending_job(db_conn):
 
 def fetch_data_for_job(db_conn, params):
     """Busca os dados de ocorrências com base nos parâmetros da solicitação."""
-    print(f"Buscando dados para o período de {params['data_inicio']} a {params['data_fim']} na região '{params['regiao']}' para o crime '{params['crime']}'...")
+    logger.info(f"Buscando dados para o período de {params['data_inicio']} a {params['data_fim']} na região '{params['regiao']}' para o crime '{params['crime']}'...")
 
     query = """
         SELECT
@@ -80,7 +89,7 @@ def fetch_data_for_job(db_conn, params):
     time_series_df = df.pivot_table(
         index='municipio', columns='ano_mes', values='quantidade').fillna(0)
 
-    print(f"Dados transformados: {time_series_df.shape[0]} municípios e {time_series_df.shape[1]} meses.")
+    logger.info(f"Dados transformados: {time_series_df.shape[0]} municípios e {time_series_df.shape[1]} meses.")
     return time_series_df
 
 
@@ -90,7 +99,7 @@ def train_and_find_best_model(time_series_df, metodo='kmeans'):
         raise ValueError(
             "Série temporal muito curta para análise (menos de 2 pontos de dados).")
 
-    print("Normalizando as séries temporais...")
+    logger.info("Normalizando as séries temporais...")
     scaler = TimeSeriesScalerMeanVariance(mu=0., std=1.)
     X_scaled = scaler.fit_transform(time_series_df.values)
 
@@ -98,7 +107,7 @@ def train_and_find_best_model(time_series_df, metodo='kmeans'):
     best_k = -1
     best_model = None
 
-    print(f"Iniciando benchmark para K de {K_RANGE.start} a {K_RANGE.stop - 1} usando metodo={metodo}...")
+    logger.info(f"Iniciando benchmark para K de {K_RANGE.start} a {K_RANGE.stop - 1} usando metodo={metodo}...")
     for k in K_RANGE:
         if metodo == 'kdba':
             # usar métrica dtw para kdba-like
@@ -110,7 +119,7 @@ def train_and_find_best_model(time_series_df, metodo='kmeans'):
         # Reshape para o formato que silhouette_score espera (2D array)
         X_reshaped = X_scaled.reshape(X_scaled.shape[0], -1)
         score = silhouette_score(X_reshaped, labels)
-        print(f"  K={k}, Silhueta={score:.4f}")
+        logger.info(f"  K={k}, Silhueta={score:.4f}")
 
         if score > best_score:
             best_score = score
@@ -120,7 +129,7 @@ def train_and_find_best_model(time_series_df, metodo='kmeans'):
     if best_model is None:
         raise RuntimeError("Nenhum modelo foi treinado com sucesso.")
 
-    print(
+    logger.info(
         f"Melhor modelo encontrado: K={best_k} com score de silhueta de {best_score:.4f}")
     return best_model, scaler, best_k, best_score
 
@@ -138,12 +147,12 @@ def generate_model_path(job_id, params):
 
 def main():
     """Loop principal da API."""
-    print("--- API de Treinamento de Modelos iniciada ---")
-    print(f"Verificando solicitações a cada {POLLING_INTERVAL_SECONDS} segundos...")
+    logger.info("--- API de Treinamento de Modelos iniciada ---")
+    logger.info(f"Verificando solicitações a cada {POLLING_INTERVAL_SECONDS} segundos...")
     # On startup: validate existing records and normalize states
     try:
         db_start = DatabaseConnection()
-        # 1) Any CONCLUIDO with missing artifact -> mark INVALIDO
+        # 1) Any CONCLUIDO with missing artifact -> mark FALHOU
         rows = db_start.fetch_all("SELECT id, caminho_artefato FROM solicitacoes_modelo WHERE status = 'CONCLUIDO';")
         for r in rows:
             job_id = r[0]
@@ -151,7 +160,7 @@ def main():
             # determine full path
             if not caminho:
                 msg = 'Artefato ausente (valor vazio)'
-                print(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
+                logger.warning(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
                 db_start.update_solicitacao_status(job_id, 'FALHOU', mensagem_erro=msg)
                 continue
             if os.path.isabs(caminho):
@@ -159,19 +168,19 @@ def main():
             else:
                 full = str(MODELS_OUTPUT_DIR / caminho)
             if not os.path.exists(full):
-                msg = f"Artefato não encontrado em: {caminho}"
-                print(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
+                msg = f"Artefato não encontrado em: {full}"
+                logger.warning(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
                 db_start.update_solicitacao_status(job_id, 'FALHOU', mensagem_erro=msg)
 
         # 2) Any PROCESSANDO -> set to PENDENTE (so work can be retried)
         processing_rows = db_start.fetch_all("SELECT id FROM solicitacoes_modelo WHERE status = 'PROCESSANDO';")
         for r in processing_rows:
             jid = r[0]
-            print(f"[startup] Job {jid} estava PROCESSANDO; repondo para PENDENTE.")
+            logger.info(f"[startup] Job {jid} estava PROCESSANDO; repondo para PENDENTE.")
             db_start.update_solicitacao_status(jid, 'PENDENTE')
 
     except Exception as e:
-        print(f"[startup] Erro ao validar solicitacoes: {e}")
+        logger.exception(f"[startup] Erro ao validar solicitacoes: {e}")
     finally:
         try:
             db_start.close()
@@ -185,9 +194,9 @@ def main():
             job_id, params = get_pending_job(db)
 
             if job_id:
-                print(f"\n[+] Nova solicitação encontrada (ID: {job_id}).")
+                logger.info(f"\n[+] Nova solicitação encontrada (ID: {job_id}).")
                 db.update_solicitacao_status(job_id, 'PROCESSANDO')
-                print(f"  -> Status atualizado para PROCESSANDO.")
+                logger.info(f"  -> Status atualizado para PROCESSANDO.")
 
                 try:
                     # 1. Buscar e transformar os dados
@@ -195,7 +204,7 @@ def main():
 
                     # 2. Treinar e encontrar o melhor modelo (respeitando o método solicitado)
                     metodo = params.get('metodo', 'kmeans')
-                    print(f"  -> Método solicitado: {metodo}")
+                    logger.info(f"  -> Método solicitado: {metodo}")
                     model, scaler, best_k, best_score = train_and_find_best_model(
                         time_series_df, metodo=metodo)
 
@@ -204,16 +213,16 @@ def main():
                     model_full_path = MODELS_OUTPUT_DIR / model_filename
                     joblib.dump({'model': model, 'scaler': scaler, 'k': best_k,
                                 'silhouette': best_score, 'params': params}, str(model_full_path))
-                    print(f"  -> Modelo salvo em: {model_full_path}")
+                    logger.info(f"  -> Modelo salvo em: {model_full_path}")
 
                     # 4. Atualizar status para CONCLUIDO armazenando apenas o nome do arquivo
                     db.update_solicitacao_status(
                         job_id, 'CONCLUIDO', caminho_artefato=model_filename)
-                    print(f"  -> Status finalizado: CONCLUIDO.")
+                    logger.info(f"  -> Status finalizado: CONCLUIDO.")
 
                 except Exception as e:
                     error_message = f"Erro no processamento do job {job_id}: {e}"
-                    print(f"[!] ERRO: {error_message}")
+                    logger.exception(f"[!] ERRO: {error_message}")
                     # Fecha a conexão atual para abortar a transação falha
                     if db:
                         db.close()
@@ -226,11 +235,11 @@ def main():
                 time.sleep(POLLING_INTERVAL_SECONDS)
 
         except (KeyboardInterrupt, SystemExit):
-            print("\n--- API encerrada pelo usuário. ---")
+            logger.info("\n--- API encerrada pelo usuário. ---")
             break
         except Exception as e:
-            print(f"\n[!] Erro inesperado no loop principal: {e}")
-            print("Aguardando antes de tentar novamente...")
+            logger.exception(f"\n[!] Erro inesperado no loop principal: {e}")
+            logger.info("Aguardando antes de tentar novamente...")
             time.sleep(POLLING_INTERVAL_SECONDS * 2)
         finally:
             if db:
