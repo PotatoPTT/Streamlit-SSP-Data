@@ -7,16 +7,10 @@ import streamlit as st
 import pandas as pd
 import subprocess
 import importlib.util
-import logging
 import sys
 from pathlib import Path
 import threading
-from collections import deque
-from threading import Lock
-
-# thread-safe buffer for API logs (threads append here; main thread will drain into session_state)
-_api_log_buffer = deque(maxlen=2000)
-_api_log_buffer_lock = Lock()
+# no in-app log buffer: logs will be written to the Streamlit console only
 
 
 # Page configuration
@@ -206,9 +200,7 @@ if 'api_background' not in st.session_state:
     st.session_state['api_background'] = False
 if 'api_process_pid' not in st.session_state:
     st.session_state['api_process_pid'] = None
-if 'api_logs' not in st.session_state:
-    # keep last 500 log lines
-    st.session_state['api_logs'] = deque(maxlen=500)
+
 
 if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
     # start background process automatically (no user checkbox)
@@ -224,27 +216,6 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
             # Execute module to make functions/classes available (won't run main() because __name__ != '__main__')
             spec.loader.exec_module(api_mod)
 
-            # Wire a logging handler that writes into our _api_log_buffer
-            class _BufferLogHandler(logging.Handler):
-                def emit(self, record):
-                    try:
-                        msg = self.format(record)
-                        text = f"[api][out] {msg}"
-                        with _api_log_buffer_lock:
-                            _api_log_buffer.append(text)
-                    except Exception:
-                        pass
-
-            handler = _BufferLogHandler()
-            handler.setFormatter(logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', '%Y-%m-%d %H:%M:%S'))
-            try:
-                ssp_logger = logging.getLogger('ssp_api')
-                ssp_logger.addHandler(handler)
-                ssp_logger.setLevel(logging.INFO)
-            except Exception:
-                # best-effort; proceed even if logger wiring fails
-                pass
-
             # Start the API main loop in a daemon thread
             t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True)
             t.start()
@@ -259,105 +230,23 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
 
     if not started_in_thread:
         # fallback: spawn subprocess. Prefer the same interpreter running Streamlit
-        # so the subprocess has the same installed packages (avoids ModuleNotFoundError).
         python_exec = sys.executable if getattr(sys, 'executable', None) else None
-        if not python_exec:
-            if sys.platform.startswith('win'):
-                venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
-                if venv_python.exists():
-                    python_exec = str(venv_python)
-                else:
-                    python_exec = None
-            else:
-                python_exec = 'python'
+        if not python_exec and sys.platform.startswith('win'):
+            venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
+            if venv_python.exists():
+                python_exec = str(venv_python)
 
         if python_exec:
-            # start subprocess with text streams and line buffering
-            p = subprocess.Popen([python_exec, str(api_script)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, bufsize=1)
+            # start subprocess WITHOUT redirecting stdout/stderr so logs appear in the
+            # same console where Streamlit was started.
+            p = subprocess.Popen([python_exec, str(api_script)])
             st.session_state['api_background'] = True
             st.session_state['api_process_pid'] = p.pid
             st.info(f'API started in background subprocess (pid={p.pid})')
-
-            # helper to stream subprocess output into Streamlit's console
-            def _stream_pipe(pipe, prefix='[api]'):
-                try:
-                    for line in iter(pipe.readline, ''):
-                        if not line:
-                            break
-                        text = f"{prefix} {line.rstrip()}"
-                        # write to stdout so it appears in the Streamlit process console
-                        print(text)
-                        # append to the shared module buffer under lock (safe from threads)
-                        try:
-                            with _api_log_buffer_lock:
-                                _api_log_buffer.append(text)
-                        except Exception:
-                            pass
-                except Exception:
-                    pass
-                finally:
-                    try:
-                        pipe.close()
-                    except Exception:
-                        pass
-
-            # spawn reader threads for stdout and stderr
-            t_out = threading.Thread(target=_stream_pipe, args=(p.stdout, '[api][out]'), daemon=True)
-            t_err = threading.Thread(target=_stream_pipe, args=(p.stderr, '[api][err]'), daemon=True)
-            t_out.start()
-            t_err.start()
         else:
             st.warning('API not started: python executable for auto-start not found. Toggle RUN_API_IN_BACKGROUND in the source to change this behavior.')
 
-# Show recent API logs in an expander
-with st.expander('API logs (últimas linhas)'):
-    cols = st.columns([8, 1, 1])
-    with cols[1]:
-        if st.button('Refresh logs'):
-            # drain buffer then rerun to display new lines
-            try:
-                with _api_log_buffer_lock:
-                    while _api_log_buffer:
-                        st.session_state['api_logs'].append(_api_log_buffer.popleft())
-            except Exception:
-                pass
-    with cols[2]:
-        if st.button('Clear logs'):
-            st.session_state['api_logs'].clear()
-
-    # Drain module buffer into session_state safely
-    try:
-        with _api_log_buffer_lock:
-            while _api_log_buffer:
-                st.session_state['api_logs'].append(_api_log_buffer.popleft())
-    except Exception:
-        pass
-
-    # Diagnostic info to help debug empty logs
-    st.markdown("**API diagnostics**")
-    pid = st.session_state.get('api_process_pid')
-    started = st.session_state.get('api_background', False)
-    buf_len = len(_api_log_buffer)
-    st.write(f"Started: {started}")
-    st.write(f"PID: {pid}")
-    st.write(f"Buffered lines (waiting to be drained): {buf_len}")
-    # try to detect process aliveness if psutil is available
-    try:
-        import psutil
-        alive = False
-        if pid:
-            alive = psutil.pid_exists(int(pid))
-        st.write(f"Process alive: {alive}")
-    except Exception:
-        st.write("Process alive: unknown (psutil not installed)")
-
-    logs = list(st.session_state.get('api_logs', []))
-    if logs:
-        # show last 200 lines only to avoid huge renders
-        for ln in logs[-200:]:
-            st.text(ln)
-    else:
-        st.text('Nenhuma linha de log disponível ainda.')
+# no in-app log UI: logs go to the console where Streamlit was started
 
 
 # Import das páginas
