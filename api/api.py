@@ -29,10 +29,6 @@ MODELS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # Configure simple stdout logging
 logger = logging.getLogger('ssp_api')
 logger.setLevel(logging.INFO)
-if not logger.handlers:
-    h = logging.StreamHandler(sys.stdout)
-    h.setFormatter(logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s', '%Y-%m-%d %H:%M:%S'))
-    logger.addHandler(h)
 
 
 def get_pending_job(db_conn):
@@ -149,6 +145,8 @@ def main():
     """Loop principal da API."""
     logger.info("--- API de Treinamento de Modelos iniciada ---")
     logger.info(f"Verificando solicitações a cada {POLLING_INTERVAL_SECONDS} segundos...")
+    logger.info(f"Esperando 30s para inicializar completamente...")
+    time.sleep(30)  # Espera inicial para garantir que o DB esteja pronto
     # On startup: validate existing records and normalize states
     try:
         db_start = DatabaseConnection()
