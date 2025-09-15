@@ -196,10 +196,7 @@ show_navigation()
 # Set to True in the source when you want the API to run together with Streamlit.
 RUN_API_IN_BACKGROUND = True
 
-if 'api_background' not in st.session_state:
-    st.session_state['api_background'] = False
-if 'api_process_pid' not in st.session_state:
-    st.session_state['api_process_pid'] = None
+st.session_state['api_background'] = st.session_state.get('api_background', False)
 
 
 if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
@@ -220,8 +217,6 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
             t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True)
             t.start()
             st.session_state['api_background'] = True
-            st.session_state['api_process_pid'] = None
-            st.info(f'API started in-process (thread)')
             started_in_thread = True
 
     except Exception as e:
