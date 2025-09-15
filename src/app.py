@@ -10,6 +10,11 @@ import sys
 from pathlib import Path
 import threading
 from collections import deque
+from threading import Lock
+
+# thread-safe buffer for API logs (threads append here; main thread will drain into session_state)
+_api_log_buffer = deque(maxlen=2000)
+_api_log_buffer_lock = Lock()
 
 
 # Page configuration
@@ -233,11 +238,11 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
                     text = f"{prefix} {line.rstrip()}"
                     # write to stdout so it appears in the Streamlit process console
                     print(text)
-                    # append to session_state deque for in-app display
+                    # append to the shared module buffer under lock (safe from threads)
                     try:
-                        st.session_state['api_logs'].append(text)
+                        with _api_log_buffer_lock:
+                            _api_log_buffer.append(text)
                     except Exception:
-                        # session_state may not be thread-safe in all Streamlit versions; ignore errors
                         pass
             except Exception:
                 pass
@@ -257,11 +262,47 @@ if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
 
 # Show recent API logs in an expander
 with st.expander('API logs (últimas linhas)'):
-    cols = st.columns([9, 1])
+    cols = st.columns([8, 1, 1])
     with cols[1]:
+        if st.button('Refresh logs'):
+            # drain buffer then rerun to display new lines
+            try:
+                with _api_log_buffer_lock:
+                    while _api_log_buffer:
+                        st.session_state['api_logs'].append(_api_log_buffer.popleft())
+            except Exception:
+                pass
+            st.experimental_rerun()
+    with cols[2]:
         if st.button('Clear logs'):
             st.session_state['api_logs'].clear()
             st.experimental_rerun()
+
+    # Drain module buffer into session_state safely
+    try:
+        with _api_log_buffer_lock:
+            while _api_log_buffer:
+                st.session_state['api_logs'].append(_api_log_buffer.popleft())
+    except Exception:
+        pass
+
+    # Diagnostic info to help debug empty logs
+    st.markdown("**API diagnostics**")
+    pid = st.session_state.get('api_process_pid')
+    started = st.session_state.get('api_background', False)
+    buf_len = len(_api_log_buffer)
+    st.write(f"Started: {started}")
+    st.write(f"PID: {pid}")
+    st.write(f"Buffered lines (waiting to be drained): {buf_len}")
+    # try to detect process aliveness if psutil is available
+    try:
+        import psutil
+        alive = False
+        if pid:
+            alive = psutil.pid_exists(int(pid))
+        st.write(f"Process alive: {alive}")
+    except Exception:
+        st.write("Process alive: unknown (psutil not installed)")
 
     logs = list(st.session_state.get('api_logs', []))
     if logs:
