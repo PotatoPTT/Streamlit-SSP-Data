@@ -212,17 +212,48 @@ if RUN_API_IN_BACKGROUND and not st.session_state.get('api_started_once', False)
         if venv_python.exists():
             python_exec = str(venv_python)
 
-    st.session_state['api_started_once'] = True
-    if python_exec:
-        try:
-            p = subprocess.Popen([python_exec, str(api_script)])
-            st.session_state['api_process_pid'] = p.pid
-            st.session_state['api_background'] = True
-            st.info(f'API started in background subprocess (pid={p.pid})')
-        except Exception as e:
-            st.error(f'Falha ao iniciar API: {e}')
-            st.session_state['api_process_pid'] = None
-            st.session_state['api_background'] = False
+        st.session_state['api_started_once'] = True
+        if python_exec:
+            try:
+                # simple PID file guard to avoid repeated starts across reruns/sessions
+                pid_file = Path('.api.pid')
+                if pid_file.exists():
+                    try:
+                        existing_pid = int(pid_file.read_text().strip())
+                        # check if process exists
+                        try:
+                            os.kill(existing_pid, 0)
+                            st.session_state['api_process_pid'] = existing_pid
+                            st.session_state['api_background'] = True
+                            print(f'API appears to be already running (pid={existing_pid}); skipping start')
+                        except Exception:
+                            # not alive; start a new process and overwrite pid file
+                            p = subprocess.Popen([python_exec, str(api_script)])
+                            pid_file.write_text(str(p.pid))
+                            st.session_state['api_process_pid'] = p.pid
+                            st.session_state['api_background'] = True
+                    except Exception:
+                        # malformed pid file — remove and start
+                        try:
+                            pid_file.unlink()
+                        except Exception:
+                            pass
+                        p = subprocess.Popen([python_exec, str(api_script)])
+                        pid_file.write_text(str(p.pid))
+                        st.session_state['api_process_pid'] = p.pid
+                        st.session_state['api_background'] = True
+                else:
+                    p = subprocess.Popen([python_exec, str(api_script)])
+                    try:
+                        pid_file.write_text(str(p.pid))
+                    except Exception:
+                        pass
+                    st.session_state['api_process_pid'] = p.pid
+                    st.session_state['api_background'] = True
+            except Exception as e:
+                st.error(f'Falha ao iniciar API: {e}')
+                st.session_state['api_process_pid'] = None
+                st.session_state['api_background'] = False
     else:
         st.warning('API não iniciada: python executável não encontrado no ambiente atual.')
 
