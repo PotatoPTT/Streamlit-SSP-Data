@@ -181,7 +181,7 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
             x=df_mes["mes"].map(meses), y=df_mes["total"], mode='lines+markers', line=dict(color='royalblue')))
         fig1.update_layout(title="Ocorrências por Mês",
                            xaxis_title="Mês", yaxis_title="Total")
-        st.plotly_chart(fig1, use_container_width=True)
+        st.plotly_chart(fig1, width='stretch')
 
     with chart_col2:
         st.markdown("#### Tipos de Ocorrências")
@@ -189,11 +189,11 @@ def show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias):
             x=df_tipo["total"], y=df_tipo["natureza"], orientation='h', marker_color='indianred'))
         fig2.update_layout(title="Tipos de Crimes",
                            xaxis_title="Total", yaxis_title="Crime")
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
     # Data table section
     st.markdown("#### Dados Detalhados")
-    st.dataframe(tabela_completa, use_container_width=True)
+    st.dataframe(tabela_completa, width='stretch')
 
     # Map section
     st.markdown("#### Mapa Interativo")

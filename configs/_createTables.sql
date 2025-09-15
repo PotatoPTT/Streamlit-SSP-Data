@@ -24,3 +24,14 @@ CREATE TABLE ocorrencias (
     quantidade smallint NOT NULL CHECK (quantidade >= 0),
     PRIMARY KEY (ano, mes, municipio_id, crime_id)
 );
+
+CREATE TABLE solicitacoes_modelo (
+    id BIGSERIAL PRIMARY KEY,
+    parametros JSONB NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('PENDENTE', 'PROCESSANDO', 'CONCLUIDO', 'FALHOU')),
+    data_solicitacao TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    data_atualizacao TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    caminho_artefato VARCHAR(255),
+    mensagem_erro TEXT,
+    UNIQUE (parametros)
+);

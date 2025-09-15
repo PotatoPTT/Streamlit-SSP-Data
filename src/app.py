@@ -5,6 +5,9 @@ from pages.dashboard import show_dashboard
 from utils.database.connection import DatabaseConnection
 import streamlit as st
 import pandas as pd
+import subprocess
+import sys
+from pathlib import Path
 
 
 # Page configuration
@@ -43,11 +46,13 @@ def carregar_filtros():
         JOIN regioes r ON m.regiao_id = r.id
         ORDER BY m.nome
     """), columns=["id", "nome", "regiao"])
+    df_meses_por_ano = pd.DataFrame(db.fetch_all(
+        "SELECT DISTINCT ano, mes FROM ocorrencias ORDER BY ano, mes"), columns=["ano", "mes"])
     db.close()
-    return df_anos, df_regioes, df_municipios
+    return df_anos, df_regioes, df_municipios, df_meses_por_ano
 
 
-df_anos, df_regioes, df_municipios = carregar_filtros()
+df_anos, df_regioes, df_municipios, df_meses_por_ano = carregar_filtros()
 
 
 @st.cache_data(ttl=300)
@@ -184,6 +189,37 @@ def show_navigation():
 apply_theme_styles()
 show_navigation()
 
+# Code flag: if True the API will be started automatically on app load.
+# Set to True in the source when you want the API to run together with Streamlit.
+RUN_API_IN_BACKGROUND = True
+
+if 'api_background' not in st.session_state:
+    st.session_state['api_background'] = False
+if 'api_process_pid' not in st.session_state:
+    st.session_state['api_process_pid'] = None
+
+if RUN_API_IN_BACKGROUND and not st.session_state['api_background']:
+    # start background process automatically (no user checkbox)
+    api_script = Path('api') / 'api.py'
+    python_exec = None
+    if sys.platform.startswith('win'):
+        venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
+        if venv_python.exists():
+            python_exec = str(venv_python)
+        else:
+            # do not auto-fallback to system python on Windows unless explicitly desired
+            python_exec = None
+    else:
+        python_exec = 'python'
+
+    if python_exec:
+        p = subprocess.Popen([python_exec, str(api_script)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        st.session_state['api_background'] = True
+        st.session_state['api_process_pid'] = p.pid
+        st.info(f'API started in background (pid={p.pid})')
+    else:
+        st.warning('API not started: python executable for auto-start not found. Toggle RUN_API_IN_BACKGROUND in the source to change this behavior.')
+
 
 # Import das páginas
 
@@ -191,7 +227,7 @@ show_navigation()
 if st.session_state.current_page == "dashboard":
     show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias)
 elif st.session_state.current_page == "analytics":
-    show_analytics()
+    show_analytics(df_anos, df_regioes, df_meses_por_ano)
 elif st.session_state.current_page == "reports":
     show_reports()
 elif st.session_state.current_page == "about":

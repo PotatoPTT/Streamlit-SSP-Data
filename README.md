@@ -1,4 +1,4 @@
-# SSP Data Dashboard
+# SSP Data Dashboard (README OUTDATED)
 
 Acesse a versão online: [https://sspdata.streamlit.app/](https://sspdata.streamlit.app/)
 

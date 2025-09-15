@@ -3,6 +3,7 @@ import pandas as pd
 import logging
 import io
 import streamlit as st
+import json
 
 logging.basicConfig(
     level=logging.INFO,
@@ -185,6 +186,72 @@ class DatabaseConnection:
             'Nome_Municipio', 'latitude', 'longitude', 'Ano', 'Natureza', 'mes', 'quantidade'
         ])
         return df
+
+    def get_solicitacao_by_params(self, params: dict):
+        """
+        Busca uma solicitação de modelo pelos parâmetros.
+        """
+        params_json = json.dumps(params, sort_keys=True)
+        query = '''
+            SELECT id, status, caminho_artefato, mensagem_erro
+            FROM solicitacoes_modelo
+            WHERE parametros = %s;
+        '''
+        self.cur.execute(query, (params_json,))
+        result = self.cur.fetchone()
+        if result:
+            return {
+                "id": result[0],
+                "status": result[1],
+                "caminho_artefato": result[2],
+                "mensagem_erro": result[3]
+            }
+        return None
+
+    def create_solicitacao(self, params: dict):
+        """
+        Cria uma nova solicitação de modelo com status 'PENDENTE'.
+        Retorna o ID da nova solicitação.
+        """
+        params_json = json.dumps(params, sort_keys=True)
+        query = '''
+            INSERT INTO solicitacoes_modelo (parametros, status)
+            VALUES (%s, 'PENDENTE')
+            ON CONFLICT (parametros) DO NOTHING
+            RETURNING id;
+        '''
+        try:
+            self.cur.execute(query, (params_json,))
+            result = self.cur.fetchone()
+            self.conn.commit()
+            return result[0] if result else None
+        except Exception as e:
+            self.conn.rollback()
+            logging.error(f"Erro ao criar solicitação: {e}")
+            return None
+
+    def update_solicitacao_status(self, solicitacao_id: int, status: str, caminho_artefato: str = None, mensagem_erro: str = None):
+        """
+        Atualiza o status, caminho do artefato e/ou mensagem de erro de uma solicitação.
+        """
+        query = '''
+            UPDATE solicitacoes_modelo
+            SET status = %s,
+                caminho_artefato = %s,
+                mensagem_erro = %s,
+                data_atualizacao = NOW()
+            WHERE id = %s;
+        '''
+        try:
+            self.cur.execute(
+                query, (status, caminho_artefato, mensagem_erro, solicitacao_id))
+            self.conn.commit()
+            return True
+        except Exception as e:
+            self.conn.rollback()
+            logging.error(
+                f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
+            return False
 
     def insert_all(self, df: pd.DataFrame):
         logging.info("Iniciando inserção de dados no banco...")
