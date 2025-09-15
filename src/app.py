@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 import threading
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 # no in-app log buffer: logs will be written to the Streamlit console only
 
 
@@ -225,7 +225,7 @@ if RUN_API_IN_BACKGROUND:
             t.start()
             # write guard file with timestamp
             try:
-                start_guard.write_text(datetime.utcnow().isoformat())
+                start_guard.write_text(datetime.now(timezone.utc).isoformat())
             except Exception:
                 pass
             st.session_state['api_background'] = True
