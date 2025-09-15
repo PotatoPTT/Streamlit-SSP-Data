@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 import threading
 import os
+from datetime import datetime
 # no in-app log buffer: logs will be written to the Streamlit console only
 
 
@@ -203,59 +204,39 @@ if 'api_process_pid' not in st.session_state:
     st.session_state['api_process_pid'] = None
 
 
-if RUN_API_IN_BACKGROUND and not st.session_state.get('api_started_once', False):
-    # Very simple: start the API subprocess once when the app is first loaded.
-    api_script = Path('api') / 'api.py'
-    python_exec = sys.executable or None
-    if not python_exec and sys.platform.startswith('win'):
-        venv_python = Path('.') / '.venv' / 'Scripts' / 'python.exe'
-        if venv_python.exists():
-            python_exec = str(venv_python)
+if RUN_API_IN_BACKGROUND:
+    # File-based guard to ensure API is started only once across reloads/sessions
+    start_guard = Path('.api.started')
+    if not start_guard.exists():
+        # Start api.py in-process on a background thread. This is simpler and ensures
+        # the API uses the same Python environment as Streamlit.
+        api_script = Path('api') / 'api.py'
+        try:
+            spec = importlib.util.spec_from_file_location('ssp_api_module', str(api_script))
+            if not spec or not spec.loader:
+                raise RuntimeError('Não foi possível carregar o módulo api')
+            api_mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(api_mod)
 
-        st.session_state['api_started_once'] = True
-        if python_exec:
+            if not hasattr(api_mod, 'main'):
+                raise RuntimeError('api.py não define a função main()')
+
+            t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True, name='ssp_api_thread')
+            t.start()
+            # write guard file with timestamp
             try:
-                # simple PID file guard to avoid repeated starts across reruns/sessions
-                pid_file = Path('.api.pid')
-                if pid_file.exists():
-                    try:
-                        existing_pid = int(pid_file.read_text().strip())
-                        # check if process exists
-                        try:
-                            os.kill(existing_pid, 0)
-                            st.session_state['api_process_pid'] = existing_pid
-                            st.session_state['api_background'] = True
-                            print(f'API appears to be already running (pid={existing_pid}); skipping start')
-                        except Exception:
-                            # not alive; start a new process and overwrite pid file
-                            p = subprocess.Popen([python_exec, str(api_script)])
-                            pid_file.write_text(str(p.pid))
-                            st.session_state['api_process_pid'] = p.pid
-                            st.session_state['api_background'] = True
-                    except Exception:
-                        # malformed pid file — remove and start
-                        try:
-                            pid_file.unlink()
-                        except Exception:
-                            pass
-                        p = subprocess.Popen([python_exec, str(api_script)])
-                        pid_file.write_text(str(p.pid))
-                        st.session_state['api_process_pid'] = p.pid
-                        st.session_state['api_background'] = True
-                else:
-                    p = subprocess.Popen([python_exec, str(api_script)])
-                    try:
-                        pid_file.write_text(str(p.pid))
-                    except Exception:
-                        pass
-                    st.session_state['api_process_pid'] = p.pid
-                    st.session_state['api_background'] = True
-            except Exception as e:
-                st.error(f'Falha ao iniciar API: {e}')
-                st.session_state['api_process_pid'] = None
-                st.session_state['api_background'] = False
+                start_guard.write_text(datetime.utcnow().isoformat())
+            except Exception:
+                pass
+            st.session_state['api_background'] = True
+            st.session_state['api_process_pid'] = None
+            st.info('API iniciada em-thread (in-process)')
+        except Exception as e:
+            st.session_state['api_background'] = False
+            st.session_state['api_process_pid'] = None
+            st.error(f'Falha ao iniciar API em-thread: {e}')
     else:
-        st.warning('API não iniciada: python executável não encontrado no ambiente atual.')
+        print('Arquivo de controle .api.started presente — assumindo que API já foi iniciada anteriormente')
 
 # no in-app log UI: logs go to the console where Streamlit was started
 
