@@ -151,22 +151,33 @@ def main():
     try:
         db_start = DatabaseConnection()
         # 1) Any CONCLUIDO with missing artifact -> mark FALHOU
-        rows = db_start.fetch_all("SELECT id, caminho_artefato FROM solicitacoes_modelo WHERE status = 'CONCLUIDO';")
+        # The DB does not store an explicit caminho_artefato column; compute
+        # the expected filename from the stored parametros and the job id.
+        rows = db_start.fetch_all("SELECT id, parametros FROM solicitacoes_modelo WHERE status = 'CONCLUIDO';")
         for r in rows:
             job_id = r[0]
-            caminho = r[1]
-            # determine full path
-            if not caminho:
-                msg = 'Artefato ausente (valor vazio)'
-                logger.warning(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
-                db_start.update_solicitacao_status(job_id, 'FALHOU', mensagem_erro=msg)
-                continue
-            if os.path.isabs(caminho):
-                full = caminho
+            params = r[1]
+            # parametros may be returned as a dict (jsonb) or as text
+            try:
+                if isinstance(params, str):
+                    params = json.loads(params)
+            except Exception:
+                params = None
+
+            # Attempt to reconstruct expected filename
+            if params and isinstance(params, dict):
+                try:
+                    metodo = params.get('metodo', 'kmeans')
+                    filename = f"model_{job_id}_{metodo}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
+                    safe_filename = "".join(c for c in filename if c.isalnum() or c in ('-', '_', '.'))
+                    full = str(MODELS_OUTPUT_DIR / safe_filename)
+                except Exception:
+                    full = None
             else:
-                full = str(MODELS_OUTPUT_DIR / caminho)
-            if not os.path.exists(full):
-                msg = f"Artefato não encontrado em: {full}"
+                full = None
+
+            if not full or not os.path.exists(full):
+                msg = f"Artefato não encontrado (esperado: {full})"
                 logger.warning(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
                 db_start.update_solicitacao_status(job_id, 'FALHOU', mensagem_erro=msg)
 
@@ -206,16 +217,29 @@ def main():
                     model, scaler, best_k, best_score = train_and_find_best_model(
                         time_series_df, metodo=metodo)
 
-                    # 3. Salvar o modelo e o scaler — salva em output/models e registra apenas o filename
+                    # 3. Salvar o modelo e o scaler — salva em output/models e também no DB como blob
                     model_filename = generate_model_path(job_id, params)
                     model_full_path = MODELS_OUTPUT_DIR / model_filename
-                    joblib.dump({'model': model, 'scaler': scaler, 'k': best_k,
-                                'silhouette': best_score, 'params': params}, str(model_full_path))
+                    model_payload = {'model': model, 'scaler': scaler, 'k': best_k,
+                                     'silhouette': best_score, 'params': params}
+                    # write to disk (backwards compat)
+                    joblib.dump(model_payload, str(model_full_path))
                     logger.info(f"  -> Modelo salvo em: {model_full_path}")
 
-                    # 4. Atualizar status para CONCLUIDO armazenando apenas o nome do arquivo
-                    db.update_solicitacao_status(
-                        job_id, 'CONCLUIDO', caminho_artefato=model_filename)
+                    # write to DB blob
+                    try:
+                        with open(model_full_path, 'rb') as f:
+                            blob = f.read()
+                        stored = db.store_model_blob(job_id, model_filename, blob)
+                        if stored:
+                            logger.info(f"  -> Modelo armazenado no DB com filename={model_filename}")
+                        else:
+                            logger.warning("  -> Falha ao armazenar modelo no DB (store_model_blob retornou False)")
+                    except Exception as e:
+                        logger.exception(f"  -> Erro ao gravar artefato no DB: {e}")
+
+                    # 4. Atualizar status para CONCLUIDO armazenando apenas o nome do arquivo (compat)
+                    db.update_solicitacao_status(job_id, 'CONCLUIDO')
                     logger.info(f"  -> Status finalizado: CONCLUIDO.")
 
                 except Exception as e:

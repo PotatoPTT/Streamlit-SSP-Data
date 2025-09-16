@@ -282,9 +282,29 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                 model_full_path = str(project_root / 'output' / 'models' / model_filename)
 
             if not os.path.exists(model_full_path):
-                st.error(f"Artefato do modelo não encontrado no caminho: {model_full_path}. Considere gerar o modelo novamente.")
-                db.close()
-                return
+                # Try to fetch artifact from DB (stored in solicitacoes_modelo.arquivo)
+                try:
+                    solicit_id = selected_solicit.get('id')
+                    if solicit_id:
+                        blob = db.fetch_model_blob_by_solicitacao(solicit_id)
+                        if blob:
+                            out_dir = Path(project_root) / 'output' / 'models'
+                            out_dir.mkdir(parents=True, exist_ok=True)
+                            with open(model_full_path, 'wb') as f:
+                                f.write(blob)
+                            st.info('Artefato baixado do banco (por solicitacao) e salvo localmente.')
+                        else:
+                            st.error(f"Artefato do modelo não encontrado no caminho: {model_full_path}. Considere gerar o modelo novamente.")
+                            db.close()
+                            return
+                    else:
+                        st.error(f"Artefato do modelo não encontrado no caminho: {model_full_path}. Considere gerar o modelo novamente.")
+                        db.close()
+                        return
+                except Exception as e:
+                    st.error(f"Erro ao recuperar artefato do banco: {e}")
+                    db.close()
+                    return
 
             model_data = joblib.load(model_full_path)
             model = model_data['model']
@@ -330,7 +350,6 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
             with st.spinner('Aguardando atualização de status...'):
                 time.sleep(10)
             st.rerun()
-
         elif status == 'FALHOU':
             err = selected_solicit.get('mensagem_erro')
             st.error(f"A última tentativa de gerar este modelo falhou: {err}")
@@ -352,6 +371,17 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                         st.rerun()
                     else:
                         st.error("Não foi possível criar uma nova solicitação. Verifique se os parâmetros já não estão pendentes.")
+
+        elif status == 'EXPIRADO':
+            st.warning("Esta solicitação expirou. Você pode reativá-la para que o modelo seja reprocessado.")
+            if st.button("Reativar solicitação"):
+                # A função create_solicitacao faz UPSERT que reativa quando status='EXPIRADO'
+                nova_id = db.create_solicitacao(params_k if selected_method == 'kmeans' else params_d)
+                if nova_id:
+                    st.success(f"Solicitação reativada/confirmada (ID: {nova_id}).")
+                    st.rerun()
+                else:
+                    st.error("Não foi possível reativar a solicitação. Verifique os parâmetros e tente novamente.")
 
     else:
         # Nenhuma solicitação encontrada: criar ambas (kmeans e kdba)

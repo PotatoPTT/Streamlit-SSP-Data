@@ -4,6 +4,8 @@ import logging
 import io
 import streamlit as st
 import json
+import io
+import psycopg2
 
 logging.basicConfig(
     level=logging.INFO,
@@ -190,20 +192,25 @@ class DatabaseConnection:
     def get_solicitacao_by_params(self, params: dict):
         """
         Busca uma solicitação de modelo pelos parâmetros.
+        Retorna o dicionário com id, status, parametros (decodificados) e mensagem_erro.
         """
         params_json = json.dumps(params, sort_keys=True)
         query = '''
-            SELECT id, status, caminho_artefato, mensagem_erro
+            SELECT id, status, parametros, mensagem_erro
             FROM solicitacoes_modelo
             WHERE parametros = %s;
         '''
         self.cur.execute(query, (params_json,))
         result = self.cur.fetchone()
         if result:
+            try:
+                parametros = json.loads(result[2]) if result[2] else None
+            except Exception:
+                parametros = None
             return {
                 "id": result[0],
                 "status": result[1],
-                "caminho_artefato": result[2],
+                "parametros": parametros,
                 "mensagem_erro": result[3]
             }
         return None
@@ -214,10 +221,17 @@ class DatabaseConnection:
         Retorna o ID da nova solicitação.
         """
         params_json = json.dumps(params, sort_keys=True)
+        # Inserir a solicitação, mas se já existir (único por parametros),
+        # apenas reativar caso o status atual seja 'EXPIRADO' — isto evita
+        # tentativas de INSERT que conflitam com a constraint única.
+        # Sempre retorna o id (novo ou existente).
         query = '''
             INSERT INTO solicitacoes_modelo (parametros, status)
             VALUES (%s, 'PENDENTE')
-            ON CONFLICT (parametros) DO NOTHING
+            ON CONFLICT (parametros) DO UPDATE
+            SET status = CASE WHEN solicitacoes_modelo.status = 'EXPIRADO' THEN EXCLUDED.status ELSE solicitacoes_modelo.status END,
+                mensagem_erro = CASE WHEN solicitacoes_modelo.status = 'EXPIRADO' THEN NULL ELSE solicitacoes_modelo.mensagem_erro END,
+                data_atualizacao = NOW()
             RETURNING id;
         '''
         try:
@@ -227,31 +241,63 @@ class DatabaseConnection:
             return result[0] if result else None
         except Exception as e:
             self.conn.rollback()
-            logging.error(f"Erro ao criar solicitação: {e}")
+            logging.error(f"Erro ao criar/reativar solicitação: {e}")
             return None
 
-    def update_solicitacao_status(self, solicitacao_id: int, status: str, caminho_artefato: str = None, mensagem_erro: str = None):
+    def update_solicitacao_status(self, solicitacao_id: int, status: str, mensagem_erro: str = None):
         """
-        Atualiza o status, caminho do artefato e/ou mensagem de erro de uma solicitação.
+        Atualiza o status e/ou mensagem de erro de uma solicitação.
+        A coluna de arquivo (bytea) é gerenciada por store_model_blob.
         """
         query = '''
             UPDATE solicitacoes_modelo
             SET status = %s,
-                caminho_artefato = %s,
                 mensagem_erro = %s,
                 data_atualizacao = NOW()
             WHERE id = %s;
         '''
         try:
-            self.cur.execute(
-                query, (status, caminho_artefato, mensagem_erro, solicitacao_id))
+            self.cur.execute(query, (status, mensagem_erro, solicitacao_id))
             self.conn.commit()
             return True
         except Exception as e:
             self.conn.rollback()
-            logging.error(
-                f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
+            logging.error(f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
             return False
+
+    # --- Artifact storage helpers ---
+    def store_model_blob(self, solicitacao_id: int, filename: str, blob: bytes):
+        """
+        Store the artifact bytes directly in the solicitacoes_modelo.arquivo column for the given solicitacao.
+        """
+        try:
+            # Update the solicitacao record with the blob (arquivo bytea)
+            self.cur.execute('''
+                UPDATE solicitacoes_modelo
+                SET arquivo = %s,
+                    data_atualizacao = NOW()
+                WHERE id = %s;
+            ''', (psycopg2.Binary(blob), solicitacao_id))
+            self.conn.commit()
+            return True
+        except Exception as e:
+            self.conn.rollback()
+            logging.error(f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
+            return False
+
+    def fetch_model_blob_by_solicitacao(self, solicitacao_id: int):
+        """
+        Returns the bytes stored in solicitacoes_modelo.arquivo for the given solicitacao id, or None if not present.
+        """
+        try:
+            self.cur.execute('SELECT arquivo FROM solicitacoes_modelo WHERE id = %s;', (solicitacao_id,))
+            row = self.cur.fetchone()
+            if row and row[0] is not None:
+                return bytes(row[0])
+            return None
+        except Exception as e:
+            logging.error(f"Erro ao buscar artefato por solicitacao {solicitacao_id}: {e}")
+            return None
 
     def insert_all(self, df: pd.DataFrame):
         logging.info("Iniciando inserção de dados no banco...")
