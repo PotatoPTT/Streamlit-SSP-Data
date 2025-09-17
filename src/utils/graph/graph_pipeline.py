@@ -18,10 +18,12 @@ class GraphPipeline:
         logger.info("=== Início do Pipeline de Geração de Mapas ===")
         if years_list is not None:
             for year in years_list:
+                logger.info(f"Processando mapas para o ano {year}...")
                 self.plotter.plot_maps_by_year_and_crime_db(year_filter=year)
         else:
-            self.plotter.plot_maps_by_year_and_crime_db(
-                year_filter=year_filter)
+            logger.info(f"Processando mapas para o ano {year_filter}...")
+            self.plotter.plot_maps_by_year_and_crime_db(year_filter=year_filter)
+
         logger.info("=== Pipeline de Mapas concluído ===")
 
 

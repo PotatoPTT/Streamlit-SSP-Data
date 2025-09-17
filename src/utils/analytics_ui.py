@@ -4,6 +4,9 @@ Gerenciamento de fluxos de interface para análises preditivas.
 
 import streamlit as st
 import time
+from utils.api.config import get_logger
+
+logger = get_logger("ANALYTICS_UI")
 
 
 def render_date_filters(df_anos, df_meses_por_ano):
@@ -193,3 +196,74 @@ def handle_no_existing_models(params_k, params_d, db):
                 msgs.append("K-DBA não criada (pode já existir)")
             st.success("; ".join(msgs))
             st.rerun()
+
+
+# ==================== HANDLERS CACHEADOS ====================
+
+def handle_completed_model_cached(selected_method, selected_solicit, params):
+    """Versão otimizada com cache para modelos concluídos."""
+    from utils.database.connection import DatabaseConnection
+    
+    logger.info(f"Processando modelo concluído: {selected_method}")
+    
+    # Usar a função original com conexão de banco
+    db = DatabaseConnection()
+    try:
+        handle_completed_model(selected_method, selected_solicit, params, db)
+    finally:
+        db.close()
+
+
+def handle_failed_model_cached(selected_method, selected_solicit, params_k, params_d):
+    """Versão otimizada com cache para modelos falhos."""
+    from utils.database.connection import DatabaseConnection
+    
+    logger.warning(f"Processando modelo falho: {selected_method}")
+    
+    db = DatabaseConnection()
+    try:
+        handle_failed_model(selected_method, selected_solicit, params_k, params_d, db)
+    finally:
+        db.close()
+
+
+def handle_expired_model_cached(selected_method, params_k, params_d):
+    """Versão otimizada com cache para modelos expirados."""
+    from utils.database.connection import DatabaseConnection
+    
+    logger.info(f"Processando modelo expirado: {selected_method}")
+    
+    db = DatabaseConnection()
+    try:
+        handle_expired_model(selected_method, params_k, params_d, db)
+    finally:
+        db.close()
+
+
+def handle_no_existing_models_cached(params_k, params_d):
+    """Versão otimizada com cache para quando não há modelos existentes."""
+    from utils.database.connection import DatabaseConnection
+    
+    logger.info("Processando nova solicitação de modelo")
+    
+    db = DatabaseConnection()
+    try:
+        handle_no_existing_models(params_k, params_d, db)
+    finally:
+        db.close()
+
+
+def process_model_by_status(selected_method, selected_solicit, params, params_k, params_d):
+    """Processa o modelo baseado no status da solicitação."""
+    status = selected_solicit['status'] if selected_solicit else None
+    
+    if status == 'CONCLUIDO':
+        handle_completed_model_cached(selected_method, selected_solicit, params)
+    elif status in ['PENDENTE', 'PROCESSANDO']:
+        handle_pending_processing_model(status)
+    elif status == 'FALHOU':
+        handle_failed_model_cached(selected_method, selected_solicit, params_k, params_d)
+    elif status == 'EXPIRADO':
+        handle_expired_model_cached(selected_method, params_k, params_d)
+    else:
+        logger.warning(f"Status desconhecido: {status}")

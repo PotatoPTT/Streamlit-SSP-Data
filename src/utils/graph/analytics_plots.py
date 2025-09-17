@@ -40,7 +40,7 @@ def plot_time_series_by_cluster(time_series_df, labels):
             yaxis_title='Valor normalizado (z-score)',
             showlegend=True
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
 
 def plot_map_by_cluster(db, time_series_df_with_labels):
@@ -111,7 +111,7 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
     # Aumentar o tamanho dos marcadores para melhor visibilidade
     fig.update_traces(marker=dict(size=10))
     fig.update_layout(legend_title_text='Cluster', margin=dict(l=0, r=0, t=40, b=0))
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 
 def display_model_metrics(silhouette, k):

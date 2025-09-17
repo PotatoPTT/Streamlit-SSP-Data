@@ -68,4 +68,18 @@ def setup_logging():
 def get_logger(context="API"):
     """Retorna o logger configurado da API com contexto específico."""
     base_logger = logging.getLogger('ssp_api')
+    
+    # Garantir que o logger está configurado
+    if not base_logger.handlers:
+        base_logger.setLevel(logging.INFO)
+        
+        # Adicionar handler para console
+        console_handler = logging.StreamHandler()
+        formatter = logging.Formatter('[%(levelname)s] %(message)s')
+        console_handler.setFormatter(formatter)
+        base_logger.addHandler(console_handler)
+        
+        # Evita propagação para o logger root
+        base_logger.propagate = False
+    
     return ContextLogger(base_logger, context)

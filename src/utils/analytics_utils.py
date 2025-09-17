@@ -5,8 +5,13 @@ Utilitários para análises preditivas e processamento de dados de séries tempo
 import pandas as pd
 import joblib
 import os
+import json
 from pathlib import Path
 import streamlit as st
+from utils.database.connection import DatabaseConnection
+from utils.api.config import get_logger
+
+logger = get_logger("ANALYTICS_UTILS")
 
 
 def fetch_data_for_model(db_conn, params):
@@ -139,3 +144,80 @@ def filter_end_months(meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num
         return [m for m in meses_disponiveis_fim if m >= mes_inicio_num]
     else:
         return meses_disponiveis_fim
+
+
+# ==================== FUNÇÕES DE CACHE ====================
+
+@st.cache_data(ttl=300)  # Cache por 5 minutos
+def get_crimes_list():
+    """Busca a lista de crimes disponíveis no banco."""
+    db = DatabaseConnection()
+    try:
+        crimes = db.fetch_all("SELECT DISTINCT natureza FROM crimes ORDER BY natureza")
+        return [crime[0] for crime in crimes]
+    finally:
+        db.close()
+
+
+@st.cache_data(ttl=60)  # Cache por 1 minuto para verificações de status
+def get_solicitacao_by_params_cached(params_str):
+    """Versão cacheada da busca de solicitação por parâmetros."""
+    params = json.loads(params_str)
+    
+    db = DatabaseConnection()
+    try:
+        return db.get_solicitacao_by_params(params)
+    finally:
+        db.close()
+
+
+@st.cache_data(ttl=300)  # Cache por 5 minutos
+def fetch_data_for_model_cached(params_str):
+    """Versão cacheada da busca de dados para o modelo."""
+    params = json.loads(params_str)
+    db = DatabaseConnection()
+    try:
+        return fetch_data_for_model(db, params)
+    finally:
+        db.close()
+
+
+@st.cache_data(ttl=30)  # Cache por 30 segundos para operações de escrita
+def update_solicitacao_status_cached(solicitacao_id, novo_status):
+    """Versão cacheada para atualizar status da solicitação."""
+    db = DatabaseConnection()
+    try:
+        result = db.update_solicitacao_status(solicitacao_id, novo_status)
+        # Limpar cache relacionado após update
+        get_solicitacao_by_params_cached.clear()
+        return result
+    finally:
+        db.close()
+
+
+@st.cache_data(ttl=60)  # Cache por 1 minuto
+def create_or_reactivate_solicitacao_cached(params_str):
+    """Versão cacheada para criar ou reativar solicitação."""
+    params = json.loads(params_str)
+    
+    db = DatabaseConnection()
+    try:
+        result = db.create_or_reactivate_solicitacao(params)
+        # Limpar cache relacionado após criação/reativação
+        get_solicitacao_by_params_cached.clear()
+        return result
+    finally:
+        db.close()
+
+
+def limpar_cache_analytics():
+    """Limpa todo o cache relacionado ao analytics."""
+    try:
+        get_crimes_list.clear()
+        get_solicitacao_by_params_cached.clear()
+        fetch_data_for_model_cached.clear()
+        update_solicitacao_status_cached.clear()
+        create_or_reactivate_solicitacao_cached.clear()
+        logger.info("Cache do analytics limpo com sucesso")
+    except Exception as e:
+        logger.error(f"Erro ao limpar cache do analytics: {e}")
