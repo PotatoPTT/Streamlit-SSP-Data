@@ -219,15 +219,20 @@ class DatabaseConnection:
         """
         params_json = json.dumps(params, sort_keys=True)
         # Inserir a solicitação, mas se já existir (único por parametros),
-        # apenas reativar caso o status atual seja 'EXPIRADO' — isto evita
-        # tentativas de INSERT que conflitam com a constraint única.
+        # reativar caso o status atual seja 'EXPIRADO' ou 'FALHOU'
         # Sempre retorna o id (novo ou existente).
         query = '''
             INSERT INTO solicitacoes_modelo (parametros, status)
             VALUES (%s, 'PENDENTE')
             ON CONFLICT (parametros) DO UPDATE
-            SET status = CASE WHEN solicitacoes_modelo.status = 'EXPIRADO' THEN EXCLUDED.status ELSE solicitacoes_modelo.status END,
-                mensagem_erro = CASE WHEN solicitacoes_modelo.status = 'EXPIRADO' THEN NULL ELSE solicitacoes_modelo.mensagem_erro END,
+            SET status = CASE 
+                WHEN solicitacoes_modelo.status IN ('EXPIRADO', 'FALHOU') THEN EXCLUDED.status 
+                ELSE solicitacoes_modelo.status 
+            END,
+                mensagem_erro = CASE 
+                    WHEN solicitacoes_modelo.status IN ('EXPIRADO', 'FALHOU') THEN NULL 
+                    ELSE solicitacoes_modelo.mensagem_erro 
+                END,
                 data_atualizacao = NOW()
             RETURNING id;
         '''

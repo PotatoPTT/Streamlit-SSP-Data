@@ -27,7 +27,6 @@ atexit.register(cleanup_on_exit)
 # Configuração de inicialização da API
 # Define como True para iniciar a API automaticamente
 RUN_API_IN_BACKGROUND = True
-RUN_API_IN_BACKGROUND = True
 
 # Page configuration
 st.set_page_config(page_title="SSP Data",

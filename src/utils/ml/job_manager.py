@@ -33,11 +33,12 @@ def validate_existing_models(db_conn):
     
     try:
         # 1) Qualquer CONCLUIDO com artefato ausente -> marcar como FALHOU
-        rows = db_conn.fetch_all("SELECT id, parametros FROM solicitacoes_modelo WHERE status = 'CONCLUIDO';")
+        rows = db_conn.fetch_all("SELECT id, parametros, arquivo FROM solicitacoes_modelo WHERE status = 'CONCLUIDO';")
         
         for r in rows:
             job_id = r[0]
             params = r[1]
+            arquivo_blob = r[2]  # Coluna arquivo (bytea)
             
             # parametros pode retornar como dict (jsonb) ou como texto
             try:
@@ -46,21 +47,32 @@ def validate_existing_models(db_conn):
             except Exception:
                 params = None
 
-            # Tentar reconstruir o nome do arquivo esperado
+            # Verificar se existe modelo no arquivo OU no banco de dados
+            has_file_artifact = False
+            has_db_artifact = arquivo_blob is not None and len(arquivo_blob) > 0
+            
+            # Tentar reconstruir o nome do arquivo esperado para verificar se existe no disco
             if params and isinstance(params, dict):
                 try:
                     from utils.ml.file_manager import generate_model_filename
                     filename = generate_model_filename(params)
                     full_path = str(MODELS_OUTPUT_DIR / filename)
+                    has_file_artifact = os.path.exists(full_path)
                 except Exception:
                     full_path = None
-            else:
-                full_path = None
 
-            if not full_path or not os.path.exists(full_path):
-                msg = f"Artefato não encontrado (esperado: {full_path})"
+            # Se não tem artefato nem no arquivo nem no banco, marcar como FALHOU
+            if not has_file_artifact and not has_db_artifact:
+                msg = f"Artefato não encontrado nem no arquivo nem no banco de dados"
                 logger.warning(f"[startup] Job {job_id} marcado como FALHOU: {msg}")
                 db_conn.update_solicitacao_status(job_id, 'FALHOU', mensagem_erro=msg)
+            else:
+                if has_file_artifact and has_db_artifact:
+                    logger.debug(f"[startup] Job {job_id}: artefato encontrado no arquivo E no banco")
+                elif has_file_artifact:
+                    logger.debug(f"[startup] Job {job_id}: artefato encontrado apenas no arquivo")
+                else:
+                    logger.debug(f"[startup] Job {job_id}: artefato encontrado apenas no banco de dados")
 
         # 2) Qualquer PROCESSANDO -> definir como PENDENTE (para tentar novamente)
         processing_rows = db_conn.fetch_all("SELECT id FROM solicitacoes_modelo WHERE status = 'PROCESSANDO';")

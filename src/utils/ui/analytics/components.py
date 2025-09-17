@@ -143,7 +143,8 @@ def handle_failed_model(selected_method, selected_solicit, params_k, params_d, d
     st.error(f"A última tentativa de gerar este modelo falhou: {err}")
     
     # Se a mensagem de falha indica artefato ausente, oferece regeneração
-    if err and ('não encontrado' in err or 'ausente' in err):
+    # Atualizado para reconhecer a nova mensagem de erro
+    if err and ('não encontrado' in err or 'ausente' in err or 'banco de dados' in err):
         st.warning("O artefato associado a esta solicitação está ausente. Deseja regenerar?")
         if st.button("Regenerar modelo"):
             nova_id = db.create_solicitacao(params_k if selected_method == 'kmeans' else params_d)
@@ -200,46 +201,6 @@ def handle_no_existing_models(params_k, params_d, db):
 
 # ==================== HANDLERS CACHEADOS ====================
 
-def handle_completed_model_cached(selected_method, selected_solicit, params):
-    """Versão otimizada com cache para modelos concluídos."""
-    from utils.data.connection import DatabaseConnection
-    
-    logger.info(f"Processando modelo concluído: {selected_method}")
-    
-    # Usar a função original com conexão de banco
-    db = DatabaseConnection()
-    try:
-        handle_completed_model(selected_method, selected_solicit, params, db)
-    finally:
-        db.close()
-
-
-def handle_failed_model_cached(selected_method, selected_solicit, params_k, params_d):
-    """Versão otimizada com cache para modelos falhos."""
-    from utils.data.connection import DatabaseConnection
-    
-    logger.warning(f"Processando modelo falho: {selected_method}")
-    
-    db = DatabaseConnection()
-    try:
-        handle_failed_model(selected_method, selected_solicit, params_k, params_d, db)
-    finally:
-        db.close()
-
-
-def handle_expired_model_cached(selected_method, params_k, params_d):
-    """Versão otimizada com cache para modelos expirados."""
-    from utils.data.connection import DatabaseConnection
-    
-    logger.info(f"Processando modelo expirado: {selected_method}")
-    
-    db = DatabaseConnection()
-    try:
-        handle_expired_model(selected_method, params_k, params_d, db)
-    finally:
-        db.close()
-
-
 def handle_no_existing_models_cached(params_k, params_d):
     """Versão otimizada com cache para quando não há modelos existentes."""
     from utils.data.connection import DatabaseConnection
@@ -255,15 +216,22 @@ def handle_no_existing_models_cached(params_k, params_d):
 
 def process_model_by_status(selected_method, selected_solicit, params, params_k, params_d):
     """Processa o modelo baseado no status da solicitação."""
+    from utils.data.connection import DatabaseConnection
+    
     status = selected_solicit['status'] if selected_solicit else None
     
-    if status == 'CONCLUIDO':
-        handle_completed_model_cached(selected_method, selected_solicit, params)
-    elif status in ['PENDENTE', 'PROCESSANDO']:
-        handle_pending_processing_model(status)
-    elif status == 'FALHOU':
-        handle_failed_model_cached(selected_method, selected_solicit, params_k, params_d)
-    elif status == 'EXPIRADO':
-        handle_expired_model_cached(selected_method, params_k, params_d)
-    else:
-        logger.warning(f"Status desconhecido: {status}")
+    # Usar conexão com banco para todas as operações
+    db = DatabaseConnection()
+    try:
+        if status == 'CONCLUIDO':
+            handle_completed_model(selected_method, selected_solicit, params, db)
+        elif status in ['PENDENTE', 'PROCESSANDO']:
+            handle_pending_processing_model(status)
+        elif status == 'FALHOU':
+            handle_failed_model(selected_method, selected_solicit, params_k, params_d, db)
+        elif status == 'EXPIRADO':
+            handle_expired_model(selected_method, params_k, params_d, db)
+        else:
+            logger.warning(f"Status desconhecido: {status}")
+    finally:
+        db.close()
