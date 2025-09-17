@@ -2,7 +2,7 @@ import os
 import folium
 import pandas as pd
 from utils.data.connection import DatabaseConnection
-from utils.constants import MESES
+from utils.config.constants import MESES
 
 # Importa o logger contextualizado
 from utils.config.logging import get_logger

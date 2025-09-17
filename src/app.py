@@ -5,7 +5,7 @@ from pages.dashboard import show_dashboard
 from utils.data.connection import DatabaseConnection
 from utils.core.api_manager import is_api_running, start_api, stop_api
 from utils.config.logging import get_logger
-from utils.constants import CHART_THEME
+from utils.config.constants import CHART_THEME
 import streamlit as st
 import pandas as pd
 import atexit

@@ -5,7 +5,7 @@ Funções reais de plotagem devem ser implementadas conforme necessário.
 """
 
 import plotly.graph_objects as go
-from utils.constants import CHART_THEME
+from utils.config.constants import CHART_THEME
 
 
 # Placeholder para futuras implementações de gráficos

@@ -6,7 +6,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-from utils.constants import API_TIMEOUT_MINUTES
+from utils.config.constants import API_TIMEOUT_MINUTES
 
 
 def is_api_running():

@@ -4,7 +4,7 @@ import io
 import streamlit as st
 import json
 from utils.config.logging import get_logger
-from utils.constants import MESES
+from utils.config.constants import MESES
 
 logger = get_logger("DB")
 

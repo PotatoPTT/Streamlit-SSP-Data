@@ -10,7 +10,7 @@ from pathlib import Path
 import streamlit as st
 from utils.data.connection import DatabaseConnection
 from utils.config.logging import get_logger
-from utils.constants import MESES_MAP, MESES_MAP_INV
+from utils.config.constants import MESES_MAP, MESES_MAP_INV
 
 logger = get_logger("ANALYTICS_UTILS")
 
