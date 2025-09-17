@@ -8,11 +8,12 @@ import streamlit.components.v1 as components
 import unicodedata
 from utils.ui.dashboard.utils import (
     processar_tabela_detalhada, verificar_mapas_disponiveis, 
-    carregar_conteudo_mapa, MESES
+    carregar_conteudo_mapa
 )
 from utils.core.pipeline_manager import render_pipeline_control
 from utils.visualization.pipeline import GraphPipeline
 from utils.config.logging import get_logger
+from utils.config.constants import MESES_MAP_INV
 
 logger = get_logger("DASHBOARD_UI")
 
@@ -101,7 +102,7 @@ def render_charts_section(dados):
     with chart_col1:
         st.markdown("#### Evolução Mensal")
         fig1 = go.Figure(go.Scatter(
-            x=dados['df_mes']["mes"].map(MESES), 
+            x=dados['df_mes']["mes"].map(MESES_MAP_INV), 
             y=dados['df_mes']["total"], 
             mode='lines+markers', 
             line=dict(color='royalblue')

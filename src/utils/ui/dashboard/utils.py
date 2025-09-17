@@ -3,19 +3,11 @@ Utilitários para o dashboard com funções cacheadas e processamento de dados.
 """
 
 import streamlit as st
-import pandas as pd
 from pathlib import Path
 from utils.config.logging import get_logger
+from utils.config.constants import MESES_MAP_INV
 
 logger = get_logger("DASHBOARD_UTILS")
-
-# Mapeamento de meses
-MESES = {
-    1: "Jan", 2: "Fev", 3: "Mar", 4: "Abr",
-    5: "Mai", 6: "Jun", 7: "Jul", 8: "Ago",
-    9: "Set", 10: "Out", 11: "Nov", 12: "Dez"
-}
-
 
 @st.cache_data(ttl=300)  # Cache por 5 minutos
 def processar_dados_dashboard(year_filter, region_filter, municipality_filter, _buscar_ocorrencias):
@@ -36,7 +28,7 @@ def processar_dados_dashboard(year_filter, region_filter, municipality_filter, _
     # Métricas de KPIs
     try:
         mes_top = df_dados.groupby("mes")["total"].sum().idxmax()
-        mes_top_nome = MESES.get(mes_top, str(mes_top))
+        mes_top_nome = MESES_MAP_INV.get(mes_top, str(mes_top))
     except ValueError:
         mes_top_nome = "N/A"
     
@@ -68,8 +60,8 @@ def processar_tabela_detalhada(df_dados, df_anterior):
     df_dados_copy = df_dados.copy()
     df_anterior_copy = df_anterior.copy()
     
-    df_dados_copy["mes_nome"] = df_dados_copy["mes"].map(MESES)
-    df_anterior_copy["mes_nome"] = df_anterior_copy["mes"].map(MESES)
+    df_dados_copy["mes_nome"] = df_dados_copy["mes"].map(MESES_MAP_INV)
+    df_anterior_copy["mes_nome"] = df_anterior_copy["mes"].map(MESES_MAP_INV)
     
     # Criar tabela pivô
     tabela_atual = df_dados_copy.pivot_table(
@@ -77,7 +69,7 @@ def processar_tabela_detalhada(df_dados, df_anterior):
     ).fillna(0)
     
     # Ordenar colunas por mês
-    ordem_colunas = [m for m in MESES.values() if m in tabela_atual.columns]
+    ordem_colunas = [m for m in MESES_MAP_INV.values() if m in tabela_atual.columns]
     tabela_atual = tabela_atual[ordem_colunas]
     tabela_atual["Total"] = tabela_atual.sum(axis=1)
     
@@ -95,7 +87,7 @@ def processar_tabela_detalhada(df_dados, df_anterior):
     tabela_completa.drop(columns=["total_anterior"], inplace=True)
     
     # Converter colunas numéricas
-    for col in MESES.values():
+    for col in MESES_MAP_INV.values():
         if col in tabela_completa.columns:
             tabela_completa[col] = tabela_completa[col].astype(int)
     
