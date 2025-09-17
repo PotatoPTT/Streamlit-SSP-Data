@@ -21,7 +21,7 @@ logger = get_logger("DOWNLOAD")
 os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 # Configuração mínima para bibliotecas externas
-logging.basicConfig(level=logger.WARNING)
+logging.basicConfig(level=logging.WARNING)
 
 
 class SSPDataDownloader:
@@ -182,11 +182,13 @@ class SSPDataDownloader:
             try:
                 shutil.make_archive(self.zip_filename.replace(
                     '.zip', ''), 'zip', self.output_dir)
-                logger.info(f"Pasta compactada com sucesso: {self.zip_filename}")
+                logger.info(
+                    f"Pasta compactada com sucesso: {self.zip_filename}")
             except Exception as e:
                 logger.error(f"Erro ao compactar arquivos: {e}")
         elif self.arquivos_baixados_count == 0:
-            logger.warning("Nenhum arquivo foi baixado, então nada para compactar.")
+            logger.warning(
+                "Nenhum arquivo foi baixado, então nada para compactar.")
         else:
             logger.warning(
                 f"O diretório de saída '{self.output_dir}' não existe ou está vazio. Nada para compactar.")
@@ -412,7 +414,8 @@ ZIP_FILENAME = "./ssp_data.zip"
 CSV_FILE_PATH = os.path.join("configs", "cities_codes.csv")
 MAX_WORKERS = 10
 DOWNLOAD_EVERYTHING = False  # Se True, baixa tudo mesmo que já tenha arquivos válidos
-BAIXAR_ANOS_ANTERIORES = 1  # Quantos anos anteriores baixar novamente se já existirem arquivos válidos
+# Quantos anos anteriores baixar novamente se já existirem arquivos válidos
+BAIXAR_ANOS_ANTERIORES = 1
 DEBUG = False
 HEADERS = {
     "accept": "application/json, text/plain, */*",
@@ -435,9 +438,11 @@ if __name__ == '__main__':
         headers=HEADERS,
         download_everything=DOWNLOAD_EVERYTHING
     )
-    logger.warning("AVISO: Este script não está rodando dentro do pipeline ssp_pipeline.py.")
+    logger.warning(
+        "AVISO: Este script não está rodando dentro do pipeline ssp_pipeline.py.")
     downloader.download_data()
     downloader.generate_location_file()
 
     end_time = time.time()
-    logger.info(f"Tempo total de execução: {end_time - start_time:.2f} segundos.")
+    logger.info(
+        f"Tempo total de execução: {end_time - start_time:.2f} segundos.")

@@ -27,6 +27,17 @@ def fetch_data_for_model(db_conn, params):
         return pd.DataFrame()
 
 
+@st.cache_data(ttl=300)  # Cache por 5 minutos
+def fetch_data_for_model_cached(params_str):
+    """Versão cacheada da busca de dados para o modelo."""
+    params = json.loads(params_str)
+    db = DatabaseConnection()
+    try:
+        return fetch_data_for_model(db, params)
+    finally:
+        db.close()
+
+
 def get_meses_mapping():
     """Retorna o mapeamento entre nomes de meses e números."""
     return MESES_MAP, MESES_MAP_INV
@@ -35,7 +46,7 @@ def get_meses_mapping():
 def build_model_params(ano_inicio, mes_inicio, ano_fim, mes_fim, regiao_selecionada, crime_selecionado):
     """Constrói os parâmetros do modelo a partir dos inputs da interface."""
     meses_map, _ = get_meses_mapping()
-    
+
     mes_inicio_num = meses_map[mes_inicio]
     mes_fim_num = meses_map[mes_fim]
 
@@ -58,11 +69,12 @@ def get_status_label(solicitacao, name):
 def load_model_from_file_or_db(model_filename, selected_solicit, db):
     """Carrega o modelo do arquivo local ou do banco de dados."""
     project_root = Path(__file__).resolve().parents[4]
-    
+
     if os.path.isabs(model_filename):
         model_full_path = model_filename
     else:
-        model_full_path = str(project_root / 'output' / 'models' / model_filename)
+        model_full_path = str(project_root / 'output' /
+                              'models' / model_filename)
 
     if not os.path.exists(model_full_path):
         # Tenta buscar artefato do DB
@@ -75,9 +87,11 @@ def load_model_from_file_or_db(model_filename, selected_solicit, db):
                     out_dir.mkdir(parents=True, exist_ok=True)
                     with open(model_full_path, 'wb') as f:
                         f.write(blob)
-                    st.info('Artefato baixado do banco (por solicitacao) e salvo localmente.')
+                    st.info(
+                        'Artefato baixado do banco (por solicitacao) e salvo localmente.')
                 else:
-                    raise FileNotFoundError(f"Artefato não encontrado no banco para solicitação {solicit_id}")
+                    raise FileNotFoundError(
+                        f"Artefato não encontrado no banco para solicitação {solicit_id}")
             else:
                 raise FileNotFoundError(f"ID da solicitação não encontrado")
         except Exception as e:
@@ -95,7 +109,7 @@ def prepare_municipalities_table(time_series_df_with_labels, db):
     """Prepara a tabela de municípios com informações de cluster e região."""
     table_df = time_series_df_with_labels[['cluster']].reset_index()
     table_df.rename(columns={table_df.columns[0]: 'municipio'}, inplace=True)
-    
+
     municipios_list = table_df['municipio'].unique().tolist()
     if municipios_list:
         q = 'SELECT m.nome, r.nome FROM municipios m JOIN regioes r ON m.regiao_id = r.id WHERE m.nome = ANY(%s);'
@@ -104,7 +118,7 @@ def prepare_municipalities_table(time_series_df_with_labels, db):
         table_df = table_df.merge(regions_df, on='municipio', how='left')
     else:
         table_df['regiao'] = None
-    
+
     return table_df[['municipio', 'regiao', 'cluster']].sort_values('cluster')
 
 
@@ -128,7 +142,8 @@ def get_crimes_list():
     """Busca a lista de crimes disponíveis no banco."""
     db = DatabaseConnection()
     try:
-        crimes = db.fetch_all("SELECT DISTINCT natureza FROM crimes ORDER BY natureza")
+        crimes = db.fetch_all(
+            "SELECT DISTINCT natureza FROM crimes ORDER BY natureza")
         return [crime[0] for crime in crimes]
     finally:
         db.close()
@@ -138,49 +153,27 @@ def get_crimes_list():
 def get_solicitacao_by_params_cached(params_str):
     """Versão cacheada da busca de solicitação por parâmetros."""
     params = json.loads(params_str)
-    
+
+    db = DatabaseConnection()
+    try:
+        result = db.get_solicitacao_by_params(params)
+        # Se o status for PENDENTE ou PROCESSANDO, usar TTL menor
+        if result and result.get('status') in ['PENDENTE', 'PROCESSANDO']:
+            # Limpar este cache imediatamente para próximas verificações
+            return result
+        return result
+    finally:
+        db.close()
+
+
+@st.cache_data(ttl=10)  # Cache muito curto para status em processamento
+def get_solicitacao_by_params_processing(params_str):
+    """Versão com TTL muito baixo para solicitações em processamento."""
+    params = json.loads(params_str)
+
     db = DatabaseConnection()
     try:
         return db.get_solicitacao_by_params(params)
-    finally:
-        db.close()
-
-
-@st.cache_data(ttl=300)  # Cache por 5 minutos
-def fetch_data_for_model_cached(params_str):
-    """Versão cacheada da busca de dados para o modelo."""
-    params = json.loads(params_str)
-    db = DatabaseConnection()
-    try:
-        return fetch_data_for_model(db, params)
-    finally:
-        db.close()
-
-
-@st.cache_data(ttl=30)  # Cache por 30 segundos para operações de escrita
-def update_solicitacao_status_cached(solicitacao_id, novo_status):
-    """Versão cacheada para atualizar status da solicitação."""
-    db = DatabaseConnection()
-    try:
-        result = db.update_solicitacao_status(solicitacao_id, novo_status)
-        # Limpar cache relacionado após update
-        get_solicitacao_by_params_cached.clear()
-        return result
-    finally:
-        db.close()
-
-
-@st.cache_data(ttl=60)  # Cache por 1 minuto
-def create_or_reactivate_solicitacao_cached(params_str):
-    """Versão cacheada para criar ou reativar solicitação."""
-    params = json.loads(params_str)
-    
-    db = DatabaseConnection()
-    try:
-        result = db.create_or_reactivate_solicitacao(params)
-        # Limpar cache relacionado após criação/reativação
-        get_solicitacao_by_params_cached.clear()
-        return result
     finally:
         db.close()
 
@@ -190,9 +183,8 @@ def limpar_cache_analytics():
     try:
         get_crimes_list.clear()
         get_solicitacao_by_params_cached.clear()
+        get_solicitacao_by_params_processing.clear()
         fetch_data_for_model_cached.clear()
-        update_solicitacao_status_cached.clear()
-        create_or_reactivate_solicitacao_cached.clear()
         logger.info("Cache do analytics limpo com sucesso")
     except Exception as e:
         logger.error(f"Erro ao limpar cache do analytics: {e}")

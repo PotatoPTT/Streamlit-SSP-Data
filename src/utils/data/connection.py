@@ -3,6 +3,7 @@ import pandas as pd
 import io
 import streamlit as st
 import json
+from typing import Optional
 from utils.config.logging import get_logger
 from utils.config.constants import MESES
 
@@ -31,18 +32,19 @@ class DatabaseConnection:
     def fetch_time_series_data(self, params):
         """
         Função unificada para buscar dados de séries temporais.
-        
+
         Args:
             params: Dicionário com parâmetros:
                 - data_inicio: Data de início no formato 'YYYY-MM'
                 - data_fim: Data de fim no formato 'YYYY-MM'
                 - crime: Nome do crime
                 - regiao: Nome da região ou 'Todas'
-        
+
         Returns:
             pd.DataFrame: DataFrame pivotado com municípios como índice e datas como colunas
         """
-        logger.info(f"Buscando dados para o período de {params['data_inicio']} a {params['data_fim']} na região '{params['regiao']}' para o crime '{params['crime']}'...")
+        logger.info(
+            f"Buscando dados para o período de {params['data_inicio']} a {params['data_fim']} na região '{params['regiao']}' para o crime '{params['crime']}'...")
 
         query = """
             SELECT
@@ -56,7 +58,8 @@ class DatabaseConnection:
             WHERE (o.ano || '-' || LPAD(o.mes::text, 2, '0') || '-01')::date BETWEEN TO_DATE(%s, 'YYYY-MM') AND TO_DATE(%s, 'YYYY-MM')
             AND c.natureza = %s
         """
-        sql_params = [params['data_inicio'], params['data_fim'], params['crime']]
+        sql_params = [params['data_inicio'],
+                      params['data_fim'], params['crime']]
 
         if params['regiao'] != 'Todas':
             query += " AND r.nome = %s"
@@ -77,20 +80,23 @@ class DatabaseConnection:
         time_series_df = df.pivot_table(
             index='municipio', columns='ano_mes', values='quantidade').fillna(0)
 
-        logger.info(f"Dados transformados: {time_series_df.shape[0]} municípios e {time_series_df.shape[1]} meses.")
+        logger.info(
+            f"Dados transformados: {time_series_df.shape[0]} municípios e {time_series_df.shape[1]} meses.")
         return time_series_df
 
     def validate_time_series_data(self, time_series_df):
         """Valida se os dados de série temporal são adequados para análise."""
         if time_series_df.empty:
             raise ValueError("DataFrame de séries temporais está vazio.")
-        
+
         if time_series_df.shape[1] < 2:
-            raise ValueError("Série temporal muito curta para análise (menos de 2 pontos de dados).")
-        
+            raise ValueError(
+                "Série temporal muito curta para análise (menos de 2 pontos de dados).")
+
         if time_series_df.shape[0] < 2:
-            raise ValueError("Número insuficiente de municípios para análise de clusters (menos de 2).")
-        
+            raise ValueError(
+                "Número insuficiente de municípios para análise de clusters (menos de 2).")
+
         return True
 
     def insert_regioes(self, regioes_df: pd.DataFrame):
@@ -278,6 +284,7 @@ class DatabaseConnection:
         """
         Cria uma nova solicitação de modelo com status 'PENDENTE'.
         Retorna o ID da nova solicitação.
+        Limpa automaticamente o cache do Streamlit relacionado às solicitações.
         """
         params_json = json.dumps(params, sort_keys=True)
         # Inserir a solicitação, mas se já existir (único por parametros),
@@ -302,16 +309,63 @@ class DatabaseConnection:
             self.cur.execute(query, (params_json,))
             result = self.cur.fetchone()
             self.conn.commit()
+
+            # Limpar cache do Streamlit automaticamente após criar/reativar solicitação
+            self._clear_streamlit_cache()
+
             return result[0] if result else None
         except Exception as e:
             self.conn.rollback()
             logger.error(f"Erro ao criar/reativar solicitação: {e}")
             return None
 
-    def update_solicitacao_status(self, solicitacao_id: int, status: str, mensagem_erro: str = None):
+    def _clear_streamlit_cache(self):
+        """
+        Limpa o cache do Streamlit relacionado às solicitações.
+        Método privado chamado automaticamente após operações que afetam solicitações.
+        """
+        try:
+            # Importar apenas se streamlit estiver disponível
+            import streamlit as st
+
+            # Tentar importar e limpar as funções de cache específicas
+            try:
+                from utils.ui.analytics.utils import (
+                    get_solicitacao_by_params_cached,
+                    get_solicitacao_by_params_processing
+                )
+
+                get_solicitacao_by_params_cached.clear()
+                get_solicitacao_by_params_processing.clear()
+
+                # Ativar flag para usar TTL baixo na próxima verificação
+                if hasattr(st, 'session_state'):
+                    st.session_state.force_refresh_models = True
+
+                logger.debug(
+                    "Cache do Streamlit limpo automaticamente após operação de solicitação")
+
+            except ImportError:
+                # Se as funções não estiverem disponíveis, não há problema
+                logger.debug(
+                    "Funções de cache não disponíveis, continuando sem limpeza")
+                pass
+
+        except ImportError:
+            # Se streamlit não estiver disponível (ex: execução em background), não há problema
+            logger.debug(
+                "Streamlit não disponível, continuando sem limpeza de cache")
+            pass
+        except Exception as e:
+            # Não queremos que erro de cache quebre a operação principal
+            logger.warning(f"Erro ao limpar cache automaticamente: {e}")
+            pass
+
+    def update_solicitacao_status(self, solicitacao_id: int, status: str, mensagem_erro: Optional[str] = None):
         """
         Atualiza o status e/ou mensagem de erro de uma solicitação.
         A coluna de arquivo (bytea) é gerenciada por store_model_blob.
+        Limpa automaticamente o cache do Streamlit relacionado às solicitações.
         """
         query = '''
             UPDATE solicitacoes_modelo
@@ -323,10 +377,15 @@ class DatabaseConnection:
         try:
             self.cur.execute(query, (status, mensagem_erro, solicitacao_id))
             self.conn.commit()
+
+            # Limpar cache do Streamlit automaticamente após atualizar status
+            self._clear_streamlit_cache()
+
             return True
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
+            logger.error(
+                f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
             return False
 
     # --- Artifact storage helpers ---
@@ -346,7 +405,8 @@ class DatabaseConnection:
             return True
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
+            logger.error(
+                f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
             return False
 
     def fetch_model_blob_by_solicitacao(self, solicitacao_id: int):
@@ -354,13 +414,15 @@ class DatabaseConnection:
         Returns the bytes stored in solicitacoes_modelo.arquivo for the given solicitacao id, or None if not present.
         """
         try:
-            self.cur.execute('SELECT arquivo FROM solicitacoes_modelo WHERE id = %s;', (solicitacao_id,))
+            self.cur.execute(
+                'SELECT arquivo FROM solicitacoes_modelo WHERE id = %s;', (solicitacao_id,))
             row = self.cur.fetchone()
             if row and row[0] is not None:
                 return bytes(row[0])
             return None
         except Exception as e:
-            logger.error(f"Erro ao buscar artefato por solicitacao {solicitacao_id}: {e}")
+            logger.error(
+                f"Erro ao buscar artefato por solicitacao {solicitacao_id}: {e}")
             return None
 
     def insert_all(self, df: pd.DataFrame):

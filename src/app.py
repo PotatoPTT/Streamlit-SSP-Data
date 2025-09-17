@@ -32,14 +32,15 @@ RUN_API_IN_BACKGROUND = True
 st.set_page_config(page_title="SSP Data",
                    page_icon="🛡️",
                    layout="wide",
-                   initial_sidebar_state="collapsed" if not RUN_API_IN_BACKGROUND else "expanded")
+                   initial_sidebar_state="collapsed")
 
 # Initialize session state
 if 'current_page' not in st.session_state:
     st.session_state.current_page = "dashboard"
 
 
-@st.cache_data(ttl=300)
+# Cache por 30 minutos (filtros são dados que mudam raramente)
+@st.cache_data(ttl=1800)
 def carregar_filtros():
     db = DatabaseConnection()
     df_anos = pd.DataFrame(db.fetch_all(
@@ -92,18 +93,16 @@ def buscar_ocorrencias(ano, regiao, municipio):
 # Theme functions
 def apply_theme_styles():
     """Apply dark mode CSS styles only"""
-    sidebar_css = ""
-    if not RUN_API_IN_BACKGROUND:
-        sidebar_css = """
-        /* Esconde completamente a sidebar e o botão de expandir */
-        [data-testid="stSidebar"], section[data-testid="stSidebar"] {
-            display: none !important;
-        }
-        [data-testid="collapsedControl"] {
-            display: none !important;
-        }
-        """
-    
+    sidebar_css = """
+    /* Esconde completamente a sidebar e o botão de expandir */
+    [data-testid="stSidebar"], section[data-testid="stSidebar"] {
+        display: none !important;
+    }
+    [data-testid="collapsedControl"] {
+        display: none !important;
+    }
+    """
+
     st.markdown(f"""
     <style>
     .stApp {{
@@ -146,7 +145,7 @@ def apply_theme_styles():
     {sidebar_css}
     </style>
     """,
-                unsafe_allow_html=True)
+        unsafe_allow_html=True)
 
 
 # Navigation function
