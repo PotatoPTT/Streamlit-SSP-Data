@@ -6,7 +6,7 @@ import json
 import os
 from utils.api.config import get_logger, MODELS_OUTPUT_DIR
 
-logger = get_logger()
+logger = get_logger("JOBS")
 
 
 def get_pending_job(db_conn):

@@ -1,14 +1,12 @@
 from utils.download.ssp_pipeline import SSPDataPipeline
 from utils.database.database_pipeline import DatabasePipeline
 from utils.graph.graph_pipeline import GraphPipeline
-import logging
+from utils.api.config import get_logger
 import os
 # Garante que o diretório de trabalho seja o root do projeto
 os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+
+logger = get_logger("PIPELINE")
 
 
 class PipelineRunner:
@@ -16,7 +14,7 @@ class PipelineRunner:
         pipeline = SSPDataPipeline()
         # Supondo que pipeline.run() retorna os anos alterados
         anos_alterados = pipeline.run()
-        logging.info(f"Anos alterados: {anos_alterados}")
+        logger.info(f"Anos alterados: {anos_alterados}")
 
         pipeline = DatabasePipeline()
         pipeline.run()
@@ -38,9 +36,9 @@ class PipelineRunner:
                 # Cria uma única instância e chama run para todos os anos
                 graph_pipeline.run(years_list=sorted(anos_para_gerar))
             else:
-                logging.info(
+                logger.info(
                     "Nenhum ano alterado ou faltando mapa. Nada a gerar.")
-        logging.info("=== Pipeline completo ===")
+        logger.info("=== Pipeline completo ===")
 
 
 if __name__ == '__main__':

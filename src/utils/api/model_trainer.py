@@ -9,7 +9,7 @@ from tslearn.preprocessing import TimeSeriesScalerMeanVariance
 from utils.api.config import get_logger, K_RANGE
 from utils.api.data_processor import validate_time_series_data
 
-logger = get_logger()
+logger = get_logger("ML")
 
 
 def normalize_time_series(time_series_df):

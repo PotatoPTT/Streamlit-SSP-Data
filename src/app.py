@@ -4,10 +4,13 @@ from pages.analytics import show_analytics
 from pages.dashboard import show_dashboard
 from utils.database.connection import DatabaseConnection
 from utils.api_manager import is_api_running, start_api, stop_api
+from utils.api.config import get_logger
 import streamlit as st
 import pandas as pd
 import atexit
 from pathlib import Path
+
+logger = get_logger("STREAMLIT")
 
 
 def cleanup_on_exit():
@@ -215,7 +218,7 @@ if RUN_API_IN_BACKGROUND:
         success, message = start_api()
         # Log apenas em caso de erro
         if not success:
-            print(f"Erro ao iniciar API: {message}")
+            logger.error(f"Erro ao iniciar API: {message}")
 
 
 # Page routing

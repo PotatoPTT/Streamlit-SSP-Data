@@ -34,7 +34,7 @@ def is_api_running():
         # Converte para datetime
         lock_time = datetime.fromisoformat(content)
         
-        # Verifica se foi atualizado nos últimos 5 minutos
+        # Verifica se foi atualizado nos últimos API_TIMEOUT minutos
         max_age = timedelta(minutes=API_TIMEOUT)
         time_diff = datetime.now() - lock_time
         

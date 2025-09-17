@@ -3,12 +3,9 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 from utils.download.dataProcessor import DataProcessor
 import pandas as pd
-import logging
+from utils.api.config import get_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+logger = get_logger("SSP_PIPELINE")
 
 
 class SSPDataPipeline:
@@ -35,7 +32,7 @@ class SSPDataPipeline:
         )
 
     def run(self):
-        logging.info("=== Início do Pipeline SSP Data ===")
+        logger.info("=== Início do Pipeline SSP Data ===")
         loc_file = self.location_csv
         codes_file = self.codes_csv
         needs_location_update = False
@@ -60,13 +57,13 @@ class SSPDataPipeline:
                     if len(loc_df) != len(unique_codes) or not missing.empty:
                         needs_location_update = True
             except Exception as e:
-                logging.error(
+                logger.error(
                     f"Erro ao verificar integridade de cities_location.csv: {e}")
                 needs_location_update = True
 
         # Verificar e gerar arquivo de localização de cidades se necessário
         if needs_location_update:
-            logging.warning(
+            logger.warning(
                 f"Arquivo de localização ausente ou incompleto. Gerando paralelamente aos downloads...")
             with ThreadPoolExecutor(max_workers=2) as executor:
                 f_loc = executor.submit(
@@ -79,7 +76,7 @@ class SSPDataPipeline:
             anos_alterados = self.downloader.download_data()
         # Processamento usando arquivo de localização existente
         self.processor.process_files()
-        logging.info("=== Pipeline concluído com sucesso ===")
+        logger.info("=== Pipeline concluído com sucesso ===")
         return anos_alterados
 
 

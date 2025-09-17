@@ -12,16 +12,17 @@ from geopy.location import Location  # type: ignore
 import logging
 import re
 from utils.database.connection import DatabaseConnection
+from utils.api.config import get_logger
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+logger = get_logger("DOWNLOAD")
 
 import os
 # Garante que o diretório de trabalho seja o root do projeto
 os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+# Configuração mínima para bibliotecas externas
+logging.basicConfig(level=logger.WARNING)
 
 
 class SSPDataDownloader:
@@ -44,7 +45,7 @@ class SSPDataDownloader:
     def _ensure_dir(self, directory_path):
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
-            logging.info(f"Diretório criado: {directory_path}")
+            logger.info(f"Diretório criado: {directory_path}")
 
     def _load_municipios_data(self):
         try:
@@ -54,21 +55,21 @@ class SSPDataDownloader:
             missing_cols = [
                 col for col in expected_cols if col not in df.columns]
             if missing_cols:
-                logging.error(
+                logger.error(
                     f"Colunas ausentes no arquivo CSV '{self.csv_file_path}': {missing_cols}")
-                logging.error(f"Colunas encontradas: {list(df.columns)}")
-                logging.error(
+                logger.error(f"Colunas encontradas: {list(df.columns)}")
+                logger.error(
                     f"Por favor, verifique se o arquivo CSV contém as colunas: {', '.join(expected_cols)}.")
                 return None
-            logging.info(
+            logger.info(
                 f"Dados dos municípios carregados de '{self.csv_file_path}'. Total de municípios: {len(df)}")
             return df
         except FileNotFoundError:
-            logging.error(
+            logger.error(
                 f"Arquivo CSV não encontrado em '{self.csv_file_path}'. Certifique-se de que o upload foi feito corretamente.")
             return None
         except Exception as e:
-            logging.error(
+            logger.error(
                 f"Erro ao ler o arquivo CSV '{self.csv_file_path}': {e}")
             return None
 
@@ -100,7 +101,7 @@ class SSPDataDownloader:
         unsafe_pattern = r'[\\/:*?\"<>|]'
         original_filename = f"{regiao_nome}({regiao_id})-{municipio_nome}({id_municipio})-{year}({data_atual_formatada})"
         if re.search(unsafe_pattern, original_filename):
-            logging.warning(
+            logger.warning(
                 f"{log_prefix}: Nome de arquivo contém caracteres não seguros: '{original_filename}'. Será salvo como: '{base_filename}'")
 
         for fname in os.listdir(self.output_dir):
@@ -108,10 +109,10 @@ class SSPDataDownloader:
                 try:
                     os.remove(os.path.join(self.output_dir, fname))
                     if self.debug_mode:
-                        logging.info(
+                        logger.info(
                             f"{log_prefix}: Arquivo antigo removido: {fname}")
                 except Exception as e:
-                    logging.warning(
+                    logger.warning(
                         f"{log_prefix}: Falha ao remover arquivo antigo {fname}: {e}")
 
         max_retries = 3
@@ -122,7 +123,7 @@ class SSPDataDownloader:
 
                 if response.status_code == 200:
                     if not response.content or len(response.content) < 50:
-                        logging.warning(
+                        logger.warning(
                             f"{log_prefix}: OK (200) mas conteúdo vazio/pequeno. Pulando.")
                         return f"{log_prefix}: Vazio"
 
@@ -145,51 +146,51 @@ class SSPDataDownloader:
                     with self.count_lock:
                         self.arquivos_baixados_count += 1
                     if self.debug_mode:
-                        logging.info(
+                        logger.info(
                             f"{log_prefix}: SALVO como {final_filename} ({len(response.content)} bytes)")
                     return f"{log_prefix}: Salvo"
 
                 elif response.status_code == 404:
-                    logging.warning(f"{log_prefix}: Sem dados (404)")
+                    logger.warning(f"{log_prefix}: Sem dados (404)")
                     return f"{log_prefix}: 404"
                 elif response.status_code == 500:
-                    logging.warning(f"{log_prefix}: Erro no servidor (500)")
+                    logger.warning(f"{log_prefix}: Erro no servidor (500)")
                     # Retry para erro 500
                 elif response.status_code == 204:
-                    logging.warning(f"{log_prefix}: Sem conteúdo (204)")
+                    logger.warning(f"{log_prefix}: Sem conteúdo (204)")
                     return f"{log_prefix}: 204"
                 else:
-                    logging.warning(
+                    logger.warning(
                         f"{log_prefix}: Erro HTTP {response.status_code}")
                     # Retry para outros erros
             except requests.exceptions.Timeout:
-                logging.warning(
+                logger.warning(
                     f"{log_prefix}: Timeout na requisição (tentativa {attempt}/{max_retries}).")
             except requests.exceptions.SSLError as e:
-                logging.warning(
+                logger.warning(
                     f"{log_prefix}: ERRO SSL (mesmo com verify=False): {e} (tentativa {attempt}/{max_retries})")
             except requests.exceptions.RequestException as e:
-                logging.warning(
+                logger.warning(
                     f"{log_prefix}: Falha na requisição: {e} (tentativa {attempt}/{max_retries})")
             if attempt < max_retries:
                 time.sleep(2)
-        logging.error(f"{log_prefix}: Falha após {max_retries} tentativas.")
+        logger.error(f"{log_prefix}: Falha após {max_retries} tentativas.")
         return f"{log_prefix}: Falha após {max_retries} tentativas."
 
     def _compress_downloaded_files(self):
         if self.arquivos_baixados_count > 0 and os.path.exists(self.output_dir) and os.listdir(self.output_dir):
-            print(f"\nCompactando arquivos em {self.zip_filename}...")
+            logger.info(f"Compactando arquivos em {self.zip_filename}...")
             try:
                 shutil.make_archive(self.zip_filename.replace(
                     '.zip', ''), 'zip', self.output_dir)
-                print(f"Pasta compactada com sucesso: {self.zip_filename}")
+                logger.info(f"Pasta compactada com sucesso: {self.zip_filename}")
             except Exception as e:
-                print(f"Erro ao compactar arquivos: {e}")
+                logger.error(f"Erro ao compactar arquivos: {e}")
         elif self.arquivos_baixados_count == 0:
-            print("\nNenhum arquivo foi baixado, então nada para compactar.")
+            logger.warning("Nenhum arquivo foi baixado, então nada para compactar.")
         else:
-            print(
-                f"\nO diretório de saída '{self.output_dir}' não existe ou está vazio. Nada para compactar.")
+            logger.warning(
+                f"O diretório de saída '{self.output_dir}' não existe ou está vazio. Nada para compactar.")
 
     def _get_expected_filename(self, year, municipio_row, data_atual_formatada):
         regiao_nome = municipio_row['Nome_Regiao']
@@ -235,22 +236,22 @@ class SSPDataDownloader:
         missing = self._get_missing_files(
             year, municipios_df, data_atual_formatada)
         if not missing:
-            logging.info(
+            logger.info(
                 f"Todos os arquivos de {year} já existem e são válidos. Nenhum download necessário.")
             return
         db = DatabaseConnection()
         try:
             df_db = db.get_map_data(year=year)
             if not df_db.empty:
-                logging.info(
+                logger.info(
                     f"Dados do ano {year} já existem na database. Nenhum download necessário.")
                 return
         except Exception as e:
-            logging.warning(
+            logger.warning(
                 f"Erro ao consultar database para o ano {year}: {e}")
         finally:
             db.close()
-        logging.info(
+        logger.info(
             f"Baixando {len(missing)} arquivos faltantes/invalidos para o ano {year}...")
         self.anos_alterados.add(year)
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -261,30 +262,30 @@ class SSPDataDownloader:
             for future in concurrent.futures.as_completed(futures):
                 completed_count += 1
                 if completed_count % 50 == 0 or completed_count == total_tasks:
-                    logging.info(
+                    logger.info(
                         f"Progresso: {completed_count}/{total_tasks} tarefas de download processadas para {year}.")
 
     def download_data(self):
         municipios_df = self._load_municipios_data()
         if municipios_df is None or municipios_df.empty:
-            logging.error(
+            logger.error(
                 "Nenhum dado de município para processar. Abortando.")
             return
 
         self._ensure_dir(self.output_dir)
         data_atual_formatada = datetime.now().strftime("%d-%m-%Y")
 
-        logging.info(
+        logger.info(
             f"Iniciando downloads paralelos para a pasta: {self.output_dir}")
-        logging.info(f"Anos: de {self.years.start} até {self.years.stop + 1}")
-        logging.info(
+        logger.info(f"Anos: de {self.years.start} até {self.years.stop + 1}")
+        logger.info(
             f"Máximo de workers (downloads simultâneos): {self.max_workers}")
-        logging.warning(
+        logger.warning(
             "AVISO: A verificação do certificado SSL está desabilitada.")
-        logging.info("-" * 30)
+        logger.info("-" * 30)
 
         if self.download_everything:
-            logging.info(
+            logger.info(
                 "Modo DOWNLOAD_EVERYTHING ativado: baixando todos os arquivos, mesmo que já existam.")
             anos_recentes = [self.years]
             anos_antigos = []
@@ -302,7 +303,7 @@ class SSPDataDownloader:
 
         # Para anos recentes (ano atual e futuros), baixa tudo normalmente
         if anos_recentes:
-            logging.info(f"Baixando normalmente para anos: {anos_recentes}")
+            logger.info(f"Baixando normalmente para anos: {anos_recentes}")
             futures = []
             for year in anos_recentes:
                 self.anos_alterados.add(year)
@@ -317,12 +318,12 @@ class SSPDataDownloader:
                 for future in concurrent.futures.as_completed(futures):
                     completed_count += 1
                     if completed_count % 50 == 0 or completed_count == total_tasks:
-                        logging.info(
+                        logger.info(
                             f"Progresso: {completed_count}/{total_tasks} tarefas de download processadas (anos recentes).")
 
-        logging.info("-" * 30)
-        logging.info(f"Processamento de download paralelo concluído.")
-        logging.info(
+        logger.info("-" * 30)
+        logger.info(f"Processamento de download paralelo concluído.")
+        logger.info(
             f"Total de arquivos baixados com sucesso: {self.arquivos_baixados_count}")
         if self.debug_mode:
             self._compress_downloaded_files()
@@ -338,7 +339,7 @@ class SSPDataDownloader:
             'configs', 'cities_location.csv')
         df = self._load_municipios_data()
         if df is None or df.empty:
-            logging.error(
+            logger.error(
                 "Nenhum dado de município para gerar localização. Abortando.")
             return
         unique_mun = df['Nome_Municipio'].drop_duplicates(
@@ -354,16 +355,16 @@ class SSPDataDownloader:
                 missing = merged[merged['latitude'].isnull() |
                                  merged['longitude'].isnull()]
                 if len(loc_df) == len(unique_mun) and missing.empty:
-                    logging.info(
+                    logger.info(
                         f"Arquivo de localização já está completo ({len(loc_df)} municípios). Nenhum download necessário.")
                     return
                 else:
-                    logging.info(
+                    logger.info(
                         f"Arquivo cities_location.csv incompleto: {len(missing)} municípios faltando ou com dados nulos. Baixando apenas os necessários...")
                     municipios_para_baixar = missing['Nome_Municipio'].tolist()
                     records = loc_df.to_dict('records')
             else:
-                logging.warning(
+                logger.warning(
                     "Arquivo cities_location.csv inválido. Gerando tudo novamente.")
                 municipios_para_baixar = unique_mun.tolist()
                 records = []
@@ -385,7 +386,7 @@ class SSPDataDownloader:
             records.append(
                 {'Nome_Municipio': muni, 'latitude': lat, 'longitude': lon})
             if idx % 50 == 0 or idx == total:
-                logging.info(
+                logger.info(
                     f"Progresso localização: {idx}/{total} municípios processados.")
             time.sleep(1)
         # Junta com os já existentes (sem sobrescrever os válidos)
@@ -399,7 +400,7 @@ class SSPDataDownloader:
         else:
             out_df = pd.DataFrame(records)
         out_df.to_csv(output_path, index=False)
-        logging.info(f"Arquivo de localização salvo em: {output_path}")
+        logger.info(f"Arquivo de localização salvo em: {output_path}")
 
 
 # --- Configurações ---
@@ -435,9 +436,9 @@ if __name__ == '__main__':
         headers=HEADERS,
         download_everything=DOWNLOAD_EVERYTHING
     )
-    print("AVISO: Este script não está rodando dentro do pipeline ssp_pipeline.py.")
+    logger.warning("AVISO: Este script não está rodando dentro do pipeline ssp_pipeline.py.")
     downloader.download_data()
     downloader.generate_location_file()
 
     end_time = time.time()
-    print(f"\nTempo total de execução: {end_time - start_time:.2f} segundos.")
+    logger.info(f"Tempo total de execução: {end_time - start_time:.2f} segundos.")

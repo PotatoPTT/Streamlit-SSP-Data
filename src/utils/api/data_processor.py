@@ -5,7 +5,7 @@ Processamento de dados e queries para a API.
 import pandas as pd
 from utils.api.config import get_logger
 
-logger = get_logger()
+logger = get_logger("DATA")
 
 
 def fetch_data_for_job(db_conn, params):

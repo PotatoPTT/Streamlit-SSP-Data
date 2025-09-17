@@ -17,6 +17,32 @@ MODELS_OUTPUT_DIR = ROOT_DIR / 'output' / 'models'
 MODELS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
+class ContextLogger:
+    """Logger com contexto para identificar diferentes módulos."""
+    
+    def __init__(self, base_logger, context="API"):
+        self.base_logger = base_logger
+        self.context = context
+    
+    def _format_message(self, message):
+        return f"[{self.context}] {message}"
+    
+    def info(self, message):
+        self.base_logger.info(self._format_message(message))
+    
+    def error(self, message):
+        self.base_logger.error(self._format_message(message))
+    
+    def warning(self, message):
+        self.base_logger.warning(self._format_message(message))
+    
+    def debug(self, message):
+        self.base_logger.debug(self._format_message(message))
+    
+    def exception(self, message):
+        self.base_logger.exception(self._format_message(message))
+
+
 def setup_logging():
     """Configura o sistema de logging da API."""
     logger = logging.getLogger('ssp_api')
@@ -36,9 +62,10 @@ def setup_logging():
         # Evita propagação para o logger root (evita duplicação)
         logger.propagate = False
     
-    return logger
+    return ContextLogger(logger, "API")
 
 
-def get_logger():
-    """Retorna o logger configurado da API."""
-    return logging.getLogger('ssp_api')
+def get_logger(context="API"):
+    """Retorna o logger configurado da API com contexto específico."""
+    base_logger = logging.getLogger('ssp_api')
+    return ContextLogger(base_logger, context)

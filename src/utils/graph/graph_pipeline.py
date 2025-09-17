@@ -1,11 +1,8 @@
 import os
-import logging
 from utils.graph.mapPlotter import MapPlotter
+from utils.api.config import get_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+logger = get_logger("GRAPH")
 
 
 class GraphPipeline:
@@ -18,14 +15,14 @@ class GraphPipeline:
         )
 
     def run(self, year_filter=None, years_list=None):
-        logging.info("=== Início do Pipeline de Geração de Mapas ===")
+        logger.info("=== Início do Pipeline de Geração de Mapas ===")
         if years_list is not None:
             for year in years_list:
                 self.plotter.plot_maps_by_year_and_crime_db(year_filter=year)
         else:
             self.plotter.plot_maps_by_year_and_crime_db(
                 year_filter=year_filter)
-        logging.info("=== Pipeline de Mapas concluído ===")
+        logger.info("=== Pipeline de Mapas concluído ===")
 
 
 if __name__ == '__main__':

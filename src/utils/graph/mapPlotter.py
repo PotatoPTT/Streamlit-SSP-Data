@@ -1,13 +1,11 @@
 import os
 import folium
 import pandas as pd
-import logging
 from utils.database.connection import DatabaseConnection
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+# Importa o logger contextualizado
+from utils.api.config import get_logger
+logger = get_logger("MAPS")
 
 
 class MapPlotter:
@@ -81,12 +79,13 @@ class MapPlotter:
         offset_factor = 0.01
         df = db.get_map_data(year=year_filter)
         if df.empty:
-            logging.warning('Nenhum dado encontrado no banco para o filtro.')
+            logger.warning('Nenhum dado encontrado no banco para o filtro.')
             return
         years = [year_filter] if year_filter is not None else df['Ano'].unique()
         crimes = df['Natureza'].unique()
         for year in years:
-            logging.info(f"Gerando mapas para o ano {year}...")
+            logger.info(f"=== Início do Pipeline de Geração de Mapas ===")
+            logger.info(f"Gerando mapas para o ano {year}...")
             year_df = df[df['Ano'] == year]
             year_dir = os.path.join(self.output_dir, str(year))
             if not os.path.exists(year_dir):
@@ -107,8 +106,8 @@ class MapPlotter:
                     '/', '_').replace(' ', '_').replace('(', '').replace(')', '')
                 map_path = os.path.join(year_dir, f"{crime_filename}.html")
                 m.save(map_path)
-                logging.debug(
+                logger.debug(
                     f"Mapa do crime '{crime}' do ano {year} salvo em {map_path}")
-            logging.info(f"Mapas para o ano {year} gerados com sucesso!")
-        logging.info("Todos os mapas foram gerados com sucesso!")
+            logger.info(f"Mapas para o ano {year} gerados com sucesso!")
+        logger.info("=== Todos os mapas foram gerados com sucesso! ===")
         db.close()

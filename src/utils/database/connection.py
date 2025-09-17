@@ -1,16 +1,13 @@
 import psycopg2
 import pandas as pd
-import logging
 import io
 import streamlit as st
 import json
 import io
 import psycopg2
+from utils.api.config import get_logger
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] %(message)s"
-)
+logger = get_logger("DB")
 
 
 class DatabaseConnection:
@@ -125,10 +122,10 @@ class DatabaseConnection:
                         ocorrencias_dict[key] = int(
                             quantidade)  # sobrescreve duplicatas
             ocorrencias_data = [(*k, v) for k, v in ocorrencias_dict.items()]
-            logging.info(
+            logger.info(
                 f'COPY ocorrências do ano {a} ({len(ocorrencias_data)} registros diferentes)...')
             if not ocorrencias_data:
-                logging.info(f'Nenhum dado diferente para inserir no ano {a}.')
+                logger.info(f'Nenhum dado diferente para inserir no ano {a}.')
                 continue
             # Criar CSV em memória
             output = io.StringIO()
@@ -159,11 +156,11 @@ class DatabaseConnection:
                         DO UPDATE SET quantidade = EXCLUDED.quantidade;
                     ''')
                 self.conn.commit()
-                logging.info(
+                logger.info(
                     f'Sucesso ao inserir ocorrências do ano {a} via COPY + upsert.')
             except Exception as e:
                 self.conn.rollback()
-                logging.error(
+                logger.error(
                     f'Erro ao inserir ocorrências do ano {a} via COPY + upsert: {e}')
 
     def get_map_data(self, year=None, crime=None):
@@ -241,7 +238,7 @@ class DatabaseConnection:
             return result[0] if result else None
         except Exception as e:
             self.conn.rollback()
-            logging.error(f"Erro ao criar/reativar solicitação: {e}")
+            logger.error(f"Erro ao criar/reativar solicitação: {e}")
             return None
 
     def update_solicitacao_status(self, solicitacao_id: int, status: str, mensagem_erro: str = None):
@@ -262,7 +259,7 @@ class DatabaseConnection:
             return True
         except Exception as e:
             self.conn.rollback()
-            logging.error(f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
+            logger.error(f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
             return False
 
     # --- Artifact storage helpers ---
@@ -282,7 +279,7 @@ class DatabaseConnection:
             return True
         except Exception as e:
             self.conn.rollback()
-            logging.error(f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
+            logger.error(f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
             return False
 
     def fetch_model_blob_by_solicitacao(self, solicitacao_id: int):
@@ -296,24 +293,24 @@ class DatabaseConnection:
                 return bytes(row[0])
             return None
         except Exception as e:
-            logging.error(f"Erro ao buscar artefato por solicitacao {solicitacao_id}: {e}")
+            logger.error(f"Erro ao buscar artefato por solicitacao {solicitacao_id}: {e}")
             return None
 
     def insert_all(self, df: pd.DataFrame):
-        logging.info("Iniciando inserção de dados no banco...")
-        logging.info("Inserindo regioes...")
+        logger.info("Iniciando inserção de dados no banco...")
+        logger.info("Inserindo regioes...")
         self.insert_regioes(df)
-        logging.info(f"Inseridas {len(df['ID_Regiao'].unique())} regioes.")
-        logging.info("Inserindo municipios...")
+        logger.info(f"Inseridas {len(df['ID_Regiao'].unique())} regioes.")
+        logger.info("Inserindo municipios...")
         self.insert_municipios(df)
-        logging.info(
+        logger.info(
             f"Inseridos {len(df['ID_Municipio'].unique())} municipios.")
-        logging.info("Inserindo crimes...")
+        logger.info("Inserindo crimes...")
         self.insert_crimes(df)
-        logging.info(
+        logger.info(
             f"Inserido {len(df['Natureza'].unique())} tipos de crimes.")
-        logging.info("Inserindo ocorrencias...")
+        logger.info("Inserindo ocorrencias...")
         crime_map = self.get_crime_map()
         self.copy_ocorrencias(df, crime_map)
-        logging.info(f"Inseridas {len(df) * 12} ocorrencias (1 por mes).")
-        logging.info("Todas as inserções concluídas.")
+        logger.info(f"Inseridas {len(df) * 12} ocorrencias (1 por mes).")
+        logger.info("Todas as inserções concluídas.")

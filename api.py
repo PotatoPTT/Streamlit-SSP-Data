@@ -41,7 +41,7 @@ def update_lock_file():
                 f.write(datetime.now().isoformat())
                 
         except Exception as e:
-            logger = get_logger()
+            logger = get_logger("LOCK")
             logger.error(f"Erro ao atualizar lock file: {e}")
         
         time.sleep(LOCK_UPDATE_INTERVAL)
