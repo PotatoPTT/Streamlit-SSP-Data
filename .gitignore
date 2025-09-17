@@ -138,4 +138,4 @@ ssp_data.zip
 ssp_data_processed
 output
 update.lock
-.api.started
+api.lock

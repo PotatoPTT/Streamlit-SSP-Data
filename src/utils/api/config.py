@@ -26,12 +26,15 @@ def setup_logging():
     for handler in logger.handlers[:]:
         logger.removeHandler(handler)
     
-    # Adiciona handler para stdout se não existir
+    # Adiciona apenas um handler para console
     if not logger.handlers:
         handler = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter('[%(levelname)s] %(message)s')
         handler.setFormatter(formatter)
         logger.addHandler(handler)
+        
+        # Evita propagação para o logger root (evita duplicação)
+        logger.propagate = False
     
     return logger
 

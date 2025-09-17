@@ -3,30 +3,38 @@ from pages.reports import show_reports
 from pages.analytics import show_analytics
 from pages.dashboard import show_dashboard
 from utils.database.connection import DatabaseConnection
+from utils.api_manager import is_api_running, start_api, stop_api
 import streamlit as st
 import pandas as pd
-import subprocess
-import importlib.util
-import sys
+import atexit
 from pathlib import Path
-import threading
-import os
-from datetime import datetime, timezone
-# no in-app log buffer: logs will be written to the Streamlit console only
 
+
+def cleanup_on_exit():
+    """Para a API quando o Streamlit é encerrado."""
+    try:
+        stop_api()
+    except:
+        pass
+
+
+# Registra a função de limpeza
+atexit.register(cleanup_on_exit)
+
+# Configuração de inicialização da API
+# Define como True para iniciar a API automaticamente
+RUN_API_IN_BACKGROUND = True
+RUN_API_IN_BACKGROUND = True
 
 # Page configuration
 st.set_page_config(page_title="SSP Data",
                    page_icon="🛡️",
                    layout="wide",
-                   initial_sidebar_state="collapsed")
+                   initial_sidebar_state="collapsed" if not RUN_API_IN_BACKGROUND else "expanded")
 
 # Initialize session state
 if 'current_page' not in st.session_state:
     st.session_state.current_page = "dashboard"
-
-
-# Chart theme helper function
 def get_chart_theme():
     """Always return dark mode chart theme configuration"""
     return {
@@ -91,51 +99,58 @@ def buscar_ocorrencias(ano, regiao, municipio):
 # Theme functions
 def apply_theme_styles():
     """Apply dark mode CSS styles only"""
-    st.markdown("""
+    sidebar_css = ""
+    if not RUN_API_IN_BACKGROUND:
+        sidebar_css = """
+        /* Esconde completamente a sidebar e o botão de expandir */
+        [data-testid="stSidebar"], section[data-testid="stSidebar"] {
+            display: none !important;
+        }
+        [data-testid="collapsedControl"] {
+            display: none !important;
+        }
+        """
+    
+    st.markdown(f"""
     <style>
-    .stApp {
+    .stApp {{
         background-color: #0e1117;
         color: #fafafa;
-    }
+    }}
     
-    .stMetric {
+    .stMetric {{
         background-color: #262730 !important;
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #444;
-    }
+    }}
     
-    .stSelectbox > div > div {
+    .stSelectbox > div > div {{
         background-color: #262730;
         color: #fafafa;
-    }
+    }}
     
-    .stDataFrame {
+    .stDataFrame {{
         background-color: #262730;
-    }
+    }}
     
-    .stButton > button {
+    .stButton > button {{
         background-color: #262730;
         color: #fafafa;
         border: 1px solid #444;
-    }
+    }}
     
-    .stButton > button:hover {
+    .stButton > button:hover {{
         background-color: #444;
         border-color: #666;
-    }
+    }}
     
-    .nav-button-active {
+    .nav-button-active {{
         background-color: #1f77b4 !important;
         color: white !important;
-    }
-    /* Esconde completamente a sidebar e o botão de expandir */
-    [data-testid="stSidebar"], section[data-testid="stSidebar"] {
-        display: none !important;
-    }
-    [data-testid="collapsedControl"] {
-        display: none !important;
-    }
+    }}
+    
+    {sidebar_css}
     </style>
     """,
                 unsafe_allow_html=True)
@@ -194,54 +209,14 @@ def show_navigation():
 apply_theme_styles()
 show_navigation()
 
-# Code flag: if True the API will be started automatically on app load.
-# Set to True in the source when you want the API to run together with Streamlit.
-RUN_API_IN_BACKGROUND = False
-
-if 'api_background' not in st.session_state:
-    st.session_state['api_background'] = False
-if 'api_process_pid' not in st.session_state:
-    st.session_state['api_process_pid'] = None
-
-
+# Gerenciamento automático da API
 if RUN_API_IN_BACKGROUND:
-    # File-based guard to ensure API is started only once across reloads/sessions
-    start_guard = Path('.api.started')
-    if not start_guard.exists():
-        # Start api.py in-process on a background thread. This is simpler and ensures
-        # the API uses the same Python environment as Streamlit.
-        api_script = Path('api') / 'api.py'
-        try:
-            spec = importlib.util.spec_from_file_location('ssp_api_module', str(api_script))
-            if not spec or not spec.loader:
-                raise RuntimeError('Não foi possível carregar o módulo api')
-            api_mod = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(api_mod)
+    if not is_api_running():
+        success, message = start_api()
+        # Log apenas em caso de erro
+        if not success:
+            print(f"Erro ao iniciar API: {message}")
 
-            if not hasattr(api_mod, 'main'):
-                raise RuntimeError('api.py não define a função main()')
-
-            t = threading.Thread(target=getattr(api_mod, 'main'), daemon=True, name='ssp_api_thread')
-            t.start()
-            # write guard file with timestamp
-            try:
-                start_guard.write_text(datetime.now(timezone.utc).isoformat())
-            except Exception:
-                pass
-            st.session_state['api_background'] = True
-            st.session_state['api_process_pid'] = None
-            st.info('API iniciada em-thread (in-process)')
-        except Exception as e:
-            st.session_state['api_background'] = False
-            st.session_state['api_process_pid'] = None
-            st.error(f'Falha ao iniciar API em-thread: {e}')
-    else:
-        print('Arquivo de controle .api.started presente — assumindo que API já foi iniciada anteriormente')
-
-# no in-app log UI: logs go to the console where Streamlit was started
-
-
-# Import das páginas
 
 # Page routing
 if st.session_state.current_page == "dashboard":
