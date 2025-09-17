@@ -267,7 +267,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
         status = selected_solicit['status'] if selected_solicit else None
         if status == 'CONCLUIDO':
             st.success("Modelo concluído — exibindo resultados.")
-            model_filename = selected_solicit.get('caminho_artefato')
+            model_filename = f"model_{selected_method}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
             if not model_filename:
                 st.error("Artefato do modelo não encontrado (valor vazio). Considere gerar o modelo novamente.")
                 db.close()

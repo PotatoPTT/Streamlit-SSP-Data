@@ -196,7 +196,7 @@ show_navigation()
 
 # Code flag: if True the API will be started automatically on app load.
 # Set to True in the source when you want the API to run together with Streamlit.
-RUN_API_IN_BACKGROUND = True
+RUN_API_IN_BACKGROUND = False
 
 if 'api_background' not in st.session_state:
     st.session_state['api_background'] = False

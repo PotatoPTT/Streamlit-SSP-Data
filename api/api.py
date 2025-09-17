@@ -133,7 +133,7 @@ def train_and_find_best_model(time_series_df, metodo='kmeans'):
 def generate_model_path(job_id, params):
     """Gera um nome de arquivo padronizado para o modelo."""
     metodo = params.get('metodo', 'kmeans')
-    filename = f"model_{job_id}_{metodo}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
+    filename = f"model_{metodo}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
     # Remove caracteres inválidos para nomes de arquivo
     safe_filename = "".join(
         c for c in filename if c.isalnum() or c in ('-', '_', '.'))
@@ -168,7 +168,7 @@ def main():
             if params and isinstance(params, dict):
                 try:
                     metodo = params.get('metodo', 'kmeans')
-                    filename = f"model_{job_id}_{metodo}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
+                    filename = f"model_{metodo}_{params['data_inicio']}_{params['data_fim']}_{params['regiao']}_{params['crime']}.joblib"
                     safe_filename = "".join(c for c in filename if c.isalnum() or c in ('-', '_', '.'))
                     full = str(MODELS_OUTPUT_DIR / safe_filename)
                 except Exception:
