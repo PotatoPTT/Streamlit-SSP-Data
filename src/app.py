@@ -5,10 +5,10 @@ from pages.dashboard import show_dashboard
 from utils.data.connection import DatabaseConnection
 from utils.core.api_manager import is_api_running, start_api, stop_api
 from utils.config.logging import get_logger
+from utils.constants import CHART_THEME
 import streamlit as st
 import pandas as pd
 import atexit
-from pathlib import Path
 
 logger = get_logger("STREAMLIT")
 
@@ -37,15 +37,6 @@ st.set_page_config(page_title="SSP Data",
 # Initialize session state
 if 'current_page' not in st.session_state:
     st.session_state.current_page = "dashboard"
-def get_chart_theme():
-    """Always return dark mode chart theme configuration"""
-    return {
-        'primary_color': '#1f77b4',
-        'text_color': '#fafafa',
-        'grid_color': 'rgba(255,255,255,0.1)',
-        'plot_bgcolor': 'rgba(0,0,0,0)',
-        'paper_bgcolor': 'rgba(0,0,0,0)'
-    }
 
 
 @st.cache_data(ttl=300)

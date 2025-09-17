@@ -17,7 +17,6 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logger = get_logger("DOWNLOAD")
 
-import os
 # Garante que o diretório de trabalho seja o root do projeto
 os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 

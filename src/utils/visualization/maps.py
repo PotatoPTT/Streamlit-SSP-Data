@@ -2,6 +2,7 @@ import os
 import folium
 import pandas as pd
 from utils.data.connection import DatabaseConnection
+from utils.constants import MESES
 
 # Importa o logger contextualizado
 from utils.config.logging import get_logger
@@ -62,10 +63,6 @@ class MapPlotter:
         Plota mapas usando dados vindos do banco de dados, normalizando o tamanho dos círculos.
         """
         db = DatabaseConnection()
-        months = [
-            'Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio', 'Junho',
-            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-        ]
         month_colors = [
             '#e6194b', '#3cb44b', '#ffe119', '#4363d8',
             '#f58231', '#911eb4', '#46f0f0', '#f032e6',
@@ -97,7 +94,7 @@ class MapPlotter:
                 m = folium.Map(location=[-21.8, -49.1], zoom_start=7)
                 min_val, max_val, min_radius, max_radius = self._get_normalization_params(
                     crime_df['quantidade'])
-                for idx, month in enumerate(months, 1):
+                for idx, month in enumerate(MESES, 1):
                     month_df = crime_df[crime_df['mes'] == idx]
                     self._add_month_layer(m, month, idx, month_df, crime, offsets, offset_factor,
                                           month_colors, min_val, max_val, min_radius, max_radius)

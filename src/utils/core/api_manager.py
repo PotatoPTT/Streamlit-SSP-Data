@@ -6,8 +6,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-
-API_TIMEOUT = 1  # minutos para considerar a API como "não rodando"
+from utils.constants import API_TIMEOUT_MINUTES
 
 
 def is_api_running():
@@ -34,8 +33,8 @@ def is_api_running():
         # Converte para datetime
         lock_time = datetime.fromisoformat(content)
         
-        # Verifica se foi atualizado nos últimos API_TIMEOUT minutos
-        max_age = timedelta(minutes=API_TIMEOUT)
+        # Verifica se foi atualizado nos últimos API_TIMEOUT_MINUTES minutos
+        max_age = timedelta(minutes=API_TIMEOUT_MINUTES)
         time_diff = datetime.now() - lock_time
         
         return time_diff <= max_age
@@ -120,12 +119,6 @@ def get_api_status():
         return "rodando", "API está rodando normalmente"
     else:
         return "parada", "API não está rodando"
-
-
-# Para compatibilidade com código existente
-def ensure_single_api_instance(mode='subprocess'):
-    """Wrapper para ensure_api_running() para compatibilidade."""
-    return ensure_api_running()
 
 
 def stop_api():
