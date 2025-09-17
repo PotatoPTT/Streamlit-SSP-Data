@@ -81,8 +81,6 @@ class MapPlotter:
         years = [year_filter] if year_filter is not None else df['Ano'].unique()
         crimes = df['Natureza'].unique()
         for year in years:
-            logger.info(f"=== Início do Pipeline de Geração de Mapas ===")
-            logger.info(f"Gerando mapas para o ano {year}...")
             year_df = df[df['Ano'] == year]
             year_dir = os.path.join(self.output_dir, str(year))
             if not os.path.exists(year_dir):
@@ -107,4 +105,43 @@ class MapPlotter:
                     f"Mapa do crime '{crime}' do ano {year} salvo em {map_path}")
             logger.info(f"Mapas para o ano {year} gerados com sucesso!")
         logger.info("=== Todos os mapas foram gerados com sucesso! ===")
+        
+        # Limpar cache do Streamlit após gerar mapas
+        self._clear_maps_cache()
+        
         db.close()
+
+    def _clear_maps_cache(self):
+        """
+        Limpa o cache do Streamlit relacionado aos mapas.
+        Método privado chamado automaticamente após geração de mapas.
+        """
+        try:
+            # Importar apenas se streamlit estiver disponível
+            import streamlit as st
+            
+            # Tentar importar e limpar as funções de cache específicas de mapas
+            try:
+                from utils.ui.dashboard.utils import (
+                    verificar_mapas_disponiveis,
+                    carregar_conteudo_mapa
+                )
+                
+                verificar_mapas_disponiveis.clear()
+                carregar_conteudo_mapa.clear()
+                
+                logger.debug("Cache de mapas do Streamlit limpo automaticamente")
+                
+            except ImportError:
+                # Se as funções não estiverem disponíveis, não há problema
+                logger.debug("Funções de cache de mapas não disponíveis, continuando sem limpeza")
+                pass
+                
+        except ImportError:
+            # Se streamlit não estiver disponível (ex: execução em background), não há problema
+            logger.debug("Streamlit não disponível, continuando sem limpeza de cache de mapas")
+            pass
+        except Exception as e:
+            # Não queremos que erro de cache quebre a operação principal
+            logger.warning(f"Erro ao limpar cache de mapas automaticamente: {e}")
+            pass

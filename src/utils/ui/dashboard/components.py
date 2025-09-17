@@ -151,8 +151,6 @@ def render_maps_section(year_filter):
 
     if not mapas_existem:
         # Gerar mapas sob demanda
-        st.info(
-            f"🗺️ Mapas não encontrados para {year_filter}. Iniciando geração...")
 
         log_msg = f"[MAPS] Iniciando geração de mapas para o ano {year_filter}"
         logger.info(log_msg)
@@ -165,20 +163,34 @@ def render_maps_section(year_filter):
                 success_msg = f"[MAPS] Mapas para {year_filter} gerados com sucesso"
                 logger.info(success_msg)
 
-                st.success(f"✅ Mapas para {year_filter} gerados com sucesso!")
+                st.success(f"Mapas para {year_filter} gerados com sucesso!")
+                
+                # Limpar cache para garantir que os mapas sejam detectados
+                logger.info("Limpando cache de mapas após geração")
+                verificar_mapas_disponiveis.clear()
+                
+                # Pequena pausa para garantir que os arquivos estejam disponíveis
+                import time
+                time.sleep(0.5)
+                
+                # Verificar novamente após geração (agora com cache limpo)
+                mapas_existem, crimes_mapas, mapas_ano_path = verificar_mapas_disponiveis(
+                    year_filter)
+                
+                if not mapas_existem:
+                    st.warning("Mapas gerados, mas não foram detectados. Tente atualizar a página.")
+                    return
+                    
             except Exception as e:
                 logger.error(
                     f"[MAPS] Erro ao gerar mapas para {year_filter}: {e}")
 
-                st.error(f"❌ Erro ao gerar mapas: {e}")
+                st.error(f"Erro ao gerar mapas: {e}")
                 return
-
-        # Verificar novamente após geração
-        mapas_existem, crimes_mapas, mapas_ano_path = verificar_mapas_disponiveis(
-            year_filter)
 
     if not mapas_existem:
         st.info(f"Nenhum mapa interativo disponível para o ano {year_filter}.")
+        return
         return
 
     # Seletor de crime para o mapa
