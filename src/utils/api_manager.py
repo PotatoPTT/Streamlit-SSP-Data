@@ -51,7 +51,19 @@ def start_api():
     Returns:
         tuple: (success: bool, message: str)
     """
+    # Primeiro verifica se já está rodando para evitar duplicatas
+    if is_api_running():
+        return True, "API já está rodando"
+    
     try:
+        # Cria o arquivo lock imediatamente para prevenir múltiplas chamadas
+        lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+        lock_file.parent.mkdir(exist_ok=True)
+        
+        # Escreve timestamp atual para marcar que está iniciando
+        with open(lock_file, 'w') as f:
+            f.write(datetime.now().isoformat())
+        
         # Encontra o executável Python correto
         if hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix):
             # Estamos em um venv
@@ -72,6 +84,13 @@ def start_api():
         return True, f"API iniciada com sucesso (PID: {process.pid})"
         
     except Exception as e:
+        # Se falhou, remove o arquivo lock para permitir nova tentativa
+        try:
+            lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+            if lock_file.exists():
+                lock_file.unlink()
+        except:
+            pass
         return False, f"Erro ao iniciar API: {e}"
 
 
