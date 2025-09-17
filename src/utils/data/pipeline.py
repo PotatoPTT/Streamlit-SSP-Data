@@ -1,7 +1,7 @@
 import os
 import pandas as pd
-from utils.database.connection import DatabaseConnection
-from utils.api.config import get_logger
+from utils.data.connection import DatabaseConnection
+from utils.config.logging import get_logger
 
 logger = get_logger("DATABASE")
 

@@ -1,10 +1,10 @@
 import streamlit as st
-from utils.dashboard_utils import processar_dados_dashboard
-from utils.dashboard_ui import (
+from utils.ui.dashboard.utils import processar_dados_dashboard
+from utils.ui.dashboard.components import (
     render_filters_section, render_kpi_section, render_charts_section,
     render_data_table_section, render_maps_section
 )
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("DASHBOARD")
 

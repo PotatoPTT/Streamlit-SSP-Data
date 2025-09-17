@@ -4,7 +4,8 @@ Gerenciamento de jobs e solicitações da API.
 
 import json
 import os
-from utils.api.config import get_logger, MODELS_OUTPUT_DIR
+from utils.config.logging import get_logger
+from utils.ml.config import MODELS_OUTPUT_DIR
 
 logger = get_logger("JOBS")
 
@@ -48,7 +49,7 @@ def validate_existing_models(db_conn):
             # Tentar reconstruir o nome do arquivo esperado
             if params and isinstance(params, dict):
                 try:
-                    from utils.api.file_manager import generate_model_filename
+                    from utils.ml.file_manager import generate_model_filename
                     filename = generate_model_filename(params)
                     full_path = str(MODELS_OUTPUT_DIR / filename)
                 except Exception:
@@ -76,9 +77,9 @@ def validate_existing_models(db_conn):
 
 def process_job(db_conn, job_id, params):
     """Processa um job específico."""
-    from utils.api.data_processor import fetch_data_for_job
-    from utils.api.model_trainer import train_and_find_best_model
-    from utils.api.file_manager import save_model_and_blob
+    from utils.ml.data_processor import fetch_data_for_job
+    from utils.ml.trainer import train_and_find_best_model
+    from utils.ml.file_manager import save_model_and_blob
     
     logger.info(f"\n[+] Nova solicitação encontrada (ID: {job_id}).")
     db_conn.update_solicitacao_status(job_id, 'PROCESSANDO')

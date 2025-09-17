@@ -7,8 +7,8 @@ import os
 import time
 import sys
 import subprocess
-from utils.api.config import get_logger
-from utils.dashboard_utils import limpar_cache_dashboard
+from utils.config.logging import get_logger
+from utils.ui.dashboard.utils import limpar_cache_dashboard
 
 logger = get_logger("PIPELINE_MANAGER")
 

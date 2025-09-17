@@ -1,0 +1,1 @@
+"""Configurações e logging para toda a aplicação."""

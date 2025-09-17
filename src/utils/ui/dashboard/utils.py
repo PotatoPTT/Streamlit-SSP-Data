@@ -5,7 +5,7 @@ Utilitários para o dashboard com funções cacheadas e processamento de dados.
 import streamlit as st
 import pandas as pd
 from pathlib import Path
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("DASHBOARD_UTILS")
 

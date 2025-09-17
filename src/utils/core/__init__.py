@@ -1,0 +1,1 @@
+"""Funcionalidades centrais e gerenciamento de pipelines."""

@@ -1,6 +1,6 @@
 import os
-from utils.graph.mapPlotter import MapPlotter
-from utils.api.config import get_logger
+from utils.visualization.maps import MapPlotter
+from utils.config.logging import get_logger
 
 logger = get_logger("GRAPH")
 

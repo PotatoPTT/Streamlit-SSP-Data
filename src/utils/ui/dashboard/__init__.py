@@ -1,0 +1,1 @@
+"""Componentes e utilitários do dashboard."""

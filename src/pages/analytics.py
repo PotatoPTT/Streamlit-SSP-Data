@@ -1,9 +1,9 @@
 import streamlit as st
 import json
-from utils.analytics_utils import (
+from utils.ui.analytics.utils import (
     build_model_params, get_crimes_list, get_solicitacao_by_params_cached
 )
-from utils.analytics_ui import (
+from utils.ui.analytics.components import (
     render_date_filters, render_location_filter, render_crime_filter,
     render_method_selector, handle_pending_processing_model,
     process_model_by_status, handle_no_existing_models_cached

@@ -10,9 +10,10 @@ SRC_DIR = ROOT_DIR / 'src'
 sys.path.insert(0, str(ROOT_DIR))
 sys.path.insert(0, str(SRC_DIR))
 
-from src.utils.database.connection import DatabaseConnection
-from src.utils.api import (
-    setup_logging, get_logger, POLLING_INTERVAL_SECONDS,
+from src.utils.data.connection import DatabaseConnection
+from src.utils.config.logging import get_logger
+from src.utils.ml.config import POLLING_INTERVAL_SECONDS
+from src.utils.ml import (
     get_pending_job, validate_existing_models, process_job
 )
 
@@ -67,10 +68,11 @@ def main():
     
     try:
         # Setup do logging
-        logger = setup_logging()
+        logger = get_logger("API")
         logger.info("--- API de Treinamento de Modelos iniciada ---")
         logger.info(f"Verificando solicitações a cada {POLLING_INTERVAL_SECONDS} segundos...")
     except Exception as e:
+        logger = get_logger("API")
         logger.error(f"Erro no setup: {e}")
         return
 

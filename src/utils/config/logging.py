@@ -1,16 +1,12 @@
 """
-Configurações para a API de treinamento de modelos.
+Sistema de logging centralizado para toda a aplicação.
 """
 
 import logging
 from pathlib import Path
 
-# Configurações principais da API
-POLLING_INTERVAL_SECONDS = 15
-K_RANGE = range(2, 11)  # Silhouette score não é definido para k=1
-
 # Diretórios
-ROOT_DIR = Path(__file__).resolve().parents[3]  # Volta 3 níveis: api -> utils -> src -> root
+ROOT_DIR = Path(__file__).resolve().parents[3]  # Volta 3 níveis: config -> utils -> src -> root
 MODELS_OUTPUT_DIR = ROOT_DIR / 'output' / 'models'
 
 # Garante que o diretório de modelos existe
@@ -20,7 +16,7 @@ MODELS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 class ContextLogger:
     """Logger com contexto para identificar diferentes módulos."""
     
-    def __init__(self, base_logger, context="API"):
+    def __init__(self, base_logger, context="APP"):
         self.base_logger = base_logger
         self.context = context
     
@@ -44,8 +40,8 @@ class ContextLogger:
 
 
 def setup_logging():
-    """Configura o sistema de logging da API."""
-    logger = logging.getLogger('ssp_api')
+    """Configura o sistema de logging da aplicação."""
+    logger = logging.getLogger('ssp_app')
     logger.setLevel(logging.INFO)
     
     # Remove handlers existentes para evitar duplicação
@@ -62,12 +58,12 @@ def setup_logging():
         # Evita propagação para o logger root (evita duplicação)
         logger.propagate = False
     
-    return ContextLogger(logger, "API")
+    return ContextLogger(logger, "APP")
 
 
-def get_logger(context="API"):
-    """Retorna o logger configurado da API com contexto específico."""
-    base_logger = logging.getLogger('ssp_api')
+def get_logger(context="APP"):
+    """Retorna o logger configurado da aplicação com contexto específico."""
+    base_logger = logging.getLogger('ssp_app')
     
     # Garantir que o logger está configurado
     if not base_logger.handlers:

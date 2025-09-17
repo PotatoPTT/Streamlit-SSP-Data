@@ -5,7 +5,8 @@ Gerenciamento de arquivos e persistência de modelos.
 import joblib
 import os
 from pathlib import Path
-from utils.api.config import get_logger, MODELS_OUTPUT_DIR
+from utils.config.logging import get_logger
+from utils.ml.config import MODELS_OUTPUT_DIR
 
 logger = get_logger()
 

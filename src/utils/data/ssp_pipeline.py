@@ -1,9 +1,9 @@
-from utils.download.dataDownloader import SSPDataDownloader, BASE_URL, YEARS, GRUPO_DELITO, TIPO_GRUPO, OUTPUT_DIR, ZIP_FILENAME, MAX_WORKERS, DEBUG, HEADERS
+from utils.data.downloader import SSPDataDownloader, BASE_URL, YEARS, GRUPO_DELITO, TIPO_GRUPO, OUTPUT_DIR, ZIP_FILENAME, MAX_WORKERS, DEBUG, HEADERS
 import os
 from concurrent.futures import ThreadPoolExecutor
-from utils.download.dataProcessor import DataProcessor
+from utils.data.processor import DataProcessor
 import pandas as pd
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("SSP_PIPELINE")
 

@@ -1,0 +1,1 @@
+"""Utilitários para manipulação e processamento de dados."""

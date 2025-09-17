@@ -1,7 +1,7 @@
-from utils.download.ssp_pipeline import SSPDataPipeline
-from utils.database.database_pipeline import DatabasePipeline
-from utils.graph.graph_pipeline import GraphPipeline
-from utils.api.config import get_logger
+from utils.data.ssp_pipeline import SSPDataPipeline
+from utils.data.pipeline import DatabasePipeline
+from utils.visualization.pipeline import GraphPipeline
+from utils.config.logging import get_logger
 import os
 # Garante que o diretório de trabalho seja o root do projeto
 os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))

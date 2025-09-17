@@ -5,7 +5,7 @@ import streamlit as st
 import json
 import io
 import psycopg2
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("DB")
 

@@ -8,8 +8,8 @@ import os
 import json
 from pathlib import Path
 import streamlit as st
-from utils.database.connection import DatabaseConnection
-from utils.api.config import get_logger
+from utils.data.connection import DatabaseConnection
+from utils.config.logging import get_logger
 
 logger = get_logger("ANALYTICS_UTILS")
 
@@ -82,7 +82,7 @@ def get_status_label(solicitacao, name):
 
 def load_model_from_file_or_db(model_filename, selected_solicit, db):
     """Carrega o modelo do arquivo local ou do banco de dados."""
-    project_root = Path(__file__).resolve().parents[2]
+    project_root = Path(__file__).resolve().parents[4]
     
     if os.path.isabs(model_filename):
         model_full_path = model_filename

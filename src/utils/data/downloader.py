@@ -11,8 +11,8 @@ from geopy.geocoders import Nominatim  # type: ignore
 from geopy.location import Location  # type: ignore
 import logging
 import re
-from utils.database.connection import DatabaseConnection
-from utils.api.config import get_logger
+from utils.data.connection import DatabaseConnection
+from utils.config.logging import get_logger
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logger = get_logger("DOWNLOAD")

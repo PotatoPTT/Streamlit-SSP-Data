@@ -1,0 +1,1 @@
+"""Interface do usuário e componentes visuais."""

@@ -4,14 +4,14 @@ Gerenciamento de fluxos de interface para análises preditivas.
 
 import streamlit as st
 import time
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("ANALYTICS_UI")
 
 
 def render_date_filters(df_anos, df_meses_por_ano):
     """Renderiza os filtros de data da interface."""
-    from utils.analytics_utils import get_meses_mapping, get_available_months_for_year, filter_end_months
+    from utils.ui.analytics.utils import get_meses_mapping, get_available_months_for_year, filter_end_months
     
     meses_map, meses_map_inv = get_meses_mapping()
     anos_list = df_anos["ano"].sort_values(ascending=False).tolist()
@@ -57,7 +57,7 @@ def render_crime_filter(db):
 
 def render_method_selector(solicit_k, solicit_d):
     """Renderiza o seletor de método quando há solicitações existentes."""
-    from utils.analytics_utils import get_status_label
+    from utils.ui.analytics.utils import get_status_label
     
     options = [
         ('kmeans', get_status_label(solicit_k, 'K-Means')),
@@ -80,11 +80,11 @@ def render_method_selector(solicit_k, solicit_d):
 
 def handle_completed_model(selected_method, selected_solicit, params, db):
     """Gerencia o fluxo quando um modelo está concluído."""
-    from utils.analytics_utils import (
+    from utils.ui.analytics.utils import (
         get_model_filename, load_model_from_file_or_db, 
         fetch_data_for_model, prepare_municipalities_table
     )
-    from utils.graph.analytics_plots import (
+    from utils.visualization.analytics_plots import (
         display_model_metrics, plot_time_series_by_cluster, plot_map_by_cluster
     )
     
@@ -202,7 +202,7 @@ def handle_no_existing_models(params_k, params_d, db):
 
 def handle_completed_model_cached(selected_method, selected_solicit, params):
     """Versão otimizada com cache para modelos concluídos."""
-    from utils.database.connection import DatabaseConnection
+    from utils.data.connection import DatabaseConnection
     
     logger.info(f"Processando modelo concluído: {selected_method}")
     
@@ -216,7 +216,7 @@ def handle_completed_model_cached(selected_method, selected_solicit, params):
 
 def handle_failed_model_cached(selected_method, selected_solicit, params_k, params_d):
     """Versão otimizada com cache para modelos falhos."""
-    from utils.database.connection import DatabaseConnection
+    from utils.data.connection import DatabaseConnection
     
     logger.warning(f"Processando modelo falho: {selected_method}")
     
@@ -229,7 +229,7 @@ def handle_failed_model_cached(selected_method, selected_solicit, params_k, para
 
 def handle_expired_model_cached(selected_method, params_k, params_d):
     """Versão otimizada com cache para modelos expirados."""
-    from utils.database.connection import DatabaseConnection
+    from utils.data.connection import DatabaseConnection
     
     logger.info(f"Processando modelo expirado: {selected_method}")
     
@@ -242,7 +242,7 @@ def handle_expired_model_cached(selected_method, params_k, params_d):
 
 def handle_no_existing_models_cached(params_k, params_d):
     """Versão otimizada com cache para quando não há modelos existentes."""
-    from utils.database.connection import DatabaseConnection
+    from utils.data.connection import DatabaseConnection
     
     logger.info("Processando nova solicitação de modelo")
     

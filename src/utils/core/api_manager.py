@@ -17,7 +17,7 @@ def is_api_running():
     Returns:
         bool: True se a API está rodando (arquivo de lock atualizado recentemente)
     """
-    lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+    lock_file = Path(__file__).resolve().parent.parent.parent.parent / 'configs' / 'api.lock'
     
     if not lock_file.exists():
         return False
@@ -57,7 +57,7 @@ def start_api():
     
     try:
         # Cria o arquivo lock imediatamente para prevenir múltiplas chamadas
-        lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+        lock_file = Path(__file__).resolve().parent.parent.parent.parent / 'configs' / 'api.lock'
         lock_file.parent.mkdir(exist_ok=True)
         
         # Escreve timestamp atual para marcar que está iniciando
@@ -71,8 +71,10 @@ def start_api():
         else:
             python_exe = 'python'
         
-        # Caminho para o arquivo da API
-        api_file = Path(__file__).resolve().parent.parent.parent / 'api.py'
+        # Caminho para o arquivo da API na raiz do projeto
+        # src/utils/core/ -> src/utils/ -> src/ -> raiz/
+        project_root = Path(__file__).resolve().parent.parent.parent.parent
+        api_file = project_root / 'api.py'
         
         # Inicia a API com saída no console
         process = subprocess.Popen(
@@ -86,7 +88,7 @@ def start_api():
     except Exception as e:
         # Se falhou, remove o arquivo lock para permitir nova tentativa
         try:
-            lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+            lock_file = Path(__file__).resolve().parent.parent.parent.parent / 'configs' / 'api.lock'
             if lock_file.exists():
                 lock_file.unlink()
         except:
@@ -134,7 +136,7 @@ def stop_api():
         tuple: (success: bool, message: str)
     """
     try:
-        lock_file = Path(__file__).resolve().parent.parent.parent / 'configs' / 'api.lock'
+        lock_file = Path(__file__).resolve().parent.parent.parent.parent / 'configs' / 'api.lock'
         lock_file.parent.mkdir(exist_ok=True)
         
         with open(lock_file, 'w') as f:

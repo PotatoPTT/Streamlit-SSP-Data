@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import warnings
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 warnings.filterwarnings("ignore", category=UserWarning,
                         module="openpyxl")  # Ignorar avisos do openpyxl
 

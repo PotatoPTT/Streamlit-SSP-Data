@@ -6,8 +6,9 @@ import numpy as np
 from sklearn.metrics import silhouette_score
 from tslearn.clustering import TimeSeriesKMeans
 from tslearn.preprocessing import TimeSeriesScalerMeanVariance
-from utils.api.config import get_logger, K_RANGE
-from utils.api.data_processor import validate_time_series_data
+from utils.config.logging import get_logger
+from utils.ml.config import K_RANGE
+from utils.ml.data_processor import validate_time_series_data
 
 logger = get_logger("ML")
 

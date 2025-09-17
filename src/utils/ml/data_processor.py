@@ -3,7 +3,7 @@ Processamento de dados e queries para a API.
 """
 
 import pandas as pd
-from utils.api.config import get_logger
+from utils.config.logging import get_logger
 
 logger = get_logger("DATA")
 

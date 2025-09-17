@@ -6,13 +6,13 @@ import streamlit as st
 import plotly.graph_objects as go
 import streamlit.components.v1 as components
 import unicodedata
-from utils.dashboard_utils import (
+from utils.ui.dashboard.utils import (
     processar_tabela_detalhada, verificar_mapas_disponiveis, 
     carregar_conteudo_mapa, MESES
 )
-from utils.pipeline_manager import render_pipeline_control
-from utils.graph.graph_pipeline import GraphPipeline
-from utils.api.config import get_logger
+from utils.core.pipeline_manager import render_pipeline_control
+from utils.visualization.pipeline import GraphPipeline
+from utils.config.logging import get_logger
 
 logger = get_logger("DASHBOARD_UI")
 
