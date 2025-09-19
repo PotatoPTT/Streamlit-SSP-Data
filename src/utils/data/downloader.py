@@ -13,6 +13,9 @@ import logging
 import re
 from utils.data.connection import DatabaseConnection
 from utils.config.logging import get_logger
+from utils.config.constants import BAIXAR_ANOS_ANTERIORES
+from utils.config.constants import MAX_WORKERS
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logger = get_logger("DOWNLOAD")
@@ -410,10 +413,8 @@ TIPO_GRUPO = "MUNICÍPIO"
 OUTPUT_DIR = "./ssp_data"
 ZIP_FILENAME = "./ssp_data.zip"
 CSV_FILE_PATH = os.path.join("configs", "cities_codes.csv")
-MAX_WORKERS = 10
+
 DOWNLOAD_EVERYTHING = False  # Se True, baixa tudo mesmo que já tenha arquivos válidos
-# Quantos anos anteriores baixar novamente se já existirem arquivos válidos
-BAIXAR_ANOS_ANTERIORES = 1
 DEBUG = False
 HEADERS = {
     "accept": "application/json, text/plain, */*",
