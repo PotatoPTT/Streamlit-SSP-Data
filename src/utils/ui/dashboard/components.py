@@ -4,14 +4,11 @@ Funções de renderização da interface do dashboard.
 
 import streamlit as st
 import plotly.graph_objects as go
-import streamlit.components.v1 as components
 import unicodedata
 from utils.ui.dashboard.utils import (
-    processar_tabela_detalhada, verificar_mapas_disponiveis,
-    carregar_conteudo_mapa
+    processar_tabela_detalhada,
 )
 from utils.core.pipeline_manager import render_pipeline_control
-from utils.visualization.pipeline import GraphPipeline
 from utils.config.logging import get_logger
 from utils.config.constants import MESES_MAP_INV
 
@@ -144,108 +141,28 @@ def render_data_table_section(dados):
 def render_maps_section(year_filter):
     """Renderiza a seção de mapas interativos."""
     st.markdown("#### Mapa Interativo")
+    # Agora usamos exclusivamente Plotly inline para mapas (sem geração de HTML)
+    from utils.visualization.analytics_plots import plot_maps_crime_counts_plotly
+    from utils.ui.dashboard.utils import get_map_data_cached
 
-    # Verificar se existem mapas para o ano
-    mapas_existem, crimes_mapas, mapas_ano_path = verificar_mapas_disponiveis(
-        year_filter)
-
-    if not mapas_existem:
-        # Gerar mapas sob demanda
-
-        log_msg = f"[MAPS] Iniciando geração de mapas para o ano {year_filter}"
-        logger.info(log_msg)
-
-        with st.spinner(f"Gerando mapas para o ano {year_filter}..."):
-            pipeline = GraphPipeline()
-            try:
-                pipeline.run(year_filter=int(year_filter))
-
-                success_msg = f"[MAPS] Mapas para {year_filter} gerados com sucesso"
-                logger.info(success_msg)
-
-                st.success(f"Mapas para {year_filter} gerados com sucesso!")
-                
-                # Limpar cache para garantir que os mapas sejam detectados
-                logger.info("Limpando cache de mapas após geração")
-                verificar_mapas_disponiveis.clear()
-                
-                # Pequena pausa para garantir que os arquivos estejam disponíveis
-                import time
-                time.sleep(0.5)
-                
-                # Verificar novamente após geração (agora com cache limpo)
-                mapas_existem, crimes_mapas, mapas_ano_path = verificar_mapas_disponiveis(
-                    year_filter)
-                
-                if not mapas_existem:
-                    st.warning("Mapas gerados, mas não foram detectados. Tente atualizar a página.")
-                    return
-                    
-            except Exception as e:
-                logger.error(
-                    f"[MAPS] Erro ao gerar mapas para {year_filter}: {e}")
-
-                st.error(f"Erro ao gerar mapas: {e}")
-                return
-
-    if not mapas_existem:
-        st.info(f"Nenhum mapa interativo disponível para o ano {year_filter}.")
-        return
-        return
-
-    # Seletor de crime para o mapa
-    crime_mapa = st.selectbox(
-        "Tipo de Crime (Mapa)",
-        crimes_mapas,
-        key="mapa_crime"
-    )
-    # Tentar renderizar inline via Plotly usando dados do pipeline/DB como preferência
     try:
-        from utils.visualization.analytics_plots import plot_maps_crime_counts_plotly
-        from utils.data.connection import DatabaseConnection
-
-        # Tentar buscar dados brutos de mapa pelo mesmo caminho que o pipeline usaria
-        db = DatabaseConnection()
-        df_map = db.get_map_data(year=int(year_filter))
-        if df_map is not None and not df_map.empty:
-            # Usar Plotly para gerar mapas inline (mantém controle de crime via selectbox)
-            # Filtramos para o crime selecionado
-            crime_name = crime_mapa
-            # Mapear o nome do selectbox para o valor presente no df (arquivo usa underscores)
-            # Procuramos correspondência ignorando acentos e case
-            def _normalize(s):
-                import unicodedata
-                return unicodedata.normalize('NFKD', str(s)).encode('ASCII', 'ignore').decode('ASCII').lower()
-
-            norm_choice = _normalize(crime_name)
-            # Encontrar correspondência aproximada entre Natureza e escolha
-            matches = [c for c in df_map['Natureza'].unique() if _normalize(c) == norm_choice]
-            if matches:
-                selected_natureza = matches[0]
-            else:
-                # fallback: usa o texto do select como aparece (pode ser igual)
-                selected_natureza = crime_name
-
-            plot_maps_crime_counts_plotly(df_map, year=int(year_filter), crimes=[selected_natureza])
-            db.close()
-            return
-        db.close()
+        df_map = get_map_data_cached(int(year_filter))
     except Exception as e:
-        # Se ocorrer qualquer erro, cai no fluxo de arquivos HTML já existente
-        logger.debug(f"Não foi possível renderizar mapas inline via Plotly: {e}")
+        logger.error(f"Erro ao buscar dados de mapa (cache): {e}")
+        st.error("Erro ao carregar dados de mapas. Verifique a conexão com o banco.")
+        return
 
-    # Encontrar o arquivo correspondente (fallback para HTML gerado)
-    crime_file = None
-    for f in mapas_ano_path.glob("*.html"):
-        if f.stem.replace("_", " ").replace("-", "-") == crime_mapa:
-            crime_file = f
-            break
+    if df_map is None or df_map.empty:
+        st.info(f"Nenhum dado de mapa disponível para o ano {year_filter}.")
+        return
 
-    if crime_file and crime_file.exists():
-        html_content = carregar_conteudo_mapa(str(crime_file))
-        if html_content:
-            components.html(html_content, height=600, scrolling=True)
-        else:
-            st.error("Erro ao carregar o conteúdo do mapa.")
-    else:
-        st.info("Mapa não encontrado para o filtro selecionado.")
+    # Obter lista de crimes a partir dos dados e permitir seleção
+    crimes_mapas = sorted(df_map['Natureza'].unique().tolist())
+    crime_mapa = st.selectbox("Tipo de Crime (Mapa)", crimes_mapas, key="mapa_crime")
+
+    # Filtrar e renderizar via Plotly
+    try:
+        plot_maps_crime_counts_plotly(df_map, year=int(year_filter), crimes=[crime_mapa])
+    except Exception as e:
+        logger.error(f"Erro ao renderizar mapa Plotly: {e}")
+        st.error("Erro ao renderizar o mapa. Veja os logs para mais detalhes.")

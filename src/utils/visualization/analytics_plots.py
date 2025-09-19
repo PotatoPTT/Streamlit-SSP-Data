@@ -138,6 +138,23 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
     if year is not None:
         df_map_data = df_map_data[df_map_data['Ano'] == year]
 
+    # Agregar por município/lat/lon/Ano/Natureza/mes para reduzir pontos
+    # (melhora performance quando há muitos registros por município)
+    try:
+        df_map_data = df_map_data.copy()
+        # garantir tipos
+        df_map_data['quantidade'] = pd.to_numeric(df_map_data['quantidade'], errors='coerce').fillna(0).astype(int)
+        df_map_data['latitude'] = pd.to_numeric(df_map_data['latitude'], errors='coerce')
+        df_map_data['longitude'] = pd.to_numeric(df_map_data['longitude'], errors='coerce')
+
+        df_map_data = (
+            df_map_data.groupby(['Nome_Municipio', 'latitude', 'longitude', 'Ano', 'Natureza', 'mes'], dropna=False, as_index=False)
+            ['quantidade'].sum()
+        )
+    except Exception:
+        # se algo der errado, prosseguir com os dados brutos
+        pass
+
     if df_map_data.empty:
         st.warning("Nenhum dado de mapa para o filtro selecionado.")
         return
@@ -182,7 +199,7 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
                 sizes.append(min_r + (max_r - min_r) * (v - min_val) / (max_val - min_val))
         return sizes
 
-    st.markdown("#### Mapas (Plotly) - Distribuição por Município")
+    st.markdown("#### Mapas - Distribuição por Município")
     for crime in crimes:
         crime_df = df_map_data[df_map_data['Natureza'] == crime]
         if crime_df.empty:

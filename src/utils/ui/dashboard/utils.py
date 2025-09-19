@@ -6,6 +6,7 @@ import streamlit as st
 from pathlib import Path
 from utils.config.logging import get_logger
 from utils.config.constants import MESES_MAP_INV
+from utils.data.connection import DatabaseConnection
 
 logger = get_logger("DASHBOARD_UTILS")
 
@@ -106,43 +107,32 @@ def processar_tabela_detalhada(df_dados, df_anterior):
     return tabela_completa
 
 
-@st.cache_data(ttl=300)  # Cache por 5 minutos (mapas são estáticos)
-def verificar_mapas_disponiveis(year_filter):
-    """Verifica se existem mapas para o ano especificado."""
-
-    mapas_base = Path("output/maps")
-    ano_mapa = str(year_filter)
-    mapas_ano_path = mapas_base / ano_mapa
-
-    existe = mapas_ano_path.exists() and any(mapas_ano_path.glob("*.html"))
-
-    if existe:
-        crimes_mapas = [
-            f.stem.replace("_", " ").replace("-", "-")
-            for f in mapas_ano_path.glob("*.html")
-        ]
-        return True, crimes_mapas, mapas_ano_path
-
-    return False, [], mapas_ano_path
-
-
-@st.cache_data(ttl=1800)  # Cache por 30 minutos
-def carregar_conteudo_mapa(crime_file_path):
-    """Carrega o conteúdo HTML do mapa."""
-    try:
-        with open(crime_file_path, "r", encoding="utf-8") as f:
-            return f.read()
-    except Exception as e:
-        logger.error(f"Erro ao carregar mapa: {e}")
-        return None
-
 
 def limpar_cache_dashboard():
     """Limpa todo o cache relacionado ao dashboard."""
     try:
         processar_dados_dashboard.clear()
         processar_tabela_detalhada.clear()
-        verificar_mapas_disponiveis.clear()
+        get_map_data_cached.clear()
         logger.info("Cache do dashboard limpo com sucesso")
     except Exception as e:
         logger.error(f"Erro ao limpar cache do dashboard: {e}")
+
+
+@st.cache_data(ttl=1800)
+def get_map_data_cached(year):
+    """Cacheia o resultado de DatabaseConnection.get_map_data(year).
+
+    Usamos serialização/parametrização simples (um único inteiro "year") para
+    que o Streamlit possa criar uma chave estável de cache. TTL é 30 minutos.
+    """
+    db = DatabaseConnection()
+    try:
+        logger.info(f"Buscando dados de mapa para o ano {year}")
+        df = db.get_map_data(year=year)
+        return df
+    finally:
+        try:
+            db.close()
+        except Exception:
+            pass
