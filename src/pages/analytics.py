@@ -13,9 +13,9 @@ from utils.ui.analytics.components import (
 
 def show_analytics(df_anos, df_regioes, df_meses_por_ano):
     """Analytics page"""
-    st.markdown("# 📊 Análises Preditivas")
+    st.markdown("# 📊 Análises Descritivas")
     st.info(
-        "Selecione os parâmetros abaixo para gerar ou consultar uma análise preditiva.")
+        "Selecione os parâmetros abaixo para gerar ou consultar uma análise descritiva.")
 
     # --- Filtros ---
     st.markdown("### Filtros para o Modelo")

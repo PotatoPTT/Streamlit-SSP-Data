@@ -12,6 +12,16 @@ import atexit
 
 logger = get_logger("STREAMLIT")
 
+# Theme values embedded so the app forces dark mode even if .streamlit/config.toml isn't synced
+THEME = {
+    'base': 'dark',
+    'primaryColor': '#1f77b4',
+    'backgroundColor': '#0e1117',
+    'secondaryBackgroundColor': '#262730',
+    'textColor': '#fafafa',
+    'font': 'sans serif'
+}
+
 
 def cleanup_on_exit():
     """Para a API quando o Streamlit é encerrado."""
@@ -95,32 +105,34 @@ def apply_theme_styles():
     }
     """
 
+    # Use embedded THEME values to avoid relying on external config sync
     st.markdown(f"""
     <style>
     .stApp {{
-        background-color: #0e1117;
-        color: #fafafa;
+        background-color: {THEME['backgroundColor']};
+        color: {THEME['textColor']};
+        font-family: {THEME['font']};
     }}
     
     .stMetric {{
-        background-color: #262730 !important;
+        background-color: {THEME['secondaryBackgroundColor']} !important;
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #444;
     }}
     
     .stSelectbox > div > div {{
-        background-color: #262730;
-        color: #fafafa;
+        background-color: {THEME['secondaryBackgroundColor']};
+        color: {THEME['textColor']};
     }}
     
     .stDataFrame {{
-        background-color: #262730;
+        background-color: {THEME['secondaryBackgroundColor']};
     }}
     
     .stButton > button {{
-        background-color: #262730;
-        color: #fafafa;
+        background-color: {THEME['secondaryBackgroundColor']};
+        color: {THEME['textColor']};
         border: 1px solid #444;
     }}
     
@@ -130,7 +142,7 @@ def apply_theme_styles():
     }}
     
     .nav-button-active {{
-        background-color: #1f77b4 !important;
+        background-color: {THEME['primaryColor']} !important;
         color: white !important;
     }}
     
