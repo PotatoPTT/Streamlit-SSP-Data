@@ -1,5 +1,4 @@
 from pages.about import show_about
-from pages.reports import show_reports
 from pages.analytics import show_analytics
 from pages.dashboard import show_dashboard
 from utils.data.connection import DatabaseConnection
@@ -11,17 +10,6 @@ import pandas as pd
 import atexit
 
 logger = get_logger("STREAMLIT")
-
-# Theme values embedded so the app forces dark mode even if .streamlit/config.toml isn't synced
-THEME = {
-    'base': 'dark',
-    'primaryColor': '#1f77b4',
-    'backgroundColor': '#0e1117',
-    'secondaryBackgroundColor': '#262730',
-    'textColor': '#fafafa',
-    'font': 'sans serif'
-}
-
 
 def cleanup_on_exit():
     """Para a API quando o Streamlit é encerrado."""
@@ -170,8 +158,6 @@ if st.session_state.current_page == "dashboard":
     show_dashboard(df_anos, df_regioes, df_municipios, buscar_ocorrencias)
 elif st.session_state.current_page == "analytics":
     show_analytics(df_anos, df_regioes, df_meses_por_ano)
-elif st.session_state.current_page == "reports":
-    show_reports()
 elif st.session_state.current_page == "about":
     show_about()
 
