@@ -129,8 +129,8 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         time_series_df_with_labels = time_series_df.copy()
         time_series_df_with_labels['cluster'] = labels
 
-        plot_time_series_by_cluster(time_series_df.copy(), labels)
         plot_map_by_cluster(db, time_series_df_with_labels)
+        plot_time_series_by_cluster(time_series_df.copy(), labels)
 
         # Tabela com região
         st.markdown("#### Tabela de Municípios por Cluster")
