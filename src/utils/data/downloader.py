@@ -240,18 +240,16 @@ class SSPDataDownloader:
             logger.info(
                 f"Todos os arquivos de {year} já existem e são válidos. Nenhum download necessário.")
             return
-        db = DatabaseConnection()
         try:
-            df_db = db.get_map_data(year=year)
-            if not df_db.empty:
-                logger.info(
-                    f"Dados do ano {year} já existem na database. Nenhum download necessário.")
-                return
+            with DatabaseConnection() as db:
+                df_db = db.get_map_data(year=year)
+                if not df_db.empty:
+                    logger.info(
+                        f"Dados do ano {year} já existem na database. Nenhum download necessário.")
+                    return
         except Exception as e:
             logger.warning(
                 f"Erro ao consultar database para o ano {year}: {e}")
-        finally:
-            db.close()
         logger.info(
             f"Baixando {len(missing)} arquivos faltantes/invalidos para o ano {year}...")
         self.anos_alterados.add(year)

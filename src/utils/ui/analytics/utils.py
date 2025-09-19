@@ -31,11 +31,8 @@ def fetch_data_for_model(db_conn, params):
 def fetch_data_for_model_cached(params_str):
     """Versão cacheada da busca de dados para o modelo."""
     params = json.loads(params_str)
-    db = DatabaseConnection()
-    try:
+    with DatabaseConnection() as db:
         return fetch_data_for_model(db, params)
-    finally:
-        db.close()
 
 
 def get_meses_mapping():
@@ -113,8 +110,7 @@ def prepare_municipalities_table(time_series_df_with_labels, db):
     municipios_list = table_df['municipio'].unique().tolist()
     if municipios_list:
         q = 'SELECT m.nome, r.nome FROM municipios m JOIN regioes r ON m.regiao_id = r.id WHERE m.nome = ANY(%s);'
-        rows = db.fetch_all(q, (municipios_list,))
-        regions_df = pd.DataFrame(rows, columns=['municipio', 'regiao'])
+        regions_df = db.fetch_df(q, (municipios_list,), columns=['municipio', 'regiao'])
         table_df = table_df.merge(regions_df, on='municipio', how='left')
     else:
         table_df['regiao'] = None
@@ -140,13 +136,9 @@ def filter_end_months(meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num
 @st.cache_data(ttl=300)  # Cache por 5 minutos
 def get_crimes_list():
     """Busca a lista de crimes disponíveis no banco."""
-    db = DatabaseConnection()
-    try:
-        crimes = db.fetch_all(
-            "SELECT DISTINCT natureza FROM crimes ORDER BY natureza")
-        return [crime[0] for crime in crimes]
-    finally:
-        db.close()
+    with DatabaseConnection() as db:
+        df = db.fetch_df("SELECT DISTINCT natureza FROM crimes ORDER BY natureza", columns=["natureza"])
+        return df['natureza'].tolist() if not df.empty else []
 
 
 @st.cache_data(ttl=60)  # Cache por 1 minuto para verificações de status
@@ -154,16 +146,13 @@ def get_solicitacao_by_params_cached(params_str):
     """Versão cacheada da busca de solicitação por parâmetros."""
     params = json.loads(params_str)
 
-    db = DatabaseConnection()
-    try:
+    with DatabaseConnection() as db:
         result = db.get_solicitacao_by_params(params)
         # Se o status for PENDENTE ou PROCESSANDO, usar TTL menor
         if result and result.get('status') in ['PENDENTE', 'PROCESSANDO']:
             # Limpar este cache imediatamente para próximas verificações
             return result
         return result
-    finally:
-        db.close()
 
 
 @st.cache_data(ttl=10)  # Cache muito curto para status em processamento
@@ -171,11 +160,8 @@ def get_solicitacao_by_params_processing(params_str):
     """Versão com TTL muito baixo para solicitações em processamento."""
     params = json.loads(params_str)
 
-    db = DatabaseConnection()
-    try:
+    with DatabaseConnection() as db:
         return db.get_solicitacao_by_params(params)
-    finally:
-        db.close()
 
 
 def limpar_cache_analytics():

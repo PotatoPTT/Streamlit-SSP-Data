@@ -21,6 +21,20 @@ class DatabaseConnection:
         )
         self.cur = self.conn.cursor()
 
+    def __enter__(self):
+        """Support 'with DatabaseConnection() as db' usage."""
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        # Ensure connection is closed when exiting a with-block.
+        try:
+            self.close()
+        except Exception:
+            # don't raise from __exit__
+            pass
+        # Do not suppress exceptions
+        return False
+
     def close(self):
         self.cur.close()
         self.conn.close()
@@ -28,6 +42,48 @@ class DatabaseConnection:
     def fetch_all(self, query, params=None):
         self.cur.execute(query, params or ())
         return self.cur.fetchall()
+
+    def fetch_one(self, query, params=None):
+        """Execute a query and return a single row (or None)."""
+        self.cur.execute(query, params or ())
+        return self.cur.fetchone()
+
+    def fetch_df(self, query, params=None, columns=None):
+        """Execute query and return a pandas DataFrame with optional columns.
+
+        Usage: df = db.fetch_df(query, params, columns=[...])
+        """
+        rows = self.fetch_all(query, params)
+        if columns:
+            return pd.DataFrame(rows, columns=columns)
+        return pd.DataFrame(rows)
+
+    def execute(self, query, params=None, commit=False):
+        """Execute a statement (INSERT/UPDATE/DELETE). Optionally commit."""
+        self.cur.execute(query, params or ())
+        if commit:
+            self.conn.commit()
+        return self.cur.rowcount
+
+    def copy_from_stringio(self, string_io, table_name, columns=None, commit=True):
+        """Helper for COPY from an in-memory StringIO into a table.
+
+        string_io: file-like with CSV/text content
+        table_name: target table
+        columns: optional list of columns to specify in COPY
+        """
+        cols_part = f"({', '.join(columns)})" if columns else ''
+        sql = f"COPY {table_name} {cols_part} FROM STDIN WITH (FORMAT text)"
+        try:
+            with self.conn.cursor() as cur:
+                cur.copy_expert(sql, string_io)
+            if commit:
+                self.conn.commit()
+            return True
+        except Exception as e:
+            self.conn.rollback()
+            logger.error(f"Erro no copy_from_stringio: {e}")
+            return False
 
     def fetch_time_series_data(self, params):
         """

@@ -63,8 +63,7 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
         return
 
     query = 'SELECT nome, latitude, longitude FROM municipios WHERE nome = ANY(%s);'
-    coords = db.fetch_all(query, (municipios_nomes,))
-    coords_df = pd.DataFrame(coords, columns=['nome', 'latitude', 'longitude'])
+    coords_df = db.fetch_df(query, (municipios_nomes,), columns=['nome', 'latitude', 'longitude'])
     coords_df.dropna(subset=['latitude', 'longitude'], inplace=True)
 
     # Merge com os dados de cluster

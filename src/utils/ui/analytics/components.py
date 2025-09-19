@@ -250,12 +250,8 @@ def handle_no_existing_models_cached(params_k, params_d):
     from utils.data.connection import DatabaseConnection
 
     logger.info("Processando nova solicitação de modelo")
-
-    db = DatabaseConnection()
-    try:
+    with DatabaseConnection() as db:
         handle_no_existing_models(params_k, params_d, db)
-    finally:
-        db.close()
 
 
 def process_model_by_status(selected_method, selected_solicit, params, params_k, params_d):
@@ -265,8 +261,7 @@ def process_model_by_status(selected_method, selected_solicit, params, params_k,
     status = selected_solicit['status'] if selected_solicit else None
 
     # Usar conexão com banco para todas as operações
-    db = DatabaseConnection()
-    try:
+    with DatabaseConnection() as db:
         if status == 'CONCLUIDO':
             handle_completed_model(
                 selected_method, selected_solicit, params, db)
@@ -279,5 +274,3 @@ def process_model_by_status(selected_method, selected_solicit, params, params_k,
             handle_expired_model(selected_method, params_k, params_d, db)
         else:
             logger.warning(f"Status desconhecido: {status}")
-    finally:
-        db.close()

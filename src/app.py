@@ -42,21 +42,15 @@ if 'current_page' not in st.session_state:
 # Cache por 30 minutos (filtros são dados que mudam raramente)
 @st.cache_data(ttl=1800)
 def carregar_filtros():
-    db = DatabaseConnection()
-    df_anos = pd.DataFrame(db.fetch_all(
-        "SELECT DISTINCT ano FROM ocorrencias ORDER BY ano DESC"), columns=["ano"])
-    df_regioes = pd.DataFrame(db.fetch_all(
-        "SELECT id, nome FROM regioes ORDER BY nome"), columns=["id", "nome"])
-    df_municipios = pd.DataFrame(db.fetch_all("""
-        SELECT m.id, m.nome, r.nome AS regiao
-        FROM municipios m
-        JOIN regioes r ON m.regiao_id = r.id
-        ORDER BY m.nome
-    """), columns=["id", "nome", "regiao"])
-    df_meses_por_ano = pd.DataFrame(db.fetch_all(
-        "SELECT DISTINCT ano, mes FROM ocorrencias ORDER BY ano, mes"), columns=["ano", "mes"])
-    db.close()
-    return df_anos, df_regioes, df_municipios, df_meses_por_ano
+    with DatabaseConnection() as db:
+        df_anos = db.fetch_df("SELECT DISTINCT ano FROM ocorrencias ORDER BY ano DESC", columns=["ano"]) 
+        df_regioes = db.fetch_df("SELECT id, nome FROM regioes ORDER BY nome", columns=["id", "nome"]) 
+        df_municipios = db.fetch_df(
+            "SELECT m.id, m.nome, r.nome AS regiao FROM municipios m JOIN regioes r ON m.regiao_id = r.id ORDER BY m.nome",
+            columns=["id", "nome", "regiao"]
+        )
+        df_meses_por_ano = db.fetch_df("SELECT DISTINCT ano, mes FROM ocorrencias ORDER BY ano, mes", columns=["ano", "mes"]) 
+        return df_anos, df_regioes, df_municipios, df_meses_por_ano
 
 
 df_anos, df_regioes, df_municipios, df_meses_por_ano = carregar_filtros()
@@ -64,7 +58,6 @@ df_anos, df_regioes, df_municipios, df_meses_por_ano = carregar_filtros()
 
 @st.cache_data(ttl=300)
 def buscar_ocorrencias(ano, regiao, municipio):
-    db = DatabaseConnection()
     sql = """
         SELECT o.mes, c.natureza, SUM(o.quantidade) AS total
         FROM ocorrencias o
@@ -81,10 +74,9 @@ def buscar_ocorrencias(ano, regiao, municipio):
         sql += " AND m.nome = %s"
         params.append(municipio)
     sql += " GROUP BY o.mes, c.natureza ORDER BY o.mes"
-    df = pd.DataFrame(db.fetch_all(sql, params), columns=[
-                      "mes", "natureza", "total"])
-    db.close()
-    return df
+    with DatabaseConnection() as db:
+        df = db.fetch_df(sql, tuple(params), columns=["mes", "natureza", "total"]) 
+        return df
 
 
 # Chart creation functions import
