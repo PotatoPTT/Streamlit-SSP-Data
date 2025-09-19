@@ -7,6 +7,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 from tslearn.preprocessing import TimeSeriesScalerMeanVariance
+from utils.config.constants import MESES, MAP_MIN_MARKER_RADIUS, MAP_MAX_MARKER_RADIUS, MAP_CENTER_SP, MAP_INITIAL_ZOOM_SP
 
 
 def plot_time_series_by_cluster(time_series_df, labels):
@@ -120,3 +121,127 @@ def display_model_metrics(silhouette, k):
         st.metric("Score de Silhueta", f"{silhouette:.4f}")
     if k is not None:
         st.metric("Número Ideal de Clusters (K)", k)
+
+
+def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_height=650):
+    """
+    Plota mapas por crime/ano usando Plotly (inline no Streamlit).
+
+    df_map_data: DataFrame com colunas mínimas ['Ano','Natureza','mes','quantidade','latitude','longitude','Nome_Municipio']
+    year: filtro opcional de ano
+    crimes: lista opcional de crimes a plotar (por default usa todos presentes)
+    max_height: altura padrão do gráfico
+    """
+    import plotly.graph_objects as go
+    import plotly.express as px
+
+    if year is not None:
+        df_map_data = df_map_data[df_map_data['Ano'] == year]
+
+    if df_map_data.empty:
+        st.warning("Nenhum dado de mapa para o filtro selecionado.")
+        return
+
+    if crimes is None:
+        crimes = df_map_data['Natureza'].unique()
+
+    # paleta para meses: preferir paleta escura/contrastante
+    try:
+        month_colors = px.colors.qualitative.Dark24[:12]
+    except Exception:
+        # paleta fallback escura
+        month_colors = [
+            '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728',
+            '#9467bd', '#8c564b', '#e377c2', '#7f7f7f',
+            '#bcbd22', '#17becf', '#393b79', '#637939'
+        ]
+
+    def _norm_radius_array(vals):
+        """
+        Normaliza tamanhos usando transformação sqrt para reduzir a influência de outliers
+        (como municípios com valores muito altos — ex: São Paulo). Retorna lista de pixels.
+        """
+        vals = pd.to_numeric(vals, errors='coerce').fillna(0).astype(float)
+        # usar transformação sqrt para comprimir a escala
+        vals_sqrt = vals.copy()
+        vals_sqrt[vals_sqrt > 0] = vals_sqrt[vals_sqrt > 0].pow(0.5)
+
+        pos = vals_sqrt[vals_sqrt > 0]
+        min_val = pos.min() if (pos > 0).any() else 0.0
+        max_val = pos.max() if not pos.empty else 1.0
+
+        min_r, max_r = MAP_MIN_MARKER_RADIUS, MAP_MAX_MARKER_RADIUS
+        if max_val == min_val:
+            return [min_r if v <= 0 else (min_r + (max_r - min_r) / 2) for v in vals_sqrt]
+
+        sizes = []
+        for original, v in zip(vals, vals_sqrt):
+            if original <= 0:
+                sizes.append(min_r)
+            else:
+                sizes.append(min_r + (max_r - min_r) * (v - min_val) / (max_val - min_val))
+        return sizes
+
+    st.markdown("#### Mapas (Plotly) - Distribuição por Município")
+    for crime in crimes:
+        crime_df = df_map_data[df_map_data['Natureza'] == crime]
+        if crime_df.empty:
+            continue
+
+        fig = go.Figure()
+
+        # para cada mês adiciona um trace separado (equivalente às layers do folium)
+        for idx, month in enumerate(MESES, start=1):
+            month_df = crime_df[crime_df['mes'] == idx]
+            if month_df.empty:
+                continue
+
+            lat = month_df['latitude']
+            lon = month_df['longitude']
+            nomes = month_df['Nome_Municipio'].astype(str)
+            qty = month_df['quantidade']
+            sizes = _norm_radius_array(qty)
+
+            hover = [
+                f"{n}<br>{crime}: {q} ({month})"
+                for n, q in zip(nomes, qty)
+            ]
+
+            # definir visibilidade: só o último mês presente deve iniciar visível
+            try:
+                last_month_present = int(crime_df['mes'].max())
+            except Exception:
+                last_month_present = None
+
+            visible_state = True if (last_month_present is not None and idx == last_month_present) else 'legendonly'
+
+            fig.add_trace(go.Scattermapbox(
+                lat=lat,
+                lon=lon,
+                mode='markers',
+                marker=dict(
+                    size=sizes,
+                    color=month_colors[(idx-1) % len(month_colors)],
+                    opacity=0.9,
+                    sizemode='area'
+                ),
+                name=month,
+                hoverinfo='text',
+                hovertext=hover,
+                visible=visible_state
+            ))
+
+        fig.update_layout(
+            mapbox_style="carto-positron",
+            title=f"{crime} — {year if year is not None else 'Todos anos'}",
+            margin=dict(l=0, r=0, t=40, b=0),
+            height=max_height,
+            mapbox=dict(center=MAP_CENTER_SP, zoom=MAP_INITIAL_ZOOM_SP)
+        )
+        # tamanho dos marcadores padrão
+        try:
+            fig.update_traces(marker=dict(sizemode='area'))
+        except Exception:
+            pass
+
+        st.plotly_chart(fig, use_container_width=True)

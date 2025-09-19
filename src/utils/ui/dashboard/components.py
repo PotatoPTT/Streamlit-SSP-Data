@@ -199,8 +199,42 @@ def render_maps_section(year_filter):
         crimes_mapas,
         key="mapa_crime"
     )
+    # Tentar renderizar inline via Plotly usando dados do pipeline/DB como preferência
+    try:
+        from utils.visualization.analytics_plots import plot_maps_crime_counts_plotly
+        from utils.data.connection import DatabaseConnection
 
-    # Encontrar o arquivo correspondente
+        # Tentar buscar dados brutos de mapa pelo mesmo caminho que o pipeline usaria
+        db = DatabaseConnection()
+        df_map = db.get_map_data(year=int(year_filter))
+        if df_map is not None and not df_map.empty:
+            # Usar Plotly para gerar mapas inline (mantém controle de crime via selectbox)
+            # Filtramos para o crime selecionado
+            crime_name = crime_mapa
+            # Mapear o nome do selectbox para o valor presente no df (arquivo usa underscores)
+            # Procuramos correspondência ignorando acentos e case
+            def _normalize(s):
+                import unicodedata
+                return unicodedata.normalize('NFKD', str(s)).encode('ASCII', 'ignore').decode('ASCII').lower()
+
+            norm_choice = _normalize(crime_name)
+            # Encontrar correspondência aproximada entre Natureza e escolha
+            matches = [c for c in df_map['Natureza'].unique() if _normalize(c) == norm_choice]
+            if matches:
+                selected_natureza = matches[0]
+            else:
+                # fallback: usa o texto do select como aparece (pode ser igual)
+                selected_natureza = crime_name
+
+            plot_maps_crime_counts_plotly(df_map, year=int(year_filter), crimes=[selected_natureza])
+            db.close()
+            return
+        db.close()
+    except Exception as e:
+        # Se ocorrer qualquer erro, cai no fluxo de arquivos HTML já existente
+        logger.debug(f"Não foi possível renderizar mapas inline via Plotly: {e}")
+
+    # Encontrar o arquivo correspondente (fallback para HTML gerado)
     crime_file = None
     for f in mapas_ano_path.glob("*.html"):
         if f.stem.replace("_", " ").replace("-", "-") == crime_mapa:
