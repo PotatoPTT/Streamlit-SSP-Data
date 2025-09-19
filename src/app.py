@@ -93,7 +93,7 @@ def buscar_ocorrencias(ano, regiao, municipio):
 
 
 # Theme functions
-def apply_theme_styles():
+def hide_sidebar_elements():
     """Apply dark mode CSS styles only"""
     sidebar_css = """
     /* Esconde completamente a sidebar e o botão de expandir */
@@ -104,48 +104,8 @@ def apply_theme_styles():
         display: none !important;
     }
     """
-
-    # Use embedded THEME values to avoid relying on external config sync
     st.markdown(f"""
     <style>
-    .stApp {{
-        background-color: {THEME['backgroundColor']};
-        color: {THEME['textColor']};
-        font-family: {THEME['font']};
-    }}
-    
-    .stMetric {{
-        background-color: {THEME['secondaryBackgroundColor']} !important;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid #444;
-    }}
-    
-    .stSelectbox > div > div {{
-        background-color: {THEME['secondaryBackgroundColor']};
-        color: {THEME['textColor']};
-    }}
-    
-    .stDataFrame {{
-        background-color: {THEME['secondaryBackgroundColor']};
-    }}
-    
-    .stButton > button {{
-        background-color: {THEME['secondaryBackgroundColor']};
-        color: {THEME['textColor']};
-        border: 1px solid #444;
-    }}
-    
-    .stButton > button:hover {{
-        background-color: #444;
-        border-color: #666;
-    }}
-    
-    .nav-button-active {{
-        background-color: {THEME['primaryColor']} !important;
-        color: white !important;
-    }}
-    
     {sidebar_css}
     </style>
     """,
@@ -155,7 +115,7 @@ def apply_theme_styles():
 # Navigation function
 def show_navigation():
     """Display top navigation bar without theme toggle"""
-    col1, col2, col3, col4, col5, col6 = st.columns([2, 1, 1, 1, 1, 0.5])
+    col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
 
     with col1:
         st.markdown("## 🛡️ SSP Data")
@@ -182,15 +142,6 @@ def show_navigation():
 
     with col4:
         if st.button(
-                "Relatórios",
-                key="nav_reports",
-                help="Relatórios",
-                type="primary" if current_page == "reports" else "secondary"):
-            st.session_state.current_page = "reports"
-            st.rerun()
-
-    with col5:
-        if st.button(
                 "Sobre",
                 key="nav_about",
                 help="Sobre o Sistema",
@@ -202,7 +153,7 @@ def show_navigation():
 
 
 # Apply theme styles and show navigation
-apply_theme_styles()
+hide_sidebar_elements()
 show_navigation()
 
 # Gerenciamento automático da API
