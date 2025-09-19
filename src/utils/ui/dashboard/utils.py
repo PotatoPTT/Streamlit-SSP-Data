@@ -11,17 +11,13 @@ from utils.data.connection import DatabaseConnection
 logger = get_logger("DASHBOARD_UTILS")
 
 
-@st.cache_data(ttl=300)  # Cache por 5 minutos
-def processar_dados_dashboard(year_filter, region_filter, municipality_filter, _buscar_ocorrencias):
-    """Processa todos os dados necessários para o dashboard com cache."""
-    logger.info(
-        f"Processando dados para: Ano={year_filter}, Região={region_filter}, Município={municipality_filter}")
+def processar_dados_dashboard(df_dados, df_anterior):
+    """Processa todos os dados necessários para o dashboard.
 
-    # Buscar dados atuais e do ano anterior
-    df_dados = _buscar_ocorrencias(
-        year_filter, region_filter, municipality_filter)
-    df_anterior = _buscar_ocorrencias(
-        year_filter - 1, region_filter, municipality_filter)
+    Recebe os DataFrames já obtidos (ex.: via função cacheada buscar_ocorrencias)
+    para evitar passar objetos não-hashable para o cache do Streamlit.
+    """
+    logger.info("Processando dados para dashboard (DFs fornecidos)")
 
     # Calcular métricas agregadas
     df_mes = df_dados.groupby("mes")["total"].sum().reset_index()
