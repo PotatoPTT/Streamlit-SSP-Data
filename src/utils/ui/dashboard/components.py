@@ -142,7 +142,7 @@ def render_maps_section(year_filter):
     """Renderiza a seção de mapas interativos."""
     st.markdown("#### Mapa Interativo")
     # Agora usamos exclusivamente Plotly inline para mapas (sem geração de HTML)
-    from utils.visualization.analytics_plots import plot_maps_crime_counts_plotly
+    from utils.visualization.plots import plot_maps_crime_counts_plotly
     from utils.ui.dashboard.utils import get_map_data_cached
 
     try:

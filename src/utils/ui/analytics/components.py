@@ -90,7 +90,7 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         get_model_filename, load_model_from_file_or_db,
         fetch_data_for_model_cached, prepare_municipalities_table
     )
-    from utils.visualization.analytics_plots import (
+    from utils.visualization.plots import (
         display_model_metrics, plot_time_series_by_cluster, plot_map_by_cluster
     )
 
