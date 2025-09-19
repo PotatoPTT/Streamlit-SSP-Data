@@ -85,14 +85,14 @@ def load_model_from_file_or_db(model_filename, selected_solicit, db):
                     with open(model_full_path, 'wb') as f:
                         f.write(blob)
                     st.info(
-                        'Artefato baixado do banco (por solicitacao) e salvo localmente.')
+                        'Modelo baixado do banco')
                 else:
                     raise FileNotFoundError(
-                        f"Artefato não encontrado no banco para solicitação {solicit_id}")
+                        f"Modelo não encontrado no banco para solicitação {solicit_id}")
             else:
                 raise FileNotFoundError(f"ID da solicitação não encontrado")
         except Exception as e:
-            raise FileNotFoundError(f"Erro ao recuperar artefato: {e}")
+            raise FileNotFoundError(f"Erro ao recuperar modelo: {e}")
 
     return joblib.load(model_full_path)
 

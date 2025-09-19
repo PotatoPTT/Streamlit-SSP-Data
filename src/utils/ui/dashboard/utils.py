@@ -17,8 +17,6 @@ def processar_dados_dashboard(df_dados, df_anterior):
     Recebe os DataFrames já obtidos (ex.: via função cacheada buscar_ocorrencias)
     para evitar passar objetos não-hashable para o cache do Streamlit.
     """
-    logger.info("Processando dados para dashboard (DFs fornecidos)")
-
     # Calcular métricas agregadas
     df_mes = df_dados.groupby("mes")["total"].sum().reset_index()
     df_tipo = df_dados.groupby("natureza")["total"].sum(
