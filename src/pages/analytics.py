@@ -13,9 +13,9 @@ from utils.ui.analytics.components import (
 
 def show_analytics(df_anos, df_regioes, df_meses_por_ano):
     """Analytics page"""
-    st.markdown("# 📊 Análises Descritivas")
+    st.markdown("# 📊 Agrupamento de Cidades por Perfil Criminal")
     st.info(
-        "Selecione os parâmetros abaixo para gerar ou consultar uma análise descritiva.")
+        "Selecione os parâmetros abaixo para gerar ou consultar um modelo (agrupamento)")
 
     # --- Filtros ---
     st.markdown("### Filtros para o Modelo")

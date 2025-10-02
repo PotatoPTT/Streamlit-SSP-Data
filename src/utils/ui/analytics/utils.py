@@ -136,9 +136,22 @@ def filter_end_months(meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num
 @st.cache_data(ttl=300)  # Cache por 5 minutos
 def get_crimes_list():
     """Busca a lista de crimes disponíveis no banco."""
+    # Lista de crimes a serem excluídos
+    crimes_excluidos = [
+        "TOTAL DE ROUBO - OUTROS (1)",
+        "TOTAL DE ESTUPRO (4)",
+        "Nº DE VÍTIMAS EM LATROCÍNIO",
+        "Nº DE VÍTIMAS EM  HOMICÍDIO DOLOSO (3)"
+    ]
+    
     with DatabaseConnection() as db:
         df = db.fetch_df("SELECT DISTINCT natureza FROM crimes ORDER BY natureza", columns=["natureza"])
-        return df['natureza'].tolist() if not df.empty else []
+        if df.empty:
+            return []
+        
+        # Filtrar crimes excluídos
+        df_filtrado = df[~df['natureza'].isin(crimes_excluidos)]
+        return df_filtrado['natureza'].tolist()
 
 
 @st.cache_data(ttl=60)  # Cache por 1 minuto para verificações de status

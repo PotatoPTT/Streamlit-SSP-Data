@@ -48,7 +48,9 @@ def render_date_filters(df_anos, df_meses_por_ano):
 def render_location_filter(df_regioes):
     """Renderiza o filtro de localização."""
     st.markdown("##### Localização")
-    regioes_list = ["Todas"] + df_regioes["nome"].tolist()
+    # Filtrar regiões para excluir "Capital"
+    df_regioes_filtrado = df_regioes[df_regioes["nome"] != "Capital"]
+    regioes_list = ["Todas"] + df_regioes_filtrado["nome"].tolist()
     return st.selectbox("Região", regioes_list)
 
 
