@@ -20,8 +20,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 logger = get_logger("DOWNLOAD")
 
-# Garante que o diretório de trabalho seja o root do projeto
-os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# Não muda o diretório aqui - deixa o pipeline_runner fazer isso
+# O diretório de trabalho já deve estar definido como a raiz do projeto
 
 # Configuração mínima para bibliotecas externas
 logging.basicConfig(level=logging.WARNING)
@@ -410,8 +410,8 @@ BASE_URL = "https://www.ssp.sp.gov.br/v1/OcorrenciasMensais/ExportarMensal"
 YEARS = range(2025, 2000, -1)  # De 2025 até 2001
 GRUPO_DELITO = 6
 TIPO_GRUPO = "MUNICÍPIO"
-OUTPUT_DIR = "./ssp_data"
-ZIP_FILENAME = "./ssp_data.zip"
+OUTPUT_DIR = "./output/ssp_data"
+ZIP_FILENAME = "./output/ssp_data.zip"
 CSV_FILE_PATH = os.path.join("configs", "cities_codes.csv")
 
 DOWNLOAD_EVERYTHING = False  # Se True, baixa tudo mesmo que já tenha arquivos válidos

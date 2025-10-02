@@ -105,7 +105,6 @@ def processar_tabela_detalhada(df_dados, df_anterior):
 def limpar_cache_dashboard():
     """Limpa todo o cache relacionado ao dashboard."""
     try:
-        processar_dados_dashboard.clear()
         processar_tabela_detalhada.clear()
         # get_map_data_cached is defined below; clear if available
         try:

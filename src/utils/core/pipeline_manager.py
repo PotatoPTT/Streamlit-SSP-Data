@@ -13,7 +13,7 @@ from utils.ui.dashboard.utils import limpar_cache_dashboard
 logger = get_logger("PIPELINE_MANAGER")
 
 # Configurações
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 LOCK_FILE = os.path.join(ROOT_DIR, 'configs', 'update.lock')
 COOLDOWN_SECONDS = 60 * 60  # 60 minutos
 
@@ -50,8 +50,18 @@ def set_pipeline_lock():
 
 def executar_pipeline_com_output(pipeline_placeholder):
     """Executa o pipeline e mostra o output em tempo real."""
-    src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    cmd = [sys.executable, "-m", "utils.pipeline_runner"]
+    # __file__ está em src/utils/core/pipeline_manager.py
+    # Precisamos ir para src/ (subir 2 níveis: core -> utils -> src)
+    src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+    
+    # Usar o mesmo executável Python que está rodando o Streamlit
+    # sys.executable já aponta para o Python do venv se o Streamlit estiver rodando nele
+    python_executable = sys.executable
+    
+    logger.info(f"Usando Python: {python_executable}")
+    logger.info(f"Diretório de trabalho: {src_dir}")
+    
+    cmd = [python_executable, "-m", "utils.core.pipeline_runner"]
     
     st.session_state['pipeline_output'] = []
     set_pipeline_lock()
@@ -59,13 +69,17 @@ def executar_pipeline_com_output(pipeline_placeholder):
     logger.info("Iniciando execução do pipeline")
     
     try:
+        # Copiar o ambiente atual para garantir que variáveis do venv sejam preservadas
+        env = os.environ.copy()
+        
         process = subprocess.Popen(
             cmd, 
             cwd=src_dir, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.STDOUT, 
             text=True, 
-            bufsize=1
+            bufsize=1,
+            env=env
         )
         
         if process.stdout is not None:
@@ -83,8 +97,16 @@ def executar_pipeline_com_output(pipeline_placeholder):
             # Limpar cache após atualização
             limpar_cache_dashboard()
         else:
-            pipeline_placeholder.error(f"Pipeline falhou com código: {process.returncode}")
+            # Mostrar output completo quando falhar
+            output_erro = ''.join(st.session_state['pipeline_output'])
+            pipeline_placeholder.error(f"❌ Pipeline falhou com código: {process.returncode}")
+            
+            # Expandir com detalhes do erro
+            with st.expander("📋 Ver detalhes do erro"):
+                st.code(output_erro, language="bash")
+            
             logger.error(f"Pipeline falhou com código: {process.returncode}")
+            logger.error(f"Output do pipeline:\n{output_erro}")
             
     except Exception as e:
         pipeline_placeholder.error(f"Erro ao executar pipeline: {e}")

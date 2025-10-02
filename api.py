@@ -21,10 +21,12 @@ from src.utils.ml import (
 LOCK_FILE_PATH = ROOT_DIR / 'configs' / 'api.lock'
 LOCK_UPDATE_INTERVAL = 30  # Atualiza o lock a cada 30 segundos
 STARTUP_WAIT_SECONDS = 15  # Tempo de espera inicial para garantir que tudo esteja pronto
+SHOULD_STOP = False  # Flag para controle de parada
 
 
 def update_lock_file():
     """Thread que atualiza o arquivo de lock a cada 30 segundos."""
+    last_time = None
     while True:
         try:
             LOCK_FILE_PATH.parent.mkdir(exist_ok=True)
@@ -33,32 +35,23 @@ def update_lock_file():
             if LOCK_FILE_PATH.exists():
                 with open(LOCK_FILE_PATH, 'r') as f:
                     content = f.read().strip()
-                if content == "STOP":
+                 # Se o conteúdo for "STOP" ou diferente do último timestamp, para
+                if content == "STOP" or (last_time and content != last_time):
                     # Para o thread e sinaliza para o main loop parar
+                    global SHOULD_STOP
+                    SHOULD_STOP = True
                     return
             
             # Atualiza com timestamp atual
             with open(LOCK_FILE_PATH, 'w') as f:
-                f.write(datetime.now().isoformat())
-                
+                last_time = datetime.now().isoformat()
+                f.write(last_time)
+
         except Exception as e:
             logger = get_logger("LOCK")
             logger.error(f"Erro ao atualizar lock file: {e}")
         
         time.sleep(LOCK_UPDATE_INTERVAL)
-
-
-def should_stop():
-    """Verifica se a API deve parar baseado no arquivo de lock."""
-    try:
-        if LOCK_FILE_PATH.exists():
-            with open(LOCK_FILE_PATH, 'r') as f:
-                content = f.read().strip()
-            return content == "STOP"
-    except Exception:
-        pass
-    return False
-
 
 def main():
     """Loop principal da API."""
@@ -95,7 +88,8 @@ def main():
     # Loop principal
     while True:
         # Verifica se deve parar
-        if should_stop():
+        global SHOULD_STOP
+        if SHOULD_STOP:
             logger.info("Comando de parada recebido")
             break
             

@@ -10,7 +10,7 @@ from tslearn.preprocessing import TimeSeriesScalerMeanVariance
 from utils.config.constants import MESES, MAP_MIN_MARKER_RADIUS, MAP_MAX_MARKER_RADIUS, MAP_CENTER_SP, MAP_INITIAL_ZOOM_SP
 
 
-def plot_time_series_by_cluster(time_series_df, labels):
+def plot_time_series_by_cluster(time_series_df, labels, model=None):
     """Plota as séries temporais agrupadas por cluster (normalizadas para visualização)."""
     # Normaliza as séries por série (z-score) para facilitar a comparação visual
     try:
@@ -25,23 +25,130 @@ def plot_time_series_by_cluster(time_series_df, labels):
 
     norm_df['cluster'] = labels
     clusters = sorted(norm_df['cluster'].unique())
+    
+    # Calcular centróides normalizados para cada cluster
+    centroids_normalized = {}
+    if model is not None and hasattr(model, 'cluster_centers_'):
+        try:
+            # Normalizar os centróides do modelo da mesma forma que os dados
+            centroids = model.cluster_centers_.squeeze()
+            if centroids.ndim == 1:
+                centroids = centroids.reshape(1, -1)
+            centroids_norm = scaler_local.transform(centroids.reshape(len(centroids), -1, 1)).reshape(len(centroids), -1)
+            for i, cluster_id in enumerate(clusters):
+                if i < len(centroids_norm):
+                    centroids_normalized[cluster_id] = centroids_norm[i]
+        except Exception as e:
+            # Se falhar, não adiciona centróides
+            pass
 
     for cluster in clusters:
-        st.markdown(f"#### Cluster {cluster}")
-        fig = go.Figure()
+        # Contar número de cidades no cluster
         cluster_data = norm_df[norm_df['cluster'] == cluster].drop('cluster', axis=1)
+        num_cities = len(cluster_data)
+        
+        st.markdown(f"#### Cluster {cluster} — {num_cities} {'cidade' if num_cities == 1 else 'cidades'}")
+        fig = go.Figure()
 
+        # Plotar as séries temporais de cada município
         for index, row in cluster_data.iterrows():
             fig.add_trace(go.Scatter(
-                x=cluster_data.columns, y=row, mode='lines', name=index))
+                x=cluster_data.columns, 
+                y=row, 
+                mode='lines', 
+                name=index,
+                line=dict(width=1),
+                opacity=0.5))
+
+        # Adicionar centróide ao gráfico (se disponível)
+        if cluster in centroids_normalized:
+            fig.add_trace(go.Scatter(
+                x=cluster_data.columns,
+                y=centroids_normalized[cluster],
+                mode='lines+markers',
+                name=f'Centróide Cluster {cluster}',
+                line=dict(color='red', width=3, dash='solid'),
+                marker=dict(size=8, color='red', symbol='diamond'),
+                opacity=1.0
+            ))
 
         fig.update_layout(
-            title=f'Séries Temporais (normalizadas) - Cluster {cluster}',
+            title=f'Séries Temporais (normalizadas) - Cluster {cluster} ({num_cities} cidades)',
             xaxis_title='Mês/Ano',
             yaxis_title='Valor normalizado (z-score)',
-            showlegend=True
+            showlegend=True,
+            hovermode='closest'
         )
         st.plotly_chart(fig, width='stretch')
+
+
+def plot_centroids_comparison(time_series_df, labels, model):
+    """Plota um gráfico comparativo mostrando apenas os centróides de cada cluster."""
+    if model is None or not hasattr(model, 'cluster_centers_'):
+        st.warning("Centróides não disponíveis para este modelo.")
+        return
+    
+    try:
+        # Normaliza os dados para obter o scaler
+        X = time_series_df.values
+        n_ts, n_t = X.shape
+        scaler_local = TimeSeriesScalerMeanVariance(mu=0., std=1.)
+        X_scaled = scaler_local.fit_transform(X.reshape(n_ts, n_t, 1)).reshape(n_ts, n_t)
+        
+        # Normalizar os centróides do modelo
+        centroids = model.cluster_centers_.squeeze()
+        if centroids.ndim == 1:
+            centroids = centroids.reshape(1, -1)
+        centroids_norm = scaler_local.transform(centroids.reshape(len(centroids), -1, 1)).reshape(len(centroids), -1)
+        
+        # Criar DataFrame com os centróides normalizados
+        norm_df = pd.DataFrame(X_scaled, index=time_series_df.index, columns=time_series_df.columns)
+        norm_df['cluster'] = labels
+        clusters = sorted(norm_df['cluster'].unique())
+        
+        # Contar cidades por cluster
+        cluster_counts = norm_df['cluster'].value_counts().sort_index()
+        
+        # Criar gráfico com cores distintas
+        st.markdown("#### Comparação de Centróides entre Clusters")
+        fig = go.Figure()
+        
+        # Paleta de cores para diferenciar clusters
+        colors = px.colors.qualitative.Plotly
+        
+        for i, cluster_id in enumerate(clusters):
+            if i < len(centroids_norm):
+                num_cities = cluster_counts.get(cluster_id, 0)
+                fig.add_trace(go.Scatter(
+                    x=time_series_df.columns,
+                    y=centroids_norm[i],
+                    mode='lines+markers',
+                    name=f'Cluster {cluster_id} ({num_cities} cidades)',
+                    line=dict(width=3, color=colors[i % len(colors)]),
+                    marker=dict(size=8, symbol='diamond'),
+                    opacity=1.0
+                ))
+        
+        fig.update_layout(
+            title='Centróides dos Clusters',
+            xaxis_title='Mês/Ano',
+            yaxis_title='Valor normalizado (z-score)',
+            showlegend=True,
+            hovermode='x unified',
+            height=600,
+            legend=dict(
+                orientation="v",
+                yanchor="top",
+                y=1,
+                xanchor="left",
+                x=1.02
+            )
+        )
+        
+        st.plotly_chart(fig, width='stretch')
+        
+    except Exception as e:
+        st.error(f"Erro ao plotar centróides: {e}")
 
 
 def plot_map_by_cluster(db, time_series_df_with_labels):
@@ -84,6 +191,12 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
         ordered_clusters = sorted(map_df['cluster'].unique())
     map_df['cluster'] = pd.Categorical(map_df['cluster'], categories=ordered_clusters, ordered=True)
 
+    # Contar número de cidades por cluster
+    cluster_counts = map_df['cluster'].value_counts().to_dict()
+    
+    # Adicionar coluna com a contagem de cidades no cluster
+    map_df['num_cidades_cluster'] = map_df['cluster'].map(cluster_counts)
+    
     # Escolha de paleta com múltiplas cores distintas
     try:
         color_seq = px.colors.qualitative.Dark24
@@ -99,17 +212,35 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
         lon="longitude",
         color="cluster",
         hover_name="nome",
-        hover_data=["cluster"],
+        hover_data={
+            "cluster": True,
+            "num_cidades_cluster": ":,.0f",
+            "latitude": False,
+            "longitude": False
+        },
         mapbox_style="carto-positron",
         zoom=6,
         title="Distribuição Geográfica dos Clusters",
         height=700,
         color_discrete_sequence=color_seq,
-        category_orders={'cluster': ordered_clusters}
+        category_orders={'cluster': ordered_clusters},
+        labels={
+            "num_cidades_cluster": "Cidades no cluster",
+            "cluster": "Cluster"
+        }
     )
 
     # Aumentar o tamanho dos marcadores para melhor visibilidade
     fig.update_traces(marker=dict(size=10))
+    
+    # Atualizar legenda para incluir contagem de cidades
+    for cluster in ordered_clusters:
+        count = cluster_counts.get(cluster, 0)
+        fig.for_each_trace(
+            lambda trace: trace.update(name=f"Cluster {trace.name} ({count} cidades)")
+            if trace.name == cluster else ()
+        )
+    
     fig.update_layout(legend_title_text='Cluster', margin=dict(l=0, r=0, t=40, b=0))
     st.plotly_chart(fig, width='stretch')
 

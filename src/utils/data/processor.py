@@ -5,8 +5,8 @@ from utils.config.logging import get_logger
 warnings.filterwarnings("ignore", category=UserWarning,
                         module="openpyxl")  # Ignorar avisos do openpyxl
 
-# Certifique-se de que o diretório de trabalho está correto
-os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# Não muda o diretório aqui - deixa o pipeline_runner fazer isso
+# O diretório de trabalho já deve estar definido como a raiz do projeto
 
 logger = get_logger("DATA_PROCESSOR")
 
@@ -27,8 +27,19 @@ class DataProcessor:
     def process_files(self):
         logger.info(
             f"Iniciando carregamento e processamento dos arquivos em: {self.input_dir}")
+        
+        # Verificar se o diretório de entrada existe
+        if not os.path.exists(self.input_dir):
+            logger.error(f"Diretório de entrada não encontrado: {self.input_dir}")
+            logger.error(f"Diretório de trabalho atual: {os.getcwd()}")
+            return
+        
+        # Listar arquivos no diretório
+        all_files = os.listdir(self.input_dir)
+        logger.info(f"Total de arquivos no diretório: {len(all_files)}")
+        
         dfs = []
-        for filename in os.listdir(self.input_dir):
+        for filename in all_files:
             if filename.endswith(('.csv', '.xlsx', '.json')):
                 file_path = os.path.join(self.input_dir, filename)
                 try:
@@ -60,7 +71,10 @@ class DataProcessor:
                     df['Data_Coleta'] = data_coleta
                     dfs.append(df)
                 except Exception as e:
-                    logger.error(f"Erro ao ler {filename}: {e}")
+                    logger.error(f"✗ Erro ao ler {filename}: {e}")
+        
+        logger.info(f"Total de arquivos processados com sucesso: {len(dfs)}")
+        
         if not dfs:
             logger.error("Nenhum arquivo de dados lido. Abortando processo.")
             return
@@ -117,8 +131,8 @@ class DataProcessor:
 if __name__ == '__main__':
     logger.warning(
         "Este script não está rodando dentro do pipeline ssp_pipeline.py.")
-    DOWNLOADED_DATA_DIR = "./ssp_data"
-    PROCESSED_DATA_DIR = "./ssp_data_processed"
+    DOWNLOADED_DATA_DIR = "./output/ssp_data"
+    PROCESSED_DATA_DIR = "./output/ssp_data_processed"
     processor = DataProcessor(
         input_dir=DOWNLOADED_DATA_DIR, output_dir_processed=PROCESSED_DATA_DIR)
     processor.process_files()

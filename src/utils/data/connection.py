@@ -229,6 +229,18 @@ class DatabaseConnection:
             anos = list(ano)
         else:
             anos = [ano]
+        
+        # Verificar quais colunas de meses existem no DataFrame
+        colunas_disponiveis = set(df.columns)
+        meses_no_df = [mes for mes in MESES if mes in colunas_disponiveis]
+        
+        if not meses_no_df:
+            logger.error(f"Nenhuma coluna de mês encontrada no DataFrame. Colunas disponíveis: {list(df.columns)}")
+            logger.error(f"Meses esperados: {MESES}")
+            raise ValueError("Colunas de meses não encontradas no DataFrame")
+        
+        logger.info(f"Colunas de meses encontradas: {meses_no_df}")
+        
         for a in anos:
             a_int = int(a)
             df_ano = df[df['Ano'] == a]
@@ -236,11 +248,13 @@ class DatabaseConnection:
                 'SELECT ano, mes, municipio_id, crime_id, quantidade FROM ocorrencias WHERE ano = %s;', (a_int,))}
             ocorrencias_dict = {}
             for _, row in df_ano.iterrows():
-                for i, mes in enumerate(MESES, 1):
+                for i, mes in enumerate(meses_no_df, 1):
+                    # Ajustar índice se nem todos os meses estão presentes
+                    mes_numero = MESES.index(mes) + 1
                     quantidade = row[mes]
                     if pd.isna(quantidade):
                         continue
-                    key = (int(row['Ano']), i, int(
+                    key = (int(row['Ano']), mes_numero, int(
                         row['ID_Municipio']), crime_map[row['Natureza']])
                     if key not in db_ocorrencias or db_ocorrencias[key] != int(quantidade):
                         ocorrencias_dict[key] = int(

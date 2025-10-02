@@ -93,7 +93,8 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         fetch_data_for_model_cached, prepare_municipalities_table
     )
     from utils.visualization.plots import (
-        display_model_metrics, plot_time_series_by_cluster, plot_map_by_cluster
+        display_model_metrics, plot_time_series_by_cluster, plot_map_by_cluster,
+        plot_centroids_comparison
     )
 
     st.success("Modelo concluído — exibindo resultados.")
@@ -131,8 +132,14 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         time_series_df_with_labels = time_series_df.copy()
         time_series_df_with_labels['cluster'] = labels
 
+        # Plotar mapa de clusters
         plot_map_by_cluster(db, time_series_df_with_labels)
-        plot_time_series_by_cluster(time_series_df.copy(), labels)
+        
+        # Plotar gráfico comparativo de centróides
+        plot_centroids_comparison(time_series_df.copy(), labels, model)
+        
+        # Plotar séries temporais por cluster (com centróides)
+        plot_time_series_by_cluster(time_series_df.copy(), labels, model)
 
         # Tabela com região
         st.markdown("#### Tabela de Municípios por Cluster")
