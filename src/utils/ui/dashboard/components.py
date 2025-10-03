@@ -112,7 +112,7 @@ def render_charts_section(dados):
             xaxis_title="Mês",
             yaxis_title="Total"
         )
-        st.plotly_chart(fig1, width='stretch')
+        st.plotly_chart(fig1, use_container_width=True)
 
     with chart_col2:
         st.markdown("#### Tipos de Ocorrências")
@@ -127,7 +127,7 @@ def render_charts_section(dados):
             xaxis_title="Total",
             yaxis_title="Crime"
         )
-        st.plotly_chart(fig2, width='stretch')
+        st.plotly_chart(fig2, use_container_width=True)
 
 
 def render_data_table_section(dados):
@@ -135,7 +135,7 @@ def render_data_table_section(dados):
     st.markdown("#### Dados Detalhados")
     tabela_completa = processar_tabela_detalhada(
         dados['df_dados'], dados['df_anterior'])
-    st.dataframe(tabela_completa, width='stretch')
+    st.dataframe(tabela_completa, use_container_width=True)
 
 
 def render_maps_section(year_filter):

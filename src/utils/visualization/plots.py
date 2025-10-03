@@ -79,7 +79,7 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
             showlegend=True,
             hovermode='closest'
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
 
 
 def plot_centroids_comparison(time_series_df, labels, model):
@@ -145,7 +145,7 @@ def plot_centroids_comparison(time_series_df, labels, model):
             )
         )
         
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
         
     except Exception as e:
         st.error(f"Erro ao plotar centróides: {e}")
@@ -242,7 +242,7 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
         )
     
     fig.update_layout(legend_title_text='Cluster', margin=dict(l=0, r=0, t=40, b=0))
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig, use_container_width=True)
 
 
 def display_model_metrics(silhouette, k):
