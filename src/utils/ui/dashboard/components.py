@@ -112,7 +112,7 @@ def render_charts_section(dados):
             xaxis_title="Mês",
             yaxis_title="Total"
         )
-        st.plotly_chart(fig1, use_container_width=True)
+        st.plotly_chart(fig1, config={'width': 'stretch'})
 
     with chart_col2:
         st.markdown("#### Tipos de Ocorrências")
@@ -127,7 +127,7 @@ def render_charts_section(dados):
             xaxis_title="Total",
             yaxis_title="Crime"
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, config={'width': 'stretch'})
 
 
 def render_data_table_section(dados):
