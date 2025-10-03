@@ -135,7 +135,7 @@ def render_data_table_section(dados):
     st.markdown("#### Dados Detalhados")
     tabela_completa = processar_tabela_detalhada(
         dados['df_dados'], dados['df_anterior'])
-    st.dataframe(tabela_completa, use_container_width=True)
+    st.dataframe(tabela_completa, width='stretch')
 
 
 def render_maps_section(year_filter):
