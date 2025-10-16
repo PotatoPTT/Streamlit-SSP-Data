@@ -47,7 +47,7 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
         cluster_data = norm_df[norm_df['cluster'] == cluster].drop('cluster', axis=1)
         num_cities = len(cluster_data)
         
-        st.markdown(f"#### Cluster {cluster} — {num_cities} {'cidade' if num_cities == 1 else 'cidades'}")
+        st.markdown(f"#### Cluster {cluster} - {num_cities} {'cidade' if num_cities == 1 else 'cidades'}")
         fig = go.Figure()
 
         # Plotar as séries temporais de cada município
@@ -155,7 +155,6 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
     """Plota um mapa dos municípios coloridos por cluster."""
     municipios_clusters = time_series_df_with_labels[
         ['cluster']].reset_index()
-    # A coluna de índice do time_series_df era 'municipio' — garante nome consistente
     idx_name = municipios_clusters.columns[0]
     if idx_name != 'municipio' and 'municipio' in municipios_clusters.columns:
         municipios_clusters.rename(columns={'municipio': 'nome'}, inplace=True)
@@ -306,7 +305,7 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
     def _norm_radius_array(vals):
         """
         Normaliza tamanhos usando transformação sqrt para reduzir a influência de outliers
-        (como municípios com valores muito altos — ex: São Paulo). Retorna lista de pixels.
+        (como municípios com valores muito altos ex: São Paulo). Retorna lista de pixels.
         """
         vals = pd.to_numeric(vals, errors='coerce').fillna(0).astype(float)
         # usar transformação sqrt para comprimir a escala
@@ -380,7 +379,7 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
 
         fig.update_layout(
             mapbox_style="carto-positron",
-            title=f"{crime} — {year if year is not None else 'Todos anos'}",
+            title=f"{crime} - {year if year is not None else 'Todos anos'}",
             margin=dict(l=0, r=0, t=40, b=0),
             height=max_height,
             mapbox=dict(center=MAP_CENTER_SP, zoom=MAP_INITIAL_ZOOM_SP)

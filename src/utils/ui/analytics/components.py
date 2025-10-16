@@ -97,7 +97,7 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         plot_centroids_comparison
     )
 
-    st.success("Modelo concluído — exibindo resultados.")
+
 
     model_filename = get_model_filename(selected_method, params)
     if not model_filename:
