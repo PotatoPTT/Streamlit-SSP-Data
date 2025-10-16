@@ -197,13 +197,9 @@ def handle_pending_processing_model(status):
     """Gerencia o fluxo quando um modelo está pendente ou processando."""
     st.info(
         f"Uma solicitação para este modelo já existe e está com o status: **{status}**.")
-    st.write("A página verificará o status a cada 10 segundos. Por favor, aguarde.")
+    st.write("A página vai atualizar automaticamente quando estiver concluído. Por favor, aguarde.")
 
-    # Exibir um progresso para melhor UX
-    progress_bar = st.progress(0)
-    for i in range(10):
-        progress_bar.progress((i + 1) / 10)
-        time.sleep(1)
+    time.sleep(10)
 
     # Ativar flag para usar TTL baixo na próxima verificação
     st.session_state.force_refresh_models = True
