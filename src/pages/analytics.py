@@ -81,11 +81,11 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
 
                 def format_methods_summary(group):
                     if not group['modelos']:
-                        return '—'
+                        return '-'
                     parts = []
                     for m in group['modelos']:
-                        metodo = (m.get('metodo') or '—').upper() if m.get('metodo') else '—'
-                        status = m.get('status', '—')
+                        metodo = (m.get('metodo') or '-').upper() if m.get('metodo') else '-'
+                        status = m.get('status', '-')
                         parts.append(f"{metodo}: {status}")
                     return " | ".join(parts)
 
@@ -98,14 +98,14 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                     methods_summary = format_methods_summary(group)
                     atualizado_em = group.get('last_update')
                     atualizado_em_str = atualizado_em.strftime("%d/%m/%Y %H:%M") if hasattr(
-                        atualizado_em, 'strftime') else str(atualizado_em or '—')
+                        atualizado_em, 'strftime') else str(atualizado_em or '-')
 
-                    label = f"{base.get('regiao', 'Todas')} • {base.get('crime', '—')} • {periodo}"
+                    label = f"{base.get('regiao', 'Todas')} • {base.get('crime', '-')} • {periodo}"
                     label_map[label] = group
 
                     summary_rows.append({
-                        "Região": base.get('regiao') or '—',
-                        "Crime": base.get('crime') or '—',
+                        "Região": base.get('regiao') or '-',
+                        "Crime": base.get('crime') or '-',
                         "Período": periodo,
                         "Métodos": methods_summary,
                         "Criado em": atualizado_em_str,
@@ -138,18 +138,18 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                 periodo = format_period(base.get('data_inicio'), base.get('data_fim'))
                 atualizado_em = selected_group.get('last_update')
                 atualizado_em_str = atualizado_em.strftime("%d/%m/%Y %H:%M") if hasattr(
-                    atualizado_em, 'strftime') else str(atualizado_em or '—')
+                    atualizado_em, 'strftime') else str(atualizado_em or '-')
 
                 col1, col2 = st.columns(2)
                 with col1:
-                    st.markdown(f"**Região:** {base.get('regiao', '—')}")
-                    st.markdown(f"**Crime:** {base.get('crime', '—')}")
+                    st.markdown(f"**Região:** {base.get('regiao', '-')}")
+                    st.markdown(f"**Crime:** {base.get('crime', '-')}")
                     st.markdown(f"**Período:** {periodo}")
                 with col2:
                     st.markdown(f"**Métodos disponíveis:**")
                     for modelo in selected_group['modelos']:
-                        metodo = (modelo.get('metodo') or '—').upper() if modelo.get('metodo') else '—'
-                        status = modelo.get('status', '—')
+                        metodo = (modelo.get('metodo') or '-').upper() if modelo.get('metodo') else '-'
+                        status = modelo.get('status', '-')
                         st.markdown(f"- {metodo}: {status}")
                     st.markdown(f"**Criado em:** {atualizado_em_str}")
 
@@ -180,7 +180,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                     st.session_state['analytics_scroll_target'] = 'resultados-do-modelo'
                     st.rerun()
 
-                st.markdown("#### Resumo de grupos concluídos")
+                st.markdown("#### Modelos concluídos")
                 st.dataframe(pd.DataFrame(summary_rows))
 
     def render_manual_tab(current_state):
