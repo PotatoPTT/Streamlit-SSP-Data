@@ -82,7 +82,7 @@ def plot_silhouette_by_cluster(features, labels):
     )
     fig.update_traces(texttemplate="%{text:.3f}", textposition="outside")
     fig.update_layout(showlegend=False, yaxis_tickformat=".3f", margin=dict(t=60, b=0))
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig)
 
     st.dataframe(
         summary_df.rename(columns={
@@ -166,7 +166,7 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
             showlegend=True,
             hovermode='closest'
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig)
 
 
 def plot_centroids_comparison(time_series_df, labels, model):
@@ -231,8 +231,7 @@ def plot_centroids_comparison(time_series_df, labels, model):
                 x=1.02
             )
         )
-        
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig)
         
     except Exception as e:
         st.error(f"Erro ao plotar centróides: {e}")
@@ -328,7 +327,7 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
         )
     
     fig.update_layout(legend_title_text='Cluster', margin=dict(l=0, r=0, t=40, b=0))
-    st.plotly_chart(fig, width='stretch')
+    st.plotly_chart(fig)
 
 
 def display_model_metrics(silhouette, k):
@@ -477,4 +476,4 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
         except Exception:
             pass
 
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig)
