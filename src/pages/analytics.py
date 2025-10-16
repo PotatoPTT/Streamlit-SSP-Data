@@ -34,15 +34,34 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
     crimes_list = get_crimes_list()
     crime_selecionado = st.selectbox("Crime", crimes_list)
 
-    # --- Construir parâmetros do modelo ---
-    params = build_model_params(ano_inicio, mes_inicio, ano_fim, mes_fim,
-                                regiao_selecionada, crime_selecionado)
+    submit_filters = st.button("Aplicar filtros")
 
-    # --- Verificação de Solicitações Existentes para os dois métodos ---
-    params_k = params.copy()
-    params_k['metodo'] = 'kmeans'
-    params_d = params.copy()
-    params_d['metodo'] = 'kdba'
+    selected_state = st.session_state.get('analytics_selected_params')
+
+    params_current = build_model_params(ano_inicio, mes_inicio, ano_fim, mes_fim,
+                                        regiao_selecionada, crime_selecionado)
+
+    params_k_current = params_current.copy()
+    params_k_current['metodo'] = 'kmeans'
+    params_d_current = params_current.copy()
+    params_d_current['metodo'] = 'kdba'
+
+    if submit_filters:
+        selected_state = {
+            'params': params_current,
+            'params_k': params_k_current,
+            'params_d': params_d_current
+        }
+        st.session_state['analytics_selected_params'] = selected_state
+        st.session_state['force_refresh_models'] = False
+
+    if not selected_state:
+        st.info('Ajuste os filtros e clique em "Aplicar filtros" para consultar ou gerar modelos.')
+        return
+
+    params = selected_state['params']
+    params_k = selected_state['params_k']
+    params_d = selected_state['params_d']
 
     # Verificar se há uma flag de rerun (para usar TTL baixo)
     use_low_ttl = st.session_state.get('force_refresh_models', False)

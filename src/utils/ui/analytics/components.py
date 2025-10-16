@@ -35,7 +35,7 @@ def render_date_filters(df_anos, df_meses_por_ano):
             df_meses_por_ano, ano_fim)
         mes_inicio_num = meses_map[mes_inicio]
         meses_fim_filtrados = filter_end_months(
-            meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num)
+            meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num + 1)
 
         meses_nomes_fim = [meses_map_inv[m] for m in meses_fim_filtrados]
         mes_fim_index = len(meses_nomes_fim) - 1 if meses_nomes_fim else 0
