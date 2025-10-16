@@ -56,6 +56,53 @@ def build_model_params(ano_inicio, mes_inicio, ano_fim, mes_fim, regiao_selecion
     }
 
 
+@st.cache_data(ttl=60)
+def get_completed_models():
+    """Retorna a lista de solicitações de modelo concluídas."""
+    query = '''
+        SELECT id, status, parametros, data_solicitacao, data_atualizacao
+        FROM solicitacoes_modelo
+        WHERE status = 'CONCLUIDO'
+        ORDER BY data_atualizacao DESC;
+    '''
+
+    with DatabaseConnection() as db:
+        rows = db.fetch_all(query)
+
+    modelos = []
+    for row in rows:
+        solicit_id, status, params_json, data_solicitacao, data_atualizacao = row
+        params = {}
+        if params_json:
+            try:
+                if isinstance(params_json, (dict, list)):
+                    params = params_json
+                else:
+                    params = json.loads(params_json)
+            except (TypeError, json.JSONDecodeError):
+                params = {}
+
+        base_params = {
+            "data_inicio": params.get("data_inicio"),
+            "data_fim": params.get("data_fim"),
+            "regiao": params.get("regiao"),
+            "crime": params.get("crime"),
+            "tipo_modelo": params.get("tipo_modelo", "predicao_ocorrencias"),
+        }
+
+        modelos.append({
+            "id": solicit_id,
+            "status": status,
+            "parametros": params,
+            "base_params": base_params,
+            "metodo": params.get("metodo"),
+            "data_solicitacao": data_solicitacao,
+            "data_atualizacao": data_atualizacao,
+        })
+
+    return modelos
+
+
 def get_status_label(solicitacao, name):
     """Retorna o rótulo de status formatado para exibição."""
     if not solicitacao:

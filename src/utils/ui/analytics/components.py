@@ -9,27 +9,45 @@ from utils.config.logging import get_logger
 logger = get_logger("ANALYTICS_UI")
 
 
-def render_date_filters(df_anos, df_meses_por_ano):
-    """Renderiza os filtros de data da interface."""
+def render_date_filters(df_anos, df_meses_por_ano,
+                        default_ano_inicio=None, default_mes_inicio=None,
+                        default_ano_fim=None, default_mes_fim=None):
+    """Renderiza os filtros de data da interface com valores padrão opcionais."""
     from utils.ui.analytics.utils import get_meses_mapping, get_available_months_for_year, filter_end_months
 
     meses_map, meses_map_inv = get_meses_mapping()
     anos_list = df_anos["ano"].sort_values(ascending=False).tolist()
 
+    if default_ano_inicio not in anos_list:
+        default_ano_inicio = anos_list[0] if anos_list else None
+
     st.markdown("##### Período da Análise")
     col_start, col_end = st.columns(2)
 
     with col_start:
-        ano_inicio = st.selectbox("Ano de Início", anos_list, index=0)
+        ano_inicio_index = anos_list.index(
+            default_ano_inicio) if default_ano_inicio in anos_list else 0
+        ano_inicio = st.selectbox(
+            "Ano de Início", anos_list, index=ano_inicio_index)
         meses_disponiveis_inicio = get_available_months_for_year(
             df_meses_por_ano, ano_inicio)
         meses_nomes_inicio = [meses_map_inv[m]
                               for m in meses_disponiveis_inicio]
-        mes_inicio = st.selectbox("Mês de Início", meses_nomes_inicio, index=0)
+        if default_mes_inicio not in meses_nomes_inicio:
+            mes_inicio_index = 0
+        else:
+            mes_inicio_index = meses_nomes_inicio.index(default_mes_inicio)
+        mes_inicio = st.selectbox(
+            "Mês de Início", meses_nomes_inicio, index=mes_inicio_index)
 
     with col_end:
         anos_fim_disponiveis = [ano for ano in anos_list if ano >= ano_inicio]
-        ano_fim = st.selectbox("Ano de Fim", anos_fim_disponiveis, index=0)
+        if default_ano_fim not in anos_fim_disponiveis:
+            ano_fim_index = 0
+        else:
+            ano_fim_index = anos_fim_disponiveis.index(default_ano_fim)
+        ano_fim = st.selectbox("Ano de Fim", anos_fim_disponiveis,
+                               index=ano_fim_index)
 
         meses_disponiveis_fim = get_available_months_for_year(
             df_meses_por_ano, ano_fim)
@@ -38,28 +56,42 @@ def render_date_filters(df_anos, df_meses_por_ano):
             meses_disponiveis_fim, ano_fim, ano_inicio, mes_inicio_num + 1)
 
         meses_nomes_fim = [meses_map_inv[m] for m in meses_fim_filtrados]
-        mes_fim_index = len(meses_nomes_fim) - 1 if meses_nomes_fim else 0
-        mes_fim = st.selectbox(
-            "Mês de Fim", meses_nomes_fim, index=mes_fim_index)
+        if default_mes_fim in meses_nomes_fim:
+            mes_fim_index = meses_nomes_fim.index(default_mes_fim)
+        else:
+            mes_fim_index = len(meses_nomes_fim) - 1 if meses_nomes_fim else 0
+        mes_fim = st.selectbox("Mês de Fim", meses_nomes_fim,
+                               index=mes_fim_index)
 
     return ano_inicio, mes_inicio, ano_fim, mes_fim
 
 
-def render_location_filter(df_regioes):
-    """Renderiza o filtro de localização."""
+def render_location_filter(df_regioes, default_regiao=None):
+    """Renderiza o filtro de localização com valor padrão opcional."""
     st.markdown("##### Localização")
     # Filtrar regiões para excluir "Capital"
     df_regioes_filtrado = df_regioes[df_regioes["nome"] != "Capital"]
     regioes_list = ["Todas"] + df_regioes_filtrado["nome"].tolist()
-    return st.selectbox("Região", regioes_list)
+    if default_regiao not in regioes_list:
+        default_index = 0
+    else:
+        default_index = regioes_list.index(default_regiao)
+    return st.selectbox("Região", regioes_list, index=default_index)
 
 
-def render_crime_filter(db):
-    """Renderiza o filtro de tipo de crime."""
+def render_crime_filter(default_crime=None):
+    """Renderiza o filtro de tipo de crime com valor padrão opcional."""
     from utils.ui.analytics.utils import get_crimes_list
     st.markdown("##### Tipo de Crime")
     crimes_list = get_crimes_list()
-    return st.selectbox("Natureza do Crime", crimes_list)
+    if default_crime not in crimes_list:
+        default_index = 0 if crimes_list else None
+    else:
+        default_index = crimes_list.index(default_crime)
+    if crimes_list:
+        return st.selectbox("Natureza do Crime", crimes_list, index=default_index)
+    st.warning("Nenhum crime disponível para seleção.")
+    return None
 
 
 def render_method_selector(solicit_k, solicit_d):
