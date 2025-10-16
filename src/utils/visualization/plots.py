@@ -4,10 +4,97 @@ Módulo para visualizações específicas de análise preditiva e clustering.
 
 import streamlit as st
 import pandas as pd
+import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from tslearn.preprocessing import TimeSeriesScalerMeanVariance
 from utils.config.constants import MESES, MAP_MIN_MARKER_RADIUS, MAP_MAX_MARKER_RADIUS, MAP_CENTER_SP, MAP_INITIAL_ZOOM_SP
+
+
+def plot_silhouette_by_cluster(features, labels):
+    """Exibe a silhueta média por cluster em formato de gráfico e tabela."""
+    try:
+        from sklearn.metrics import silhouette_samples
+    except ImportError:  # pragma: no cover - fallback para ambientes sem sklearn
+        st.warning("Biblioteca scikit-learn não disponível para calcular a silhueta por cluster.")
+        return
+
+    if features is None or labels is None:
+        return
+
+    if isinstance(labels, (list, tuple)):
+        labels_array = np.asarray(labels)
+    elif isinstance(labels, pd.Series):
+        labels_array = labels.values
+    else:
+        labels_array = np.asarray(labels)
+
+    unique_clusters = pd.unique(labels_array)
+    if len(unique_clusters) < 2:
+        return
+
+    if isinstance(features, pd.DataFrame):
+        features_array = features.values
+    else:
+        features_array = np.asarray(features)
+
+    if features_array.ndim == 3 and features_array.shape[-1] == 1:
+        features_array = features_array.reshape(features_array.shape[0], -1)
+    elif features_array.ndim > 2:
+        features_array = features_array.reshape(features_array.shape[0], -1)
+
+    if features_array.ndim != 2:
+        st.warning("Não foi possível converter os dados dos clusters para formato compatível com a silhueta.")
+        return
+
+    try:
+        sample_scores = silhouette_samples(features_array, labels_array)
+    except Exception as err:
+        st.warning(f"Não foi possível calcular a silhueta por cluster: {err}")
+        return
+
+    scores_df = pd.DataFrame({"cluster": labels_array, "silhueta": sample_scores})
+    summary_df = (
+        scores_df
+        .groupby("cluster", as_index=False)
+        .agg(
+            silhueta_media=("silhueta", "mean"),
+            silhueta_mediana=("silhueta", "median"),
+            silhueta_minima=("silhueta", "min"),
+            silhueta_maxima=("silhueta", "max"),
+            quantidade=("silhueta", "count")
+        )
+        .sort_values("cluster")
+    )
+
+    st.markdown("#### Teste")
+    fig = px.bar(
+        summary_df,
+        x="cluster",
+        y="silhueta_media",
+        color="cluster",
+        text="silhueta_media",
+        labels={
+            "cluster": "Cluster",
+            "silhueta_media": "Silhueta média"
+        },
+        title="Silhueta Média"
+    )
+    fig.update_traces(texttemplate="%{text:.3f}", textposition="outside")
+    fig.update_layout(showlegend=False, yaxis_tickformat=".3f", margin=dict(t=60, b=0))
+    st.plotly_chart(fig, width='stretch')
+
+    st.dataframe(
+        summary_df.rename(columns={
+            "cluster": "Cluster",
+            "silhueta_media": "Silhueta média",
+            "silhueta_mediana": "Silhueta mediana",
+            "silhueta_minima": "Silhueta mínima",
+            "silhueta_maxima": "Silhueta máxima",
+            "quantidade": "Qtde. de municípios"
+        }),
+        width='stretch'
+    )
 
 
 def plot_time_series_by_cluster(time_series_df, labels, model=None):

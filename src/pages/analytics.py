@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import json
 import pandas as pd
 from utils.ui.analytics.utils import (
@@ -26,7 +27,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
         for tab_label, col in zip(tab_labels, buttons_cols):
             is_active = st.session_state['analytics_active_tab'] == tab_label
             button_type = "primary" if is_active else "secondary"
-            if col.button(tab_label, key=f"analytics_tab_btn_{tab_label}", type=button_type, use_container_width=True):
+            if col.button(tab_label, key=f"analytics_tab_btn_{tab_label}", type=button_type, width='stretch'):
                 st.session_state['analytics_active_tab'] = tab_label
                 st.rerun()
 
@@ -107,7 +108,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                         "Crime": base.get('crime') or '—',
                         "Período": periodo,
                         "Métodos": methods_summary,
-                        "Atualizado em": atualizado_em_str,
+                        "Criado em": atualizado_em_str,
                     })
 
                 default_label = None
@@ -150,7 +151,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                         metodo = (modelo.get('metodo') or '—').upper() if modelo.get('metodo') else '—'
                         status = modelo.get('status', '—')
                         st.markdown(f"- {metodo}: {status}")
-                    st.markdown(f"**Atualizado em:** {atualizado_em_str}")
+                    st.markdown(f"**Criado em:** {atualizado_em_str}")
 
                 if st.button("Exibir Modelo", key=f"abrir_grupo_{selected_group['ids'][0]}"):
                     params_base = {
@@ -176,6 +177,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                     st.session_state['force_refresh_models'] = False
                     st.session_state['analytics_active_tab'] = tab_labels[1]
                     st.session_state['analytics_selected_model_id'] = selected_group['ids'][0]
+                    st.session_state['analytics_scroll_target'] = 'resultados-do-modelo'
                     st.rerun()
 
                 st.markdown("#### Resumo de grupos concluídos")
@@ -254,6 +256,8 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
 
             current_state = st.session_state.get('analytics_selected_params')
 
+            st.markdown('<a id="resultados-do-modelo"></a>', unsafe_allow_html=True)
+
             with st.container(border=True):
                 st.markdown("### Resultados do modelo")
 
@@ -292,6 +296,23 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                         selected_method, selected_solicit, params, params_k, params_d)
                 else:
                     handle_no_existing_models_cached(params_k, params_d)
+
+            if st.session_state.get('analytics_scroll_target') == 'resultados-do-modelo':
+                components.html(
+                    """
+                    <script>
+                        const streamlitFrame = window.parent;
+                        const anchor = streamlitFrame.document.getElementById('resultados-do-modelo');
+                        if (anchor) {
+                            anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            streamlitFrame.location.hash = 'resultados-do-modelo';
+                        }
+                    </script>
+                    """,
+                    height=0
+                )
+                st.session_state['analytics_scroll_target'] = None
 
     if selected_tab == tab_labels[0]:
         render_models_tab(selected_state)

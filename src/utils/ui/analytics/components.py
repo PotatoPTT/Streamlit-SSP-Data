@@ -126,7 +126,7 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
     )
     from utils.visualization.plots import (
         display_model_metrics, plot_time_series_by_cluster, plot_map_by_cluster,
-        plot_centroids_comparison
+        plot_centroids_comparison, plot_silhouette_by_cluster
     )
 
 
@@ -160,7 +160,18 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         json.dumps(params, sort_keys=True))
 
     if not time_series_df.empty:
-        labels = model.predict(scaler.transform(time_series_df.values))
+        try:
+            scaled_features = scaler.transform(time_series_df.values)
+        except Exception as err:
+            logger.warning(f"Falha ao aplicar scaler nos dados do modelo: {err}")
+            scaled_features = time_series_df.values
+
+        try:
+            labels = model.predict(scaled_features)
+        except Exception as err:
+            st.error(f"Erro ao prever clusters com o modelo carregado: {err}")
+            return
+
         time_series_df_with_labels = time_series_df.copy()
         time_series_df_with_labels['cluster'] = labels
 
@@ -178,6 +189,8 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         display_df = prepare_municipalities_table(
             time_series_df_with_labels, db)
         st.dataframe(display_df)
+
+        plot_silhouette_by_cluster(scaled_features, labels)
 
 
 def handle_pending_processing_model(status):
