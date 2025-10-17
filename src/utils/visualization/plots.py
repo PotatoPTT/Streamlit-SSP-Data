@@ -67,7 +67,7 @@ def plot_silhouette_by_cluster(features, labels):
         .sort_values("cluster")
     )
 
-    st.markdown("#### Teste")
+    st.markdown("#### valores brutos silhueta")
     fig = px.bar(
         summary_df,
         x="cluster",
@@ -87,11 +87,11 @@ def plot_silhouette_by_cluster(features, labels):
     st.dataframe(
         summary_df.rename(columns={
             "cluster": "Cluster",
-            "silhueta_media": "Silhueta média",
-            "silhueta_mediana": "Silhueta mediana",
-            "silhueta_minima": "Silhueta mínima",
-            "silhueta_maxima": "Silhueta máxima",
-            "quantidade": "Qtde. de municípios"
+            "silhueta_media": "media",
+            "silhueta_mediana": "mediana",
+            "silhueta_minima": "minima",
+            "silhueta_maxima": "maxima",
+            "quantidade": "municipios"
         }),
         width='stretch'
     )
