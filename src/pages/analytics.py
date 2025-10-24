@@ -137,7 +137,7 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                     on_select="rerun",
                     selection_mode="single-row",
                     hide_index=True,
-                    use_container_width=True
+                    width='stretch'
                 )
 
                 if event.selection and event.selection.rows:
