@@ -127,12 +127,25 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
 
                 labels = list(label_map.keys())
                 selected_index = labels.index(default_label) if default_label in labels else 0
-                selected_label = st.selectbox(
-                    "Selecione um conjunto de parâmetros",
-                    labels,
-                    index=selected_index
+                
+                df_models = pd.DataFrame(summary_rows)
+                
+                # dataframe para seleção
+                event = st.dataframe(
+                    df_models,
+                    key="analytics_models_table",
+                    on_select="rerun",
+                    selection_mode="single-row",
+                    hide_index=True,
+                    use_container_width=True
                 )
 
+                if event.selection and event.selection.rows:
+                    selected_index = event.selection.rows[0]
+                    selected_label = labels[selected_index]
+                else:
+                    selected_label = labels[selected_index]
+                
                 selected_group = label_map[selected_label]
                 base = selected_group.get('base_params') or {}
                 periodo = format_period(base.get('data_inicio'), base.get('data_fim'))
@@ -180,8 +193,6 @@ def show_analytics(df_anos, df_regioes, df_meses_por_ano):
                     st.session_state['analytics_scroll_target'] = 'resultados-do-modelo'
                     st.rerun()
 
-                st.markdown("#### Modelos concluídos")
-                st.dataframe(pd.DataFrame(summary_rows))
 
     def render_manual_tab(current_state):
         manual_cols = st.columns([1, 14, 1])
