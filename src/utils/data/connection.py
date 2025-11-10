@@ -3,6 +3,7 @@ import pandas as pd
 import io
 import streamlit as st
 import json
+import time
 from typing import Optional
 from utils.config.logging import get_logger
 from utils.config.constants import MESES
@@ -12,14 +13,44 @@ logger = get_logger("DB")
 
 class DatabaseConnection:
     def __init__(self):
-        self.conn = psycopg2.connect(
-            dbname=st.secrets["POSTGRES_DB"],
-            user=st.secrets["POSTGRES_USER"],
-            password=st.secrets["POSTGRES_PASSWORD"],
-            host=st.secrets["POSTGRES_HOST"],
-            port=st.secrets.get("POSTGRES_PORT", 5432)
-        )
+        self._connection_params = {
+            "dbname": st.secrets["POSTGRES_DB"],
+            "user": st.secrets["POSTGRES_USER"],
+            "password": st.secrets["POSTGRES_PASSWORD"],
+            "host": st.secrets["POSTGRES_HOST"],
+            "port": st.secrets.get("POSTGRES_PORT", 5432),
+            "keepalives": 1,
+            "keepalives_idle": 30,
+            "keepalives_interval": 10,
+            "keepalives_count": 5,
+        }
+        self._connect()
+
+    def _connect(self):
+        """Estabelece uma nova conexão com o banco de dados."""
+        self.conn = psycopg2.connect(**self._connection_params)
         self.cur = self.conn.cursor()
+        logger.debug("Nova conexão estabelecida com o banco de dados")
+
+    def _ensure_connection(self):
+        """Verifica e reconecta se a conexão foi perdida."""
+        try:
+            # Testa se a conexão está ativa
+            if self.conn.closed:
+                logger.warning("Conexão fechada detectada, reconectando...")
+                self._connect()
+                return
+            
+            # Executa um comando simples para verificar a saúde da conexão
+            self.cur.execute("SELECT 1")
+            self.cur.fetchone()
+        except (psycopg2.OperationalError, psycopg2.InterfaceError) as e:
+            logger.warning(f"Conexão perdida ({e}), reconectando...")
+            try:
+                self.close()
+            except:
+                pass
+            self._connect()
 
     def __enter__(self):
         """Support 'with DatabaseConnection() as db' usage."""
@@ -36,15 +67,26 @@ class DatabaseConnection:
         return False
 
     def close(self):
-        self.cur.close()
-        self.conn.close()
+        """Fecha a conexão com o banco de dados."""
+        try:
+            if hasattr(self, 'cur') and self.cur:
+                self.cur.close()
+        except:
+            pass
+        try:
+            if hasattr(self, 'conn') and self.conn:
+                self.conn.close()
+        except:
+            pass
 
     def fetch_all(self, query, params=None):
+        self._ensure_connection()
         self.cur.execute(query, params or ())
         return self.cur.fetchall()
 
     def fetch_one(self, query, params=None):
         """Execute a query and return a single row (or None)."""
+        self._ensure_connection()
         self.cur.execute(query, params or ())
         return self.cur.fetchone()
 
@@ -53,12 +95,14 @@ class DatabaseConnection:
 
         Usage: df = db.fetch_df(query, params, columns=[...])
         """
+        self._ensure_connection()
         rows = self.fetch_all(query, params)
         if columns:
             return pd.DataFrame(rows, columns=columns)
         return pd.DataFrame(rows)
 
     def execute(self, query, params=None, commit=False):
+        self._ensure_connection()
         """Execute a statement (INSERT/UPDATE/DELETE). Optionally commit."""
         self.cur.execute(query, params or ())
         if commit:
@@ -329,6 +373,8 @@ class DatabaseConnection:
         Busca uma solicitação de modelo pelos parâmetros.
         Retorna o dicionário com id, status, parametros (decodificados) e mensagem_erro.
         """
+        self._ensure_connection()
+        
         params_json = json.dumps(params, sort_keys=True)
         query = '''
             SELECT id, status, parametros, mensagem_erro
@@ -356,6 +402,8 @@ class DatabaseConnection:
         Retorna o ID da nova solicitação.
         Limpa automaticamente o cache do Streamlit relacionado às solicitações.
         """
+        self._ensure_connection()
+        
         params_json = json.dumps(params, sort_keys=True)
         # Inserir a solicitação, mas se já existir (único por parametros),
         # reativar caso o status atual seja 'EXPIRADO' ou 'FALHOU'
@@ -445,6 +493,7 @@ class DatabaseConnection:
             WHERE id = %s;
         '''
         try:
+            self._ensure_connection()
             self.cur.execute(query, (status, mensagem_erro, solicitacao_id))
             self.conn.commit()
 
@@ -453,7 +502,11 @@ class DatabaseConnection:
 
             return True
         except Exception as e:
-            self.conn.rollback()
+            try:
+                self._ensure_connection()
+                self.conn.rollback()
+            except:
+                pass
             logger.error(
                 f"Erro ao atualizar status da solicitação {solicitacao_id}: {e}")
             return False
@@ -463,21 +516,53 @@ class DatabaseConnection:
         """
         Store the artifact bytes directly in the solicitacoes_modelo.arquivo column for the given solicitacao.
         """
-        try:
-            # Update the solicitacao record with the blob (arquivo bytea)
-            self.cur.execute('''
-                UPDATE solicitacoes_modelo
-                SET arquivo = %s,
-                    data_atualizacao = NOW()
-                WHERE id = %s;
-            ''', (psycopg2.Binary(blob), solicitacao_id))
-            self.conn.commit()
-            return True
-        except Exception as e:
-            self.conn.rollback()
-            logger.error(
-                f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
-            return False
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
+            try:
+                self._ensure_connection()
+                
+                # Update the solicitacao record with the blob (arquivo bytea)
+                self.cur.execute('''
+                    UPDATE solicitacoes_modelo
+                    SET arquivo = %s,
+                        data_atualizacao = NOW()
+                    WHERE id = %s;
+                ''', (psycopg2.Binary(blob), solicitacao_id))
+                self.conn.commit()
+                
+                logger.info(f"Modelo armazenado com sucesso no banco (tentativa {retry_count + 1}/{max_retries})")
+                return True
+                
+            except (psycopg2.OperationalError, psycopg2.InterfaceError) as e:
+                retry_count += 1
+                logger.warning(f"Erro de conexão ao salvar modelo (tentativa {retry_count}/{max_retries}): {e}")
+                
+                try:
+                    self._ensure_connection()
+                    self.conn.rollback()
+                except:
+                    pass
+                
+                if retry_count >= max_retries:
+                    logger.error(f"Falha ao salvar modelo após {max_retries} tentativas")
+                    return False
+                    
+                # Aguarda antes de tentar novamente
+                time.sleep(2 ** retry_count)  # Backoff exponencial: 2s, 4s, 8s
+                
+            except Exception as e:
+                try:
+                    self._ensure_connection()
+                    self.conn.rollback()
+                except:
+                    pass
+                logger.error(
+                    f"Erro ao salvar artefato na solicitacao {solicitacao_id}: {e}")
+                return False
+        
+        return False
 
     def fetch_model_blob_by_solicitacao(self, solicitacao_id: int):
         """

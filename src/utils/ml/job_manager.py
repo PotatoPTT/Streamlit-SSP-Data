@@ -89,8 +89,8 @@ def validate_existing_models(db_conn):
 
 def process_job(db_conn, job_id, params):
     """Processa um job específico."""
-    from utils.ml.data_processor import fetch_data_for_job
-    from utils.ml.trainer import train_and_find_best_model
+    from utils.ml.data_processor import fetch_data_for_job, prepare_and_clean_data, validate_time_series_data
+    from utils.ml.trainer import train_and_find_best_model, validate_model_training_params
     from utils.ml.file_manager import save_model_and_blob
     
     logger.info(f"\n[+] Nova solicitação encontrada (ID: {job_id}).")
@@ -98,19 +98,38 @@ def process_job(db_conn, job_id, params):
     logger.info(f"  -> Status atualizado para PROCESSANDO.")
 
     try:
-        # 1. Buscar e transformar os dados
+        # 1. Buscar dados do banco
         time_series_df = fetch_data_for_job(db_conn, params)
-
-        # 2. Treinar e encontrar o melhor modelo (respeitando o método solicitado)
+        validate_time_series_data(time_series_df)
+        
+        # 2. Preparar e limpar dados (lógica do Clustering Project)
+        crime_name = params.get('crime', 'Unknown')
+        time_series_data, city_names, cleaning_stats = prepare_and_clean_data(
+            time_series_df, crime_name)
+        
+        if time_series_data is None or city_names is None:
+            raise ValueError("Falha na preparação e limpeza dos dados")
+        
+        logger.info(f"Dados limpos: {len(city_names)} municípios válidos")
+        
+        # 3. Validar parâmetros e treinar modelo (busca melhor K de 3 a 15)
         metodo = params.get('metodo', 'kmeans')
-        logger.info(f"  -> Método solicitado: {metodo}")
-        model, scaler, best_k, best_score = train_and_find_best_model(
-            time_series_df, metodo=metodo)
+        validate_model_training_params(metodo)
+        
+        model, scaler_type, best_k, best_score = train_and_find_best_model(
+            time_series_data, city_names, metodo, crime_name)
+        
+        if model is None:
+            raise ValueError("Falha no treinamento do modelo")
+        
+        logger.info(f"Modelo treinado: K={best_k}, Silhueta={best_score:.4f}")
+        
+        # 4. Salvar o modelo com estatísticas
+        save_model_and_blob(
+            db_conn, job_id, params, model, scaler_type, 
+            best_k, best_score, city_names, cleaning_stats)
 
-        # 3. Salvar o modelo e o scaler
-        save_model_and_blob(db_conn, job_id, params, model, scaler, best_k, best_score)
-
-        # 4. Atualizar status para CONCLUIDO
+        # 5. Atualizar status para CONCLUIDO
         db_conn.update_solicitacao_status(job_id, 'CONCLUIDO')
         logger.info(f"  -> Status finalizado: CONCLUIDO.")
         
