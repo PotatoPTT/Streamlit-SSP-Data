@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
-from tslearn.preprocessing import TimeSeriesScalerMeanVariance
+from sklearn.preprocessing import RobustScaler
 from utils.config.constants import MESES, MAP_MIN_MARKER_RADIUS, MAP_MAX_MARKER_RADIUS, MAP_CENTER_SP, MAP_INITIAL_ZOOM_SP
 
 
@@ -99,15 +99,36 @@ def plot_silhouette_by_cluster(features, labels):
 
 def plot_time_series_by_cluster(time_series_df, labels, model=None):
     """Plota as séries temporais agrupadas por cluster (normalizadas para visualização)."""
-    # Normaliza as séries por série (z-score) para facilitar a comparação visual
+    from utils.config.logging import get_logger
+    logger = get_logger("PLOTS")
+    
+    # Normaliza as séries usando RobustScaler para facilitar a comparação visual
     try:
         X = time_series_df.values
-        n_ts, n_t = X.shape
-        scaler_local = TimeSeriesScalerMeanVariance(mu=0., std=1.)
-        X_scaled = scaler_local.fit_transform(X.reshape(n_ts, n_t, 1)).reshape(n_ts, n_t)
+        # logger.info(f"📊 Normalizando dados para plotagem...")
+        # logger.info(f"   Dados originais - min: {X.min():.2f}, max: {X.max():.2f}, shape: {X.shape}")
+        # logger.info(f"   Exemplo São Paulo (se existir): {time_series_df.loc['São Paulo'].values if 'São Paulo' in time_series_df.index else 'N/A'}")
+        
+        # IMPORTANTE: RobustScaler normaliza por COLUNA (features), mas queremos normalizar por LINHA (cada série temporal)
+        # Precisamos normalizar cada município individualmente (como no treinamento)
+        scaler_local = RobustScaler()
+        
+        # Normalizar cada série temporal individualmente (linha por linha)
+        X_scaled = np.array([
+            RobustScaler().fit_transform(X[i, :].reshape(-1, 1)).flatten() 
+            for i in range(X.shape[0])
+        ])
+        
+        # logger.info(f"   Dados normalizados - min: {X_scaled.min():.2f}, max: {X_scaled.max():.2f}")
+        
         norm_df = pd.DataFrame(X_scaled, index=time_series_df.index, columns=time_series_df.columns)
-    except Exception:
+        
+       
+    except Exception as e:
         # Se algo falhar, cai para os dados brutos
+        logger.error(f"✗ ERRO ao normalizar dados: {e}. Usando dados brutos!")
+        import traceback
+        logger.error(traceback.format_exc())
         norm_df = time_series_df.copy()
 
     norm_df['cluster'] = labels
@@ -117,16 +138,23 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
     centroids_normalized = {}
     if model is not None and hasattr(model, 'cluster_centers_'):
         try:
-            # Normalizar os centróides do modelo da mesma forma que os dados
+            # Normalizar os centróides do modelo da mesma forma que os dados (individualmente)
             centroids = model.cluster_centers_.squeeze()
             if centroids.ndim == 1:
                 centroids = centroids.reshape(1, -1)
-            centroids_norm = scaler_local.transform(centroids.reshape(len(centroids), -1, 1)).reshape(len(centroids), -1)
+            
+            # Normalizar cada centróide individualmente (como fizemos com as séries)
+            centroids_norm = np.array([
+                RobustScaler().fit_transform(centroids[i, :].reshape(-1, 1)).flatten() 
+                for i in range(centroids.shape[0])
+            ])
+            
             for i, cluster_id in enumerate(clusters):
                 if i < len(centroids_norm):
                     centroids_normalized[cluster_id] = centroids_norm[i]
         except Exception as e:
             # Se falhar, não adiciona centróides
+            logger.warning(f"Erro ao normalizar centróides: {e}")
             pass
 
     for cluster in clusters:
@@ -134,18 +162,31 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
         cluster_data = norm_df[norm_df['cluster'] == cluster].drop('cluster', axis=1)
         num_cities = len(cluster_data)
         
+        
+        
         st.markdown(f"#### Cluster {cluster} - {num_cities} {'cidade' if num_cities == 1 else 'cidades'}")
         fig = go.Figure()
 
         # Plotar as séries temporais de cada município
         for index, row in cluster_data.iterrows():
+            # DEBUG: Log para São Paulo especificamente
+            
+            
+            # Criar texto de hover customizado para confirmar normalização
+            hover_text = [
+                f"{index}<br>Período: {col}<br>Valor normalizado: {val:.3f}"
+                for col, val in zip(cluster_data.columns, row.values)
+            ]
+            
             fig.add_trace(go.Scatter(
                 x=cluster_data.columns, 
-                y=row, 
+                y=row.values,  # Usar .values para garantir que são os valores normalizados
                 mode='lines', 
                 name=index,
                 line=dict(width=1),
-                opacity=0.5))
+                opacity=0.5,
+                hovertext=hover_text,
+                hoverinfo='text'))
 
         # Adicionar centróide ao gráfico (se disponível)
         if cluster in centroids_normalized:
@@ -162,7 +203,7 @@ def plot_time_series_by_cluster(time_series_df, labels, model=None):
         fig.update_layout(
             title=f'Séries Temporais (normalizadas) - Cluster {cluster} ({num_cities} cidades)',
             xaxis_title='Mês/Ano',
-            yaxis_title='Valor normalizado (z-score)',
+            yaxis_title='Valor normalizado (RobustScaler)',
             showlegend=True,
             hovermode='closest'
         )
@@ -176,17 +217,25 @@ def plot_centroids_comparison(time_series_df, labels, model):
         return
     
     try:
-        # Normaliza os dados para obter o scaler
+        # Normaliza os dados usando RobustScaler (individualmente por série)
         X = time_series_df.values
-        n_ts, n_t = X.shape
-        scaler_local = TimeSeriesScalerMeanVariance(mu=0., std=1.)
-        X_scaled = scaler_local.fit_transform(X.reshape(n_ts, n_t, 1)).reshape(n_ts, n_t)
         
-        # Normalizar os centróides do modelo
+        # Normalizar cada série temporal individualmente
+        X_scaled = np.array([
+            RobustScaler().fit_transform(X[i, :].reshape(-1, 1)).flatten() 
+            for i in range(X.shape[0])
+        ])
+        
+        # Normalizar os centróides do modelo (individualmente)
         centroids = model.cluster_centers_.squeeze()
         if centroids.ndim == 1:
             centroids = centroids.reshape(1, -1)
-        centroids_norm = scaler_local.transform(centroids.reshape(len(centroids), -1, 1)).reshape(len(centroids), -1)
+        
+        # Normalizar cada centróide individualmente
+        centroids_norm = np.array([
+            RobustScaler().fit_transform(centroids[i, :].reshape(-1, 1)).flatten() 
+            for i in range(centroids.shape[0])
+        ])
         
         # Criar DataFrame com os centróides normalizados
         norm_df = pd.DataFrame(X_scaled, index=time_series_df.index, columns=time_series_df.columns)
@@ -219,7 +268,7 @@ def plot_centroids_comparison(time_series_df, labels, model):
         fig.update_layout(
             title='Centróides dos Clusters',
             xaxis_title='Mês/Ano',
-            yaxis_title='Valor normalizado (z-score)',
+            yaxis_title='Valor normalizado (RobustScaler)',
             showlegend=True,
             hovermode='x unified',
             height=600,
@@ -330,12 +379,90 @@ def plot_map_by_cluster(db, time_series_df_with_labels):
     st.plotly_chart(fig)
 
 
+def get_silhouette_group(silhouette_score):
+    """
+    Classifica o modelo em grupos baseado no Silhouette Score.
+    
+    Args:
+        silhouette_score: Score de silhueta do modelo
+        
+    Returns:
+        tuple: (grupo, cor) onde grupo é a letra (A, B, C, D) e cor é a cor do grupo
+    """
+    if silhouette_score is None:
+        return "N/A", "gray"
+    
+    if 0.71 <= silhouette_score <= 1.0:
+        return "A", "green"
+    elif 0.51 <= silhouette_score <= 0.70:
+        return "B", "blue"
+    elif 0.26 <= silhouette_score <= 0.50:
+        return "C", "orange"
+    else:  # SC <= 0.25
+        return "D", "red"
+
+
 def display_model_metrics(silhouette, k):
-    """Exibe as métricas do modelo."""
-    if silhouette is not None:
-        st.metric("Score de Silhueta", f"{silhouette:.4f}")
-    if k is not None:
-        st.metric("Número Ideal de Clusters (K)", k)
+    """
+    Exibe as métricas do modelo.
+    Integrado com Clustering Project: testa K de 2 a 15 e escolhe melhor via silhouette.
+    """
+    st.markdown("#### 🎯 Métricas do Modelo")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if k is not None:
+            st.metric("Número de Clusters (K)", k, help="Melhor K encontrado após testar de 2 a 15")
+        else:
+            st.metric("Número de Clusters (K)", "N/A")
+    
+    with col2:
+        if silhouette is not None:
+            st.metric("Score de Silhueta", f"{silhouette:.4f}", 
+                     help="Maior score de silhueta entre todos os K testados (2 a 15)")
+        else:
+            st.metric("Score de Silhueta", "N/A", help="Score não disponível para este modelo")
+    
+    with col3:
+        # Classificação do modelo baseado no silhouette score
+        grupo, cor = get_silhouette_group(silhouette)
+        
+        if grupo != "N/A":
+            # Definir descrição do grupo
+            grupo_descricoes = {
+                "A": "Excelente (0.71-1.0)",
+                "B": "Bom (0.51-0.70)",
+                "C": "Moderado (0.26-0.50)",
+                "D": "Fraco (≤0.25)"
+            }
+            
+            # Criar HTML customizado para o grupo
+            grupo_html = f"""
+            <div style="
+                padding: 10px;
+                border-radius: 8px;
+                background-color: {cor}33;
+                border: 2px solid {cor};
+                text-align: center;
+                margin-top: 8px;
+            ">
+                <div style="font-size: 14px; color: #666; margin-bottom: 4px;">
+                    Classificação
+                </div>
+                <div style="font-size: 32px; font-weight: bold; color: {cor};">
+                    GRUPO {grupo}
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">
+                    {grupo_descricoes[grupo]}
+                </div>
+            </div>
+            """
+            st.markdown(grupo_html, unsafe_allow_html=True)
+        else:
+            st.metric("Classificação", "N/A", help="Score de silhueta não disponível")
+    
+    st.markdown("---")
 
 
 def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_height=650):

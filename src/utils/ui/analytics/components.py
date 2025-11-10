@@ -3,6 +3,7 @@ Gerenciamento de fluxos de interface para análises preditivas.
 """
 
 import streamlit as st
+import pandas as pd
 import time
 from utils.config.logging import get_logger
 
@@ -129,8 +130,6 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         plot_centroids_comparison, plot_silhouette_by_cluster
     )
 
-
-
     model_filename = get_model_filename(selected_method, params)
     if not model_filename:
         st.error(
@@ -148,28 +147,115 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
         return
 
     model = model_data['model']
-    scaler = model_data['scaler']
+    scaler_type = model_data.get('scaler', 'unknown')
     k = model_data.get('k')
-    silhouette = model_data.get('silhouette')
+    silhouette = model_data.get('silhouette')  # Pegar silhouette do modelo
+    cleaning_stats = model_data.get('cleaning_stats', {})
+    city_names_trained = model_data.get('city_names', [])
 
+    # Exibir estatísticas de limpeza de dados (do Clustering Project)
+    if cleaning_stats:
+        st.markdown("#### 📊 Estatísticas de Preparação dos Dados")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric(
+                "Municípios Originais", 
+                cleaning_stats.get('original_municipalities', 'N/A')
+            )
+        
+        with col2:
+            removed_null = cleaning_stats.get('removed_null_series', 0)
+            st.metric(
+                "Séries Removidas (Nulas)", 
+                removed_null
+            )
+        
+        with col3:
+            final_mun = cleaning_stats.get('final_municipalities', 'N/A')
+            st.metric(
+                "Municípios Finais", 
+                final_mun
+            )
+        
+        # Exibir detalhes adicionais
+        with st.expander("ℹ️ Detalhes da limpeza de dados"):
+            removed_nan = cleaning_stats.get('removed_nan_series', 0)
+            removed_null = cleaning_stats.get('removed_null_series', 0)
+            
+            st.markdown(f"""
+            - **Períodos temporais analisados:** {cleaning_stats.get('original_periods', 'N/A')}
+            - **Normalização utilizada:** {scaler_type.upper() if scaler_type else 'Desconhecido'}
+            - **Valores inválidos encontrados:** {'Sim' if cleaning_stats.get('had_invalid_values') else 'Não'}
+            - **Total de séries descartadas:** {removed_nan + removed_null}
+            """)
+            
+            if removed_nan > 0 or removed_null > 0:
+                st.info(
+                    f"⚠️ Foram descartadas {removed_nan + removed_null} séries temporais que não "
+                    f"atendiam aos critérios de qualidade (séries com NaN ou completamente nulas)."
+                )
+
+    # Exibir métricas do modelo
     display_model_metrics(silhouette, k)
 
     # Buscar dados e gerar visualizações (usando versão cacheada)
     import json
-    time_series_df = fetch_data_for_model_cached(
+    time_series_df_all = fetch_data_for_model_cached(
         json.dumps(params, sort_keys=True))
 
-    if not time_series_df.empty:
+    if not time_series_df_all.empty:
+        # IMPORTANTE: Filtrar apenas os municípios que foram usados no treinamento
+        # O modelo foi treinado com dados limpos (sem séries nulas)
+        if city_names_trained:
+            # Filtrar apenas municípios que estão na lista de treinamento
+            time_series_df = time_series_df_all[
+                time_series_df_all.index.isin(city_names_trained)
+            ].copy()
+            
+            if len(time_series_df) != len(city_names_trained):
+                st.warning(
+                    f"⚠️ Atenção: Esperavam-se {len(city_names_trained)} municípios do treinamento, "
+                    f"mas apenas {len(time_series_df)} foram encontrados no banco."
+                )
+                logger.warning(
+                    f"Municípios treinados: {len(city_names_trained)}, "
+                    f"Municípios encontrados: {len(time_series_df)}"
+                )
+        else:
+            st.warning("⚠️ Lista de municípios do treinamento não encontrada no modelo. Usando todos os dados.")
+            time_series_df = time_series_df_all.copy()
+        
+        if time_series_df.empty:
+            st.error("Nenhum dado válido encontrado para os municípios do treinamento.")
+            return
+            
+        st.info(f"📊 Visualizando {len(time_series_df)} municípios (usados no treinamento)")
+        
+        # Preparar dados para predição
+        # 1. Converter para formato tslearn [n_samples, n_timesteps, 1]
+        from tslearn.utils import to_time_series_dataset
+        from sklearn.preprocessing import RobustScaler
+        import numpy as np
+        
         try:
-            scaled_features = scaler.transform(time_series_df.values)
-        except Exception as err:
-            logger.warning(f"Falha ao aplicar scaler nos dados do modelo: {err}")
-            scaled_features = time_series_df.values
-
-        try:
-            labels = model.predict(scaled_features)
+            # Converter para formato tslearn
+            X_tslearn = to_time_series_dataset(time_series_df.values)
+            
+            # Normalizar da mesma forma que no treinamento
+            X_2d = X_tslearn.squeeze()
+            X_scaled_2d = np.array([
+                RobustScaler().fit_transform(X_2d[i, :].reshape(-1, 1)).flatten() 
+                for i in range(X_2d.shape[0])
+            ])
+            X_scaled = X_scaled_2d.reshape(X_tslearn.shape)
+            
+            # Fazer predição
+            labels = model.predict(X_scaled)
+            
         except Exception as err:
             st.error(f"Erro ao prever clusters com o modelo carregado: {err}")
+            logger.exception(f"Erro na predição: {err}")
             return
 
         time_series_df_with_labels = time_series_df.copy()
@@ -190,7 +276,59 @@ def handle_completed_model(selected_method, selected_solicit, params, db):
             time_series_df_with_labels, db)
         st.dataframe(display_df)
 
-        plot_silhouette_by_cluster(scaled_features, labels)
+        # Usar dados já normalizados para silhouette (X_scaled_2d já foi calculado acima)
+        plot_silhouette_by_cluster(X_scaled_2d, labels)
+        
+        # Exibir tabela de municípios removidos (se houver)
+        removed_cities = cleaning_stats.get('removed_cities', [])
+        if removed_cities:
+            st.markdown("#### 🗑️ Municípios Removidos (Séries Nulas)")
+            st.markdown(f"**Total:** {len(removed_cities)} municípios foram removidos por terem séries temporais completamente nulas.")
+            
+            # Buscar regiões dos municípios removidos
+            try:
+                query_removed = '''
+                    SELECT m.nome, r.nome as regiao
+                    FROM municipios m
+                    LEFT JOIN regioes r ON m.regiao_id = r.id
+                    WHERE m.nome = ANY(%s)
+                    ORDER BY r.nome, m.nome;
+                '''
+                removed_df = db.fetch_df(
+                    query_removed, 
+                    (removed_cities,), 
+                    columns=['Município', 'Região']
+                )
+                
+                if not removed_df.empty:
+                    st.dataframe(
+                        removed_df,
+                        width='stretch',
+                        hide_index=True
+                    )
+                else:
+                    # Fallback: mostrar apenas os nomes se não encontrar no banco
+                    fallback_df = pd.DataFrame({
+                        'Município': removed_cities,
+                        'Região': ['N/A'] * len(removed_cities)
+                    })
+                    st.dataframe(
+                        fallback_df,
+                        width='stretch',
+                        hide_index=True
+                    )
+            except Exception as e:
+                logger.warning(f"Erro ao buscar regiões dos municípios removidos: {e}")
+                # Fallback em caso de erro
+                fallback_df = pd.DataFrame({
+                    'Município': removed_cities,
+                    'Região': ['N/A'] * len(removed_cities)
+                })
+                st.dataframe(
+                    fallback_df,
+                    width='stretch',
+                    hide_index=True
+                )
 
 
 def handle_pending_processing_model(status):

@@ -23,14 +23,19 @@ def generate_model_filename(params):
     return safe_filename
 
 
-def create_model_payload(model, scaler, best_k, best_score, params):
-    """Cria o payload do modelo para salvamento."""
+def create_model_payload(model, scaler_type, best_k, best_score, city_names, cleaning_stats, params):
+    """
+    Cria o payload do modelo para salvamento.
+    Integrado com estatísticas de limpeza do Clustering Project e silhouette score.
+    """
     return {
         'model': model, 
-        'scaler': scaler, 
+        'scaler': scaler_type,  # 'robust' ou 'zscore'
         'k': best_k,
-        'silhouette': best_score, 
-        'params': params
+        'silhouette': best_score,  # Score de silhueta do melhor K
+        'params': params,
+        'city_names': city_names,  # Lista de municípios usados no treinamento
+        'cleaning_stats': cleaning_stats  # Estatísticas de limpeza de dados
     }
 
 
@@ -67,13 +72,17 @@ def save_model_to_database(db_conn, job_id, filename, model_full_path):
         return False
 
 
-def save_model_and_blob(db_conn, job_id, params, model, scaler, best_k, best_score):
-    """Salva o modelo completo (disco + banco de dados)."""
+def save_model_and_blob(db_conn, job_id, params, model, scaler_type, best_k, best_score, city_names, cleaning_stats):
+    """
+    Salva o modelo completo (disco + banco de dados) com estatísticas de limpeza e silhouette score.
+    Integrado com lógica do Clustering Project.
+    """
     # Gerar nome do arquivo
     filename = generate_model_filename(params)
     
-    # Criar payload do modelo
-    model_payload = create_model_payload(model, scaler, best_k, best_score, params)
+    # Criar payload do modelo com estatísticas de limpeza e silhouette
+    model_payload = create_model_payload(
+        model, scaler_type, best_k, best_score, city_names, cleaning_stats, params)
     
     # Salvar no disco
     model_full_path = save_model_to_disk(model_payload, filename)
@@ -97,11 +106,15 @@ def validate_model_file(filename):
     try:
         # Tenta carregar o modelo para validar
         model_data = joblib.load(str(model_path))
-        required_keys = ['model', 'scaler', 'k', 'silhouette', 'params']
+        required_keys = ['model', 'scaler', 'k', 'params']
         
         for key in required_keys:
             if key not in model_data:
                 return False, f"Chave '{key}' ausente no modelo"
+        
+        # Validar estatísticas de limpeza (opcional, para compatibilidade com modelos antigos)
+        if 'cleaning_stats' not in model_data:
+            logger.warning(f"Modelo {filename} não possui 'cleaning_stats' (modelo antigo)")
         
         return True, "Modelo válido"
         
