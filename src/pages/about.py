@@ -14,14 +14,11 @@ def show_about():
     - **Interface Intuitiva**: Design inspirado em ferramentas como Power BI e Tableau
     - **Dados Oficiais**: Todos os dados utilizados foram retirados do portal oficial da Secretaria de Segurança Pública de São Paulo ([https://www.ssp.sp.gov.br/estatistica/dados-mensais](https://www.ssp.sp.gov.br/estatistica/dados-mensais))
     - **Visualizações Interativas**: Gráficos e mapas interativos
+    - **Análises de séries temporais**: Ferramentas para análise aprofundada dos dados utilizando machine learning
     
     ### Código Fonte
     O código-fonte deste projeto está disponível em: [https://github.com/PotatoPTT/Streamlit-SSP-Data](https://github.com/PotatoPTT/Streamlit-SSP-Data)
     
-    ### Recursos Futuros
-    - Análises avançadas com machine learning
-    - Análise de séries temporais
-    - Relatórios customizados
     
     ### Suporte Técnico
     Para mais informações, entre em contato através do GitHub.
