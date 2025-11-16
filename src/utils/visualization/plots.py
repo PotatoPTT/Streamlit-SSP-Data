@@ -67,7 +67,7 @@ def plot_silhouette_by_cluster(features, labels):
         .sort_values("cluster")
     )
 
-    st.markdown("#### valores brutos silhueta")
+    st.markdown("#### Estatísticas do Coeficiente de Silhueta por Cluster")
     fig = px.bar(
         summary_df,
         x="cluster",
@@ -493,6 +493,10 @@ def plot_maps_crime_counts_plotly(df_map_data, year=None, crimes=None, max_heigh
             df_map_data.groupby(['Nome_Municipio', 'latitude', 'longitude', 'Ano', 'Natureza', 'mes'], dropna=False, as_index=False)
             ['quantidade'].sum()
         )
+        
+        # Filtrar municípios com quantidade = 0 (não exibir no mapa)
+        df_map_data = df_map_data[df_map_data['quantidade'] > 0]
+        
     except Exception:
         # se algo der errado, prosseguir com os dados brutos
         pass
