@@ -6,7 +6,7 @@ Plataforma interativa desenvolvida com [Streamlit](https://streamlit.io/) para v
 
 ## Sobre o Projeto
 
-Este sistema integra coleta automática de dados da SSP-SP, processamento robusto de séries temporais e algoritmos de clustering (K-means, K-DBA, K-Shape) para identificar padrões criminais em municípios paulistas. O projeto foi desenvolvido em duas fases:
+Este sistema integra coleta automática de dados da SSP-SP, processamento robusto de séries temporais e algoritmos de clustering (K-means, K-DBA) para identificar padrões criminais em municípios paulistas. O projeto foi desenvolvido em duas fases:
 
 - **Fase 1**: Construção da infraestrutura base (pipeline de dados, banco de dados, interface de visualização)
 - **Fase 2**: Implementação de análise avançada com Machine Learning e clustering de séries temporais
@@ -53,7 +53,6 @@ O projeto foi desenvolvido para a materia de Projetos em Computação na Unesp R
 - **Clustering de séries temporais** com três algoritmos:
   - **K-means**: Clustering euclidiano clássico
   - **K-DBA**: Dynamic Time Warping Barycenter Averaging
-  - **K-Shape**: Clustering baseado em forma das séries
 - Seleção automática do melhor K (2-15) usando Silhouette Score
 - Visualização interativa dos clusters identificados
 - Fila de jobs assíncrona para processamento em background
